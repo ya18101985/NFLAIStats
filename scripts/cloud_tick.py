@@ -2,7 +2,8 @@
 check (waiting for it), then commit the ledger and logs back to GitHub. Exits in seconds when
 nothing is due, so a quiet hour costs almost nothing.
 
-Usage: cloud_tick.py [--live] [--window 70]   (dry run unless --live, or NFAI_LIVE=1)"""
+Usage: cloud_tick.py [--live] [--window 70]   (dry run unless --live, or NFAI_LIVE=1)
+Test: cloud_tick.py --date 2026-11-08 --now   (dry-runs that day's waves immediately)"""
 
 import argparse
 import datetime as dt
@@ -42,15 +43,17 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--live", action="store_true")
     ap.add_argument("--window", type=int, default=70, help="minutes ahead to look for bet times")
+    ap.add_argument("--date", type=dt.date.fromisoformat, help="test: another day's waves (dry run only)")
+    ap.add_argument("--now", action="store_true", help="test: run the waves at once, no waiting")
     a = ap.parse_args()
-    live = a.live or os.environ.get("NFAI_LIVE") == "1"
+    live = (a.live or os.environ.get("NFAI_LIVE") == "1") and not (a.date or a.now)
     now = dt.datetime.now(dt.timezone.utc)
-    date = now.astimezone(R.PT).date()
+    date = a.date or now.astimezone(R.PT).date()
     k = Kalshi()
     ledger = Ledger() if live else Ledger(ROOT / "ledger" / "dryrun.db")
     due = [w for w in R.make_waves(slate.games_on(date, k))
-           if w["bet_at"] <= now + dt.timedelta(minutes=a.window) and w["kickoff"] - LATE_OK > now
-           and not (ledger.wave(w["name"]) or {}).get("status") == "done"]
+           if a.now or (w["bet_at"] <= now + dt.timedelta(minutes=a.window) and w["kickoff"] - LATE_OK > now
+                        and not (ledger.wave(w["name"]) or {}).get("status") == "done")]
     if not due:
         print(f"nothing due ({date})")
         return
@@ -67,7 +70,7 @@ def main():
     D.refresh(names=["stats", "pbp", "snaps"])
     for w in due:
         wait = (w["bet_at"] - dt.datetime.now(dt.timezone.utc)).total_seconds()
-        if wait > 0:
+        if wait > 0 and not a.now:
             log(f"sleeping {wait / 60:.0f} min until {w['name']}")
             time.sleep(wait)
         log(f"--- {w['name']} ---")
