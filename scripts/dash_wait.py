@@ -3,7 +3,7 @@ for the session to act on, so the AI only wakes up to publish.
 
   CHANGED   dashboard/index.html has new data: publish it, then run this again
   WAIT      nothing changed for 8 minutes (keeps each call under the cloud's 10-minute limit): run again
-  FINAL     every game is over (page rebuilt, dashboard state saved to GitHub): publish once more and stop
+  FINAL     every game is over and every bet settled (page rebuilt, dashboard state saved to GitHub): publish once more and stop
   NOBETS    no bets today: stop
 
 Rebuilds every 2 minutes once a game is on, every 15 before. With --pull (cloud), each rebuild first
@@ -71,7 +71,8 @@ def main():
         out = subprocess.run([sys.executable, str(ROOT / "scripts" / "dashboard.py"), day],
                              capture_output=True, text=True).stdout
         sig = signature()
-        if "games post" in out:
+        live = re.search(r"(\d+) live", out)
+        if "games post" in out and not (live and int(live.group(1))):   # over and every bet settled
             LAST.write_text(sig)
             if pull:
                 save_state(day)
