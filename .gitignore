@@ -15,3 +15,5 @@ KalshiAPIKey/
 key_id.txt
 odds_api_key.txt
 dashboard/.last_published
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
