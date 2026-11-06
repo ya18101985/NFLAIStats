@@ -81,11 +81,11 @@ def main():
             LAST.write_text(sig)
             print("CHANGED")
             return
-        pause = 120 if "games in" in out else 900
-        if time.time() - start + pause > MAX_WAIT:
+        left = MAX_WAIT - (time.time() - start)
+        if left < 60:
             print("WAIT")
             return
-        time.sleep(pause)
+        time.sleep(min(120 if "games in" in out else 900, left))
 
 
 if __name__ == "__main__":
