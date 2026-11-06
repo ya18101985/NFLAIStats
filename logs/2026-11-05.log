@@ -1,0 +1,53 @@
+16:10:11 === DRY RUN 2026-11-05 ===
+16:10:17 wave 2026-11-05 1715 JACBAL: bets at Thu 04:15 PM PT, rule all_cash
+16:10:17 --- 2026-11-05 1715 JACBAL ---
+16:10:17 STOP file present; skipping wave
+16:10:17 === day complete ===
+16:10:31 === DRY RUN 2026-11-05 ===
+16:10:38 wave 2026-11-05 1715 JACBAL: bets at Thu 04:15 PM PT, rule all_cash
+16:10:38 --- 2026-11-05 1715 JACBAL ---
+16:10:38 cash $2,356.19, account $2,356.19, wave bankroll $2,356.19 (all_cash)
+16:11:06   skip 26NOV05JACBAL: ('Joe Fagnano', 'depth chart', 'role changed: QB3 two weeks ago, QB1 now')
+16:11:06   skip 26NOV05JACBAL: ('Zay Flowers', 'receiving_yards', 86.0, np.float64(49.9))
+16:11:06   skip 26NOV05JACBAL: ('Zay Flowers', 'receptions', 6.0, np.float64(4.6))
+16:11:06   skip 26NOV05JACBAL: ('Brian Thomas Jr.', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+16:11:06   skip 26NOV05JACBAL: ('Josh Cameron', 'depth chart', 'role changed: WR3 two weeks ago, WR4 now')
+16:11:06   skip 26NOV05JACBAL: ('Brenton Strange', 'receiving_yards', 46.8, np.float64(34.5))
+16:11:06 520 priced sides (520 with sportsbook lines) -> 11 singles ($2,276), parlays $0
+16:11:06   placed Game Baltimore over 14.5 points YES YES 402 @ 0.47 ($189) -> resting 0/402
+16:11:06   placed Game Jacksonville wins by over 10.5 points YES YES 429 @ 0.44 ($189) -> resting 0/429
+16:11:06   placed 1Q Jacksonville NO NO 420 @ 0.45 ($189) -> resting 0/420
+16:11:06   placed 2H Jacksonville wins by over 5.5 points NO NO 358 @ 0.53 ($190) -> resting 0/358
+16:11:06   placed 1H Over 17.5 points YES YES 318 @ 0.60 ($191) -> resting 0/318
+16:11:06   placed 1H Jacksonville wins by over 6.5 points NO NO 365 @ 0.52 ($190) -> resting 0/365
+16:11:06   placed Derrick Henry carries over 17.5 YES 464 @ 0.49 ($227) -> resting 0/464
+16:11:06   placed Trevor Lawrence carries under 3.5 NO 446 @ 0.51 ($227) -> resting 0/446
+16:11:06   placed Trevor Lawrence rushing_yards under 14.5 NO 408 @ 0.56 ($228) -> resting 0/408
+16:11:06   placed Parker Washington receiving_yards under 59.5 NO 483 @ 0.47 ($227) -> resting 0/483
+16:11:06   placed Derrick Henry receptions under 1.5 NO 401 @ 0.57 ($229) -> resting 0/401
+16:11:09 2026-11-05 1715 JACBAL: placed 11 singles; cash now $2,356
+16:11:09 === day complete ===
+16:11:22 === LIVE 2026-11-05 ===
+16:11:29 wave 2026-11-05 1715 JACBAL: bets at Thu 04:15 PM PT, rule all_cash
+16:11:29 --- 2026-11-05 1715 JACBAL ---
+16:11:29 cash $2,356.19, account $2,356.19, wave bankroll $2,356.19 (all_cash)
+16:12:00   skip 26NOV05JACBAL: ('Joe Fagnano', 'depth chart', 'role changed: QB3 two weeks ago, QB1 now')
+16:12:00   skip 26NOV05JACBAL: ('Zay Flowers', 'receiving_yards', 86.0, np.float64(49.9))
+16:12:00   skip 26NOV05JACBAL: ('Zay Flowers', 'receptions', 6.0, np.float64(4.6))
+16:12:00   skip 26NOV05JACBAL: ('Brian Thomas Jr.', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+16:12:00   skip 26NOV05JACBAL: ('Josh Cameron', 'depth chart', 'role changed: WR3 two weeks ago, WR4 now')
+16:12:00   skip 26NOV05JACBAL: ('Brenton Strange', 'receiving_yards', 46.8, np.float64(34.5))
+16:12:00 520 priced sides (520 with sportsbook lines) -> 11 singles ($2,275), parlays $0
+16:12:00   placed Trevor Lawrence completions over 19.5 YES 360 @ 0.45 ($162) -> partial 88/360
+16:12:00   placed Game Baltimore over 14.5 points YES YES 345 @ 0.47 ($162) -> filled 345/345
+16:12:01   placed Game Jacksonville wins by over 10.5 points YES YES 368 @ 0.44 ($162) -> filled 368/368
+16:12:01   placed 1Q Jacksonville NO NO 360 @ 0.45 ($162) -> filled 360/360
+16:12:01   placed 2H Jacksonville wins by over 5.5 points NO NO 307 @ 0.53 ($163) -> filled 307/307
+16:12:01   placed 1H Over 17.5 points YES YES 272 @ 0.60 ($163) -> partial 255/272
+16:12:01   placed 1H Jacksonville wins by over 6.5 points NO NO 313 @ 0.52 ($163) -> filled 313/313
+16:12:01   placed Derrick Henry carries over 17.5 YES 580 @ 0.49 ($284) -> filled 580/580
+16:12:01   placed Trevor Lawrence carries under 3.5 NO 558 @ 0.51 ($285) -> filled 558/558
+16:12:02   placed Parker Washington receiving_yards under 59.5 NO 604 @ 0.47 ($284) -> filled 604/604
+16:12:02   placed Derrick Henry receptions under 1.5 NO 501 @ 0.57 ($286) -> filled 501/501
+16:12:05 2026-11-05 1715 JACBAL: placed 11 singles; cash now $140
+16:12:05 === day complete ===

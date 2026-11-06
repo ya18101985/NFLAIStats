@@ -1,0 +1,737 @@
+<title>Bet Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a stadium scoreboard band on top, a summary strip, alerts, then one card per bet with a progress bar per leg. */
+:root {
+  --bg: #eef1ee;          /* chalked field paper */
+  --surface: #ffffff;
+  --ink: #17201b;
+  --muted: #5c6a62;
+  --line: #d5ddd7;
+  --board: #13261d;       /* scoreboard turf */
+  --board-ink: #f2f5ef;
+  --accent: #1f6f50;
+  --track: #e2e8e3;
+  --won: #1d8a4e;
+  --lost: #c2412d;
+  --live: #b7791f;
+  --atl: #a71930;
+  --no: #b39554;
+  --dal: #2f5f9e;
+  --tb: #b8231f;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1612; --surface: #17201b; --ink: #e8ede9; --muted: #9aa8a0; --line: #2a3630;
+    --board: #0a120e; --board-ink: #f2f5ef; --accent: #4cc08e; --track: #26322b;
+    --won: #3fbf78; --lost: #e5664f; --live: #e0a43c; --atl: #e04a5f; --no: #d4b678; --dal: #8fb3e8; --tb: #ff7a6b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1612; --surface: #17201b; --ink: #e8ede9; --muted: #9aa8a0; --line: #2a3630;
+  --board: #0a120e; --board-ink: #f2f5ef; --accent: #4cc08e; --track: #26322b;
+  --won: #3fbf78; --lost: #e5664f; --live: #e0a43c; --atl: #e04a5f; --no: #d4b678; --dal: #8fb3e8; --tb: #ff7a6b;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 14px; line-height: 1.45; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 16px; padding-block: 16px 48px; display: grid; gap: 20px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: 0.01em; margin: 0; text-wrap: balance; }
+.num { font-variant-numeric: tabular-nums; }
+.eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); font-weight: 600; }
+
+/* Scoreboard */
+.board { background: var(--board); color: var(--board-ink); border-radius: 10px; padding: 18px 20px; display: grid; gap: 14px; }
+.board-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.board-top h1 { font-size: 22px; text-transform: uppercase; letter-spacing: 0.06em; }
+.board .eyebrow { color: #a9b8ae; }
+.score { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; }
+.team { display: grid; gap: 2px; }
+.team.right { text-align: right; }
+.team .abbr { font-family: var(--font-display); font-size: 18px; letter-spacing: 0.08em; font-weight: 600; }
+.team .pts { font-family: var(--font-display); font-size: clamp(48px, 10vw, 76px); line-height: 1; font-weight: 700; font-variant-numeric: tabular-nums; }
+.team .tname { font-size: 12px; color: #a9b8ae; }
+.atl .abbr { color: #ff8a98; } .no .abbr { color: #e6cf93; }
+.games { display: grid; gap: 14px; }
+.game + .game { border-top: 1px solid #2c4236; padding-top: 14px; }
+.game-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em; color: #a9b8ae; font-weight: 600; margin-bottom: 4px; }
+.clock { text-align: center; display: grid; gap: 6px; justify-items: center; }
+.clock .time { font-family: var(--font-display); font-size: 26px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.pill { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; border: 1px solid currentColor; }
+.pill.live { color: var(--live); } .pill.won { color: var(--won); } .pill.lost { color: var(--lost); } .pill.pre { color: var(--muted); }
+.board .pill.pre { color: #a9b8ae; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.pill.live .dot { animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: 0.25; } }
+@media (prefers-reduced-motion: reduce) { .pill.live .dot { animation: none; } }
+.board-foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 12px; color: #a9b8ae; border-top: 1px solid #2c4236; padding-top: 10px; }
+
+/* Summary strip */
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.stat { background: var(--surface); padding: 12px 14px; display: grid; gap: 2px; }
+.stat .v { font-family: var(--font-display); font-size: 28px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat .s { font-size: 12px; color: var(--muted); }
+
+/* Alerts */
+.alerts { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 12px; }
+.alerts-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.alerts h2 { font-size: 20px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; gap: 6px; align-items: center; font-size: 12px; padding: 4px 10px; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); }
+.chip b { font-weight: 600; }
+.chip.active .dot { color: var(--won); } .chip.questionable .dot { color: var(--live); } .chip.out .dot { color: var(--lost); }
+.chip.out { border-color: var(--lost); }
+.feed { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.feed li { display: grid; grid-template-columns: 74px 1fr; gap: 10px; font-size: 13px; padding-top: 8px; border-top: 1px solid var(--line); }
+.feed li:first-child { border-top: 0; padding-top: 0; }
+.feed .when { font-family: var(--font-data); font-size: 11px; color: var(--muted); padding-top: 2px; }
+.feed .warn { color: var(--lost); font-weight: 600; }
+.feed a { color: var(--accent); }
+
+/* Bet cards */
+.section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.section-head h2 { font-size: 24px; }
+.filters { display: flex; gap: 6px; flex-wrap: wrap; }
+.filters button { font: inherit; font-size: 12px; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.filters button:focus-visible, .bet summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.bets { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: 14px; align-items: start; }
+.bet { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 12px; min-width: 0; }
+.bet.won { border-color: var(--won); } .bet.lost { opacity: 0.72; }
+.bet-head { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: start; }
+.bet-head h3 { font-size: 19px; line-height: 1.15; }
+.bet-meta { font-size: 12px; color: var(--muted); font-family: var(--font-data); }
+.prob { text-align: right; display: grid; gap: 2px; justify-items: end; }
+.prob .v { font-family: var(--font-display); font-size: 34px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.prob .delta { font-size: 11px; font-family: var(--font-data); }
+.up { color: var(--won); } .down { color: var(--lost); }
+.money { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
+.money b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.legs { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.leg { display: grid; gap: 4px; }
+.leg-top { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; }
+.leg-name { min-width: 0; }
+.leg-name .side { font-family: var(--font-data); font-size: 10px; font-weight: 500; padding: 1px 5px; border-radius: 3px; margin-right: 6px; background: var(--bg); border: 1px solid var(--line); vertical-align: 1px; }
+.leg-name .side.no { color: var(--lost); border-color: var(--lost); }
+.leg-p { font-family: var(--font-data); font-size: 12px; white-space: nowrap; }
+.bar { position: relative; height: 10px; border-radius: 3px; background: var(--track); overflow: hidden; }
+.bar .fill { position: absolute; inset: 0 auto 0 0; background: var(--accent); border-radius: 3px; transition: width 0.6s ease; }
+.leg.won .bar .fill { background: var(--won); } .leg.lost .bar .fill { background: var(--lost); }
+.leg.no .bar .fill { background: var(--live); }
+.leg.no.lost .bar .fill { background: var(--lost); }
+.leg-bot { display: flex; justify-content: space-between; gap: 8px; font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.leg-bot .flag { color: var(--lost); font-weight: 600; }
+.spark { width: 100%; height: auto; display: block; overflow: visible; font-family: var(--font-data); }
+.spark-wrap { display: grid; gap: 4px; border-top: 1px solid var(--line); padding-top: 10px; }
+.spark-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.spark-head .eyebrow { font-size: 10px; }
+.spark-sum { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.spark-sum b { color: var(--ink); }
+.spark-note { font-size: 11px; color: var(--muted); }
+
+/* Player box scores */
+.players { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 14px; align-items: start; }
+.team-group { grid-column: 1 / -1; font-size: 20px; display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.team-group .tag { margin-left: 0; }
+.player { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 12px; min-width: 0; }
+.player.out { border-color: var(--lost); }
+.player-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.player-head h3 { font-size: 20px; }
+.tag { font-family: var(--font-data); font-size: 11px; font-weight: 500; padding: 1px 6px; border-radius: 3px; border: 1px solid currentColor; margin-left: 8px; vertical-align: 2px; }
+.tag.ATL { color: var(--atl); } .tag.NO { color: var(--no); } .tag.DAL { color: var(--dal); } .tag.TB { color: var(--tb); }
+.player-sub { font-size: 12px; color: var(--muted); display: inline-flex; gap: 6px; align-items: center; }
+.player-sub .dot { color: var(--won); } .player.out .player-sub .dot { color: var(--lost); } .player.watch .player-sub .dot { color: var(--live); }
+.lines { display: grid; gap: 8px; }
+.line { display: grid; grid-template-columns: 72px 1fr; gap: 10px; align-items: baseline; }
+.line .grp { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+.cells { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.cell { display: grid; }
+.cell .k { font-size: 10px; letter-spacing: 0.06em; color: var(--muted); font-family: var(--font-data); }
+.cell .val { font-family: var(--font-display); font-size: 22px; font-weight: 600; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.tracks { display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 12px; }
+.track-top { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; }
+.track-top b { font-variant-numeric: tabular-nums; }
+.tbar { position: relative; height: 8px; border-radius: 3px; background: var(--track); margin-block: 6px 22px; }
+.tbar .fill { position: absolute; inset: 0 auto 0 0; background: var(--accent); border-radius: 3px; transition: width 0.6s ease; }
+.tick { position: absolute; top: -3px; width: 2px; height: 14px; background: var(--ink); transform: translateX(-1px); }
+.tick.hit { background: var(--won); } .tick.no { background: var(--live); } .tick.bust { background: var(--lost); }
+.tick span { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); font-family: var(--font-data); font-size: 10.5px; white-space: nowrap; color: var(--muted); }
+.tick.hit span { color: var(--won); font-weight: 500; } .tick.bust span { color: var(--lost); font-weight: 500; }
+.track-bets { font-size: 11.5px; color: var(--muted); }
+.bet-link { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.bet-link.won { color: var(--won); } .bet-link.lost { color: var(--lost); text-decoration-style: dotted; }
+.bet-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.bet { scroll-margin-top: 16px; }
+div.bet-inline { margin-top: 10px; }
+tr.bet-inline > td { padding: 4px 8px 14px; text-align: left; }
+tr.bet-inline .bet { box-shadow: inset 3px 0 var(--accent); }
+
+.pnl { display: grid; gap: 12px; }
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; min-width: 560px; }
+th, td { padding: 8px 12px; text-align: right; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+th:first-child, td:first-child { text-align: left; }
+th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); font-weight: 600; }
+tr:last-child td { border-bottom: 0; }
+td.pos { color: var(--won); font-weight: 600; } td.neg { color: var(--lost); font-weight: 600; }
+.pnl-note { font-size: 12px; color: var(--muted); margin: 0; }
+.method { font-size: 12.5px; color: var(--muted); max-width: 75ch; display: grid; gap: 6px; }
+.method p { margin: 0; }
+
+/* Tabs */
+.mast { background: var(--board); color: var(--board-ink); border-radius: 10px; padding: 14px 20px; display: flex; justify-content: space-between; align-items: baseline; gap: 6px 16px; flex-wrap: wrap; }
+.mast h1 { font-size: 22px; text-transform: uppercase; letter-spacing: 0.06em; }
+.mast .eyebrow, .mast .meta { color: #a9b8ae; font-size: 12px; }
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); overflow-x: auto; position: sticky; top: 0; background: var(--bg); z-index: 5; padding-top: 4px; }
+.tabs button { font: inherit; font-family: var(--font-display); font-size: 18px; font-weight: 600; letter-spacing: 0.03em; padding: 8px 16px; border: 0; border-bottom: 3px solid transparent; background: none; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.tabs button .n { font-family: var(--font-data); font-size: 11px; font-weight: 500; margin-left: 6px; padding: 1px 6px; border-radius: 999px; background: var(--track); color: var(--ink); vertical-align: 2px; }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.panel { display: grid; gap: 20px; }
+.panel[hidden] { display: none; }
+.sub { font-size: 12.5px; color: var(--muted); margin: 0; }
+.mini { min-width: 0; font-size: 13px; }
+.mini td, .mini th { padding: 9px 12px; }
+.mini td.l, .mini th.l { text-align: left; }
+.mini tr.won td:first-child { box-shadow: inset 3px 0 var(--won); } .mini tr.lost td:first-child { box-shadow: inset 3px 0 var(--lost); } .mini tr.live td:first-child { box-shadow: inset 3px 0 var(--live); }
+.mini tr.lost { opacity: 0.72; }
+.mini a.bet-link { font-weight: 500; }
+.wp { display: inline-grid; grid-template-columns: 74px 44px; gap: 8px; align-items: center; justify-content: end; }
+.wp .bar { height: 8px; }
+.wp b { font-family: var(--font-display); font-size: 18px; font-weight: 700; text-align: right; }
+.wp.won .fill { background: var(--won); } .wp.lost .fill { background: var(--lost); }
+.slate-board { background: var(--board); color: var(--board-ink); border-radius: 10px; padding: 18px 20px; display: grid; gap: 14px; }
+@media (max-width: 560px) { .summary { grid-template-columns: repeat(2, 1fr); } .stat .v { font-size: 24px; } .summary .stat:last-child:nth-child(odd) { grid-column: 1 / -1; } .mini .gm { display: none; } .mini td, .mini th { padding: 8px 8px; } .wp { grid-template-columns: 44px 40px; } .tabs button { padding: 8px 12px; font-size: 17px; } }
+.whys { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 14px; align-items: start; }
+.why { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 10px; min-width: 0; }
+.why.won { border-color: var(--won); } .why.lost { opacity: 0.8; }
+.why-head { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: start; }
+.why-head h3 { font-size: 19px; line-height: 1.15; }
+.why-nums { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12px; color: var(--muted); }
+.why-nums b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.why ul { margin: 0; padding-left: 18px; display: grid; gap: 5px; font-size: 13px; }
+.why-box { display: grid; gap: 6px; padding: 8px 10px; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); font-size: 12.5px; }
+.why-box .row { display: grid; grid-template-columns: auto 1fr auto; gap: 4px 8px; align-items: baseline; min-width: 0; }
+.why-box .row > span { min-width: 0; overflow-wrap: anywhere; }
+.why-box .cur { font-weight: 600; font-variant-numeric: tabular-nums; }
+.why-box .tag { font-size: 11px; color: var(--muted); white-space: nowrap; }
+.why .verdict { font-size: 12.5px; padding: 8px 10px; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); }
+.grp { font-family: var(--font-data); font-size: 10.5px; padding: 1px 6px; border-radius: 3px; border: 1px solid var(--line); color: var(--muted); }
+.tag.NE { color: #5b8fd9; } .tag.CHI { color: #e8742a; } .tag.PIT { color: #b8860b; }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <h1 id="slateLabel">Game day</h1>
+    <span class="eyebrow" id="gameDate"></span>
+    <span class="meta"><span id="updated">Waiting for first update</span> · <span id="nextUpdate"></span></span>
+  </header>
+
+  <section class="summary" aria-label="Portfolio summary">
+    <div class="stat"><span class="eyebrow">Staked</span><span class="v num" id="tCost">$0</span><span class="s" id="tBets">Fees included</span></div>
+    <div class="stat"><span class="eyebrow">Expected payout</span><span class="v num" id="tEV">$0</span><span class="s" id="tEVs">Contracts × live win chance</span></div>
+    <div class="stat"><span class="eyebrow">Chance of profit</span><span class="v num" id="tPP">–</span><span class="s" id="tPPs">Whole day, settled bets included</span></div>
+    <div class="stat"><span class="eyebrow">Still possible</span><span class="v num" id="tMax">$0</span><span class="s">Paid if every live bet hits</span></div>
+    <div class="stat"><span class="eyebrow">Locked in</span><span class="v num" id="tWon">$0</span><span class="s" id="tCounts">0 won · 0 lost · 0 live</span></div>
+  </section>
+
+  <nav class="tabs" role="tablist" aria-label="Tracker sections">
+    <button type="button" role="tab" id="tab-slate" data-tab="slate" aria-controls="panel-slate" aria-selected="true">Slate</button>
+    <button type="button" role="tab" id="tab-box" data-tab="box" aria-controls="panel-box" aria-selected="false">Box scores<span class="n" id="nBox"></span></button>
+    <button type="button" role="tab" id="tab-bets" data-tab="bets" aria-controls="panel-bets" aria-selected="false">Bets<span class="n" id="nBets"></span></button>
+    <button type="button" role="tab" id="tab-why" data-tab="why" aria-controls="panel-why" aria-selected="false">Why<span class="n" id="nWhy"></span></button>
+    <button type="button" role="tab" id="tab-pnl" data-tab="pnl" aria-controls="panel-pnl" aria-selected="false">Season P&amp;L</button>
+  </nav>
+
+  <div class="panel" id="panel-slate" role="tabpanel" aria-labelledby="tab-slate">
+    <section class="slate-board" aria-label="Scoreboard">
+      <div class="games" id="games"></div>
+    </section>
+    <div class="table-wrap"><table class="mini">
+      <thead><tr><th class="l">Game</th><th>Status</th><th>Bets</th><th>Staked</th><th>Expected payout</th><th>Avg win chance</th></tr></thead>
+      <tbody id="slateRows"></tbody>
+    </table></div>
+    <section class="alerts" aria-label="Injuries and news">
+      <div class="alerts-head">
+        <h2>Player status &amp; injury news</h2>
+        <span class="eyebrow" id="notesUpdated"></span>
+      </div>
+      <div class="chips" id="playerChips"></div>
+      <ul class="feed" id="feed"></ul>
+    </section>
+  </div>
+
+  <div class="panel" id="panel-box" role="tabpanel" aria-labelledby="tab-box" hidden>
+    <div class="section-head"><h2>Box scores</h2><span class="eyebrow" id="playersLabel">Players in your bets</span></div>
+    <div class="players" id="players"></div>
+  </div>
+
+  <div class="panel" id="panel-bets" role="tabpanel" aria-labelledby="tab-bets" hidden>
+    <div class="section-head">
+      <h2>Bets</h2>
+      <div class="filters" role="group" aria-label="Filter bets">
+        <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+        <button type="button" id="f-live" data-f="live" aria-pressed="false">Live</button>
+        <button type="button" id="f-won" data-f="won" aria-pressed="false">Won</button>
+        <button type="button" id="f-lost" data-f="lost" aria-pressed="false">Lost</button>
+      </div>
+    </div>
+    <div class="table-wrap"><table class="mini">
+      <thead><tr><th class="l">Bet</th><th class="l gm">Game</th><th>Cost</th><th>Pays</th><th>Win chance</th></tr></thead>
+      <tbody id="betRows"></tbody>
+    </table></div>
+    <p class="sub">Tap a bet name to jump to its card with every leg, live progress and the win-chance history.</p>
+    <div class="bets" id="bets"></div>
+  </div>
+
+  <div class="panel" id="panel-why" role="tabpanel" aria-labelledby="tab-why" hidden>
+    <div class="section-head"><h2>Why each bet was placed</h2><span class="eyebrow" id="whyLabel"></span></div>
+    <p class="sub">Every bet the program placed today, with the numbers behind it at the moment it was placed. "Our chance" blends the model, the sportsbooks and Kalshi's own price; "edge" is expected profit per $1 contract after Kalshi's fee.</p>
+    <div class="whys" id="whys"></div>
+  </div>
+
+  <div class="panel" id="panel-pnl" role="tabpanel" aria-labelledby="tab-pnl" hidden>
+    <section class="pnl" aria-label="Season profit and loss">
+      <div class="section-head">
+        <h2>Season P&amp;L</h2>
+        <div class="filters" role="group" aria-label="Group P&amp;L by">
+          <button type="button" id="p-weeks" data-p="weeks" aria-pressed="true">By week</button>
+          <button type="button" id="p-months" data-p="months" aria-pressed="false">By month</button>
+          <button type="button" id="p-quarters" data-p="quarters" aria-pressed="false">By quarter</button>
+        </div>
+      </div>
+      <div class="summary" id="pnlTiles"></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Period</th><th>Bets</th><th>W–L</th><th>Staked</th><th>Returned</th><th>Profit</th><th>ROI</th></tr></thead>
+        <tbody id="pnlRows"></tbody>
+      </table></div>
+      <p class="pnl-note" id="pnlNote"></p>
+    </section>
+
+    <section class="method" aria-label="How win chances are computed">
+      <span class="eyebrow">How the win chance is computed</span>
+      <p>Each leg starts from a pregame expectation for the player (yards as a normal distribution, catches and touchdowns as Poisson counts). As the clock runs, only the remaining share of the game is projected, nudged up to 40% toward the player's in-game pace, and added to what is already on the board.</p>
+      <p>Spread and total legs project the remaining points from each game's market total and spread. Legs on the game score (spreads, totals, first-half lines) are simulated together from the live score, since a big lead makes a cover and an over more likely at the same time. Player legs are multiplied in as if independent. Legs on the same player move together in reality, so stacked same-player combos are a little better than shown when he is having a big game and a little worse when he isn't.</p>
+      <p>A player marked out gets no further production. Live data comes from ESPN's game feed and refreshes throughout game day until every game is final.</p>
+    </section>
+  </div>
+</div>
+
+<script id="state" type="application/json">{"generatedAt": "2026-11-06T00:50:27.146945+00:00", "slate": {"date": "2026-11-05", "label": "NFL Week 9 \u00b7 Thursday Night"}, "state": "pre", "games": [{"id": "401873037", "label": "Jaguars @ Ravens", "state": "pre", "start": "2026-11-06T01:15Z", "detail": "11/5 - 8:15 PM EST", "period": 0, "clock": "0:00", "competitors": [{"abbr": "BAL", "name": "Baltimore Ravens", "homeAway": "home", "score": 0, "linescores": []}, {"abbr": "JAX", "name": "Jacksonville Jaguars", "homeAway": "away", "score": 0, "linescores": []}], "score": {"BAL": 0, "JAX": 0}, "teams": ["JAX", "BAL"], "fracLeft": 0, "remaining": 0, "firstTd": null}], "injuries": [], "playerStats": {"trevor-lawrence": {"name": "Trevor Lawrence", "team": "JAX"}, "derrick-henry": {"name": "Derrick Henry", "team": "BAL"}, "parker-washington": {"name": "Parker Washington", "team": "JAX"}, "bhayshul-tuten": {"name": "Bhayshul Tuten", "team": "JAX"}}, "bets": [{"id": "k-kxnflpasscomp-26nov05jacbal-jactlawrence16-20", "title": "Trevor Lawrence 20+ completions", "contracts": 264.42, "price": 0.45, "cost": 120.51, "fees": 1.52, "filled": "4:12 PM PT", "placed": "2026-11-06T00:12:00.751467Z", "game": "401873037", "gameLabel": "Jaguars @ Ravens", "source": "kalshi", "ticker": "KXNFLPASSCOMP-26NOV05JACBAL-JACTLAWRENCE16-20", "legs": [{"side": "yes", "status": "live", "pWin": 0.455, "unknown": false, "ticker": "KXNFLPASSCOMP-26NOV05JACBAL-JACTLAWRENCE16-20", "player": "trevor-lawrence", "playerName": "Trevor Lawrence", "stat": "passComp", "threshold": 20, "target": 20, "unit": "cmp", "current": 0, "label": "Trevor Lawrence 20+ completions", "progress": 0.0, "playerStatus": "active"}], "pWin": 0.455, "status": "live", "payout": 264.42, "expectedValue": 120.31, "why": {"p": 0.4779149856910046, "pModel": 0.5736841008769714, "ev": 0.010589985691004583, "wave": "2026-11-05 1715 JACBAL", "pBook": 0.4590125240571101, "points": ["Model projects 16 completions (80% range 10\u201323) vs the line of 19.5: 25% for the over.", "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 18.5; converted to Kalshi's line that's 46% for this side, vs a price of 45\u00a2.", "Last 5 games: 19, 18, 24, 24, 10. This side would have won 2 of 5.", "Usage over the last 4 games: 29 pass attempts a game (QB).", "JAX is a 8.5-point favorite vs BAL (total 39.5). BAL's defense ranks #17 vs the pass and #23 vs the run by EPA allowed (1 = best).", "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."], "group": "A \u00b7 books back it", "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."}}, {"id": "k-kxnflteamtotal-26nov05jacbal-bal15", "title": "game \u00b7 Baltimore over 14.5 points", "contracts": 345.0, "price": 0.47, "cost": 168.17, "fees": 6.02, "filled": "4:12 PM PT", "placed": "2026-11-06T00:12:00.93885Z", "game": "401873037", "gameLabel": "Jaguars @ Ravens", "source": "kalshi", "ticker": "KXNFLTEAMTOTAL-26NOV05JACBAL-BAL15", "legs": [{"side": "yes", "status": "live", "pWin": 0.475, "unknown": false, "ticker": "KXNFLTEAMTOTAL-26NOV05JACBAL-BAL15", "player": null, "stat": "line", "label": "game \u00b7 Baltimore over 14.5 points", "progress": 0.475, "text": "BAL 0 pts in the game", "right": "line 14.5"}], "pWin": 0.475, "status": "live", "payout": 345.0, "expectedValue": 163.88, "why": {"p": 0.49020703379419034, "pModel": 0.5010100482774148, "ev": 0.0027700337941903644, "wave": "2026-11-05 1715 JACBAL", "pBook": 0.5063307266509606, "points": ["Kalshi market: \"Baltimore over 14.5 points\" (game), we hold YES at 47\u00a2.", "Sportsbooks' price for the same outcome, with their margin removed: 51% (Pinnacle counts double; alternate lines used where Kalshi's number differs).", "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks.", "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."], "group": "A \u00b7 game line", "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."}}, {"id": "k-kxnflspread-26nov05jacbal-jac11", "title": "game \u00b7 Jacksonville wins by over 10.5 points", "contracts": 368.0, "price": 0.44, "cost": 168.27, "fees": 6.35, "filled": "4:12 PM PT", "placed": "2026-11-06T00:12:01.133813Z", "game": "401873037", "gameLabel": "Jaguars @ Ravens", "source": "kalshi", "ticker": "KXNFLSPREAD-26NOV05JACBAL-JAC11", "legs": [{"side": "yes", "status": "live", "pWin": 0.425, "unknown": false, "ticker": "KXNFLSPREAD-26NOV05JACBAL-JAC11", "player": null, "stat": "line", "label": "game \u00b7 Jacksonville wins by over 10.5 points", "progress": 0.425, "text": "JAX 0 \u2013 0 BAL (game)", "right": "strike 10.5"}], "pWin": 0.425, "status": "live", "payout": 368.0, "expectedValue": 156.4, "why": {"p": 0.45691136859650155, "pModel": 0.4663019551378594, "ev": -0.00033663140349845036, "wave": "2026-11-05 1715 JACBAL", "pBook": 0.45539917628835, "points": ["Kalshi market: \"Jacksonville wins by over 10.5 points\" (game), we hold YES at 44\u00a2.", "Sportsbooks' price for the same outcome, with their margin removed: 46% (Pinnacle counts double; alternate lines used where Kalshi's number differs).", "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks.", "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."], "group": "A \u00b7 game line", "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."}}, {"id": "k-kxnfl1q-26nov05jacbal-jac-no", "title": "No \u00b7 1st quarter \u00b7 Jacksonville", "contracts": 360.0, "price": 0.45, "cost": 168.24, "fees": 6.24, "filled": "4:12 PM PT", "placed": "2026-11-06T00:12:01.233844Z", "game": "401873037", "gameLabel": "Jaguars @ Ravens", "source": "kalshi", "ticker": "KXNFL1Q-26NOV05JACBAL-JAC", "legs": [{"side": "no", "status": "live", "pWin": 0.48, "unknown": false, "ticker": "KXNFL1Q-26NOV05JACBAL-JAC", "player": null, "stat": "line", "label": "1st quarter \u00b7 Jacksonville", "progress": 0.48, "text": "JAX 0 \u2013 0 BAL (1st quarter)", "right": ""}], "pWin": 0.48, "status": "live", "payout": 360.0, "expectedValue": 172.8, "why": {"p": 0.4661990316852008, "pModel": 0.47528433097885836, "ev": -0.0011259683147991917, "wave": "2026-11-05 1715 JACBAL", "pBook": 0.49060425258108764, "points": ["Kalshi market: \"Jacksonville\" (1st quarter), we hold NO at 45\u00a2.", "Sportsbooks' price for the same outcome, with their margin removed: 49% (Pinnacle counts double; alternate lines used where Kalshi's number differs).", "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks.", "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."], "group": "A \u00b7 game line", "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."}}, {"id": "k-kxnfl2hspread-26nov05jacbal-jac6-no", "title": "No \u00b7 2nd half \u00b7 Jacksonville wins by over 5.5 points", "contracts": 307.0, "price": 0.53, "cost": 168.06, "fees": 5.35, "filled": "4:12 PM PT", "placed": "2026-11-06T00:12:01.437908Z", "game": "401873037", "gameLabel": "Jaguars @ Ravens", "source": "kalshi", "ticker": "KXNFL2HSPREAD-26NOV05JACBAL-JAC6", "legs": [{"side": "no", "status": "live", "pWin": 0.535, "unknown": false, "ticker": "KXNFL2HSPREAD-26NOV05JACBAL-JAC6", "player": null, "stat": "line", "label": "2nd half \u00b7 Jacksonville wins by over 5.5 points", "progress": 0.535, "text": "JAX 0 \u2013 0 BAL (2nd half)", "right": "strike 5.5"}], "pWin": 0.535, "status": "live", "payout": 307.0, "expectedValue": 164.25, "why": {"p": 0.5441208368483659, "pModel": 0.5523154812119513, "ev": -0.0033161631516341536, "wave": "2026-11-05 1715 JACBAL", "pBook": 0.5639225880558049, "points": ["Kalshi market: \"Jacksonville wins by over 5.5 points\" (2nd half), we hold NO at 53\u00a2.", "Sportsbooks' price for the same outcome, with their margin removed: 56% (Pinnacle counts double; alternate lines used where Kalshi's number differs).", "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks.", "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."], "group": "A \u00b7 game line", "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."}}, {"id": "k-kxnfl1htotal-26nov05jacbal-18", "title": "1st half \u00b7 Over 17.5 points", "contracts": 272.0, "price": 0.6, "cost": 167.48, "fees": 4.28, "filled": "4:12 PM PT", "placed": "2026-11-06T00:12:01.53589Z", "game": "401873037", "gameLabel": "Jaguars @ Ravens", "source": "kalshi", "ticker": "KXNFL1HTOTAL-26NOV05JACBAL-18", "legs": [{"side": "yes", "status": "live", "pWin": 0.595, "unknown": false, "ticker": "KXNFL1HTOTAL-26NOV05JACBAL-18", "player": null, "stat": "line", "label": "1st half \u00b7 Over 17.5 points", "progress": 0.595, "text": "0 pts so far in the 1st half", "right": "line 17.5"}], "pWin": 0.595, "status": "live", "payout": 272.0, "expectedValue": 161.84, "why": {"p": 0.6119900586574316, "pModel": 0.6192715123677595, "ev": -0.004809941342568368, "wave": "2026-11-05 1715 JACBAL", "pBook": 0.6142384832248374, "points": ["Kalshi market: \"Over 17.5 points\" (1st half), we hold YES at 60\u00a2.", "Sportsbooks' price for the same outcome, with their margin removed: 61% (Pinnacle counts double; alternate lines used where Kalshi's number differs).", "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks.", "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."], "group": "A \u00b7 game line", "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."}}, {"id": "k-kxnfl1hspread-26nov05jacbal-jac7-no", "title": "No \u00b7 1st half \u00b7 Jacksonville wins by over 6.5 points", "contracts": 313.0, "price": 0.52, "cost": 168.23, "fees": 5.47, "filled": "4:12 PM PT", "placed": "2026-11-06T00:12:01.741699Z", "game": "401873037", "gameLabel": "Jaguars @ Ravens", "source": "kalshi", "ticker": "KXNFL1HSPREAD-26NOV05JACBAL-JAC7", "legs": [{"side": "no", "status": "live", "pWin": 0.535, "unknown": false, "ticker": "KXNFL1HSPREAD-26NOV05JACBAL-JAC7", "player": null, "stat": "line", "label": "1st half \u00b7 Jacksonville wins by over 6.5 points", "progress": 0.535, "text": "JAX 0 \u2013 0 BAL (1st half)", "right": "strike 6.5"}], "pWin": 0.535, "status": "live", "payout": 313.0, "expectedValue": 167.46, "why": {"p": 0.5306659658880242, "pModel": 0.5373799512686059, "ev": -0.006806034111975848, "wave": "2026-11-05 1715 JACBAL", "pBook": 0.5449263307931205, "points": ["Kalshi market: \"Jacksonville wins by over 6.5 points\" (1st half), we hold NO at 52\u00a2.", "Sportsbooks' price for the same outcome, with their margin removed: 54% (Pinnacle counts double; alternate lines used where Kalshi's number differs).", "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks.", "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."], "group": "A \u00b7 game line", "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."}}, {"id": "k-kxnflrshatt-26nov05jacbal-baldhenry22-18", "title": "Derrick Henry 18+ carries", "contracts": 580.0, "price": 0.49, "cost": 294.35, "fees": 10.15, "filled": "4:12 PM PT", "placed": "2026-11-06T00:12:01.8435Z", "game": "401873037", "gameLabel": "Jaguars @ Ravens", "source": "kalshi", "ticker": "KXNFLRSHATT-26NOV05JACBAL-BALDHENRY22-18", "legs": [{"side": "yes", "status": "live", "pWin": 0.505, "unknown": false, "ticker": "KXNFLRSHATT-26NOV05JACBAL-BALDHENRY22-18", "player": "derrick-henry", "playerName": "Derrick Henry", "stat": "rushAtt", "threshold": 18, "target": 18, "unit": "car", "current": 0, "label": "Derrick Henry 18+ carries", "progress": 0.0, "playerStatus": "active"}], "pWin": 0.505, "status": "live", "payout": 580.0, "expectedValue": 292.9, "why": {"p": 0.522100307629891, "pModel": 0.658194406071774, "ev": 0.014607307629891021, "wave": "2026-11-05 1715 JACBAL", "pBook": 0.501041096280072, "points": ["Model projects 15 carries (80% range 9\u201323) vs the line of 17.5: 33% for the over.", "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 17.5; converted to Kalshi's line that's 50% for this side, vs a price of 49\u00a2.", "Last 5 games: 23, 24, 17, 17, 11. This side would have won 2 of 5.", "Usage over the last 4 games: 18 touches a game (RB).", "BAL is a 8.5-point underdog vs JAX (total 39.5). JAX's defense ranks #6 vs the pass and #1 vs the run by EPA allowed (1 = best).", "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."], "group": "A \u00b7 books back it", "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."}}, {"id": "k-kxnflrshatt-26nov05jacbal-jactlawrence16-4-no", "title": "No \u00b7 Trevor Lawrence 4+ carries", "contracts": 558.0, "price": 0.51, "cost": 294.34, "fees": 9.76, "filled": "4:12 PM PT", "placed": "2026-11-06T00:12:02.041525Z", "game": "401873037", "gameLabel": "Jaguars @ Ravens", "source": "kalshi", "ticker": "KXNFLRSHATT-26NOV05JACBAL-JACTLAWRENCE16-4", "legs": [{"side": "no", "status": "live", "pWin": 0.505, "unknown": false, "ticker": "KXNFLRSHATT-26NOV05JACBAL-JACTLAWRENCE16-4", "player": "trevor-lawrence", "playerName": "Trevor Lawrence", "stat": "rushAtt", "threshold": 4, "target": 4, "unit": "car", "current": 0, "label": "Trevor Lawrence 4+ carries", "progress": 0.0, "playerStatus": "active"}], "pWin": 0.505, "status": "live", "payout": 558.0, "expectedValue": 281.79, "why": {"p": 0.5380038654241743, "pModel": 0.6551203705379465, "ev": 0.010510865424174322, "wave": "2026-11-05 1715 JACBAL", "pBook": 0.5109595826331699, "points": ["Model projects 3 carries (80% range 1\u20135) vs the line of 3.5: 66% for the under.", "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 3.5; converted to Kalshi's line that's 51% for this side, vs a price of 51\u00a2.", "Last 5 games: 4, 3, 3, 3, 3. This side would have won 4 of 5.", "Usage over the last 4 games: 29 pass attempts a game (QB).", "JAX is a 8.5-point favorite vs BAL (total 39.5). BAL's defense ranks #17 vs the pass and #23 vs the run by EPA allowed (1 = best).", "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."], "group": "B \u00b7 model's call", "verdict": "The books price this near fair; the bet rests on the model's read (more production than the line)."}}, {"id": "k-kxnflrecyds-26nov05jacbal-jacpwashington11-60-no", "title": "No \u00b7 Parker Washington 60+ receiving yards", "contracts": 604.0, "price": 0.47, "cost": 294.41, "fees": 10.53, "filled": "4:12 PM PT", "placed": "2026-11-06T00:12:02.193233Z", "game": "401873037", "gameLabel": "Jaguars @ Ravens", "source": "kalshi", "ticker": "KXNFLRECYDS-26NOV05JACBAL-JACPWASHINGTON11-60", "legs": [{"side": "no", "status": "live", "pWin": 0.485, "unknown": false, "ticker": "KXNFLRECYDS-26NOV05JACBAL-JACPWASHINGTON11-60", "player": "parker-washington", "playerName": "Parker Washington", "stat": "recYds", "threshold": 60, "target": 60, "unit": "yds", "current": 0, "label": "Parker Washington 60+ receiving yards", "progress": 0.0, "playerStatus": "active"}], "pWin": 0.485, "status": "live", "payout": 604.0, "expectedValue": 292.94, "why": {"p": 0.4857829485779881, "pModel": 0.5605400333726969, "ev": -0.0016540514220118804, "wave": "2026-11-05 1715 JACBAL", "pBook": 0.4782115885607333, "points": ["Model projects 40 receiving yards (80% range 3\u2013103) vs the line of 59.5: 68% for the under.", "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 60.5, 61.5, 64.5; converted to Kalshi's line that's 48% for this side, vs a price of 47\u00a2.", "Last 5 games: 40, 7, 124, 64, 16. This side would have won 3 of 5.", "Usage over the last 4 games: 6.2 targets a game (WR).", "JAX is a 8.5-point favorite vs BAL (total 39.5). BAL's defense ranks #17 vs the pass and #23 vs the run by EPA allowed (1 = best).", "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."], "group": "A \u00b7 books back it", "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."}}, {"id": "k-kxnflrec-26nov05jacbal-baldhenry22-2-no", "title": "No \u00b7 Derrick Henry 2+ catches", "contracts": 501.0, "price": 0.57, "cost": 294.17, "fees": 8.6, "filled": "4:12 PM PT", "placed": "2026-11-06T00:12:02.395663Z", "game": "401873037", "gameLabel": "Jaguars @ Ravens", "source": "kalshi", "ticker": "KXNFLREC-26NOV05JACBAL-BALDHENRY22-2", "legs": [{"side": "no", "status": "live", "pWin": 0.575, "unknown": false, "ticker": "KXNFLREC-26NOV05JACBAL-BALDHENRY22-2", "player": "derrick-henry", "playerName": "Derrick Henry", "stat": "receptions", "threshold": 2, "target": 2, "unit": "rec", "current": 0, "label": "Derrick Henry 2+ catches", "progress": 0.0, "playerStatus": "active"}], "pWin": 0.575, "status": "live", "payout": 501.0, "expectedValue": 288.07, "why": {"p": 0.5772496557196974, "pModel": 0.6075716427506106, "ev": -0.009907344280302512, "wave": "2026-11-05 1715 JACBAL", "pBook": 0.5764846159447352, "points": ["Model projects 1 catches (80% range 0\u20134) vs the line of 1.5: 60% for the under.", "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 1.5; converted to Kalshi's line that's 58% for this side, vs a price of 57\u00a2.", "Last 5 games: 2, 1, 1, 1, 2. This side would have won 3 of 5.", "Usage over the last 4 games: 18 touches a game (RB).", "BAL is a 8.5-point underdog vs JAX (total 39.5). JAX's defense ranks #6 vs the pass and #1 vs the run by EPA allowed (1 = best).", "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."], "group": "A \u00b7 books back it", "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."}}, {"id": "k-kxnflrshatt-26nov05jacbal-jacbtuten33-15", "title": "Bhayshul Tuten 15+ carries", "contracts": 103.0, "price": 0.46, "cost": 49.17, "fees": 1.79, "filled": "4:32 PM PT", "placed": "2026-11-06T00:32:57.521073Z", "game": "401873037", "gameLabel": "Jaguars @ Ravens", "source": "kalshi", "ticker": "KXNFLRSHATT-26NOV05JACBAL-JACBTUTEN33-15", "legs": [{"side": "yes", "status": "live", "pWin": 0.465, "unknown": false, "ticker": "KXNFLRSHATT-26NOV05JACBAL-JACBTUTEN33-15", "player": "bhayshul-tuten", "playerName": "Bhayshul Tuten", "stat": "rushAtt", "threshold": 15, "target": 15, "unit": "car", "current": 0, "label": "Bhayshul Tuten 15+ carries", "progress": 0.0, "playerStatus": "active"}], "pWin": 0.465, "status": "live", "payout": 103.0, "expectedValue": 47.9, "why": {"p": 0.4864880595301584, "pModel": 0.5397969581997626, "ev": 0.009100059530158366, "wave": "2026-11-05 1715 JACBAL", "pBook": 0.4840573357804117, "points": ["Model projects 18 carries (80% range 11\u201326) vs the line of 14.5: 69% for the over.", "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 14.5; converted to Kalshi's line that's 48% for this side, vs a price of 46\u00a2.", "Last 5 games: 15, 17, 22, 12, 16. This side would have won 4 of 5.", "Usage over the last 4 games: 19 touches a game (RB).", "JAX is a 8.5-point favorite vs BAL (total 39.5). BAL's defense ranks #17 vs the pass and #23 vs the run by EPA allowed (1 = best).", "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."], "group": "A \u00b7 books back it", "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."}}], "outlook": {"pProfit": 49.225, "pBigWin": 19.475, "pBigLoss": 5.125, "p10": -943.4000000000001, "p50": -12.400000000000091, "p90": 869.6419999999998, "mean": -41.18502500000004, "draws": 4000}, "totals": {"cost": 2355.4, "maxPayout": 4575.42, "expectedValue": 2310.54, "won": 0}, "injuryReport": [{"player": "bhayshul-tuten", "status": "Active", "detail": "Tuten (ankle/foot) is officially listed as active for Thursday night's game against the Ravens."}, {"player": "trevor-lawrence", "status": "Active", "detail": "Lawrence completed 10 of 14 passes for 210 yards with three touchdowns and no interceptions while rushing three times for 10 yards in the Jaguars' 42-7 win over the Colts on Sunday."}], "news": [], "notes": {"players": {}, "news": [], "updated": null}, "history": [{"t": "2026-11-06T00:13:13.394735+00:00", "clock": "Pregame", "p": {"k-kxnflpasscomp-26nov05jacbal-jactlawrence16-20": 0.455, "k-kxnflteamtotal-26nov05jacbal-bal15": 0.465, "k-kxnflspread-26nov05jacbal-jac11": 0.435, "k-kxnfl1q-26nov05jacbal-jac-no": 0.455, "k-kxnfl2hspread-26nov05jacbal-jac6-no": 0.525, "k-kxnfl1htotal-26nov05jacbal-18": 0.605, "k-kxnfl1hspread-26nov05jacbal-jac7-no": 0.515, "k-kxnflrshatt-26nov05jacbal-baldhenry22-18": 0.485, "k-kxnflrshatt-26nov05jacbal-jactlawrence16-4-no": 0.505, "k-kxnflrecyds-26nov05jacbal-jacpwashington11-60-no": 0.465, "k-kxnflrec-26nov05jacbal-baldhenry22-2-no": 0.565}}], "pnl": {"weeks": [{"key": "04", "label": "Week 4", "bets": 13, "won": 5, "lost": 8, "staked": 3177.14, "returned": 4539, "profit": 1361.86, "roi": 42.9}, {"key": "05", "label": "Week 5", "bets": 55, "won": 19, "lost": 36, "staked": 11599, "returned": 9499.3, "profit": -2099.7, "roi": -18.1}, {"key": "06", "label": "Week 6", "bets": 57, "won": 24, "lost": 33, "staked": 11762.19, "returned": 11823, "profit": 60.81, "roi": 0.5}, {"key": "07", "label": "Week 7", "bets": 98, "won": 40, "lost": 58, "staked": 17406.62, "returned": 18928.31, "profit": 1521.69, "roi": 8.7}, {"key": "08", "label": "Week 8", "bets": 66, "won": 33, "lost": 33, "staked": 12484.39, "returned": 13166.77, "profit": 682.38, "roi": 5.5}], "months": [{"key": "2026-10", "label": "Oct 2026", "bets": 234, "won": 94, "lost": 140, "staked": 45618.62, "returned": 47992.24, "profit": 2373.62, "roi": 5.2}, {"key": "2026-11", "label": "Nov 2026", "bets": 55, "won": 27, "lost": 28, "staked": 10810.72, "returned": 9964.14, "profit": -846.58, "roi": -7.8}], "quarters": [{"key": "2026-Q4", "label": "2026 Q4", "bets": 289, "won": 121, "lost": 168, "staked": 56429.34, "returned": 57956.38, "profit": 1527.04, "roi": 2.7}], "season": {"label": "2026\u201327 NFL season", "bets": 289, "won": 121, "lost": 168, "staked": 56429.34, "returned": 57956.38, "profit": 1527.04, "roi": 2.7}, "open": {"bets": 12, "staked": 2355.4, "expected": 2310.53, "maxReturn": 4575.42}, "updatedAt": "2026-11-06T00:50:27.577483+00:00"}}</script>
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const usd = (n) => '$' + Number(n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const usd0 = (n) => '$' + Math.round(n || 0).toLocaleString('en-US');
+  const pct = (p) => (p >= 0.995 && p < 1 ? '>99' : p > 0 && p < 0.005 ? '<1' : Math.round(p * 100)) + '%';
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const timeET = (iso) => iso ? new Date(iso).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' }) + ' ET' : '';
+  const TEAM_INK = { ATL: '#ff8a98', NO: '#e6cf93', DAL: '#9fc1f0', TB: '#ff8f7f', NE: '#8fb3ff', CHI: '#ff9a5c', WSH: '#e07a7a', SF: '#e6b45a' };
+  let filter = 'all';
+  try { filter = localStorage.getItem('betFilter') || 'all'; } catch (e) {}
+
+  function legText(l) {
+    if (l.text) return { left: l.text, right: l.right || '' };
+    const u = l.unit;
+    if (l.stat === 'margin' || l.stat === 'margin1h') {
+      const m = l.current, by = Math.floor(l.target) + 1;
+      if (l.target < 0.5) return { left: m > 0 ? l.team + ' leads by ' + m : m < 0 ? l.opp + ' leads by ' + (-m) : 'Tied', right: l.side === 'no' ? 'Busts if ' + l.team + ' wins' : 'Needs ' + l.team + ' to win' };
+      if (l.stat === 'margin1h') {
+        const lead1 = m > 0 ? l.team + ' leads 1st half by ' + m : m < 0 ? l.opp + ' leads 1st half by ' + (-m) : '1st half tied';
+        return { left: lead1, right: 'Needs ' + l.team + ' up ' + by + '+ at halftime' };
+      }
+      const lead = m > 0 ? l.team + ' leads by ' + m : m < 0 ? l.opp + ' leads by ' + (-m) : 'Tied';
+      return { left: lead, right: l.side === 'no' ? 'Busts if ' + l.team + ' wins by ' + by + '+' : 'Needs ' + l.team + ' by ' + by + '+' };
+    }
+    if (l.stat === 'total1h') {
+      const need = Math.max(0, Math.floor(l.target) + 1 - l.current);
+      return { left: l.current + ' of ' + Math.ceil(l.target) + ' pts in the 1st half', right: need ? need + ' more 1st-half pts needed' : 'Cleared' };
+    }
+    if (l.stat === 'total') {
+      const need = Math.max(0, Math.floor(l.target) + 1 - l.current);
+      return { left: l.current + ' of ' + Math.ceil(l.target) + ' pts', right: need ? need + ' more pts needed' : 'Cleared' };
+    }
+    if (l.stat === 'firstTd') return { left: l.note || '', right: '' };
+    if (l.unknown) return { left: 'No live stats yet · showing pregame odds', right: 'Target ' + l.target + ' ' + u };
+    const done = Math.round(Math.min(1, l.current / l.target) * 100);
+    if (l.side === 'no') {
+      const room = l.target - l.current;
+      return { left: l.current + ' / ' + l.target + ' ' + u, right: room > 0 ? room + ' ' + u + ' of cushion' : 'Busted' };
+    }
+    const need = Math.max(0, l.target - l.current);
+    return { left: l.current + ' / ' + l.target + ' ' + u + ' · ' + done + '% there', right: need ? need + ' ' + u + ' to go' : 'Hit' };
+  }
+
+  function shortClock(c) {
+    if (!c) return '';
+    if (/PM|AM/.test(c)) return 'Pregame';
+    return c.replace(/\s*\(est\.\)/, '').replace(/^~/, '').replace(' - ', ' ').replace(/(\d)(st|nd|rd|th)$/, 'Q$1').replace(/^(\S+) Q(\d)$/, 'Q$2 $1');
+  }
+  function spark(history, id) {
+    const pts = (history || []).filter((h) => h.p && typeof h.p[id] === 'number').map((h) => ({ v: h.p[id], c: shortClock(h.clock) }));
+    if (pts.length < 2) return '';
+    // Fixed aspect so text and dots stay round; axis gutter on the left for the % labels.
+    const w = 320, h = 96, left = 30, right = 30, top = 10, bottom = 18;
+    const x = (i) => left + (i / (pts.length - 1)) * (w - left - right);
+    const y = (v) => top + (1 - v) * (h - top - bottom);
+    const r = (v) => Math.round(v * 100) + '%';
+    const line = pts.map((p, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(p.v).toFixed(1)).join(' ');
+    const area = line + ' L' + x(pts.length - 1).toFixed(1) + ' ' + y(0) + ' L' + x(0).toFixed(1) + ' ' + y(0) + ' Z';
+    const first = pts[0], last = pts[pts.length - 1];
+    const d = last.v - first.v;
+    const grid = [0, 0.5, 1].map((g) => '<line x1="' + left + '" x2="' + (w - right) + '" y1="' + y(g) + '" y2="' + y(g) + '" stroke="var(--line)"' + (g === 0.5 ? ' stroke-dasharray="3 3"' : '') + '/>' +
+      '<text x="' + (left - 5) + '" y="' + (y(g) + 3) + '" text-anchor="end" font-size="9" fill="var(--muted)">' + (g * 100) + '%</text>').join('');
+    const dots = pts.map((p, i) => '<circle cx="' + x(i).toFixed(1) + '" cy="' + y(p.v).toFixed(1) + '" r="' + (i === pts.length - 1 ? 3.5 : 2.5) + '" fill="var(--accent)"><title>' + esc(p.c) + ': ' + r(p.v) + '</title></circle>').join('');
+    const lbl = (i, p, anchor, dx) => '<text x="' + (x(i) + dx).toFixed(1) + '" y="' + Math.min(h - bottom - 3, Math.max(top + 8, y(p.v) - 6)).toFixed(1) + '" text-anchor="' + anchor + '" font-size="10" font-weight="600" fill="var(--ink)">' + r(p.v) + '</text>';
+    const xl = '<text x="' + left + '" y="' + (h - 4) + '" font-size="9" fill="var(--muted)">' + esc(first.c) + '</text>' +
+      '<text x="' + (w - right) + '" y="' + (h - 4) + '" text-anchor="end" font-size="9" fill="var(--muted)">' + esc(last.c) + '</text>';
+    const head = '<div class="spark-head"><span class="eyebrow">Win chance over the game</span><span class="spark-sum">Pregame <b>' + r(first.v) + '</b> → now <b>' + r(last.v) + '</b>' +
+      (Math.abs(d) >= 0.005 ? ' <span class="' + (d > 0 ? 'up' : 'down') + '">' + (d > 0 ? '▲' : '▼') + Math.round(Math.abs(d) * 100) + ' pts</span>' : '') + '</span></div>';
+    return '<div class="spark-wrap">' + head + '<svg class="spark" viewBox="0 0 ' + w + ' ' + h + '" role="img" aria-label="Win chance went from ' + r(first.v) + ' pregame to ' + r(last.v) + ' now">' +
+      grid + '<path d="' + area + '" fill="var(--accent)" fill-opacity="0.12"/>' +
+      '<path d="' + line + '" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linejoin="round"/>' + dots +
+      lbl(0, first, 'start', 4) + lbl(pts.length - 1, last, 'start', 6) + xl + '</svg>' +
+      '<span class="spark-note">Each dot is one update (hover for the value). The dashed line is a 50/50 bet.</span></div>';
+  }
+
+  const STAT_LABEL = { passYds: 'Pass yds', passTds: 'Pass TDs', passAtt: 'Pass attempts', passComp: 'Completions', rushAtt: 'Rush attempts', rushYds: 'Rush yds', recYds: 'Rec yds', receptions: 'Receptions', rushRecYds: 'Rush + rec yds', anyTd: 'Touchdowns', firstTd: 'First TD of the game' };
+  function statVal(p, stat) {
+    if (stat === 'rushRecYds') return (p.rushYds || 0) + (p.recYds || 0);
+    if (stat === 'anyTd') return (p.rushTds || 0) + (p.recTds || 0);
+    return p[stat] || 0;
+  }
+  // Link from a box-score target to its bet card. Plain #anchors are the only hash form the viewer allows.
+  function betLink(b) {
+    return '<a class="bet-link ' + b.status + '" href="#bet-' + esc(b.id) + '" data-bet="' + esc(b.id) + '">' + esc(b.title) + '</a>';
+  }
+  function renderPlayers(S, injuredIds) {
+    const ps = S.playerStats || {};
+    const notes = S.notes || {};
+    const bets = S.bets || [];
+    const d = (x) => (x == null || x === '' ? '–' : x);
+    // Group by team: each game's away team, then its home team; a header row starts each team.
+    const teamOrder = (S.games || []).flatMap((g) => g.teams || g.competitors.map((c) => c.abbr).reverse());
+    const teamName = {};
+    for (const g of S.games || []) for (const c of g.competitors || []) teamName[c.abbr] = c.name;
+    const rank = (t) => { const i = teamOrder.indexOf(t); return i < 0 ? 99 : i; };
+    const ids = Object.keys(ps).map((id, i) => [id, i]).sort((a, b) => rank(ps[a[0]].team) - rank(ps[b[0]].team) || a[1] - b[1]).map((x) => x[0]);
+    let lastTeam = null;
+    $('players').innerHTML = ids.map((id) => {
+      const p = ps[id];
+      const head = p.team !== lastTeam ? '<h3 class="team-group"><span class="tag ' + esc(p.team) + '">' + esc(p.team) + '</span>' + esc(teamName[p.team] || p.team) + '</h3>' : '';
+      lastTeam = p.team;
+      // Every leg on this player, grouped by stat
+      const byStat = {};
+      for (const b of bets) for (const l of b.legs) if (l.player === id) (byStat[l.stat] ||= []).push({ l, b });
+      const used = Object.keys(byStat);
+      const has = (...k) => used.some((u) => k.includes(u));
+      const lines = [];
+      if (has('passYds', 'passTds') || p.passYds != null) lines.push(['Passing', [['C/ATT', p.cmpAtt], ['YDS', p.passYds], ['TD', p.passTds], ['INT', p.ints]]]);
+      if (has('rushYds', 'rushRecYds') || p.carries != null || p.rushYds != null) lines.push(['Rushing', [['CAR', p.carries], ['YDS', p.rushYds], ['TD', p.rushTds], ['LONG', p.rushLong]]]);
+      if (has('recYds', 'receptions', 'rushRecYds', 'anyTd') || p.receptions != null) lines.push(['Receiving', [['REC', p.receptions], ['TGT', p.targets], ['YDS', p.recYds], ['TD', p.recTds], ['LONG', p.recLong]]]);
+      if (!lines.length) lines.push(['Scoring', [['TD', (p.rushTds || 0) + (p.recTds || 0)], ['REC', p.receptions], ['YDS', p.recYds]]]);
+      const linesHtml = lines.map(([g, cells]) => '<div class="line"><span class="grp">' + g + '</span><div class="cells">' +
+        cells.map(([k, v]) => '<span class="cell"><span class="k">' + k + '</span><span class="val">' + esc(d(v)) + '</span></span>').join('') + '</div></div>').join('');
+
+      const tracks = Object.entries(byStat).map(([stat, items]) => {
+        if (stat === 'firstTd') {
+          const l = items[0].l;
+          return '<div><div class="track-top"><span>' + STAT_LABEL[stat] + '</span><b>' + (l.status === 'won' ? 'Scored it' : l.status === 'lost' ? 'Missed' : pct(l.pWin) + ' chance') + '</b></div>' +
+            '<div class="track-bets">' + esc(l.note || '') + ' · ' + items.map((x) => betLink(x.b)).join(', ') + '</div></div>';
+        }
+        const cur = statVal(p, stat);
+        const ths = [...new Set(items.map((x) => x.l.target))].sort((a, b) => a - b);
+        const max = Math.max(ths[ths.length - 1] * 1.2, cur, 1);
+        const ticks = ths.map((t) => {
+          const isNo = items.some((x) => x.l.target === t && x.l.side === 'no');
+          const cls = isNo ? (cur >= t ? 'bust' : 'no') : (cur >= t ? 'hit' : '');
+          return '<span class="tick ' + cls + '" style="left:' + (t / max * 100).toFixed(1) + '%"><span>' + (isNo ? 'under ' : '') + t + (cur >= t && !isNo ? ' ✓' : '') + '</span></span>';
+        }).join('');
+        const betList = items.map((x) => esc((x.l.side === 'no' ? 'NO ' : '') + x.l.target + '+ in ') + betLink(x.b)).join(' · ');
+        return '<div><div class="track-top"><span>' + STAT_LABEL[stat] + '</span><b>' + cur + '</b></div>' +
+          '<div class="tbar" role="progressbar" aria-valuemin="0" aria-valuemax="' + Math.round(max) + '" aria-valuenow="' + cur + '" aria-label="' + esc(p.name + ' ' + STAT_LABEL[stat]) + '"><div class="fill" style="width:' + Math.min(100, cur / max * 100).toFixed(1) + '%"></div>' + ticks + '</div>' +
+          '<div class="track-bets">' + betList + '</div></div>';
+      }).join('');
+
+      let status = (notes.players && notes.players[id] && notes.players[id].status) || 'active';
+      if (status === 'active' && injuredIds.has(id)) status = 'questionable';
+      const cls = status === 'out' ? 'out' : status === 'questionable' ? 'watch' : '';
+      const nBets = new Set(Object.values(byStat).flat().map((x) => x.b.id)).size;
+      return head + '<article class="player ' + cls + '"><div class="player-head"><h3>' + esc(p.name) + '<span class="tag ' + esc(p.team) + '">' + esc(p.team) + '</span></h3>' +
+        '<span class="player-sub"><span class="dot">●</span>' + (status === 'out' ? 'Out' : status === 'questionable' ? 'Injury watch' : 'Active') + ' · in ' + nBets + ' bet' + (nBets === 1 ? '' : 's') + '</span></div>' +
+        '<div class="lines">' + linesHtml + '</div><div class="tracks">' + tracks + '</div></article>';
+    }).join('');
+  }
+
+  function render(FULL) {
+    // Show only live games and bets; settled ones stay in the Season P&L ledger below.
+    // A bet stays visible while its game is still on, even if the bet itself is already decided.
+    const liveGameIds = new Set((FULL.games || []).filter((g) => g.state !== 'post').map((g) => g.id));
+    const allFinal = liveGameIds.size === 0; // once every game is final, show the whole day
+    const liveBets = (FULL.bets || []).filter((b) => allFinal || liveGameIds.has(b.game));
+    const livePlayers = new Set(liveBets.flatMap((b) => b.legs.map((l) => l.player).filter(Boolean)));
+    const S = Object.assign({}, FULL, {
+      games: (FULL.games || []).filter((g) => allFinal || g.state !== 'post'),
+      bets: liveBets,
+      playerStats: Object.fromEntries(Object.entries(FULL.playerStats || {}).filter(([id]) => livePlayers.has(id))),
+    });
+    const hiddenBets = (FULL.bets || []).length - liveBets.length;
+    const games = S.games || [];
+    const multi = games.length > 1;
+    $('slateLabel').textContent = (S.slate && S.slate.label) || 'Game day';
+    $('gameDate').textContent = S.slate && S.slate.date ? new Date(S.slate.date + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+    $('games').innerHTML = games.map((g) => {
+      const away = g.competitors.find((c) => c.homeAway === 'away') || g.competitors[0] || {};
+      const home = g.competitors.find((c) => c.homeAway === 'home') || g.competitors[1] || {};
+      const st = g.state === 'post' ? 'Final' : g.state === 'in' ? 'Live' : 'Pregame';
+      const team = (c, right) => '<div class="team' + (right ? ' right' : '') + '"><span class="abbr" style="color:' + (TEAM_INK[c.abbr] || 'inherit') + '">' + esc(c.abbr || '') + '</span><span class="pts">' + (c.score || 0) + '</span><span class="tname">' + esc(c.name || '') + (right ? ' · home' : '') + '</span></div>';
+      return '<div class="game">' + (multi ? '<div class="game-label">' + esc(g.label) + '</div>' : '') + '<div class="score">' + team(away, false) +
+        '<div class="clock"><span class="time">' + esc(g.state === 'pre' ? (g.detail || '').replace(/^\d+\/\d+ - /, 'Kickoff ') : g.detail || st) + '</span><span class="pill ' + (g.state === 'post' ? 'won' : g.state === 'in' ? 'live' : 'pre') + '"><span class="dot"></span>' + st + '</span></div>' +
+        team(home, true) + '</div></div>';
+    }).join('') || '<p style="color:var(--muted)">No games in progress. All games are final.</p>';
+    $('updated').textContent = S.generatedAt ? 'Updated ' + timeET(S.generatedAt) : 'Waiting for first update';
+    $('nextUpdate').textContent = S.state === 'post' ? 'All games final. Updates stopped.' : S.generatedAt ? 'Last data ' + timeET(S.generatedAt) + '. Republished every few minutes during games.' : '';
+
+    const T = FULL.totals || {};
+    const bets = S.bets || [];
+    const liveCost = bets.reduce((a, b) => a + b.cost, 0);
+    const liveEV = bets.reduce((a, b) => a + b.contracts * b.pWin, 0);
+    const liveMax = bets.filter((b) => b.status === 'live').reduce((a, b) => a + b.contracts, 0);
+    $('tCost').textContent = usd(liveCost);
+    $('tBets').textContent = bets.length + ' bets in live games, fees included' + (hiddenBets ? ' · ' + hiddenBets + ' settled hidden' : '');
+    $('playersLabel').textContent = 'The ' + Object.keys(S.playerStats || {}).length + ' players in your bets';
+    $('tEV').textContent = usd0(liveEV);
+    const evDiff = liveEV - liveCost;
+    $('tEVs').textContent = (evDiff >= 0 ? '+' : '−') + usd0(Math.abs(evDiff)) + ' vs. staked';
+    $('tMax').textContent = usd0(liveMax);
+    const O = S.outlook;
+    if (O) {
+      $('tPP').textContent = Math.round(O.pProfit) + '%';
+      const sgn = (v) => (v < 0 ? '−' : '+') + usd0(Math.abs(v));
+      $('tPPs').textContent = 'Typical ' + sgn(O.p50) + ' · range ' + sgn(O.p10) + ' to ' + sgn(O.p90);
+    }
+    $('tWon').textContent = usd0(T.won);
+    const c = (s) => (FULL.bets || []).filter((b) => b.status === s).length;
+    $('tCounts').textContent = c('won') + ' won · ' + c('lost') + ' lost · ' + c('live') + ' live';
+
+    // Player status chips
+    const notes = S.notes || {};
+    const ps = S.playerStats || {};
+    const injuredIds = new Set((S.injuries || []).map((i) => i.player));
+    $('playerChips').innerHTML = Object.keys(ps).map((id) => {
+      let status = (notes.players && notes.players[id] && notes.players[id].status) || 'active';
+      if (status === 'active' && injuredIds.has(id)) status = 'questionable';
+      const label = status === 'active' ? 'Active' : status === 'questionable' ? 'Injury watch' : 'Out';
+      const count = bets.filter((b) => b.status === 'live' && b.legs.some((l) => l.player === id)).length;
+      return '<span class="chip ' + status + '"><span class="dot"></span><b>' + esc(ps[id].name) + '</b> ' + label + ' · in ' + count + ' live bet' + (count === 1 ? '' : 's') + '</span>';
+    }).join('');
+
+    const items = [];
+    for (const i of S.injuries || []) items.push({ when: 'Q' + i.period + ' ' + (i.clock || ''), html: '<span class="warn">In-game injury: ' + esc(ps[i.player] ? ps[i.player].name : i.player) + '.</span> ' + esc(i.text) });
+    for (const r of S.injuryReport || []) items.push({ when: 'Report', html: '<span class="warn">' + esc(ps[r.player] ? ps[r.player].name : r.player) + ': ' + esc(r.status) + '</span> ' + esc(r.detail) });
+    for (const n of (notes.news || []).slice().reverse()) items.push({ when: timeET(n.time), html: esc(n.text) + (n.source ? ' <a href="' + esc(n.source) + '" target="_blank" rel="noopener">Source</a>' : '') });
+    for (const a of (S.news || []).filter((a) => a.injury).slice(0, 5)) items.push({ when: timeET(a.published), html: esc(a.headline) + (a.url ? ' <a href="' + esc(a.url) + '" target="_blank" rel="noopener">ESPN</a>' : '') });
+    $('feed').innerHTML = items.length ? items.map((i) => '<li><span class="when">' + esc(i.when) + '</span><span>' + i.html + '</span></li>').join('') : '<li><span class="when"></span><span>No injury news on tracked players.</span></li>';
+    $('notesUpdated').textContent = notes.updated ? 'News checked ' + timeET(notes.updated) : '';
+
+    // Bet cards: won (money locked in) first, then live by win chance, then lost
+    const order = { won: 0, live: 1, lost: 2 };
+    const prev = (S.history || []).length > 1 ? S.history[S.history.length - 2].p : null;
+    const shown = bets.filter((b) => filter === 'all' || b.status === filter)
+      .sort((a, b) => order[a.status] - order[b.status] || b.pWin - a.pWin);
+    $('bets').innerHTML = shown.map((b) => {
+      const d = prev && typeof prev[b.id] === 'number' ? b.pWin - prev[b.id] : 0;
+      const delta = Math.abs(d) >= 0.005 ? '<span class="delta ' + (d > 0 ? 'up' : 'down') + '">' + (d > 0 ? '▲ ' : '▼ ') + Math.round(Math.abs(d) * 100) + ' pts since last update</span>' : '';
+      const legs = b.legs.map((l) => {
+        const t = legText(l);
+        const flag = l.playerStatus && l.playerStatus !== 'active' ? ' <span class="flag">' + (l.playerStatus === 'out' ? 'Player out' : 'Injury watch') + '</span>' : (l.player && injuredIds.has(l.player) ? ' <span class="flag">Injury watch</span>' : '');
+        const width = l.stat === 'margin' || l.stat === 'margin1h' ? (l.status === 'won' ? 100 : l.status === 'lost' ? 100 : Math.round(l.pWin * 100)) : Math.round(l.progress * 100);
+        return '<li class="leg ' + l.status + (l.side === 'no' ? ' no' : '') + '">' +
+          '<div class="leg-top"><span class="leg-name"><span class="side ' + l.side + '">' + l.side.toUpperCase() + '</span>' + esc(l.label) + '</span><span class="leg-p">' + (l.status === 'won' ? 'Hit' : l.status === 'lost' ? 'Missed' : pct(l.pWin) + ' to cash') + '</span></div>' +
+          '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + width + '" aria-label="' + esc(l.label) + '"><div class="fill" style="width:' + width + '%"></div></div>' +
+          '<div class="leg-bot"><span>' + esc(t.left) + flag + '</span><span>' + esc(t.right) + '</span></div></li>';
+      }).join('');
+      return '<article class="bet ' + b.status + '" id="bet-' + esc(b.id) + '">' +
+        '<div class="bet-head"><div style="display:grid;gap:4px;min-width:0"><h3>' + esc(b.title) + '</h3><span class="bet-meta">' + (multi ? esc(b.gameLabel) + ' · ' : '') + b.legs.length + '-leg · ' + b.contracts.toLocaleString() + ' @ ' + (b.price * 100).toFixed(1) + '¢ · filled ' + esc(b.filled) + '</span></div>' +
+        '<div class="prob"><span class="pill ' + b.status + '"><span class="dot"></span>' + (b.status === 'live' ? 'Live' : b.status === 'won' ? 'Won' : 'Lost') + '</span><span class="v">' + pct(b.pWin) + '</span>' + delta + '</div></div>' +
+        '<div class="money"><span>Cost <b>' + usd(b.cost) + '</b></span><span>Pays <b>' + usd0(b.payout) + '</b></span><span>Profit if it hits <b>' + usd0(b.payout - b.cost) + '</b></span><span>Fair value now <b>' + usd0(b.expectedValue) + '</b></span></div>' +
+        '<ul class="legs">' + legs + '</ul>' + spark(S.history, b.id) + '</article>';
+    }).join('') || '<p style="color:var(--muted)">No bets in this group yet.</p>';
+
+    // Slate table: one row per game
+    $('slateRows').innerHTML = (S.games || []).map((g) => {
+      const gb = bets.filter((b) => b.game === g.id);
+      const ev = gb.reduce((a, b) => a + b.contracts * b.pWin, 0);
+      const avg = gb.length ? gb.reduce((a, b) => a + b.pWin, 0) / gb.length : null;
+      const st = g.state === 'post' ? 'Final' : g.state === 'in' ? 'Live' : 'Pregame';
+      const n = (s) => gb.filter((b) => b.status === s).length;
+      return '<tr><td class="l">' + esc(g.label) + '</td><td>' + st + '</td><td>' + gb.length + (gb.length ? ' <span class="sub">(' + n('won') + 'W ' + n('lost') + 'L ' + n('live') + ' live)</span>' : '') + '</td><td>' + usd0(gb.reduce((a, b) => a + b.cost, 0)) + '</td><td>' + usd0(ev) + '</td><td>' + (avg === null ? '–' : pct(avg)) + '</td></tr>';
+    }).join('') || '<tr><td colspan="6" class="l" style="color:var(--muted)">No games.</td></tr>';
+
+    // Bets table: win chance up front, same order as the cards
+    const wp = (b) => '<span class="wp ' + b.status + '"><span class="bar"><span class="fill" style="width:' + (b.status === 'won' ? 100 : b.status === 'lost' ? 0 : Math.round(b.pWin * 100)) + '%"></span></span><b>' + (b.status === 'won' ? 'Won' : b.status === 'lost' ? 'Lost' : pct(b.pWin)) + '</b></span>';
+    $('betRows').innerHTML = shown.map((b) =>
+      '<tr class="' + b.status + '"><td class="l">' + betLink(b) + '<div class="sub">' + b.legs.length + '-leg · ' + b.contracts.toLocaleString() + ' @ ' + (b.price * 100).toFixed(1) + '¢</div></td><td class="l gm">' + esc(b.gameLabel || '') + '</td><td>' + usd(b.cost) + '</td><td>' + usd0(b.payout) + '</td><td>' + wp(b) + '</td></tr>'
+    ).join('') || '<tr><td colspan="5" class="l" style="color:var(--muted)">No bets in this group yet.</td></tr>';
+    $('nBets').textContent = bets.length;
+    $('nBox').textContent = Object.keys(S.playerStats || {}).length;
+
+    renderPlayers(S, injuredIds);
+    renderWhy(FULL);
+    renderPnl(S);
+  }
+
+  function whyBox(b, S) {
+    const legs = b.legs || [];
+    if (!legs.length) return '';
+    const word = { won: 'Hit', lost: 'Missed', live: 'Live' };
+    return '<div class="why-box"><span class="eyebrow">Box score</span>' + legs.map((l) => {
+      const t = legText(l), seen = !l.player || (S.playerStats || {})[l.player];
+      const name = legs.length > 1 ? esc(l.label) + ' · ' : '';
+      return '<div class="row"><span class="pill ' + l.status + '" style="padding:1px 6px"><span class="dot"></span></span>' +
+        '<span>' + name + '<span class="cur">' + esc(seen ? t.left : 'No stats yet') + '</span></span><span class="tag">' + esc(t.right || word[l.status] || '') + '</span></div>';
+    }).join('') + '</div>';
+  }
+
+  function renderWhy(S) {
+    const bets = (S.bets || []).filter((b) => b.why);
+    $('nWhy').textContent = bets.length;
+    $('whyLabel').textContent = bets.length + ' bet' + (bets.length === 1 ? '' : 's');
+    const order = { live: 0, won: 1, lost: 2 };
+    $('whys').innerHTML = bets.slice().sort((a, b) => (a.placed || '').localeCompare(b.placed || '') || order[a.status] - order[b.status]).map((b) => {
+      const w = b.why;
+      const nums = [['Price', (b.price * 100).toFixed(0) + '¢'], ['Our chance', w.p != null ? pct(w.p) : '–'], ['Model', w.pModel != null ? pct(w.pModel) : '–'],
+        ['Books', w.pBook != null ? pct(w.pBook) : '–'], ['Edge', w.ev != null ? (w.ev * 100).toFixed(1) + '¢' : '–'], ['Staked', usd0(b.cost)]];
+      if (b.status === 'won') nums.push(['Won', usd(b.payout)], ['Profit', '+' + usd(b.payout - b.cost)]);
+      else if (b.status === 'lost') nums.push(['Lost', '−' + usd(b.cost)]);
+      else nums.push(['To win', '+' + usd(b.payout - b.cost)]);
+      return '<article class="why ' + b.status + '"><div class="why-head"><div style="display:grid;gap:4px;min-width:0"><h3>' + esc(b.title) + '</h3>' +
+        '<span class="bet-meta">' + esc(b.gameLabel || '') + ' · ' + esc(w.wave || '') + (w.group ? ' · <span class="grp">' + esc(w.group) + '</span>' : '') + '</span></div>' +
+        '<span class="pill ' + b.status + '"><span class="dot"></span>' + (b.status === 'live' ? 'Live' : b.status === 'won' ? 'Won' : 'Lost') + '</span></div>' +
+        '<div class="why-nums">' + nums.map(([k, v]) => '<span>' + k + ' <b>' + esc(v) + '</b></span>').join('') + '</div>' +
+        whyBox(b, S) +
+        '<ul>' + (w.points || []).map((t) => '<li>' + esc(t) + '</li>').join('') + '</ul>' +
+        (w.verdict ? '<div class="verdict">' + esc(w.verdict) + '</div>' : '') + '</article>';
+    }).join('') || '<p style="color:var(--muted)">No bets placed yet today. Reasons appear here as soon as a wave places bets.</p>';
+  }
+
+  let STATE = null;
+  try { STATE = JSON.parse($('state').textContent); } catch (e) {}
+
+  document.querySelectorAll('.filters button[data-f]').forEach((btn) => {
+    btn.setAttribute('aria-pressed', String(btn.dataset.f === filter));
+    btn.addEventListener('click', () => {
+      filter = btn.dataset.f;
+      try { localStorage.setItem('betFilter', filter); } catch (e) {}
+      document.querySelectorAll('.filters button[data-f]').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      if (STATE) render(STATE);
+    });
+  });
+
+  let pnlView = 'weeks';
+  try { pnlView = localStorage.getItem('pnlView') || 'weeks'; } catch (e) {}
+  function signed(n) { return (n < 0 ? '−' : '+') + usd(Math.abs(n)); }
+  function renderPnl(S) {
+    const P = S.pnl;
+    if (!P) return;
+    const s = P.season;
+    $('pnlTiles').innerHTML =
+      '<div class="stat"><span class="eyebrow">Season profit</span><span class="v num ' + (s.profit >= 0 ? 'up' : 'down') + '">' + signed(s.profit) + '</span><span class="s">' + s.roi + '% return on ' + usd0(s.staked) + ' staked</span></div>' +
+      '<div class="stat"><span class="eyebrow">Record</span><span class="v num">' + s.won + '–' + s.lost + '</span><span class="s">' + s.bets + ' settled bet' + (s.bets === 1 ? '' : 's') + '</span></div>' +
+      '<div class="stat"><span class="eyebrow">Open now</span><span class="v num">' + usd0(P.open.staked) + '</span><span class="s">' + P.open.bets + ' bets · expected return ' + usd0(P.open.expected) + '</span></div>';
+    const rows = P[pnlView] || [];
+    $('pnlRows').innerHTML = rows.length ? rows.slice().reverse().map((r) =>
+      '<tr><td>' + esc(r.label) + '</td><td>' + r.bets + '</td><td>' + r.won + '–' + r.lost + '</td><td>' + usd(r.staked) + '</td><td>' + usd(r.returned) + '</td><td class="' + (r.profit >= 0 ? 'pos' : 'neg') + '">' + signed(r.profit) + '</td><td>' + r.roi + '%</td></tr>').join('')
+      : '<tr><td colspan="7" style="text-align:left;color:var(--muted)">No settled bets yet. Bets settle into the ledger when their game goes final.</td></tr>';
+    $('pnlNote').textContent = 'Settled bets only. Weeks are NFL weeks (Tuesday to Monday); months and quarters are calendar based. Profit is payout minus total cost, fees included.';
+  }
+  document.querySelectorAll('.filters button[data-p]').forEach((btn) => {
+    btn.setAttribute('aria-pressed', String(btn.dataset.p === pnlView));
+    btn.addEventListener('click', () => {
+      pnlView = btn.dataset.p;
+      try { localStorage.setItem('pnlView', pnlView); } catch (e) {}
+      document.querySelectorAll('.filters button[data-p]').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      if (STATE) renderPnl(STATE);
+    });
+  });
+
+  // A bet name opens that bet's full card right under the link (and closes it on a second tap). Jumping to the
+  // card further down doesn't work when the page is embedded in a frame that can't scroll itself (claude.ai).
+  document.addEventListener('click', (e) => {
+    let a = e.target.closest && e.target.closest('a.bet-link');
+    if (!a) return;
+    e.preventDefault();
+    const id = a.dataset.bet;
+    let row = a.closest('tr'), spot = row || a.closest('.track-bets') || a;
+    const next = spot.nextElementSibling;
+    const wasOpen = next && next.classList.contains('bet-inline') && next.dataset.bet === id;
+    document.querySelectorAll('.bet-inline').forEach((el) => el.remove());
+    document.querySelectorAll('a.bet-link[aria-expanded]').forEach((el) => el.removeAttribute('aria-expanded'));
+    if (wasOpen) return;
+    if (!document.getElementById('bet-' + id) && filter !== 'all') {
+      filter = 'all';
+      document.querySelectorAll('.filters button[data-f]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.f === 'all')));
+      // Filtered out of the card list: show every bet, then find the same link in the rebuilt page.
+      const where = row ? '#betRows' : '#' + a.closest('.panel').id;
+      if (STATE) render(STATE);
+      a = document.querySelector(where + ' a.bet-link[data-bet="' + CSS.escape(id) + '"]');
+      if (!a) return;
+      row = a.closest('tr'); spot = row || a.closest('.track-bets') || a;
+    }
+    const card = document.getElementById('bet-' + id);
+    if (!card) return;
+    const copy = card.cloneNode(true);
+    copy.removeAttribute('id');
+    let box;
+    if (row) {
+      box = document.createElement('tr');
+      const td = document.createElement('td');
+      td.colSpan = row.children.length;
+      td.appendChild(copy);
+      box.appendChild(td);
+    } else {
+      box = document.createElement('div');
+      box.appendChild(copy);
+    }
+    box.className = 'bet-inline';
+    box.dataset.bet = id;
+    spot.after(box);
+    a.setAttribute('aria-expanded', 'true');
+    try { box.scrollIntoView({ block: 'nearest' }); } catch (err) {}
+  });
+
+  let tab = 'slate';
+  try { tab = localStorage.getItem('betTab') || 'slate'; } catch (e) {}
+  function showTab(t) {
+    if (!document.getElementById('panel-' + t)) t = 'slate';
+    tab = t;
+    document.querySelectorAll('.tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === t)));
+    document.querySelectorAll('.panel').forEach((p) => { p.hidden = p.id !== 'panel-' + t; });
+    try { localStorage.setItem('betTab', t); } catch (e) {}
+  }
+  document.querySelectorAll('.tabs button').forEach((b) => b.addEventListener('click', () => showTab(b.dataset.tab)));
+  showTab(tab);
+
+  window.renderTracker = (s) => { STATE = s; render(s); };
+
+  // On claude.ai: connect to the artifact runtime so this view live-reloads when a new version is published.
+  if (!window.TRACKER_LIVE && window.claude && typeof window.claude.use === 'function') window.claude.use('artifact').catch(() => {});
+
+  // A frozen page should say so: during games data older than 6 minutes means this view missed an update.
+  function staleCheck() {
+    const el = $('nextUpdate');
+    if (!STATE || STATE.state === 'post' || !STATE.generatedAt) return;
+    const live = (STATE.games || []).some((g) => g.state === 'in');
+    const mins = (Date.now() - Date.parse(STATE.generatedAt)) / 60000;
+    if (live && mins > 6) el.innerHTML = '<b style="color:var(--lost)">Data is ' + Math.round(mins) + ' min old. Reload the page for the latest.</b>';
+  }
+  setInterval(staleCheck, 30000);
+  if (STATE) render(STATE);
+  else if (!window.TRACKER_LIVE) fetch('live.json', { cache: 'no-store' }).then((r) => r.json()).then((s) => { STATE = s; render(s); }).catch(() => {});
+})();
+</script>

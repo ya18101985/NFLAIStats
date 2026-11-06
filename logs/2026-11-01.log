@@ -1,0 +1,444 @@
+10:51:47 === DRY RUN 2026-11-01 ===
+10:52:03 wave 2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN: bets at Sun 08:30 AM PT, rule sun_early
+10:52:03 wave 2026-11-01 1305 LACLAR: bets at Sun 12:50 PM PT, rule sun_afternoon_first
+10:52:03 wave 2026-11-01 1325 KCDEN+NEMIA: bets at Sun 01:15 PM PT, rule sun_afternoon_rest
+10:52:03 wave 2026-11-01 1720 PHIWAS: bets at Sun 04:45 PM PT, rule all_cash
+10:52:03 --- 2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN ---
+10:52:03 cash $3,202.76, account $3,202.76, wave bankroll $2,562.21 (sun_early)
+10:52:06   sanity skip 26NOV01ARIDAL: ('Jacoby Brissett', 'attempts', 44.0, np.float64(36.7))
+10:52:06   sanity skip 26NOV01ARIDAL: ('Jacoby Brissett', 'completions', 29.0, np.float64(23.7))
+10:52:06   sanity skip 26NOV01ARIDAL: ('Trey McBride', 'receptions', 9.0, np.float64(7.6))
+10:52:07   sanity skip 26NOV01ATLTB: ('Chris Godwin Jr.', 'receiving_yards', 58.3, np.float64(40.1))
+10:52:07   sanity skip 26NOV01ATLTB: ('Chris Godwin Jr.', 'receptions', 6.0, np.float64(4.2))
+10:52:07   sanity skip 26NOV01ATLTB: ('Drake London', 'receptions', 5.0, np.float64(6.1))
+10:52:09   sanity skip 26NOV01BALBUF: ('James Cook III', 'carries', 23.0, np.float64(18.2))
+10:52:09   sanity skip 26NOV01BALBUF: ('Derrick Henry', 'carries', 23.0, np.float64(18.3))
+10:52:09   sanity skip 26NOV01BALBUF: ('Zay Flowers', 'receiving_yards', 111.1, np.float64(84.5))
+10:52:09   sanity skip 26NOV01BALBUF: ('Zay Flowers', 'receptions', 8.0, np.float64(6.1))
+10:52:11   sanity skip 26NOV01CLEPIT: ('Deshaun Watson', 'carries', 6.0, np.float64(2.5))
+10:52:11   sanity skip 26NOV01CLEPIT: ('Quinshon Judkins', 'receptions', 3.0, np.float64(1.9))
+10:52:13   sanity skip 26NOV01INDJAC: ('Bhayshul Tuten', 'carries', 19.0, np.float64(14.6))
+10:52:13   sanity skip 26NOV01INDJAC: ('Bhayshul Tuten', 'receptions', 1.0, np.float64(2.1))
+10:52:13   sanity skip 26NOV01INDJAC: ('Parker Washington', 'receiving_yards', 42.2, np.float64(66.0))
+10:52:13   sanity skip 26NOV01INDJAC: ('Parker Washington', 'receptions', 3.0, np.float64(4.6))
+10:52:13   sanity skip 26NOV01INDJAC: ('Trevor Lawrence', 'attempts', 26.0, np.float64(30.6))
+10:52:13   sanity skip 26NOV01INDJAC: ('Daniel Jones', 'attempts', 37.0, np.float64(31.7))
+10:52:13   sanity skip 26NOV01INDJAC: ('Daniel Jones', 'completions', 23.0, np.float64(19.6))
+10:52:13   sanity skip 26NOV01INDJAC: ('Daniel Jones', 'passing_yards', 238.7, np.float64(189.8))
+10:52:13   sanity skip 26NOV01INDJAC: ('Keenan Allen', 'receiving_yards', 56.0, np.float64(36.2))
+10:52:16   sanity skip 26NOV01LVNYJ: ('Adonai Mitchell', 'receiving_yards', 36.9, np.float64(24.8))
+10:52:16   sanity skip 26NOV01LVNYJ: ('Adonai Mitchell', 'receptions', 3.0, np.float64(1.9))
+10:52:18   sanity skip 26NOV01MINDET: ('Sam LaPorta', 'receiving_yards', 30.9, np.float64(45.7))
+10:52:18   sanity skip 26NOV01MINDET: ('Sam LaPorta', 'receptions', 3.0, np.float64(4.4))
+10:52:20   sanity skip 26NOV01TENCIN: ("Ja'Marr Chase", 'receiving_yards', 58.0, np.float64(80.5))
+10:52:20   sanity skip 26NOV01TENCIN: ("Ja'Marr Chase", 'receptions', 5.0, np.float64(6.7))
+10:52:20   sanity skip 26NOV01TENCIN: ("Wan'Dale Robinson", 'receptions', 4.0, np.float64(5.2))
+10:52:21 1450 priced sides -> 12 singles ($1,500), 4 parlay candidates
+10:52:21   placed Cam Ward passing_yards over 199.5 YES 327 @ 0.45 ($147) -> resting 0/327
+10:52:21   placed Trevor Lawrence passing_yards under 199.5 NO 420 @ 0.29 ($122) -> resting 0/420
+10:52:21   placed Chase Brown carries over 16.5 YES 350 @ 0.35 ($122) -> resting 0/350
+10:52:21   placed Cam Ward completions over 19.5 YES 257 @ 0.49 ($126) -> resting 0/257
+10:52:21   placed James Cook III rushing_yards over 89.5 YES 280 @ 0.44 ($123) -> resting 0/280
+10:52:21   placed Quinshon Judkins receiving_yards over 14.5 YES 340 @ 0.36 ($122) -> resting 0/340
+10:52:21   placed Jared Goff passing_yards under 224.5 NO 360 @ 0.34 ($122) -> resting 0/360
+10:52:21   placed Baker Mayfield rushing_yards under 14.5 NO 268 @ 0.46 ($123) -> resting 0/268
+10:52:21   placed Amon-Ra St. Brown receptions under 6.5 NO 286 @ 0.43 ($123) -> resting 0/286
+10:52:21   placed Michael Penix Jr. passing_yards under 199.5 NO 360 @ 0.34 ($122) -> resting 0/360
+10:52:21   placed Josh Allen rushing_yards under 39.5 NO 225 @ 0.55 ($124) -> resting 0/225
+10:52:21   placed Joe Burrow passing_yards under 249.5 NO 331 @ 0.37 ($122) -> resting 0/331
+10:52:21   [dry run] parlay p=0.150 $128: Trevor Lawrence passing_yards under 249.5 no + Jared Goff passing_yards under 249.5 no + Joe Burrow attempts under 36.5 no + Joe Burrow completions under 25.5 no + Trevor Lawrence completions under 19.5 no
+10:52:21   [dry run] parlay p=0.135 $128: Jared Goff passing_yards under 249.5 no + Cam Ward passing_yards over 174.5 yes + James Cook III rushing_yards over 79.5 yes + Michael Penix Jr. attempts under 32.5 no + Amon-Ra St. Brown receptions under 7.5 no
+10:52:21   [dry run] parlay p=0.126 $128: Trevor Lawrence passing_yards under 249.5 no + Cam Ward passing_yards over 174.5 yes + Chase Brown carries over 13.5 yes + Garrett Wilson receptions under 5.5 no + CeeDee Lamb receiving_yards over 79.5 yes
+10:52:21   [dry run] parlay p=0.121 $128: James Cook III rushing_yards over 79.5 yes + Trevor Lawrence completions under 19.5 no + Chase Brown carries over 13.5 yes + Bhayshul Tuten rushing_yards over 59.5 yes + Baker Mayfield passing_yards under 224.5 no
+10:52:24 2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN: placed 12 singles; cash now $3,203
+10:52:24 --- 2026-11-01 1305 LACLAR ---
+10:52:26 cash $3,202.76, account $3,202.76, wave bankroll $640.55 (sun_afternoon_first)
+10:52:29   sanity skip 26NOV01LACLAR: ('Justin Herbert', 'attempts', 36.0, np.float64(31.6))
+10:52:29   sanity skip 26NOV01LACLAR: ('Justin Herbert', 'completions', 22.0, np.float64(19.0))
+10:52:29 146 priced sides -> 0 singles ($0), 0 parlay candidates
+10:52:32 2026-11-01 1305 LACLAR: placed 0 singles; cash now $3,203
+10:52:33 --- 2026-11-01 1325 KCDEN+NEMIA ---
+10:52:34 cash $3,202.76, account $3,202.76, wave bankroll $3,202.76 (sun_afternoon_rest)
+10:52:37   sanity skip 26NOV01KCDEN: ('J.K. Dobbins', 'carries', 12.0, np.float64(7.1))
+10:52:37   sanity skip 26NOV01KCDEN: ('J.K. Dobbins', 'rushing_yards', 36.0, np.float64(22.7))
+10:52:37   sanity skip 26NOV01KCDEN: ('Kenneth Walker III', 'carries', 21.0, np.float64(16.5))
+10:52:37   sanity skip 26NOV01KCDEN: ('Kenneth Walker III', 'rushing_yards', 115.3, np.float64(87.6))
+10:52:39   sanity skip 26NOV01NEMIA: ('Hunter Henry', 'receptions', 3.0, np.float64(4.1))
+10:52:39 262 priced sides -> 2 singles ($309), 4 parlay candidates
+10:52:39   placed Ollie Gordon II carries under 15.5 NO 287 @ 0.54 ($155) -> resting 0/287
+10:52:39   placed Rhamondre Stevenson receptions under 2.5 NO 350 @ 0.44 ($154) -> resting 0/350
+10:52:39   [dry run] parlay p=0.135 $160: Rhamondre Stevenson rr_yards under 79.5 no + Kenneth Walker III receiving_yards under 19.5 no + Malik Willis passing_yards over 174.5 yes + Malik Willis completions over 16.5 yes + Kenneth Walker III receptions under 3.5 no
+10:52:39   [dry run] parlay p=0.127 $160: Rhamondre Stevenson rr_yards under 79.5 no + Bo Nix passing_yards under 224.5 no + Bo Nix attempts under 33.5 no + Rhamondre Stevenson rushing_yards under 59.5 no + DeMario Douglas receptions under 3.5 no
+10:52:39   [dry run] parlay p=0.125 $160: Malik Willis completions over 16.5 yes + Bo Nix attempts under 33.5 no + Drake Maye carries over 4.5 yes + Bo Nix rushing_yards under 19.5 no + Malik Willis attempts over 23.5 yes
+10:52:39   [dry run] parlay p=0.232 $160: Bo Nix passing_yards under 224.5 no + Malik Willis passing_yards over 174.5 yes + Malik Willis attempts over 23.5 yes + Hunter Henry receiving_yards under 49.5 no
+10:52:42 2026-11-01 1325 KCDEN+NEMIA: placed 2 singles; cash now $3,203
+10:52:42 --- 2026-11-01 1720 PHIWAS ---
+10:52:44 cash $3,202.76, account $3,202.76, wave bankroll $3,202.76 (all_cash)
+10:52:47   sanity skip 26NOV01PHIWAS: ('Jayden Daniels', 'completions', 21.0, np.float64(17.9))
+10:52:47 68 priced sides -> 1 singles ($154), 0 parlay candidates
+10:52:47   placed Jayden Daniels attempts over 29.5 YES 309 @ 0.50 ($154) -> resting 0/309
+10:52:50 2026-11-01 1720 PHIWAS: placed 1 singles; cash now $3,203
+10:52:50 === day complete ===
+23:54:06 === DRY RUN 2026-11-01 ===
+23:54:16 wave 2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN: bets at Sun 08:30 AM PT, rule sun_early
+23:54:16 wave 2026-11-01 1305 LACLAR: bets at Sun 12:50 PM PT, rule sun_afternoon_first
+23:54:16 wave 2026-11-01 1325 KCDEN+NEMIA: bets at Sun 01:15 PM PT, rule sun_afternoon_rest
+23:54:16 wave 2026-11-01 1720 PHIWAS: bets at Sun 04:45 PM PT, rule all_cash
+23:54:16 --- 2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN ---
+23:54:16 cash $3,202.76, account $3,202.76, wave bankroll $2,562.21 (sun_early)
+23:54:49   skip 26NOV01ARIDAL: ('CeeDee Lamb', 'receiving_yards', 104.3, np.float64(83.4))
+23:54:49   skip 26NOV01ARIDAL: ('Jacoby Brissett', 'attempts', 44.0, np.float64(36.3))
+23:54:49   skip 26NOV01ARIDAL: ('Jacoby Brissett', 'completions', 29.0, np.float64(23.8))
+23:54:49   skip 26NOV01ARIDAL: ('Jeremiyah Love', 'carries', 14.0, np.float64(9.8))
+23:54:49   skip 26NOV01ARIDAL: ('Michael Wilson', 'receptions', 6.0, np.float64(4.7))
+23:54:49   skip 26NOV01ARIDAL: ('Trey McBride', 'receptions', 9.0, np.float64(7.5))
+23:55:04   skip 26NOV01ATLTB: ('Chris Godwin Jr.', 'receiving_yards', 59.1, np.float64(40.8))
+23:55:04   skip 26NOV01ATLTB: ('Chris Godwin Jr.', 'receptions', 6.0, np.float64(4.4))
+23:55:04   skip 26NOV01ATLTB: ('Khalil Herbert', 'depth chart', 'not on the current depth chart')
+23:55:04   skip 26NOV01ATLTB: ('Drake London', 'receptions', 5.0, np.float64(6.1))
+23:55:17   skip 26NOV01BALBUF: ('James Cook III', 'carries', 23.0, np.float64(18.1))
+23:55:17   skip 26NOV01BALBUF: ('James Cook III', 'rushing_yards', 103.4, np.float64(82.7))
+23:55:17   skip 26NOV01BALBUF: ('Devontez Walker', 'depth chart', 'role changed: WR3 two weeks ago, WR4 now')
+23:55:17   skip 26NOV01BALBUF: ("Ja'Kobi Lane", 'depth chart', 'role changed: WR6 two weeks ago, WR3 now')
+23:55:17   skip 26NOV01BALBUF: ('Derrick Henry', 'carries', 23.0, np.float64(18.4))
+23:55:17   skip 26NOV01BALBUF: ('Lamar Jackson', 'attempts', 37.0, np.float64(30.4))
+23:55:17   skip 26NOV01BALBUF: ('Lamar Jackson', 'completions', 25.0, np.float64(19.7))
+23:55:17   skip 26NOV01BALBUF: ('Lamar Jackson', 'passing_yards', 309.1, np.float64(240.8))
+23:55:17   skip 26NOV01BALBUF: ('Zay Flowers', 'receiving_yards', 111.1, np.float64(86.0))
+23:55:17   skip 26NOV01BALBUF: ('Zay Flowers', 'receptions', 8.0, np.float64(6.1))
+23:55:33   skip 26NOV01CLEPIT: ('Quinshon Judkins', 'receptions', 3.0, np.float64(1.9))
+23:55:46   skip 26NOV01INDJAC: ('Brian Thomas Jr.', 'depth chart', 'role changed: WR3 two weeks ago, WR4 now')
+23:55:46   skip 26NOV01INDJAC: ('Josh Cameron', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+23:55:46   skip 26NOV01INDJAC: ('Bhayshul Tuten', 'carries', 19.0, np.float64(15.1))
+23:55:46   skip 26NOV01INDJAC: ('Bhayshul Tuten', 'receptions', 1.0, np.float64(2.1))
+23:55:46   skip 26NOV01INDJAC: ('Parker Washington', 'receiving_yards', 43.1, np.float64(68.1))
+23:55:46   skip 26NOV01INDJAC: ('Parker Washington', 'receptions', 3.0, np.float64(4.6))
+23:55:46   skip 26NOV01INDJAC: ('Trevor Lawrence', 'attempts', 26.0, np.float64(30.5))
+23:55:46   skip 26NOV01INDJAC: ('Daniel Jones', 'attempts', 37.0, np.float64(31.7))
+23:55:46   skip 26NOV01INDJAC: ('Daniel Jones', 'completions', 23.0, np.float64(19.9))
+23:55:46   skip 26NOV01INDJAC: ('Daniel Jones', 'passing_yards', 244.0, np.float64(193.5))
+23:55:46   skip 26NOV01INDJAC: ('Josh Downs', 'receiving_yards', 46.7, np.float64(33.3))
+23:55:46   skip 26NOV01INDJAC: ('Keenan Allen', 'receiving_yards', 57.0, np.float64(35.4))
+23:55:46   skip 26NOV01INDJAC: ('Laquon Treadwell', 'receiving_yards', 36.0, np.float64(23.3))
+23:55:59   skip 26NOV01LVNYJ: ('Omar Cooper Jr.', 'depth chart', 'role changed: WR6 two weeks ago, WR2 now')
+23:55:59   skip 26NOV01LVNYJ: ('Mason Taylor', 'depth chart', 'role changed: TE2 two weeks ago, TE1 now')
+23:55:59   skip 26NOV01LVNYJ: ('Kenyon Sadiq', 'depth chart', 'role changed: TE1 two weeks ago, TE2 now')
+23:55:59   skip 26NOV01LVNYJ: ('Adonai Mitchell', 'receiving_yards', 36.9, np.float64(24.8))
+23:55:59   skip 26NOV01LVNYJ: ('Adonai Mitchell', 'receptions', 3.0, np.float64(1.9))
+23:55:59   skip 26NOV01LVNYJ: ('Kirk Cousins', 'attempts', 37.0, np.float64(32.5))
+23:56:15   skip 26NOV01MINDET: ('Amon-Ra St. Brown', 'receptions', 6.0, np.float64(7.0))
+23:56:15   skip 26NOV01MINDET: ('Sam LaPorta', 'receiving_yards', 30.9, np.float64(43.2))
+23:56:15   skip 26NOV01MINDET: ('Sam LaPorta', 'receptions', 3.0, np.float64(4.2))
+23:56:15   skip 26NOV01MINDET: ('Aaron Jones Sr.', 'depth chart', 'role changed: RB1 two weeks ago, RB2 now')
+23:56:15   skip 26NOV01MINDET: ('Jordan Mason', 'depth chart', 'role changed: RB4 two weeks ago, RB1 now')
+23:56:28   skip 26NOV01TENCIN: ('Dohnte Meyers', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+23:56:28   skip 26NOV01TENCIN: ("Ja'Marr Chase", 'receiving_yards', 58.0, np.float64(81.1))
+23:56:28   skip 26NOV01TENCIN: ("Ja'Marr Chase", 'receptions', 5.0, np.float64(6.7))
+23:56:29   [dry run] parlay p=0.182 $128: Josh Allen rushing_yards under 39.5 no + Josh Allen carries under 10.5 no + Kyler Murray completions over 19.5 yes + Keenan Allen receptions over 3.5 yes + Baker Mayfield rushing_yards under 24.5 no
+23:56:29   [dry run] parlay p=0.255 $128: Cam Ward passing_yards over 124.5 yes + Josh Allen rushing_yards under 39.5 no + Jahmyr Gibbs rushing_yards over 69.5 yes + Javonte Williams rushing_yards over 59.5 yes + Jaylen Warren rushing_yards over 39.5 yes
+23:56:29   [dry run] parlay p=0.459 $128: Cam Ward passing_yards over 124.5 yes + Kyler Murray carries over 1.5 yes + Trevor Lawrence carries under 6.5 no + Deshaun Watson passing_yards over 124.5 yes + Kyler Murray completions over 19.5 yes
+23:56:29   [dry run] parlay p=0.432 $128: Geno Smith rushing_yards under 29.5 no + Trevor Lawrence carries under 6.5 no + Jahmyr Gibbs rushing_yards over 69.5 yes + Baker Mayfield rushing_yards under 24.5 no + Daniel Jones rushing_yards under 29.5 no
+23:56:29 4830 priced sides (4830 with sportsbook lines) -> 14 singles ($1,973), parlays $512
+23:56:29   placed 1H Tennessee over 7.5 points YES YES 313 @ 0.45 ($141) -> resting 0/313
+23:56:29   placed Jordan Addison receiving_yards over 39.5 YES 300 @ 0.47 ($141) -> resting 0/300
+23:56:29   placed Josh Allen attempts over 30.5 YES 288 @ 0.49 ($141) -> resting 0/288
+23:56:29   placed Michael Mayer receiving_yards over 29.5 YES 320 @ 0.44 ($141) -> resting 0/320
+23:56:29   placed Game Detroit wins by over 2.5 points NO NO 327 @ 0.43 ($141) -> resting 0/327
+23:56:29   placed 1H Cleveland over 7.5 points YES YES 294 @ 0.48 ($141) -> resting 0/294
+23:56:29   placed Dak Prescott passing_yards over 274.5 YES 306 @ 0.46 ($141) -> resting 0/306
+23:56:29   placed Cam Ward passing_yards over 199.5 YES 411 @ 0.43 ($177) -> resting 0/411
+23:56:29   placed Trevor Lawrence passing_yards under 224.5 NO 320 @ 0.42 ($134) -> resting 0/320
+23:56:29   placed Bijan Robinson receptions under 3.5 NO 313 @ 0.43 ($135) -> resting 0/313
+23:56:29   placed Josh Allen rushing_yards under 39.5 NO 242 @ 0.56 ($136) -> resting 0/242
+23:56:29   placed Joe Burrow passing_yards under 274.5 NO 270 @ 0.50 ($135) -> resting 0/270
+23:56:29   placed Jaylen Warren rr_yards over 89.5 YES 265 @ 0.51 ($135) -> resting 0/265
+23:56:29   placed Quinshon Judkins receiving_yards over 9.5 YES 265 @ 0.51 ($135) -> resting 0/265
+23:56:32 2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN: placed 14 singles; cash now $3,203
+23:56:32 --- 2026-11-01 1305 LACLAR ---
+23:56:34 cash $3,202.76, account $3,202.76, wave bankroll $640.55 (sun_afternoon_first)
+23:57:03   skip 26NOV01LACLAR: ('Konata Mumpfield', 'depth chart', 'role changed: WR4 two weeks ago, WR2 now')
+23:57:03   skip 26NOV01LACLAR: ('Tyler Higbee', 'depth chart', 'role changed: TE2 two weeks ago, TE1 now')
+23:57:03   skip 26NOV01LACLAR: ('Justin Herbert', 'attempts', 36.0, np.float64(31.2))
+23:57:03 540 priced sides (540 with sportsbook lines) -> 6 singles ($493), parlays $0
+23:57:03   placed Game Los Angeles C over 17.5 points YES YES 169 @ 0.55 ($93) -> resting 0/169
+23:57:03   placed 1Q Los Angeles R wins by over 2.5 points YES YES 189 @ 0.49 ($93) -> resting 0/189
+23:57:03   placed Justin Herbert completions over 19.5 YES 160 @ 0.48 ($77) -> resting 0/160
+23:57:03   placed Matthew Stafford passing_yards under 249.5 NO 157 @ 0.49 ($77) -> resting 0/157
+23:57:03   placed Kyren Williams rr_yards over 89.5 YES 157 @ 0.49 ($77) -> resting 0/157
+23:57:03   placed Omarion Hampton rr_yards over 39.5 YES 143 @ 0.54 ($77) -> resting 0/143
+23:57:07 2026-11-01 1305 LACLAR: placed 6 singles; cash now $3,203
+23:57:07 --- 2026-11-01 1325 KCDEN+NEMIA ---
+23:57:09 cash $3,202.76, account $3,202.76, wave bankroll $3,202.76 (sun_afternoon_rest)
+23:57:40   skip 26NOV01KCDEN: ('J.K. Dobbins', 'carries', 12.0, np.float64(8.5))
+23:57:40   skip 26NOV01KCDEN: ('Kenneth Walker III', 'rushing_yards', 115.4, np.float64(88.1))
+23:57:40   skip 26NOV01KCDEN: ('Rashee Rice', 'receptions', 3.0, np.float64(4.4))
+23:57:54   skip 26NOV01NEMIA: ('Malik Washington', 'receiving_yards', 56.6, np.float64(40.7))
+23:57:54   [dry run] parlay p=0.234 $641: Patrick Mahomes carries under 5.5 no + Ollie Gordon II carries under 15.5 no + Malik Willis passing_yards over 174.5 yes + Patrick Mahomes rushing_yards under 14.5 no
+23:57:54 1166 priced sides (1166 with sportsbook lines) -> 6 singles ($2,471), parlays $641
+23:57:54   placed Kenneth Walker III receptions under 2.5 NO 1125 @ 0.41 ($461) -> resting 0/1125
+23:57:54   placed Drake Maye carries over 4.5 YES 846 @ 0.55 ($465) -> resting 0/846
+23:57:54   placed Malik Willis passing_yards over 174.5 YES 705 @ 0.55 ($388) -> resting 0/705
+23:57:54   placed Bo Nix passing_yards under 199.5 NO 856 @ 0.45 ($385) -> resting 0/856
+23:57:54   placed Malik Willis completions over 16.5 YES 773 @ 0.50 ($386) -> resting 0/773
+23:57:54   placed Malik Washington receptions over 4.5 YES 875 @ 0.44 ($385) -> resting 0/875
+23:57:57 2026-11-01 1325 KCDEN+NEMIA: placed 6 singles; cash now $3,203
+23:57:58 --- 2026-11-01 1720 PHIWAS ---
+23:57:59 cash $3,202.76, account $3,202.76, wave bankroll $3,202.76 (all_cash)
+23:58:28   skip 26NOV01PHIWAS: ('Rachaad White', 'depth chart', 'role changed: RB2 two weeks ago, RB1 now')
+23:58:28   skip 26NOV01PHIWAS: ('Elijah Mitchell', 'depth chart', 'not on the current depth chart')
+23:58:28   skip 26NOV01PHIWAS: ('Tanner McKee', 'depth chart', 'role changed: QB2 two weeks ago, QB1 now')
+23:58:28 502 priced sides (502 with sportsbook lines) -> 7 singles ($2,471), parlays $0
+23:58:28   placed Jayden Daniels attempts over 29.5 YES 643 @ 0.48 ($309) -> resting 0/643
+23:58:28   placed 1H Philadelphia over 7.5 points YES YES 670 @ 0.46 ($308) -> resting 0/670
+23:58:28   placed 2H Washington wins by over 3.5 points YES YES 670 @ 0.46 ($308) -> resting 0/670
+23:58:28   placed 1H Washington over 10.5 points YES YES 607 @ 0.51 ($310) -> resting 0/607
+23:58:28   placed Game Washington over 20.5 points YES YES 527 @ 0.59 ($311) -> resting 0/527
+23:58:28   placed Jayden Daniels completions over 18.5 YES 965 @ 0.48 ($463) -> resting 0/965
+23:58:28   placed Dallas Goedert receiving_yards over 49.5 YES 1050 @ 0.44 ($462) -> resting 0/1050
+23:58:31 2026-11-01 1720 PHIWAS: placed 7 singles; cash now $3,203
+23:58:31 === day complete ===
+23:59:24 === DRY RUN 2026-11-01 ===
+23:59:34 wave 2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN: bets at Sun 08:30 AM PT, rule sun_early
+23:59:34 wave 2026-11-01 1305 LACLAR: bets at Sun 12:50 PM PT, rule sun_afternoon_first
+23:59:34 wave 2026-11-01 1325 KCDEN+NEMIA: bets at Sun 01:15 PM PT, rule sun_afternoon_rest
+23:59:34 wave 2026-11-01 1720 PHIWAS: bets at Sun 04:45 PM PT, rule all_cash
+23:59:34 --- 2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN ---
+23:59:34 cash $3,202.76, account $3,202.76, wave bankroll $2,562.21 (sun_early)
+00:00:00   skip 26NOV01ARIDAL: ('CeeDee Lamb', 'receiving_yards', 104.3, np.float64(83.4))
+00:00:00   skip 26NOV01ARIDAL: ('Jacoby Brissett', 'attempts', 44.0, np.float64(36.3))
+00:00:00   skip 26NOV01ARIDAL: ('Jacoby Brissett', 'completions', 29.0, np.float64(23.8))
+00:00:00   skip 26NOV01ARIDAL: ('Jeremiyah Love', 'carries', 14.0, np.float64(9.8))
+00:00:00   skip 26NOV01ARIDAL: ('Michael Wilson', 'receptions', 6.0, np.float64(4.7))
+00:00:00   skip 26NOV01ARIDAL: ('Trey McBride', 'receptions', 9.0, np.float64(7.5))
+00:00:14   skip 26NOV01ATLTB: ('Chris Godwin Jr.', 'receiving_yards', 59.1, np.float64(40.8))
+00:00:14   skip 26NOV01ATLTB: ('Chris Godwin Jr.', 'receptions', 6.0, np.float64(4.4))
+00:00:14   skip 26NOV01ATLTB: ('Khalil Herbert', 'depth chart', 'not on the current depth chart')
+00:00:14   skip 26NOV01ATLTB: ('Drake London', 'receptions', 5.0, np.float64(6.1))
+00:00:25   skip 26NOV01BALBUF: ('James Cook III', 'carries', 23.0, np.float64(18.1))
+00:00:25   skip 26NOV01BALBUF: ('James Cook III', 'rushing_yards', 103.4, np.float64(82.7))
+00:00:25   skip 26NOV01BALBUF: ('Devontez Walker', 'depth chart', 'role changed: WR3 two weeks ago, WR4 now')
+00:00:25   skip 26NOV01BALBUF: ("Ja'Kobi Lane", 'depth chart', 'role changed: WR6 two weeks ago, WR3 now')
+00:00:25   skip 26NOV01BALBUF: ('Derrick Henry', 'carries', 23.0, np.float64(18.4))
+00:00:25   skip 26NOV01BALBUF: ('Lamar Jackson', 'attempts', 37.0, np.float64(30.4))
+00:00:25   skip 26NOV01BALBUF: ('Lamar Jackson', 'completions', 25.0, np.float64(19.7))
+00:00:25   skip 26NOV01BALBUF: ('Lamar Jackson', 'passing_yards', 309.1, np.float64(240.8))
+00:00:25   skip 26NOV01BALBUF: ('Zay Flowers', 'receiving_yards', 111.1, np.float64(86.0))
+00:00:25   skip 26NOV01BALBUF: ('Zay Flowers', 'receptions', 8.0, np.float64(6.1))
+00:00:41   skip 26NOV01CLEPIT: ('Quinshon Judkins', 'receptions', 3.0, np.float64(1.9))
+00:00:53   skip 26NOV01INDJAC: ('Brian Thomas Jr.', 'depth chart', 'role changed: WR3 two weeks ago, WR4 now')
+00:00:53   skip 26NOV01INDJAC: ('Josh Cameron', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+00:00:53   skip 26NOV01INDJAC: ('Bhayshul Tuten', 'carries', 19.0, np.float64(15.1))
+00:00:53   skip 26NOV01INDJAC: ('Bhayshul Tuten', 'receptions', 1.0, np.float64(2.1))
+00:00:53   skip 26NOV01INDJAC: ('Parker Washington', 'receiving_yards', 43.1, np.float64(67.7))
+00:00:53   skip 26NOV01INDJAC: ('Parker Washington', 'receptions', 3.0, np.float64(4.6))
+00:00:53   skip 26NOV01INDJAC: ('Trevor Lawrence', 'attempts', 26.0, np.float64(30.5))
+00:00:53   skip 26NOV01INDJAC: ('Daniel Jones', 'attempts', 37.0, np.float64(31.7))
+00:00:53   skip 26NOV01INDJAC: ('Daniel Jones', 'completions', 23.0, np.float64(19.9))
+00:00:53   skip 26NOV01INDJAC: ('Daniel Jones', 'passing_yards', 244.0, np.float64(193.5))
+00:00:53   skip 26NOV01INDJAC: ('Josh Downs', 'receiving_yards', 46.7, np.float64(33.3))
+00:00:53   skip 26NOV01INDJAC: ('Keenan Allen', 'receiving_yards', 57.0, np.float64(35.4))
+00:00:53   skip 26NOV01INDJAC: ('Laquon Treadwell', 'receiving_yards', 36.0, np.float64(23.3))
+00:01:07   skip 26NOV01LVNYJ: ('Omar Cooper Jr.', 'depth chart', 'role changed: WR6 two weeks ago, WR2 now')
+00:01:07   skip 26NOV01LVNYJ: ('Mason Taylor', 'depth chart', 'role changed: TE2 two weeks ago, TE1 now')
+00:01:07   skip 26NOV01LVNYJ: ('Kenyon Sadiq', 'depth chart', 'role changed: TE1 two weeks ago, TE2 now')
+00:01:07   skip 26NOV01LVNYJ: ('Adonai Mitchell', 'receiving_yards', 36.9, np.float64(24.8))
+00:01:07   skip 26NOV01LVNYJ: ('Adonai Mitchell', 'receptions', 3.0, np.float64(1.9))
+00:01:07   skip 26NOV01LVNYJ: ('Kirk Cousins', 'attempts', 37.0, np.float64(32.5))
+00:01:22   skip 26NOV01MINDET: ('Amon-Ra St. Brown', 'receptions', 6.0, np.float64(7.0))
+00:01:22   skip 26NOV01MINDET: ('Sam LaPorta', 'receiving_yards', 30.9, np.float64(43.2))
+00:01:22   skip 26NOV01MINDET: ('Sam LaPorta', 'receptions', 3.0, np.float64(4.2))
+00:01:22   skip 26NOV01MINDET: ('Aaron Jones Sr.', 'depth chart', 'role changed: RB1 two weeks ago, RB2 now')
+00:01:22   skip 26NOV01MINDET: ('Jordan Mason', 'depth chart', 'role changed: RB4 two weeks ago, RB1 now')
+00:01:35   skip 26NOV01TENCIN: ('Dohnte Meyers', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+00:01:35   skip 26NOV01TENCIN: ("Ja'Marr Chase", 'receiving_yards', 58.0, np.float64(81.1))
+00:01:35   skip 26NOV01TENCIN: ("Ja'Marr Chase", 'receptions', 5.0, np.float64(6.7))
+00:01:36   [dry run] parlay p=0.182 $128: Josh Allen rushing_yards under 39.5 no + Josh Allen carries under 10.5 no + Kyler Murray completions over 19.5 yes + Keenan Allen receptions over 3.5 yes + Baker Mayfield rushing_yards under 24.5 no
+00:01:36   [dry run] parlay p=0.277 $128: Cam Ward passing_yards over 124.5 yes + Josh Allen rushing_yards under 39.5 no + Trevor Lawrence carries under 6.5 no + Jahmyr Gibbs rushing_yards over 69.5 yes + Javonte Williams rushing_yards over 59.5 yes
+00:01:36   [dry run] parlay p=0.467 $128: Cam Ward passing_yards over 124.5 yes + Geno Smith rushing_yards under 29.5 no + Kyler Murray carries over 1.5 yes + Deshaun Watson passing_yards over 124.5 yes + Kyler Murray completions over 19.5 yes
+00:01:36   [dry run] parlay p=0.430 $128: Kyler Murray carries over 1.5 yes + Jahmyr Gibbs rushing_yards over 69.5 yes + Baker Mayfield passing_yards over 124.5 yes + Baker Mayfield rushing_yards under 24.5 no + Daniel Jones rushing_yards under 29.5 no
+00:01:36 4830 priced sides (4830 with sportsbook lines) -> 14 singles ($1,973), parlays $512
+00:01:36   placed 1H Tennessee over 7.5 points YES YES 313 @ 0.45 ($141) -> resting 0/313
+00:01:36   placed Jordan Addison receiving_yards over 39.5 YES 300 @ 0.47 ($141) -> resting 0/300
+00:01:36   placed Josh Allen attempts over 30.5 YES 288 @ 0.49 ($141) -> resting 0/288
+00:01:36   placed Michael Mayer receiving_yards over 29.5 YES 320 @ 0.44 ($141) -> resting 0/320
+00:01:36   placed Game Detroit wins by over 2.5 points NO NO 327 @ 0.43 ($141) -> resting 0/327
+00:01:36   placed 1H Cleveland over 7.5 points YES YES 294 @ 0.48 ($141) -> resting 0/294
+00:01:36   placed Dak Prescott passing_yards over 274.5 YES 306 @ 0.46 ($141) -> resting 0/306
+00:01:36   placed Cam Ward passing_yards over 199.5 YES 411 @ 0.43 ($177) -> resting 0/411
+00:01:36   placed Trevor Lawrence passing_yards under 224.5 NO 320 @ 0.42 ($134) -> resting 0/320
+00:01:36   placed Bijan Robinson receptions under 3.5 NO 313 @ 0.43 ($135) -> resting 0/313
+00:01:36   placed Josh Allen rushing_yards under 39.5 NO 242 @ 0.56 ($136) -> resting 0/242
+00:01:36   placed Joe Burrow passing_yards under 274.5 NO 270 @ 0.50 ($135) -> resting 0/270
+00:01:36   placed Jaylen Warren rr_yards over 89.5 YES 265 @ 0.51 ($135) -> resting 0/265
+00:01:36   placed Quinshon Judkins receiving_yards over 9.5 YES 265 @ 0.51 ($135) -> resting 0/265
+00:01:39 2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN: placed 14 singles; cash now $3,203
+00:01:39 --- 2026-11-01 1305 LACLAR ---
+00:01:41 cash $3,202.76, account $3,202.76, wave bankroll $640.55 (sun_afternoon_first)
+00:02:10   skip 26NOV01LACLAR: ('Konata Mumpfield', 'depth chart', 'role changed: WR4 two weeks ago, WR2 now')
+00:02:10   skip 26NOV01LACLAR: ('Tyler Higbee', 'depth chart', 'role changed: TE2 two weeks ago, TE1 now')
+00:02:10   skip 26NOV01LACLAR: ('Justin Herbert', 'attempts', 36.0, np.float64(31.2))
+00:02:10 538 priced sides (538 with sportsbook lines) -> 6 singles ($556), parlays $0
+00:02:10   placed Game Los Angeles C over 17.5 points YES YES 169 @ 0.55 ($93) -> resting 0/169
+00:02:10   placed 1Q Los Angeles R wins by over 2.5 points YES YES 189 @ 0.49 ($93) -> resting 0/189
+00:02:10   placed Justin Herbert completions over 19.5 YES 193 @ 0.48 ($93) -> resting 0/193
+00:02:10   placed Matthew Stafford passing_yards under 249.5 NO 189 @ 0.49 ($93) -> resting 0/189
+00:02:10   placed Kyren Williams rr_yards over 89.5 YES 189 @ 0.49 ($93) -> resting 0/189
+00:02:10   placed Omarion Hampton rr_yards over 39.5 YES 172 @ 0.54 ($93) -> resting 0/172
+00:02:13 2026-11-01 1305 LACLAR: placed 6 singles; cash now $3,203
+00:02:14 --- 2026-11-01 1325 KCDEN+NEMIA ---
+00:02:15 cash $3,202.76, account $3,202.76, wave bankroll $3,202.76 (sun_afternoon_rest)
+00:02:32   skip 26NOV01KCDEN: ('J.K. Dobbins', 'carries', 12.0, np.float64(8.5))
+00:02:32   skip 26NOV01KCDEN: ('Kenneth Walker III', 'rushing_yards', 115.4, np.float64(87.8))
+00:02:32   skip 26NOV01KCDEN: ('Rashee Rice', 'receptions', 3.0, np.float64(4.4))
+00:02:48   skip 26NOV01NEMIA: ('Malik Washington', 'receiving_yards', 56.6, np.float64(40.7))
+00:02:48   [dry run] parlay p=0.319 $641: Patrick Mahomes carries under 5.5 no + Malik Willis passing_yards over 174.5 yes + Ollie Gordon II carries under 15.5 no + J.K. Dobbins rushing_yards over 9.5 yes
+00:02:48 1166 priced sides (1166 with sportsbook lines) -> 6 singles ($2,471), parlays $641
+00:02:48   placed Kenneth Walker III receptions under 2.5 NO 1125 @ 0.41 ($461) -> resting 0/1125
+00:02:48   placed Drake Maye carries over 4.5 YES 846 @ 0.55 ($465) -> resting 0/846
+00:02:48   placed Malik Willis passing_yards over 174.5 YES 705 @ 0.55 ($388) -> resting 0/705
+00:02:48   placed Bo Nix passing_yards under 199.5 NO 856 @ 0.45 ($385) -> resting 0/856
+00:02:48   placed Malik Willis completions over 16.5 YES 773 @ 0.50 ($386) -> resting 0/773
+00:02:48   placed Malik Washington receptions over 4.5 YES 875 @ 0.44 ($385) -> resting 0/875
+00:02:51 2026-11-01 1325 KCDEN+NEMIA: placed 6 singles; cash now $3,203
+00:02:51 --- 2026-11-01 1720 PHIWAS ---
+00:02:53 cash $3,202.76, account $3,202.76, wave bankroll $3,202.76 (all_cash)
+00:03:17   skip 26NOV01PHIWAS: ('Rachaad White', 'depth chart', 'role changed: RB2 two weeks ago, RB1 now')
+00:03:17   skip 26NOV01PHIWAS: ('Elijah Mitchell', 'depth chart', 'not on the current depth chart')
+00:03:17   skip 26NOV01PHIWAS: ('Tanner McKee', 'depth chart', 'role changed: QB2 two weeks ago, QB1 now')
+00:03:17 502 priced sides (502 with sportsbook lines) -> 7 singles ($3,090), parlays $0
+00:03:17   placed Jayden Daniels attempts over 29.5 YES 901 @ 0.48 ($432) -> resting 0/901
+00:03:17   placed 1H Philadelphia over 7.5 points YES YES 939 @ 0.46 ($432) -> resting 0/939
+00:03:17   placed 1H Washington over 10.5 points YES YES 850 @ 0.51 ($434) -> resting 0/850
+00:03:17   placed 2H Washington wins by over 3.5 points YES YES 939 @ 0.46 ($432) -> resting 0/939
+00:03:17   placed Game Washington over 20.5 points YES YES 738 @ 0.59 ($435) -> resting 0/738
+00:03:17   placed Jayden Daniels completions over 18.5 YES 965 @ 0.48 ($463) -> resting 0/965
+00:03:17   placed Dallas Goedert receiving_yards over 49.5 YES 1050 @ 0.44 ($462) -> resting 0/1050
+00:03:20 2026-11-01 1720 PHIWAS: placed 7 singles; cash now $3,203
+00:03:20 === day complete ===
+00:05:40 === LIVE 2026-11-01 ===
+00:05:50 wave 2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN: bets at Sun 08:30 AM PT, rule sun_early
+00:05:50 wave 2026-11-01 1305 LACLAR: bets at Sun 12:50 PM PT, rule sun_afternoon_first
+00:05:50 wave 2026-11-01 1325 KCDEN+NEMIA: bets at Sun 01:15 PM PT, rule sun_afternoon_rest
+00:05:50 wave 2026-11-01 1720 PHIWAS: bets at Sun 04:45 PM PT, rule all_cash
+00:05:50 sleeping 564 min until 2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN
+08:30:00 --- 2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN ---
+08:30:00 cash $3,202.76, account $3,202.76, wave bankroll $2,562.21 (sun_early)
+08:30:35   skip 26NOV01ARIDAL: ('Reggie Virgil', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+08:30:35   skip 26NOV01ARIDAL: ('Jacoby Brissett', 'attempts', 44.0, np.float64(36.5))
+08:30:35   skip 26NOV01ARIDAL: ('Jacoby Brissett', 'completions', 29.0, np.float64(23.9))
+08:30:35   skip 26NOV01ARIDAL: ('Jeremiyah Love', 'carries', 14.0, np.float64(10.7))
+08:30:35   skip 26NOV01ARIDAL: ('Michael Wilson', 'receptions', 6.0, np.float64(4.8))
+08:30:35   skip 26NOV01ARIDAL: ('Trey McBride', 'receptions', 9.0, np.float64(7.7))
+08:30:48   skip 26NOV01ATLTB: ('Chris Godwin Jr.', 'receiving_yards', 59.1, np.float64(42.0))
+08:30:48   skip 26NOV01ATLTB: ('Chris Godwin Jr.', 'receptions', 6.0, np.float64(4.4))
+08:30:48   skip 26NOV01ATLTB: ('Bijan Robinson', 'receptions', 3.0, np.float64(4.0))
+08:30:48   skip 26NOV01ATLTB: ('Drake London', 'receptions', 5.0, np.float64(6.0))
+08:31:00   skip 26NOV01BALBUF: ('James Cook III', 'carries', 23.0, np.float64(18.1))
+08:31:00   skip 26NOV01BALBUF: ('Derrick Henry', 'carries', 23.0, np.float64(18.4))
+08:31:00   skip 26NOV01BALBUF: ('Lamar Jackson', 'attempts', 37.0, np.float64(30.3))
+08:31:00   skip 26NOV01BALBUF: ('Lamar Jackson', 'completions', 25.0, np.float64(19.7))
+08:31:00   skip 26NOV01BALBUF: ('Lamar Jackson', 'passing_yards', 309.1, np.float64(239.7))
+08:31:00   skip 26NOV01BALBUF: ('Zay Flowers', 'receptions', 8.0, np.float64(6.2))
+08:31:15   skip 26NOV01CLEPIT: ('Quinshon Judkins', 'receptions', 3.0, np.float64(1.8))
+08:31:28   skip 26NOV01INDJAC: ('Brian Thomas Jr.', 'depth chart', 'role changed: WR3 two weeks ago, WR4 now')
+08:31:28   skip 26NOV01INDJAC: ('Josh Cameron', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+08:31:28   skip 26NOV01INDJAC: ('Bhayshul Tuten', 'carries', 19.0, np.float64(15.0))
+08:31:28   skip 26NOV01INDJAC: ('Bhayshul Tuten', 'receptions', 1.0, np.float64(2.1))
+08:31:28   skip 26NOV01INDJAC: ('Parker Washington', 'receiving_yards', 43.1, np.float64(68.1))
+08:31:28   skip 26NOV01INDJAC: ('Parker Washington', 'receptions', 3.0, np.float64(4.7))
+08:31:28   skip 26NOV01INDJAC: ('Trevor Lawrence', 'attempts', 26.0, np.float64(30.5))
+08:31:28   skip 26NOV01INDJAC: ('Daniel Jones', 'attempts', 37.0, np.float64(31.6))
+08:31:28   skip 26NOV01INDJAC: ('Daniel Jones', 'completions', 23.0, np.float64(19.9))
+08:31:28   skip 26NOV01INDJAC: ('Daniel Jones', 'passing_yards', 244.0, np.float64(193.0))
+08:31:28   skip 26NOV01INDJAC: ('Josh Downs', 'receiving_yards', 46.7, np.float64(33.7))
+08:31:28   skip 26NOV01INDJAC: ('Keenan Allen', 'receiving_yards', 57.0, np.float64(35.9))
+08:31:28   skip 26NOV01INDJAC: ('Laquon Treadwell', 'receiving_yards', 36.0, np.float64(23.7))
+08:31:40   skip 26NOV01LVNYJ: ('Mason Taylor', 'depth chart', 'role changed: TE2 two weeks ago, TE1 now')
+08:31:40   skip 26NOV01LVNYJ: ('Kenyon Sadiq', 'depth chart', 'role changed: TE1 two weeks ago, TE2 now')
+08:31:40   skip 26NOV01LVNYJ: ('Adonai Mitchell', 'receiving_yards', 37.3, np.float64(24.9))
+08:31:40   skip 26NOV01LVNYJ: ('Adonai Mitchell', 'receptions', 3.0, np.float64(1.9))
+08:31:40   skip 26NOV01LVNYJ: ('Jack Bech', 'depth chart', 'role changed: WR7 two weeks ago, WR3 now')
+08:31:40   skip 26NOV01LVNYJ: ('Kirk Cousins', 'attempts', 37.0, np.float64(32.0))
+08:31:54   skip 26NOV01MINDET: ('Amon-Ra St. Brown', 'receptions', 6.0, np.float64(7.1))
+08:31:54   skip 26NOV01MINDET: ('Sam LaPorta', 'receiving_yards', 30.9, np.float64(43.2))
+08:31:54   skip 26NOV01MINDET: ('Sam LaPorta', 'receptions', 3.0, np.float64(4.2))
+08:31:54   skip 26NOV01MINDET: ('Aaron Jones Sr.', 'depth chart', 'role changed: RB1 two weeks ago, RB2 now')
+08:31:54   skip 26NOV01MINDET: ('Jordan Mason', 'depth chart', 'role changed: RB4 two weeks ago, RB1 now')
+08:32:07   skip 26NOV01TENCIN: ('Dohnte Meyers', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+08:32:07   skip 26NOV01TENCIN: ("Ja'Marr Chase", 'receiving_yards', 58.0, np.float64(82.3))
+08:32:07   skip 26NOV01TENCIN: ("Ja'Marr Chase", 'receptions', 5.0, np.float64(6.8))
+08:32:33   parlay skipped (best quote 0.277, our max 0.170): Cam Ward passing_yards over 149.5 yes + Jaylen Warren rr_yards over 89.5 yes + Bijan Robinson receiving_yards under 39.5 no + Jared Goff passing_yards under 274.5 no + Cam Ward attempts over 28.5 yes
+08:32:59   parlay skipped (best quote 0.500, our max 0.329): Deshaun Watson carries over 2.5 yes + Bijan Robinson rushing_yards over 49.5 yes + Trevor Lawrence carries under 6.5 no + Jaylen Warren rushing_yards over 39.5 yes + Jaylen Warren rr_yards over 89.5 yes
+08:33:24   parlay skipped (best quote 0.565, our max 0.426): Deshaun Watson carries over 2.5 yes + Kyler Murray carries over 1.5 yes + Jacoby Brissett passing_yards over 174.5 yes + Kirk Cousins passing_yards over 149.5 yes + Jared Goff passing_yards under 274.5 no
+08:33:50   parlay skipped (best quote 0.646, our max 0.387): Jacoby Brissett passing_yards over 174.5 yes + Jaylen Warren rushing_yards over 39.5 yes + Bijan Robinson receiving_yards under 39.5 no + Baker Mayfield passing_yards over 124.5 yes + Jacoby Brissett rushing_yards under 39.5 no
+08:34:16   parlay skipped (best quote 0.674, our max 0.472): Kyler Murray carries over 1.5 yes + Bijan Robinson rushing_yards over 49.5 yes + Bijan Robinson receiving_yards under 39.5 no
+08:34:19   parlay accepted @ 0.527 (p=0.654, $171): Cam Ward passing_yards over 149.5 yes + Kyler Murray carries over 1.5 yes + Trevor Lawrence carries under 6.5 no + Baker Mayfield passing_yards over 124.5 yes
+08:34:21   parlay accepted @ 0.472 (p=0.577, $171): Kirk Cousins passing_yards over 149.5 yes + Trevor Lawrence carries under 6.5 no + Bijan Robinson receiving_yards under 39.5 no
+08:34:24   parlay accepted @ 0.519 (p=0.651, $171): Cam Ward passing_yards over 149.5 yes + Jacoby Brissett passing_yards over 174.5 yes + Bijan Robinson rushing_yards over 49.5 yes
+08:34:24 4954 priced sides (4954 with sportsbook lines) -> 14 singles ($1,973), parlays $512
+08:34:24   placed Cam Ward passing_yards over 199.5 YES 381 @ 0.43 ($164) -> filled 381/381
+08:34:24   placed 1H Tennessee over 7.5 points YES YES 381 @ 0.43 ($164) -> filled 381/381
+08:34:24   placed Josh Allen attempts over 30.5 YES 336 @ 0.49 ($165) -> filled 336/336
+08:34:24   placed 1H Cleveland over 7.5 points YES YES 343 @ 0.48 ($165) -> filled 343/343
+08:34:24   placed Germie Bernard receiving_yards under 39.5 NO 373 @ 0.44 ($164) -> partial 39/373
+08:34:24   placed 1H Pittsburgh over 10.5 points YES YES 381 @ 0.43 ($164) -> filled 381/381
+08:34:24   placed Trevor Lawrence passing_yards under 224.5 NO 293 @ 0.42 ($123) -> partial 275/293
+08:34:24   placed Bijan Robinson receiving_yards under 29.5 NO 268 @ 0.46 ($123) -> filled 268/268
+08:34:25   placed Lamar Jackson rushing_yards under 24.5 NO 262 @ 0.47 ($123) -> filled 262/262
+08:34:25   placed Joe Burrow passing_yards under 274.5 NO 247 @ 0.50 ($124) -> filled 247/247
+08:34:25   placed Quinshon Judkins receiving_yards over 9.5 YES 242 @ 0.51 ($123) -> filled 242/242
+08:34:25   placed Kyler Murray completions over 19.5 YES 225 @ 0.55 ($124) -> partial 46/225
+08:34:25   placed Dak Prescott rushing_yards under 9.5 NO 229 @ 0.54 ($124) -> filled 229/229
+08:34:25   placed Jaylen Warren rr_yards over 89.5 YES 234 @ 0.53 ($124) -> filled 234/234
+08:34:28 2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN: placed 14 singles; cash now $907
+08:34:29 sleeping 256 min until 2026-11-01 1305 LACLAR
+12:50:00 --- 2026-11-01 1305 LACLAR ---
+12:50:00 cash $1,661.76, account $4,147.07, wave bankroll $1,017.77 (sun_afternoon_first)
+12:50:34   skip 26NOV01LACLAR: ('Konata Mumpfield', 'depth chart', 'role changed: WR4 two weeks ago, WR2 now')
+12:50:34   skip 26NOV01LACLAR: ('Tyler Higbee', 'depth chart', 'role changed: TE2 two weeks ago, TE1 now')
+12:50:34   skip 26NOV01LACLAR: ('Justin Herbert', 'attempts', 36.0, np.float64(31.1))
+12:51:00   parlay skipped (best quote 0.475, our max 0.338): Justin Herbert passing_yards over 124.5 yes + Justin Herbert completions over 14.5 yes + Omarion Hampton rr_yards over 39.5 yes + Kyren Williams rushing_yards over 39.5 yes
+12:51:00 536 priced sides (536 with sportsbook lines) -> 5 singles ($736), parlays $0
+12:51:00   placed Kyren Williams rr_yards over 89.5 YES 300 @ 0.49 ($147) -> filled 300/300
+12:51:00   placed Omarion Hampton rr_yards over 39.5 YES 273 @ 0.54 ($147) -> partial 106/273
+12:51:00   placed Omarion Hampton receiving_yards over 4.5 YES 273 @ 0.54 ($147) -> filled 273/273
+12:51:00   placed Matthew Stafford passing_yards under 249.5 NO 300 @ 0.49 ($147) -> filled 300/300
+12:51:00   placed Kyren Williams receptions over 3.5 YES 306 @ 0.48 ($147) -> filled 306/306
+12:51:03 2026-11-01 1305 LACLAR: placed 5 singles; cash now $994
+12:51:04 sleeping 24 min until 2026-11-01 1325 KCDEN+NEMIA
+13:14:59 --- 2026-11-01 1325 KCDEN+NEMIA ---
+13:15:00 cash $1,890.74, account $4,075.98, wave bankroll $1,890.74 (sun_afternoon_rest)
+13:15:34   skip 26NOV01KCDEN: ('J.K. Dobbins', 'carries', 12.0, np.float64(8.7))
+13:15:34   skip 26NOV01KCDEN: ('Kenneth Walker III', 'rushing_yards', 115.4, np.float64(86.9))
+13:15:34   skip 26NOV01KCDEN: ('Rashee Rice', 'receptions', 3.0, np.float64(4.1))
+13:15:47   skip 26NOV01NEMIA: ('Malik Washington', 'receiving_yards', 56.6, np.float64(40.2))
+13:15:47   skip 26NOV01NEMIA: ('Efton Chism III', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+13:15:47   skip 26NOV01NEMIA: ('Rhamondre Stevenson', 'receptions', 2.0, np.float64(3.2))
+13:16:12   parlay skipped (best quote 0.191, our max 0.164): Malik Willis attempts over 23.5 yes + Malik Willis passing_yards over 149.5 yes + Bo Nix passing_yards under 224.5 no + Malik Washington receptions over 3.5 yes + J.K. Dobbins rushing_yards over 24.5 yes
+13:16:38   parlay skipped (best quote 0.617, our max 0.493): Malik Willis completions over 11.5 yes + Malik Willis passing_yards over 149.5 yes + Bo Nix carries over 1.5 yes + Drake Maye rushing_yards under 59.5 no
+13:17:04   parlay skipped (best quote 0.535, our max 0.428): Malik Willis completions over 11.5 yes + Malik Willis carries over 3.5 yes + Bo Nix passing_yards under 224.5 no
+13:17:30   parlay skipped (best quote 0.583, our max 0.530): Malik Willis attempts over 23.5 yes + Malik Willis carries over 3.5 yes + Bo Nix carries over 1.5 yes
+13:17:55   parlay skipped (best quote 0.562, our max 0.453): Malik Willis carries over 3.5 yes + Malik Washington receptions over 3.5 yes + Drake Maye rushing_yards under 59.5 no
+13:17:55 1152 priced sides (1152 with sportsbook lines) -> 7 singles ($1,825), parlays $0
+13:17:55   placed Kenneth Walker III receptions under 2.5 NO 664 @ 0.41 ($272) -> filled 664/664
+13:17:56   placed Drake Maye carries over 4.5 YES 518 @ 0.53 ($275) -> partial 66/518
+13:17:56   placed Patrick Mahomes rushing_yards under 14.5 NO 492 @ 0.52 ($256) -> partial 480/492
+13:17:56   placed Bo Nix passing_yards under 224.5 NO 429 @ 0.60 ($257) -> filled 429/429
+13:17:56   FAILED Malik Washington receptions over 4.5: POST /portfolio/events/orders -> 400: {"error":{"code":"insufficient_balance","message":"insufficient balance"}}
+13:17:56   FAILED Malik Washington rr_yards over 49.5: POST /portfolio/events/orders -> 400: {"error":{"code":"insufficient_balance","message":"insufficient balance"}}
+13:17:56   FAILED Kenneth Walker III carries over 19.5: POST /portfolio/events/orders -> 400: {"error":{"code":"insufficient_balance","message":"insufficient balance"}}
+13:17:59 2026-11-01 1325 KCDEN+NEMIA: placed 7 singles; cash now $1,397
+13:18:00 sleeping 207 min until 2026-11-01 1720 PHIWAS
+16:45:00 --- 2026-11-01 1720 PHIWAS ---
+16:45:00 cash $4,109.49, account $4,109.49, wave bankroll $4,109.49 (all_cash)
+16:45:46   skip 26NOV01PHIWAS: ('Treylon Burks', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+16:45:46   skip 26NOV01PHIWAS: ('Rachaad White', 'depth chart', 'role changed: RB2 two weeks ago, RB1 now')
+16:45:46 504 priced sides (504 with sportsbook lines) -> 6 singles ($3,570), parlays $0
+16:45:47   placed 1H Philadelphia over 7.5 points YES YES 1239 @ 0.48 ($595) -> filled 1239/1239
+16:45:47   placed Game Washington over 20.5 points YES YES 1032 @ 0.58 ($599) -> filled 1032/1032
+16:45:47   placed Game Philadelphia over 17.5 points YES YES 1319 @ 0.45 ($594) -> filled 1319/1319
+16:45:47   placed 1H Over 19.5 points NO NO 1319 @ 0.45 ($594) -> filled 1319/1319
+16:45:47   FAILED Stefon Diggs receiving_yards under 39.5: POST /portfolio/events/orders -> 400: {"error":{"code":"insufficient_balance","message":"insufficient balance"}}
+16:45:47   FAILED Chig Okonkwo receptions under 3.5: POST /portfolio/events/orders -> 400: {"error":{"code":"insufficient_balance","message":"insufficient balance"}}
+16:45:50 2026-11-01 1720 PHIWAS: placed 6 singles; cash now $1,644
+16:45:51 === day complete ===

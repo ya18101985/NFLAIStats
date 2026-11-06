@@ -1,0 +1,78 @@
+10:54:17 === DRY RUN 2026-11-02 ===
+10:54:27 wave 2026-11-02 1715 CHISEA: bets at Mon 04:15 PM PT, rule all_cash
+10:54:27 --- 2026-11-02 1715 CHISEA ---
+10:54:28 cash $3,202.76, account $3,202.76, wave bankroll $3,202.76 (all_cash)
+10:54:31 88 priced sides -> 1 singles ($154), 0 parlay candidates
+10:54:31   placed Luther Burden III receiving_yards under 49.5 NO 328 @ 0.47 ($154) -> resting 0/328
+10:54:34 2026-11-02 1715 CHISEA: placed 1 singles; cash now $3,203
+10:54:34 === day complete ===
+23:10:12 === DRY RUN 2026-11-02 ===
+23:10:15 wave 2026-11-02 1715 CHISEA: bets at Mon 04:15 PM PT, rule all_cash
+23:10:15 --- 2026-11-02 1715 CHISEA ---
+23:10:16 cash $3,202.76, account $3,202.76, wave bankroll $3,202.76 (all_cash)
+23:10:30   skip 26NOV02CHISEA: ('Emanuel Wilson', 'depth chart', 'role changed: RB1 two weeks ago, RB2 now')
+23:10:30   [dry run] parlay p=0.541 $641: Caleb Williams passing_yards under 299.5 no + Sam Darnold completions under 20.5 no + Sam Darnold rushing_yards under 29.5 no
+23:10:30 300 priced sides (300 with sportsbook lines) -> 4 singles ($1,847), parlays $641
+23:10:30   placed Sam Darnold passing_yards under 224.5 NO 1125 @ 0.41 ($461) -> resting 0/1125
+23:10:30   placed Rome Odunze receiving_yards under 39.5 NO 985 @ 0.47 ($463) -> resting 0/985
+23:10:30   placed D'Andre Swift carries under 14.5 NO 1390 @ 0.33 ($459) -> resting 0/1390
+23:10:30   placed Caleb Williams carries over 4.5 YES 910 @ 0.51 ($464) -> resting 0/910
+23:10:33 2026-11-02 1715 CHISEA: placed 4 singles; cash now $3,203
+23:10:33 === day complete ===
+23:38:11 === DRY RUN 2026-11-02 ===
+23:38:18 wave 2026-11-02 1715 CHISEA: bets at Mon 04:15 PM PT, rule all_cash
+23:38:18 --- 2026-11-02 1715 CHISEA ---
+23:38:18 cash $3,202.76, account $3,202.76, wave bankroll $3,202.76 (all_cash)
+23:38:49   skip 26NOV02CHISEA: ('Emanuel Wilson', 'depth chart', 'role changed: RB1 two weeks ago, RB2 now')
+23:38:49   [dry run] parlay p=0.542 $641: Caleb Williams passing_yards under 299.5 no + Sam Darnold completions under 20.5 no + Sam Darnold rushing_yards under 29.5 no
+23:38:49 568 priced sides (568 with sportsbook lines) -> 3 singles ($1,390), parlays $641
+23:38:49   placed Rome Odunze receiving_yards under 39.5 NO 985 @ 0.47 ($463) -> resting 0/985
+23:38:49   placed Caleb Williams carries over 4.5 YES 910 @ 0.51 ($464) -> resting 0/910
+23:38:49   placed Luther Burden III receiving_yards under 49.5 NO 985 @ 0.47 ($463) -> resting 0/985
+23:38:52 2026-11-02 1715 CHISEA: placed 3 singles; cash now $3,203
+23:38:52 === day complete ===
+23:47:02 === DRY RUN 2026-11-02 ===
+23:47:10 wave 2026-11-02 1715 CHISEA: bets at Mon 04:15 PM PT, rule all_cash
+23:47:10 --- 2026-11-02 1715 CHISEA ---
+23:47:11 cash $3,202.76, account $3,202.76, wave bankroll $3,202.76 (all_cash)
+23:47:41   skip 26NOV02CHISEA: ('Emanuel Wilson', 'depth chart', 'role changed: RB1 two weeks ago, RB2 now')
+23:47:41   [dry run] parlay p=0.542 $320: Caleb Williams passing_yards under 299.5 no + Sam Darnold completions under 20.5 no + Sam Darnold rushing_yards under 29.5 no
+23:47:41 570 priced sides (570 with sportsbook lines) -> 3 singles ($1,854), parlays $320
+23:47:41   placed Rome Odunze receiving_yards under 39.5 NO 1314 @ 0.47 ($618) -> resting 0/1314
+23:47:41   placed Caleb Williams carries over 4.5 YES 1214 @ 0.51 ($619) -> resting 0/1214
+23:47:41   placed Luther Burden III receiving_yards under 49.5 NO 1314 @ 0.47 ($618) -> resting 0/1314
+23:47:44 2026-11-02 1715 CHISEA: placed 3 singles; cash now $3,203
+23:47:44 === day complete ===
+23:47:53 === DRY RUN 2026-11-02 ===
+23:47:58 wave 2026-11-02 1715 CHISEA: bets at Mon 04:15 PM PT, rule all_cash
+23:47:58 --- 2026-11-02 1715 CHISEA ---
+23:47:58 cash $3,202.76, account $3,202.76, wave bankroll $3,202.76 (all_cash)
+23:48:31   skip 26NOV02CHISEA: ('Emanuel Wilson', 'depth chart', 'role changed: RB1 two weeks ago, RB2 now')
+23:48:31   [dry run] parlay p=0.542 $1,281: Caleb Williams passing_yards under 299.5 no + Sam Darnold completions under 20.5 no + Sam Darnold rushing_yards under 29.5 no
+23:48:31 574 priced sides (574 with sportsbook lines) -> 3 singles ($1,854), parlays $1,281
+23:48:31   placed Rome Odunze receiving_yards under 39.5 NO 1314 @ 0.47 ($618) -> resting 0/1314
+23:48:31   placed Caleb Williams carries over 4.5 YES 1214 @ 0.51 ($619) -> resting 0/1214
+23:48:31   placed Luther Burden III receiving_yards under 49.5 NO 1314 @ 0.47 ($618) -> resting 0/1314
+23:48:34 2026-11-02 1715 CHISEA: placed 3 singles; cash now $3,203
+23:48:34 === day complete ===
+23:58:31 === DRY RUN 2026-11-02 ===
+23:58:37 wave 2026-11-02 1715 CHISEA: bets at Mon 04:15 PM PT, rule all_cash
+23:58:37 --- 2026-11-02 1715 CHISEA ---
+23:58:37 cash $3,202.76, account $3,202.76, wave bankroll $3,202.76 (all_cash)
+23:59:08   skip 26NOV02CHISEA: ('Emanuel Wilson', 'depth chart', 'role changed: RB1 two weeks ago, RB2 now')
+23:59:08   [dry run] parlay p=0.542 $642: Caleb Williams passing_yards under 299.5 no + Sam Darnold completions under 20.5 no + Sam Darnold rushing_yards under 29.5 no
+23:59:08 570 priced sides (570 with sportsbook lines) -> 6 singles ($2,472), parlays $642
+23:59:08   placed Luther Burden III receiving_yards under 49.5 NO 854 @ 0.47 ($401) -> resting 0/854
+23:59:08   placed Rome Odunze receiving_yards under 39.5 NO 854 @ 0.47 ($401) -> resting 0/854
+23:59:08   placed Game Seattle wins by over 2.5 points NO NO 890 @ 0.45 ($400) -> resting 0/890
+23:59:08   placed 1H Chicago over 10.5 points YES YES 910 @ 0.44 ($400) -> resting 0/910
+23:59:08   placed Caleb Williams passing_tds under 1.5 NO 697 @ 0.58 ($404) -> resting 0/697
+23:59:08   placed Caleb Williams carries over 4.5 YES 910 @ 0.51 ($464) -> resting 0/910
+23:59:11 2026-11-02 1715 CHISEA: placed 6 singles; cash now $3,203
+23:59:11 === day complete ===
+16:45:51 === LIVE 2026-11-02 ===
+16:45:58 wave 2026-11-02 1715 CHISEA: bets at Mon 04:15 PM PT, rule all_cash
+16:45:58 sleeping 1409 min until 2026-11-02 1715 CHISEA
+16:15:00 --- 2026-11-02 1715 CHISEA ---
+16:15:00 STOP file present; skipping wave
+16:15:00 === day complete ===

@@ -1,0 +1,102 @@
+{
+ "season": {
+  "label": "2026\u201327 NFL season",
+  "bets": 234,
+  "won": 94,
+  "lost": 140,
+  "staked": 45618.62,
+  "returned": 47992.24,
+  "profit": 2373.62,
+  "roi": 5.2
+ },
+ "weeks": [
+  {
+   "key": "04",
+   "label": "Week 4",
+   "bets": 13,
+   "won": 5,
+   "lost": 8,
+   "staked": 3177.14,
+   "returned": 4539,
+   "profit": 1361.86,
+   "roi": 42.9
+  },
+  {
+   "key": "05",
+   "label": "Week 5",
+   "bets": 55,
+   "won": 19,
+   "lost": 36,
+   "staked": 11599,
+   "returned": 9499.3,
+   "profit": -2099.7,
+   "roi": -18.1
+  },
+  {
+   "key": "06",
+   "label": "Week 6",
+   "bets": 57,
+   "won": 24,
+   "lost": 33,
+   "staked": 11762.19,
+   "returned": 11823,
+   "profit": 60.81,
+   "roi": 0.5
+  },
+  {
+   "key": "07",
+   "label": "Week 7",
+   "bets": 98,
+   "won": 40,
+   "lost": 58,
+   "staked": 17406.62,
+   "returned": 18928.31,
+   "profit": 1521.69,
+   "roi": 8.7
+  },
+  {
+   "key": "08",
+   "label": "Week 8",
+   "bets": 11,
+   "won": 6,
+   "lost": 5,
+   "staked": 1673.67,
+   "returned": 3202.63,
+   "profit": 1528.96,
+   "roi": 91.4
+  }
+ ],
+ "months": [
+  {
+   "key": "2026-10",
+   "label": "Oct 2026",
+   "bets": 234,
+   "won": 94,
+   "lost": 140,
+   "staked": 45618.62,
+   "returned": 47992.24,
+   "profit": 2373.62,
+   "roi": 5.2
+  }
+ ],
+ "quarters": [
+  {
+   "key": "2026-Q4",
+   "label": "2026 Q4",
+   "bets": 234,
+   "won": 94,
+   "lost": 140,
+   "staked": 45618.62,
+   "returned": 47992.24,
+   "profit": 2373.62,
+   "roi": 5.2
+  }
+ ],
+ "open": {
+  "bets": 0,
+  "staked": 0,
+  "expected": 0,
+  "maxReturn": 0
+ },
+ "updatedAt": "2026-10-30T03:26:03.382Z"
+}

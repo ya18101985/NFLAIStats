@@ -1,0 +1,1033 @@
+{
+ "k-kxmvecrosscategory0-s2026irck37v52w65jkca-d6w7gxlrz": {
+  "p": 0.6537200150288449,
+  "pModel": null,
+  "ev": 0.10927104502884488,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": null,
+  "points": [
+   "4 legs: Cam Ward 150+ passing yards; Kyler Murray 2+ carries; Trevor Lawrence 7+ carries (NO); Baker Mayfield 125+ passing yards",
+   "Model's joint chance that every leg hits: 65%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 53\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxmvecrosscategory0-s2026lwxoo6oywtevdwhg-fx2wfme2b": {
+  "p": 0.5773297256949019,
+  "pModel": null,
+  "ev": 0.08788460569490195,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": null,
+  "points": [
+   "3 legs: Kirk Cousins 150+ passing yards; Trevor Lawrence 7+ carries (NO); Bijan Robinson 40+ receiving yards (NO)",
+   "Model's joint chance that every leg hits: 58%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 47\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxmvecrosscategory0-s2026sj7peqa4t7rczhbb-w6ozi4665": {
+  "p": 0.6509837957063276,
+  "pModel": null,
+  "ev": 0.11450906570632757,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": null,
+  "points": [
+   "3 legs: Cam Ward 150+ passing yards; Jacoby Brissett 175+ passing yards; Bijan Robinson 50+ rushing yards",
+   "Model's joint chance that every leg hits: 65%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 52\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxnflpassyds-26nov01tencin-tencward1-200": {
+  "p": 0.4835260842545467,
+  "pModel": 0.6617684001643224,
+  "ev": 0.036369084254546685,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.4454219681397076,
+  "points": [
+   "Model projects 231 passing yards (80% range 152\u2013327) vs the line of 199.5: 66% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 190.5, 191.5, 192.5; converted to Kalshi's line that's 45% for this side, vs a price of 43\u00a2.",
+   "Last 5 games: 181, 222, 170, 102, 181. This side would have won 1 of 5.",
+   "Usage over the last 4 games: 30 pass attempts a game (QB).",
+   "TEN is a 12.5-point underdog vs CIN (total 46.5). CIN's defense ranks #9 vs the pass and #11 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnfl1hteamtotal-26nov01tencin-ten8": {
+  "p": 0.4600792206154924,
+  "pModel": 0.47511317230784633,
+  "ev": 0.012922220615492395,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.47227852981892876,
+  "points": [
+   "Kalshi market: \"Tennessee over 7.5 points\" (1st half), we hold YES at 43\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 47% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflpassatt-26nov01balbuf-bufjallen17-31": {
+  "p": 0.5157327021083742,
+  "pModel": 0.5772828845711,
+  "ev": 0.008239702108374193,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.5114132129551534,
+  "points": [
+   "Model projects 32 pass attempts (80% range 23\u201343) vs the line of 30.5: 58% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 30.5; converted to Kalshi's line that's 51% for this side, vs a price of 49\u00a2.",
+   "Last 5 games: 31, 26, 33, 19, 33. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 28 pass attempts a game (QB).",
+   "BUF is a 3-point favorite vs BAL (total 54.5). BAL's defense ranks #16 vs the pass and #22 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnfl1hteamtotal-26nov01clepit-cle8": {
+  "p": 0.503596649860252,
+  "pModel": 0.5158523569432171,
+  "ev": 0.006124649860252004,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.5154726301194923,
+  "points": [
+   "Kalshi market: \"Cleveland over 7.5 points\" (1st half), we hold YES at 48\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 52% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrecyds-26nov01clepit-pitgbernard17-40-no": {
+  "p": 0.4633726125237039,
+  "pModel": 0.517668805928993,
+  "ev": 0.00612461252370387,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.45457280163787084,
+  "points": [
+   "Model projects 38 receiving yards (80% range 6\u201393) vs the line of 39.5: 52% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 42.5, 43.5, 44.5; converted to Kalshi's line that's 45% for this side, vs a price of 44\u00a2.",
+   "Last 5 games: 14, 11, 80, 87, 27. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 7.0 targets a game (WR).",
+   "PIT is a 3.5-point favorite vs CLE (total 39.5). CLE's defense ranks #7 vs the pass and #14 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnfl1hteamtotal-26nov01clepit-pit11": {
+  "p": 0.4526077020133047,
+  "pModel": 0.46443957430472105,
+  "ev": 0.005450702013304696,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.46246568800547644,
+  "points": [
+   "Kalshi market: \"Pittsburgh over 10.5 points\" (1st half), we hold YES at 43\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 46% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflpassyds-26nov01indjac-jactlawrence16-225-no": {
+  "p": 0.4568661384060714,
+  "pModel": 0.5968848620655671,
+  "ev": 0.019814138406071387,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.4299446011499425,
+  "points": [
+   "Model projects 205 passing yards (80% range 123\u2013304) vs the line of 224.5: 60% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 235.5, 237.5, 239.5; converted to Kalshi's line that's 43% for this side, vs a price of 42\u00a2.",
+   "Last 5 games: 189, 182, 227, 331, 306. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 33 pass attempts a game (QB).",
+   "JAX is a 10-point favorite vs IND (total 46.5). IND's defense ranks #21 vs the pass and #30 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflrecyds-26nov01atltb-atlbrobinson7-30-no": {
+  "p": 0.4946253191664347,
+  "pModel": 0.6249822168583112,
+  "ev": 0.017237319166434683,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.4678199423253747,
+  "points": [
+   "Model projects 21 receiving yards (80% range 1\u201356) vs the line of 29.5: 64% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 30.5, 31.5, 32.5; converted to Kalshi's line that's 47% for this side, vs a price of 46\u00a2.",
+   "Last 5 games: 19, 2, 32, -8, 59. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 19 touches a game (RB).",
+   "ATL is a 2.5-point underdog vs TB (total 43.5). TB's defense ranks #3 vs the pass and #6 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflrshyds-26nov01balbuf-balljackson8-25-no": {
+  "p": 0.5062165435248991,
+  "pModel": 0.6319409922619597,
+  "ev": 0.018779543524899113,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.4881246515777625,
+  "points": [
+   "Model projects 18 rushing yards (80% range 3\u201343) vs the line of 24.5: 64% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 24.5, 25.5; converted to Kalshi's line that's 49% for this side, vs a price of 47\u00a2.",
+   "Last 4 games: 40, 34, 50, 20. This side would have won 1 of 4.",
+   "Usage over the last 4 games: 24 pass attempts a game (QB).",
+   "BAL is a 3-point underdog vs BUF (total 54.5). BUF's defense ranks #29 vs the pass and #21 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflpassyds-26nov01tencin-cinjburrow9-275-no": {
+  "p": 0.5253457474034176,
+  "pModel": 0.6279888906971803,
+  "ev": 0.00784574740341755,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.5032250334383901,
+  "points": [
+   "Model projects 247 passing yards (80% range 161\u2013352) vs the line of 274.5: 63% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 272.5, 273.5, 275.5; converted to Kalshi's line that's 50% for this side, vs a price of 50\u00a2.",
+   "Last 5 games: 207, 282, 428, 190, 292. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 38 pass attempts a game (QB).",
+   "CIN is a 12.5-point favorite vs TEN (total 46.5). TEN's defense ranks #24 vs the pass and #25 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "The books price this near fair; the bet rests on the model's read (more production than the line)."
+ },
+ "k-kxnflrecyds-26nov01clepit-cleqjudkins10-10": {
+  "p": 0.5327226446675617,
+  "pModel": 0.6338725722338175,
+  "ev": 0.005229644667561685,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.50806429348389,
+  "points": [
+   "Model projects 16 receiving yards (80% range 0\u201347) vs the line of 9.5: 63% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 8.5, 9.5, 10.5; converted to Kalshi's line that's 51% for this side, vs a price of 51\u00a2.",
+   "Last 5 games: 27, 9, 43, 6, 8. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 20 touches a game (RB).",
+   "CLE is a 3.5-point underdog vs PIT (total 39.5). PIT's defense ranks #11 vs the pass and #8 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "The books price this near fair; the bet rests on the model's read (more production than the line)."
+ },
+ "k-kxnflpasscomp-26nov01mindet-minkmurray1-20": {
+  "p": 0.5710219788337902,
+  "pModel": 0.662970349719951,
+  "ev": 0.0036969788337902,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.5522618630406887,
+  "points": [
+   "Model projects 22 completions (80% range 15\u201330) vs the line of 19.5: 66% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 19.5, 20.5; converted to Kalshi's line that's 55% for this side, vs a price of 55\u00a2.",
+   "Last 5 games: 3, 15, 27, 24, 14. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 30 pass attempts a game (QB).",
+   "MIN is a 3-point underdog vs DET (total 46.5). DET's defense ranks #28 vs the pass and #18 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "The books price this near fair; the bet rests on the model's read (more production than the line)."
+ },
+ "k-kxnflrshyds-26nov01aridal-daldprescott4-10-no": {
+  "p": 0.5600660124807375,
+  "pModel": 0.6520746829011386,
+  "ev": 0.002678012480737471,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.5365719937570139,
+  "points": [
+   "Model projects 5 rushing yards (80% range -1\u201320) vs the line of 9.5: 66% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 6.5, 8.5; converted to Kalshi's line that's 54% for this side, vs a price of 54\u00a2.",
+   "Last 5 games: 19, 7, 0, 7, 8. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 42 pass attempts a game (QB).",
+   "DAL is a 7-point favorite vs ARI (total 54.5). ARI's defense ranks #30 vs the pass and #10 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "The books price this near fair; the bet rests on the model's read (more production than the line)."
+ },
+ "k-kxnflrryds-26nov01clepit-pitjwarren30-90": {
+  "p": 0.5541892636107637,
+  "pModel": 0.6366624944450519,
+  "ev": 0.006752263610763677,
+  "wave": "2026-11-01 1000 ARIDAL+ATLTB+BALBUF+CLEPIT+INDJAC+LVNYJ+MINDET+TENCIN",
+  "pBook": 0.5377845968620948,
+  "points": [
+   "Model projects 107 rush + rec yards (80% range 57\u2013175) vs the line of 89.5: 64% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 89.5, 92.5; converted to Kalshi's line that's 54% for this side, vs a price of 53\u00a2.",
+   "Last 5 games: 176, 126, 188, 78, 137. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 20 touches a game (RB).",
+   "PIT is a 3.5-point favorite vs CLE (total 39.5). CLE's defense ranks #7 vs the pass and #14 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflrryds-26nov01laclar-larkwilliams23-90": {
+  "p": 0.5200431579538475,
+  "pModel": 0.5892147348652389,
+  "ev": 0.012550157953847486,
+  "wave": "2026-11-01 1305 LACLAR",
+  "pBook": 0.5134511163102363,
+  "points": [
+   "Model projects 98 rush + rec yards (80% range 51\u2013161) vs the line of 89.5: 57% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 89.5, 91.5; converted to Kalshi's line that's 51% for this side, vs a price of 49\u00a2.",
+   "Last 5 games: 158, 147, 76, 67, 121. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 20 touches a game (RB).",
+   "LA is a 6.5-point favorite vs LAC (total 45.5). LAC's defense ranks #10 vs the pass and #17 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflrryds-26nov01laclar-lacohampton8-40": {
+  "p": 0.5614133257374763,
+  "pModel": 0.6247901074303539,
+  "ev": 0.004025325737476229,
+  "wave": "2026-11-01 1305 LACLAR",
+  "pBook": 0.5498281529864432,
+  "points": [
+   "Model projects 48 rush + rec yards (80% range 17\u201397) vs the line of 39.5: 60% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 40.5, 42.5, 44.5; converted to Kalshi's line that's 55% for this side, vs a price of 54\u00a2.",
+   "Last 5 games: 115, 56, 53, 39, 39. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 13 touches a game (RB).",
+   "LAC is a 6.5-point underdog vs LA (total 45.5). LA's defense ranks #6 vs the pass and #9 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflrecyds-26nov01laclar-lacohampton8-5": {
+  "p": 0.5540181682386084,
+  "pModel": 0.6208282015884709,
+  "ev": -0.003369831761391648,
+  "wave": "2026-11-01 1305 LACLAR",
+  "pBook": 0.5389038654606557,
+  "points": [
+   "Model projects 8 receiving yards (80% range 0\u201336) vs the line of 4.5: 57% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 5.5, 6.5; converted to Kalshi's line that's 54% for this side, vs a price of 54\u00a2.",
+   "Last 5 games: 21, 0, 8, 6, 21. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 13 touches a game (RB).",
+   "LAC is a 6.5-point underdog vs LA (total 45.5). LA's defense ranks #6 vs the pass and #9 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "The books price this near fair; the bet rests on the model's read (more production than the line)."
+ },
+ "k-kxnflpassyds-26nov01laclar-larmstafford9-250-no": {
+  "p": 0.5049186908349345,
+  "pModel": 0.5548520547140547,
+  "ev": -0.0025743091650655345,
+  "wave": "2026-11-01 1305 LACLAR",
+  "pBook": 0.4962292207649205,
+  "points": [
+   "Model projects 240 passing yards (80% range 154\u2013343) vs the line of 249.5: 55% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 248.5, 250.5, 251.5; converted to Kalshi's line that's 50% for this side, vs a price of 49\u00a2.",
+   "Last 5 games: 390, 317, 383, 222, 195. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 42 pass attempts a game (QB).",
+   "LA is a 6.5-point favorite vs LAC (total 45.5). LAC's defense ranks #10 vs the pass and #17 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflrec-26nov01laclar-larkwilliams23-4": {
+  "p": 0.48981156552824767,
+  "pModel": 0.5340349030950876,
+  "ev": -0.0076604344717523115,
+  "wave": "2026-11-01 1305 LACLAR",
+  "pBook": 0.48100916981846026,
+  "points": [
+   "Model projects 3 catches (80% range 1\u20137) vs the line of 3.5: 47% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 3.5; converted to Kalshi's line that's 48% for this side, vs a price of 48\u00a2.",
+   "Last 5 games: 6, 10, 6, 3, 2. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 20 touches a game (RB).",
+   "LA is a 6.5-point favorite vs LAC (total 45.5). LAC's defense ranks #10 vs the pass and #17 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "The books price this near fair; the bet rests on the model's read (less production than the line)."
+ },
+ "k-kxnflrec-26nov01kcden-kckwalker9-3-no": {
+  "p": 0.45734662326083053,
+  "pModel": 0.5905049693000957,
+  "ev": 0.030413623260830552,
+  "wave": "2026-11-01 1325 KCDEN+NEMIA",
+  "pBook": 0.43505333417430514,
+  "points": [
+   "Model projects 2 catches (80% range 0\u20135) vs the line of 2.5: 59% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 2.5, 3.5; converted to Kalshi's line that's 44% for this side, vs a price of 41\u00a2.",
+   "Last 5 games: 6, 2, 1, 2, 4. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 20 touches a game (RB).",
+   "KC is a 1.5-point favorite vs DEN (total 40.5). DEN's defense ranks #4 vs the pass and #28 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflrshatt-26nov01nemia-nedmaye10-5": {
+  "p": 0.5662983715473462,
+  "pModel": 0.6380356277227732,
+  "ev": 0.018861371547346163,
+  "wave": "2026-11-01 1325 KCDEN+NEMIA",
+  "pBook": 0.56126745439917,
+  "points": [
+   "Model projects 5 carries (80% range 3\u20139) vs the line of 4.5: 63% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 4.5, 5.5; converted to Kalshi's line that's 56% for this side, vs a price of 53\u00a2.",
+   "Last 5 games: 4, 8, 7, 4, 4. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 34 pass attempts a game (QB).",
+   "NE is a 7-point favorite vs MIA (total 43.5). MIA's defense ranks #32 vs the pass and #12 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflrshyds-26nov01kcden-kcpmahomes15-15-no": {
+  "p": 0.5508802539805029,
+  "pModel": 0.6750047763270279,
+  "ev": 0.013408253980502868,
+  "wave": "2026-11-01 1325 KCDEN+NEMIA",
+  "pBook": 0.5172508879028213,
+  "points": [
+   "Model projects 9 rushing yards (80% range -1\u201326) vs the line of 14.5: 68% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 13.5, 14.5; converted to Kalshi's line that's 52% for this side, vs a price of 52\u00a2.",
+   "Last 5 games: 17, 1, 0, 16, 14. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 29 pass attempts a game (QB).",
+   "KC is a 1.5-point favorite vs DEN (total 40.5). DEN's defense ranks #4 vs the pass and #28 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "The books price this near fair; the bet rests on the model's read (more production than the line)."
+ },
+ "k-kxnflpassyds-26nov01kcden-denbnix10-225-no": {
+  "p": 0.6211922246127988,
+  "pModel": 0.7205170171235931,
+  "ev": 0.004392224612798791,
+  "wave": "2026-11-01 1325 KCDEN+NEMIA",
+  "pBook": 0.5894886576518283,
+  "points": [
+   "Model projects 185 passing yards (80% range 116\u2013268) vs the line of 224.5: 72% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 207.5, 208.5, 213.5; converted to Kalshi's line that's 59% for this side, vs a price of 60\u00a2.",
+   "Last 5 games: 186, 214, 123, 107, 222. This side would have won 5 of 5.",
+   "Usage over the last 4 games: 31 pass attempts a game (QB).",
+   "DEN is a 1.5-point underdog vs KC (total 40.5). KC's defense ranks #8 vs the pass and #7 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "The books price this near fair; the bet rests on the model's read (more production than the line)."
+ },
+ "k-kxnfl1hteamtotal-26nov01phiwas-phi8": {
+  "p": 0.4985798221131829,
+  "pModel": 0.5086854601616899,
+  "ev": 0.0011078221131829297,
+  "wave": "2026-11-01 1720 PHIWAS",
+  "pBook": 0.5086854601616899,
+  "points": [
+   "Kalshi market: \"Philadelphia over 7.5 points\" (1st half), we hold YES at 48\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 51% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflteamtotal-26nov01phiwas-was21": {
+  "p": 0.5968394810320705,
+  "pModel": 0.6061992586172437,
+  "ev": -0.00021251896792944674,
+  "wave": "2026-11-01 1720 PHIWAS",
+  "pBook": 0.6061992586172437,
+  "points": [
+   "Kalshi market: \"Washington over 20.5 points\" (game), we hold YES at 58\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 61% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflteamtotal-26nov01phiwas-phi18": {
+  "p": 0.46255092485508553,
+  "pModel": 0.47007274979297936,
+  "ev": -0.004774075144914486,
+  "wave": "2026-11-01 1720 PHIWAS",
+  "pBook": 0.470598009301905,
+  "points": [
+   "Kalshi market: \"Philadelphia over 17.5 points\" (game), we hold YES at 45\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 47% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnfl1htotal-26nov01phiwas-20-no": {
+  "p": 0.46200223020351516,
+  "pModel": 0.469288900290736,
+  "ev": -0.005322769796484855,
+  "wave": "2026-11-01 1720 PHIWAS",
+  "pBook": 0.4703956683400815,
+  "points": [
+   "Kalshi market: \"Over 19.5 points\" (1st half), we hold NO at 45\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 47% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrecyds-26nov01phiwas-wassdiggs3-50": {
+  "p": 0.4351846415775259,
+  "pModel": 0.4334985886842705,
+  "ev": -0.011972358422474096,
+  "wave": "Other bot",
+  "pBook": 0.43630867683969615,
+  "points": [
+   "Model projects 43 receiving yards (80% range 9\u2013101) vs the line of 49.5: 43% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 42.5; converted to Kalshi's line that's 44% for this side, vs a price of 43\u00a2.",
+   "Last 5 games: 55, 47, 33, 35, 44. This side would have won 1 of 5.",
+   "Usage over the last 4 games: 7.2 targets a game (WR).",
+   "WAS is a 6-point favorite vs PHI (total 40.5). PHI's defense ranks #26 vs the pass and #32 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Other bot",
+  "verdict": "Placed by your other bot. Break-even after fees is 45%. Model and books both put it within 3 points of that: roughly a fair-price bet, small negative edge."
+ },
+ "k-kxnflrshyds-26nov01phiwas-wasjdaniels5-40": {
+  "p": 0.40828088596270895,
+  "pModel": 0.3389266124053366,
+  "ev": -0.06910711403729101,
+  "wave": "Other bot",
+  "pBook": 0.45451706833429056,
+  "points": [
+   "Model projects 30 rushing yards (80% range 10\u201361) vs the line of 39.5: 34% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 36.5; converted to Kalshi's line that's 45% for this side, vs a price of 46\u00a2.",
+   "Last 4 games: 31, 69, 103, 10. This side would have won 2 of 4.",
+   "Usage over the last 4 games: 29 pass attempts a game (QB).",
+   "WAS is a 6-point favorite vs PHI (total 40.5). PHI's defense ranks #26 vs the pass and #32 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Other bot",
+  "verdict": "Placed by your other bot. Break-even after fees is 48%. Neither our model nor the sportsbooks get there; our numbers don't support this one."
+ },
+ "k-kxnflrec-26nov01phiwas-wasrwhite1-2": {
+  "p": 0.6238442775985588,
+  "pModel": 0.5889441911857094,
+  "ev": -0.08112872240144119,
+  "wave": "Other bot",
+  "pBook": 0.6471110018737917,
+  "points": [
+   "Model projects 2 catches (80% range 0\u20135) vs the line of 1.5: 59% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 2.5; converted to Kalshi's line that's 65% for this side, vs a price of 69\u00a2.",
+   "Last 5 games: 2, 6, 1, 1, 4. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 10 touches a game (RB).",
+   "WAS is a 6-point favorite vs PHI (total 40.5). PHI's defense ranks #26 vs the pass and #32 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Other bot",
+  "verdict": "Placed by your other bot. Break-even after fees is 70%. Neither our model nor the sportsbooks get there; our numbers don't support this one."
+ },
+ "k-kxnflrec-26nov01phiwas-phisbarkley26-2": {
+  "p": 0.5097798802955333,
+  "pModel": 0.42059151718327287,
+  "ev": -0.08727211970446663,
+  "wave": "Other bot",
+  "pBook": 0.5692387890370404,
+  "points": [
+   "Model projects 1 catches (80% range 0\u20134) vs the line of 1.5: 42% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 2.5; converted to Kalshi's line that's 57% for this side, vs a price of 58\u00a2.",
+   "Last 5 games: 1, 1, 1, 1, 2. This side would have won 1 of 5.",
+   "Usage over the last 4 games: 8 touches a game (RB).",
+   "PHI is a 6-point underdog vs WAS (total 40.5). WAS's defense ranks #23 vs the pass and #21 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Other bot",
+  "verdict": "Placed by your other bot. Break-even after fees is 60%. Neither our model nor the sportsbooks get there; our numbers don't support this one."
+ },
+ "k-kxmvecrosscategory-s2026e5ib2eexfdibzs4m-xtt4adiqf": {
+  "p": 0.31363788610910687,
+  "pModel": 0.25575,
+  "ev": -0.22782179389089316,
+  "wave": "2026-11-01 1720 manual (user)",
+  "pBook": 0.37152577221821376,
+  "points": [
+   "Saquon Barkley 2+ catches: model 42%, books 57%",
+   "Rachaad White 2+ catches: model 59%, books 65%",
+   "All legs together: model 26% (players on the same team simulated together); books, treating legs as independent, 37%.",
+   "Bought at 52\u00a2 from a market maker, after kickoff (one-time exception to the pregame rule)."
+  ],
+  "group": "Your parlay",
+  "verdict": "Placed at your request. Break-even after fees is 54%; our blended read is 31%, so our numbers don't support this price."
+ },
+ "k-kxmvecrosscategory-s20266jum4s7366qz2dxv-jg5wsa23n": {
+  "p": 0.31849244895125545,
+  "pModel": 0.2564,
+  "ev": -0.1367384710487445,
+  "wave": "2026-11-01 1720 manual (user)",
+  "pBook": 0.3805848979025109,
+  "points": [
+   "Dallas Goedert 4+ catches: model 56%, books 69%",
+   "Jayden Daniels 25+ rushing yards: model 60%, books 72%",
+   "Antonio Williams 2+ catches: model 68%, books 76%",
+   "All legs together: model 26% (players on the same team simulated together); books, treating legs as independent, 38%.",
+   "Bought at 44\u00a2 from a market maker, after kickoff (one-time exception to the pregame rule)."
+  ],
+  "group": "Your parlay",
+  "verdict": "Placed at your request. Break-even after fees is 46%; our blended read is 32%, so our numbers don't support this price."
+ },
+ "k-kxmvecrosscategory-s2026oulp6ntveyqjqmyt-bknrcfm3x": {
+  "p": 0.3664196200025106,
+  "pModel": 0.3555,
+  "ev": -0.1360646299974894,
+  "wave": "2026-11-01 1720 manual (user)",
+  "pBook": 0.3773392400050213,
+  "points": [
+   "Chig Okonkwo 3+ catches: model 61%, books 64%",
+   "Stefon Diggs 3+ catches: model 71%, books 74%",
+   "Makai Lemon 3+ catches: model 71%, books 80%",
+   "All legs together: model 36% (players on the same team simulated together); books, treating legs as independent, 38%.",
+   "Bought at 48\u00a2 from a market maker, after kickoff (one-time exception to the pregame rule)."
+  ],
+  "group": "Your parlay",
+  "verdict": "Placed at your request. Break-even after fees is 50%; our blended read is 37%, so our numbers don't support this price."
+ },
+ "k-kxnflrecyds-26nov01phiwas-phimlemon9-50": {
+  "p": 0.42301585337229763,
+  "pModel": 0.3707090994210665,
+  "ev": -0.044309146627702384,
+  "wave": "Manual (in-game)",
+  "pBook": 0.45788702267311837,
+  "points": [
+   "Model projects 38 receiving yards (80% range 7\u201389) vs the line of 49.5: 37% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 43.5, 45.5, 47.5; converted to Kalshi's line that's 46% for this side, vs a price of 45\u00a2.",
+   "Last 5 games: 29, 27, 43, 19, 67. This side would have won 1 of 5.",
+   "Usage over the last 4 games: 6.8 targets a game (WR).",
+   "PHI is a 6-point underdog vs WAS (total 40.5). WAS's defense ranks #23 vs the pass and #21 vs the run by EPA allowed (1 = best).",
+   "Placed mid-game: the model and book numbers above are pregame, so they ignore what had already happened; the live Kalshi price is the better guide."
+  ],
+  "group": "Your in-game bet",
+  "verdict": "You placed this during the game. Break-even after fees is 47% (pregame read). Neither our model nor the sportsbooks get there; our numbers don't support this one."
+ },
+ "k-kxnflrecyds-26nov01phiwas-phimbrown0-25": {
+  "p": 0.3434515216585187,
+  "pModel": 0.3434515216585187,
+  "ev": -0.1472913117122815,
+  "wave": "Manual (in-game)",
+  "pBook": null,
+  "points": [
+   "Model projects 13 receiving yards (80% range 0\u201356) vs the line of 24.5: 34% for the over.",
+   "Last 2 games: 0, 30. This side would have won 1 of 2.",
+   "Usage over the last 4 games: 2.5 targets a game (WR).",
+   "PHI is a 6-point underdog vs WAS (total 40.5). WAS's defense ranks #23 vs the pass and #21 vs the run by EPA allowed (1 = best).",
+   "Placed mid-game: the model and book numbers above are pregame, so they ignore what had already happened; the live Kalshi price is the better guide."
+  ],
+  "group": "Your in-game bet",
+  "verdict": "You placed this during the game. Break-even after fees is 49% (pregame read). Neither our model nor the sportsbooks get there; our numbers don't support this one."
+ },
+ "k-kxnflrec-26nov02chisea-seazcharbonnet26-2": {
+  "p": null,
+  "pModel": null,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": null,
+  "points": [
+   "No model read: this player has no season data in our files."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this bet by hand. The numbers above are for reference; the model did not choose it."
+ },
+ "k-kxnflrshyds-26nov02chisea-seazcharbonnet26-35": {
+  "p": null,
+  "pModel": null,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": null,
+  "points": [
+   "No model read: this player has no season data in our files."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this bet by hand. The numbers above are for reference; the model did not choose it."
+ },
+ "k-kxnflrec-26nov02chisea-seathorton15-2": {
+  "p": null,
+  "pModel": 0.2860513794110545,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": 0.6054391071814961,
+  "points": [
+   "Model projects 1 catches (80% range 0\u20133) vs the line of 1.5: 29% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 1.5; converted to Kalshi's line that's 61% for this side, vs a price of 60\u00a2.",
+   "Last 4 games: 3, 1, 1, 0. This side would have won 1 of 4.",
+   "Usage over the last 4 games: 2.5 targets a game (WR).",
+   "SEA is a 3-point favorite vs CHI (total 46.5). CHI's defense ranks #15 vs the pass and #14 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this bet by hand. The numbers above are for reference; the model did not choose it."
+ },
+ "k-kxnflrshyds-26nov02chisea-chidswift4-50-no": {
+  "p": null,
+  "pModel": 0.49366762875442494,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": 0.3769912884290151,
+  "points": [
+   "Model projects 51 rushing yards (80% range 18\u2013100) vs the line of 49.5: 49% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 58.5, 59.5, 60.5; converted to Kalshi's line that's 38% for this side, vs a price of 38\u00a2.",
+   "Last 5 games: 84, 58, 43, 44, 78. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 19 touches a game (RB).",
+   "CHI is a 3-point underdog vs SEA (total 46.5). SEA's defense ranks #3 vs the pass and #2 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this bet by hand. The numbers above are for reference; the model did not choose it."
+ },
+ "k-kxnflrec-26nov02chisea-seaabarner88-3": {
+  "p": null,
+  "pModel": 0.45456861225806505,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": 0.5960466864921184,
+  "points": [
+   "Model projects 2 catches (80% range 0\u20135) vs the line of 2.5: 45% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 3.5; converted to Kalshi's line that's 60% for this side, vs a price of 61\u00a2.",
+   "Last 5 games: 5, 1, 3, 3, 4. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 4.2 targets a game (TE).",
+   "SEA is a 3-point favorite vs CHI (total 46.5). CHI's defense ranks #15 vs the pass and #14 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this bet by hand. The numbers above are for reference; the model did not choose it."
+ },
+ "k-kxnflrec-26nov02chisea-chikraymond14-2": {
+  "p": null,
+  "pModel": 0.5584819032824516,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": 0.6130062318957084,
+  "points": [
+   "Model projects 2 catches (80% range 0\u20135) vs the line of 1.5: 56% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 1.5, 2.5; converted to Kalshi's line that's 61% for this side, vs a price of 65\u00a2.",
+   "Last 5 games: 6, 2, 3, 2, 0. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 2.5 targets a game (WR).",
+   "CHI is a 3-point underdog vs SEA (total 46.5). SEA's defense ranks #3 vs the pass and #2 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this bet by hand. The numbers above are for reference; the model did not choose it."
+ },
+ "k-kxnflrec-26nov02chisea-chicloveland84-4": {
+  "p": null,
+  "pModel": 0.6167805311478448,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": 0.6010782883758331,
+  "points": [
+   "Model projects 4 catches (80% range 1\u20139) vs the line of 3.5: 62% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 4.5; converted to Kalshi's line that's 60% for this side, vs a price of 64\u00a2.",
+   "Last 5 games: 4, 6, 2, 6, 7. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 8.2 targets a game (TE).",
+   "CHI is a 3-point underdog vs SEA (total 46.5). SEA's defense ranks #3 vs the pass and #2 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this bet by hand. The numbers above are for reference; the model did not choose it."
+ },
+ "k-kxmvecrosscategory-s2026l27lto5bklo6d5gm-vk4avympd": {
+  "p": null,
+  "pModel": null,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": null,
+  "points": [
+   "3 legs: Kalif Raymond 2+ catches; Jaxon Smith-Njigba 80+ receiving yards; D'Andre Swift 3+ catches",
+   "Bought at 29.2\u00a2 from a market maker's quote, under your 33.3\u00a2 limit (your own estimate for each leg, multiplied together)."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this parlay by hand. The model did not choose it."
+ },
+ "k-kxmvecrosscategory-s2026z4x424a75x54cxb3-lplet6awy": {
+  "p": null,
+  "pModel": null,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": null,
+  "points": [
+   "4 legs: Kalif Raymond 2+ catches; Jaxon Smith-Njigba 80+ receiving yards; Colston Loveland 30+ receiving yards; Cooper Kupp 20+ receiving yards",
+   "Bought at 21.1\u00a2 from a market maker's quote, under your 22.3\u00a2 limit (your own estimate for each leg, multiplied together)."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this parlay by hand. The model did not choose it."
+ },
+ "k-kxmvecrosscategory-s2026khi5qhpv5przo4r7-zk7lcjoeo": {
+  "points": [
+   "6 legs: Over 40.5 points; Caleb Williams 200+ passing yards; Sam Darnold 200+ passing yards; Rome Odunze 20+ receiving yards; Luther Burden III 40+ receiving yards; AJ Barner 20+ receiving yards",
+   "Bought at 28.6\u00a2 from a market maker's quote, under your 30.0\u00a2 limit (the limit you set)."
+  ],
+  "wave": "2026-11-02 1715 manual (user)",
+  "p": null,
+  "pModel": null,
+  "ev": null,
+  "group": "Your pick",
+  "pBook": null,
+  "verdict": "You picked this parlay by hand. The model did not choose it."
+ },
+ "k-kxnflrec-26nov02chisea-chilburden10-4": {
+  "p": null,
+  "pModel": 0.5067771637904296,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": 0.5909245072120872,
+  "points": [
+   "Model projects 4 catches (80% range 1\u20137) vs the line of 3.5: 51% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 4.5; converted to Kalshi's line that's 59% for this side, vs a price of 62\u00a2.",
+   "Last 5 games: 7, 4, 4, 8, 4. This side would have won 5 of 5.",
+   "Usage over the last 4 games: 6.0 targets a game (WR).",
+   "CHI is a 3-point underdog vs SEA (total 46.5). SEA's defense ranks #3 vs the pass and #2 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this bet by hand. The numbers above are for reference; the model did not choose it."
+ },
+ "k-kxnflrshatt-26nov02chisea-chicwilliams18-5": {
+  "p": null,
+  "pModel": 0.6807042623442037,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": 0.5236545214036885,
+  "points": [
+   "Model projects 6 carries (80% range 3\u20139) vs the line of 4.5: 68% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 4.5; converted to Kalshi's line that's 52% for this side, vs a price of 55\u00a2.",
+   "Last 4 games: 10, 5, 4, 5. This side would have won 3 of 4.",
+   "Usage over the last 4 games: 31 pass attempts a game (QB).",
+   "CHI is a 3-point underdog vs SEA (total 46.5). SEA's defense ranks #3 vs the pass and #2 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this bet by hand. The numbers above are for reference; the model did not choose it."
+ },
+ "k-kxnflrec-26nov02chisea-chisroush87-2": {
+  "p": null,
+  "pModel": 0.15683076620766226,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": 0.430714967146595,
+  "points": [
+   "Model projects 0 catches (80% range 0\u20132) vs the line of 1.5: 16% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 1.5; converted to Kalshi's line that's 43% for this side, vs a price of 43\u00a2.",
+   "Last 5 games: 1, 1, 1, 0, 0. This side would have won 0 of 5.",
+   "Usage over the last 4 games: 0.5 targets a game (TE).",
+   "CHI is a 3-point underdog vs SEA (total 46.5). SEA's defense ranks #3 vs the pass and #2 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this bet by hand. The numbers above are for reference; the model did not choose it."
+ },
+ "k-kxnflrecyds-26nov02chisea-chirodunze15-50": {
+  "p": null,
+  "pModel": 0.3523033082817058,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": 0.40766808818840694,
+  "points": [
+   "Model projects 34 receiving yards (80% range 3\u201391) vs the line of 49.5: 35% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 38.5, 40.5, 41.5; converted to Kalshi's line that's 41% for this side, vs a price of 38\u00a2.",
+   "Last 5 games: 44, 94, 40, 39, 69. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 6.2 targets a game (WR).",
+   "CHI is a 3-point underdog vs SEA (total 46.5). SEA's defense ranks #3 vs the pass and #2 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this bet by hand. The numbers above are for reference; the model did not choose it."
+ },
+ "k-kxnflrecyds-26nov02chisea-seajsmithnjigba11-110": {
+  "p": null,
+  "pModel": 0.40360610450449563,
+  "ev": null,
+  "wave": "2026-11-02 1715 manual (user)",
+  "pBook": 0.4432234444819634,
+  "points": [
+   "Model projects 94 receiving yards (80% range 31\u2013187) vs the line of 109.5: 40% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 98.5, 99.5, 100.5; converted to Kalshi's line that's 44% for this side, vs a price of 43\u00a2.",
+   "Last 5 games: 128, 76, 102, 134, 150. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 10.5 targets a game (WR).",
+   "SEA is a 3-point favorite vs CHI (total 46.5). CHI's defense ranks #15 vs the pass and #14 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Your pick",
+  "verdict": "You picked this bet by hand. The numbers above are for reference; the model did not choose it."
+ },
+ "k-kxnflrryds-26nov02chisea-seazcharbonnet26-50": {
+  "p": null,
+  "pModel": null,
+  "ev": null,
+  "wave": "Other bot",
+  "pBook": null,
+  "points": [
+   "Zach Charbonnet: no season data found for the explanation."
+  ],
+  "group": "Other bot",
+  "verdict": "Placed by your other bot. Our model has no read on this market."
+ },
+ "k-kxnflpasscomp-26nov05jacbal-jactlawrence16-20": {
+  "p": 0.4779149856910046,
+  "pModel": 0.5736841008769714,
+  "ev": 0.010589985691004583,
+  "wave": "2026-11-05 1715 JACBAL",
+  "pBook": 0.4590125240571101,
+  "points": [
+   "Model projects 16 completions (80% range 10\u201323) vs the line of 19.5: 25% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 18.5; converted to Kalshi's line that's 46% for this side, vs a price of 45\u00a2.",
+   "Last 5 games: 19, 18, 24, 24, 10. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 29 pass attempts a game (QB).",
+   "JAX is a 8.5-point favorite vs BAL (total 39.5). BAL's defense ranks #17 vs the pass and #23 vs the run by EPA allowed (1 = best).",
+   "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflteamtotal-26nov05jacbal-bal15": {
+  "p": 0.49020703379419034,
+  "pModel": 0.5010100482774148,
+  "ev": 0.0027700337941903644,
+  "wave": "2026-11-05 1715 JACBAL",
+  "pBook": 0.5063307266509606,
+  "points": [
+   "Kalshi market: \"Baltimore over 14.5 points\" (game), we hold YES at 47\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 51% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks.",
+   "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflspread-26nov05jacbal-jac11": {
+  "p": 0.45691136859650155,
+  "pModel": 0.4663019551378594,
+  "ev": -0.00033663140349845036,
+  "wave": "2026-11-05 1715 JACBAL",
+  "pBook": 0.45539917628835,
+  "points": [
+   "Kalshi market: \"Jacksonville wins by over 10.5 points\" (game), we hold YES at 44\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 46% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks.",
+   "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnfl1q-26nov05jacbal-jac-no": {
+  "p": 0.4661990316852008,
+  "pModel": 0.47528433097885836,
+  "ev": -0.0011259683147991917,
+  "wave": "2026-11-05 1715 JACBAL",
+  "pBook": 0.49060425258108764,
+  "points": [
+   "Kalshi market: \"Jacksonville\" (1st quarter), we hold NO at 45\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 49% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks.",
+   "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnfl2hspread-26nov05jacbal-jac6-no": {
+  "p": 0.5441208368483659,
+  "pModel": 0.5523154812119513,
+  "ev": -0.0033161631516341536,
+  "wave": "2026-11-05 1715 JACBAL",
+  "pBook": 0.5639225880558049,
+  "points": [
+   "Kalshi market: \"Jacksonville wins by over 5.5 points\" (2nd half), we hold NO at 53\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 56% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks.",
+   "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnfl1htotal-26nov05jacbal-18": {
+  "p": 0.6119900586574316,
+  "pModel": 0.6192715123677595,
+  "ev": -0.004809941342568368,
+  "wave": "2026-11-05 1715 JACBAL",
+  "pBook": 0.6142384832248374,
+  "points": [
+   "Kalshi market: \"Over 17.5 points\" (1st half), we hold YES at 60\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 61% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks.",
+   "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnfl1hspread-26nov05jacbal-jac7-no": {
+  "p": 0.5306659658880242,
+  "pModel": 0.5373799512686059,
+  "ev": -0.006806034111975848,
+  "wave": "2026-11-05 1715 JACBAL",
+  "pBook": 0.5449263307931205,
+  "points": [
+   "Kalshi market: \"Jacksonville wins by over 6.5 points\" (1st half), we hold NO at 52\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 54% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks.",
+   "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrshatt-26nov05jacbal-baldhenry22-18": {
+  "p": 0.522100307629891,
+  "pModel": 0.658194406071774,
+  "ev": 0.014607307629891021,
+  "wave": "2026-11-05 1715 JACBAL",
+  "pBook": 0.501041096280072,
+  "points": [
+   "Model projects 15 carries (80% range 9\u201323) vs the line of 17.5: 33% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 17.5; converted to Kalshi's line that's 50% for this side, vs a price of 49\u00a2.",
+   "Last 5 games: 23, 24, 17, 17, 11. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 18 touches a game (RB).",
+   "BAL is a 8.5-point underdog vs JAX (total 39.5). JAX's defense ranks #6 vs the pass and #1 vs the run by EPA allowed (1 = best).",
+   "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflrshatt-26nov05jacbal-jactlawrence16-4-no": {
+  "p": 0.5380038654241743,
+  "pModel": 0.6551203705379465,
+  "ev": 0.010510865424174322,
+  "wave": "2026-11-05 1715 JACBAL",
+  "pBook": 0.5109595826331699,
+  "points": [
+   "Model projects 3 carries (80% range 1\u20135) vs the line of 3.5: 66% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 3.5; converted to Kalshi's line that's 51% for this side, vs a price of 51\u00a2.",
+   "Last 5 games: 4, 3, 3, 3, 3. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 29 pass attempts a game (QB).",
+   "JAX is a 8.5-point favorite vs BAL (total 39.5). BAL's defense ranks #17 vs the pass and #23 vs the run by EPA allowed (1 = best).",
+   "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "The books price this near fair; the bet rests on the model's read (more production than the line)."
+ },
+ "k-kxnflrecyds-26nov05jacbal-jacpwashington11-60-no": {
+  "p": 0.4857829485779881,
+  "pModel": 0.5605400333726969,
+  "ev": -0.0016540514220118804,
+  "wave": "2026-11-05 1715 JACBAL",
+  "pBook": 0.4782115885607333,
+  "points": [
+   "Model projects 40 receiving yards (80% range 3\u2013103) vs the line of 59.5: 68% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 60.5, 61.5, 64.5; converted to Kalshi's line that's 48% for this side, vs a price of 47\u00a2.",
+   "Last 5 games: 40, 7, 124, 64, 16. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 6.2 targets a game (WR).",
+   "JAX is a 8.5-point favorite vs BAL (total 39.5). BAL's defense ranks #17 vs the pass and #23 vs the run by EPA allowed (1 = best).",
+   "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflrec-26nov05jacbal-baldhenry22-2-no": {
+  "p": 0.5772496557196974,
+  "pModel": 0.6075716427506106,
+  "ev": -0.009907344280302512,
+  "wave": "2026-11-05 1715 JACBAL",
+  "pBook": 0.5764846159447352,
+  "points": [
+   "Model projects 1 catches (80% range 0\u20134) vs the line of 1.5: 60% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 1.5; converted to Kalshi's line that's 58% for this side, vs a price of 57\u00a2.",
+   "Last 5 games: 2, 1, 1, 1, 2. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 18 touches a game (RB).",
+   "BAL is a 8.5-point underdog vs JAX (total 39.5). JAX's defense ranks #6 vs the pass and #1 vs the run by EPA allowed (1 = best).",
+   "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflrshatt-26nov05jacbal-jacbtuten33-15": {
+  "p": 0.4864880595301584,
+  "pModel": 0.5397969581997626,
+  "ev": 0.009100059530158366,
+  "wave": "2026-11-05 1715 JACBAL",
+  "pBook": 0.4840573357804117,
+  "points": [
+   "Model projects 18 carries (80% range 11\u201326) vs the line of 14.5: 69% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 14.5; converted to Kalshi's line that's 48% for this side, vs a price of 46\u00a2.",
+   "Last 5 games: 15, 17, 22, 12, 16. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 19 touches a game (RB).",
+   "JAX is a 8.5-point favorite vs BAL (total 39.5). BAL's defense ranks #17 vs the pass and #23 vs the run by EPA allowed (1 = best).",
+   "Placed using an outdated line (Baltimore -3, total 48.5). The current line is Jacksonville -8.5, total 39.5; the points above use the current line."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ }
+}

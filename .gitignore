@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+# downloaded nflverse files are re-fetched; the dashboard's own state is kept
+data/*
+!data/reasons.json
+!data/dashboard_history.json
+# the real ledger is tracked so cloud runs can read and update it; dry runs are not
+ledger/dryrun.db
+# never commit credentials
+KalshiAPIKey/
+.env
+*.pem
+*.key
+key_id.txt
+odds_api_key.txt
