@@ -45,6 +45,22 @@ def _load(name, season=SEASON):
     return pd.read_csv(path, low_memory=False)
 
 
+SCHEDULE_URL = "https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv"
+
+
+def schedule(max_age_hours=12):
+    """The nflverse schedule (data/games.csv), re-downloaded when missing or older than max_age_hours.
+    Its spread/total are only a fallback: bets use ESPN's current line (slate.espn_line)."""
+    import time
+    path = DATA / "games.csv"
+    if not path.exists() or time.time() - path.stat().st_mtime > max_age_hours * 3600:
+        DATA.mkdir(exist_ok=True)
+        r = requests.get(SCHEDULE_URL, timeout=120)
+        r.raise_for_status()
+        path.write_bytes(r.content)
+    return pd.read_csv(path)
+
+
 def player_weeks(season=SEASON):
     """One row per player-game (regular season), with snap share joined on."""
     s = _load("stats", season)

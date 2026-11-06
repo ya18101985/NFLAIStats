@@ -82,7 +82,7 @@ def games_on(date, kalshi):
     kteams = {N2K.get(t, t) for t in D.NFLVERSE_TO_KALSHI} | set(STADIUMS) | set(N2K.values()) | {"JAC", "LAR"}
     tag = date.strftime("%y%b%d").upper()
     evs = {m["event_ticker"].split("-")[1] for m in kalshi.markets(series_ticker="KXNFLGAME", status="open")}
-    sched = pd.read_csv(D.DATA / "games.csv")
+    sched = D.schedule()
     sched = sched[sched.season == D.SEASON]
     espn = requests.get(f"{ESPN}/scoreboard", params={"dates": date.strftime("%Y%m%d")}, timeout=30).json()["events"]
     out = []

@@ -283,7 +283,7 @@ class Reasoner:
         opp = home if team == away else away
         nfl_name = next(n for n in M.weeks[M.weeks.team == team].player_display_name.dropna().unique() if norm_name(n) == norm_name(name))
         pl = M.player(nfl_name, team)
-        sched = __import__("pandas").read_csv(D.DATA / "games.csv")
+        sched = D.schedule()
         r = sched[(sched.season == D.SEASON) & (sched.away_team == away) & (sched.home_team == home)].tail(1)
         spread_home, total = (float(r.spread_line.iloc[0]), float(r.total_line.iloc[0])) if len(r) else (0.0, 45.0)
         spread_home, total = self.lines.get((away, home), (spread_home, total))
@@ -341,7 +341,7 @@ class Reasoner:
         import pandas as pd
         price = row["limit_price"] or 0
         M = self.model
-        sched = pd.read_csv(D.DATA / "games.csv")
+        sched = D.schedule()
         info, by_team = [], {}
         for t in json.loads(row["legs"]):
             series, code, _ = parse_ticker(t)

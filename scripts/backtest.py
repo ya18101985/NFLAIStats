@@ -24,7 +24,7 @@ THRESHOLDS = {
     "passing_tds": [1, 2, 3],
 }
 
-all_games = pd.read_csv(D.DATA / "games.csv")
+all_games = D.schedule()
 start, end = int(sys.argv[1]) if len(sys.argv) > 1 else 5, int(sys.argv[2]) if len(sys.argv) > 2 else 8
 seasons = [int(a) for a in sys.argv[3:]] or [D.SEASON]
 rows = []

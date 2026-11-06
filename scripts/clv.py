@@ -55,7 +55,7 @@ def main():
     ledger, k = Ledger(), Kalshi()
     db = ledger.db
     db.execute("CREATE TABLE IF NOT EXISTS closing (bet_id INTEGER PRIMARY KEY, kickoff TEXT, close_mid REAL)")
-    sched = pd.read_csv(D.DATA / "games.csv")
+    sched = D.schedule()
     bets = pd.read_sql("SELECT id, wave, ticker, title, outcome, limit_price, filled FROM bets "
                        "WHERE kind = 'single' AND filled > 0 AND substr(wave, 1, 10) >= ?", db, params=(since,))
     now = dt.datetime.now(dt.timezone.utc)
