@@ -41,7 +41,7 @@ class Kalshi:
         self.session = requests.Session()
         self.max_order_cost = Decimal(str(max_order_cost)) if max_order_cost is not None else None
         self.live = live
-        key_id = key_id or os.environ.get("KALSHI_KEY_ID")
+        key_id = key_id or os.environ.get("KALSHI_KEY_ID") or os.environ.get("KALSHI_API_KEY_ID")
         key_path = private_key_path or os.environ.get("KALSHI_PRIVATE_KEY_PATH")
         if not key_id and (KEY_DIR / "key_id.txt").exists():
             key_id = (KEY_DIR / "key_id.txt").read_text().strip()
