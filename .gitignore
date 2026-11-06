@@ -14,3 +14,4 @@ KalshiAPIKey/
 *.key
 key_id.txt
 odds_api_key.txt
+dashboard/.last_published

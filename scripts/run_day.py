@@ -9,7 +9,8 @@ Wave bankroll rules (agreed 2026-10-30), bankroll always capped at $5,000:
   First Sunday afternoon wave (1:05): the reserve + 50% of what the 10 AM wave has paid back so far.
   Later afternoon waves (1:25): all cash.
 Safety stop: skip a wave if cash + open positions is below 40% of the starting balance.
-Kill switch: create ~/.kalshi/STOP to skip all further waves.
+Kill switch: create ~/.kalshi/STOP, or a file named STOP at the repo root (editable from GitHub on
+a phone), to skip all further waves.
 """
 
 import argparse
@@ -34,7 +35,14 @@ LOGS = Path(__file__).resolve().parents[1] / "logs"
 
 
 def notify(msg):
-    subprocess.run(["osascript", "-e", f'display notification "{msg}" with title "NFAIstats"'], check=False)
+    try:   # macOS only; the cloud has no notifications
+        subprocess.run(["osascript", "-e", f'display notification "{msg}" with title "NFAIstats"'], check=False)
+    except FileNotFoundError:
+        pass
+
+
+def stopped():
+    return (KEY_DIR / "STOP").exists() or (LOGS.parent / "STOP").exists()
 
 
 def make_waves(games):
@@ -113,7 +121,7 @@ def place_parlays(k, ledger, w, parlays, budget, live, log):
 
 
 def run_wave(w, k, ledger, day, live, log):
-    if (KEY_DIR / "STOP").exists():
+    if stopped():
         log("STOP file present; skipping wave")
         return
     if ledger.wave(w["name"]) and ledger.wave(w["name"])["status"] == "done":

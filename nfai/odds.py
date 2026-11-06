@@ -4,6 +4,7 @@ Books post one main line per prop (e.g. over/under 64.5 yards); Kalshi has a lad
 thresholds. book_prob() moves the model's simulated distribution sideways until it agrees with a
 book at the book's line, then reads off the probability at the Kalshi threshold."""
 
+import os
 import numpy as np
 import requests
 
@@ -37,12 +38,17 @@ TEAM_NAMES = {
 }
 
 
+def _key():
+    """Cloud: ODDS_API_KEY environment variable; Mac: ~/.kalshi/odds_api_key.txt."""
+    return os.environ.get("ODDS_API_KEY") or (KEY_FILE.read_text().strip() if KEY_FILE.exists() else "")
+
+
 def available():
-    return KEY_FILE.exists()
+    return bool(_key())
 
 
 def _get(path, **params):
-    params["apiKey"] = KEY_FILE.read_text().strip()
+    params["apiKey"] = _key()
     r = requests.get(f"{API}{path}", params=params, timeout=30)
     if not r.ok:   # not raise_for_status: its message contains the URL, and so the key
         raise RuntimeError(f"Odds API {path}: HTTP {r.status_code} {r.text[:200]}")

@@ -49,7 +49,10 @@ class Kalshi:
             key_path = KEY_DIR / "private_key.pem"
         self.key_id = key_id
         self._key = None
-        if key_path:
+        pem = os.environ.get("KALSHI_PRIVATE_KEY")   # cloud: the key's PEM text in an environment variable
+        if pem:
+            self._key = serialization.load_pem_private_key(pem.replace("\\n", "\n").encode(), password=None)
+        elif key_path:
             self._key = serialization.load_pem_private_key(Path(key_path).read_bytes(), password=None)
 
     # ---- transport -------------------------------------------------------------------------
