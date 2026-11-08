@@ -5,6 +5,7 @@ __pycache__/
 data/*
 !data/reasons.json
 !data/dashboard_history.json
+!data/emails_sent.json
 # the real ledger is tracked so cloud runs can read and update it; dry runs are not
 ledger/dryrun.db
 # never commit credentials

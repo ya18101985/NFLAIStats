@@ -118,6 +118,19 @@ def earlier_open(k, w):
     return False
 
 
+def email_placed(w, live, log):
+    """Email 1 (bets placed). Never lets an email problem touch the betting."""
+    if not live:
+        return
+    try:
+        import emails
+        subject = emails.placed(w["name"], kickoff=f"{w['kickoff'].astimezone(PT):%a %-I:%M %p} PT")
+        if subject:
+            log(f"emailed: {subject}")
+    except Exception as e:
+        log(f"email FAILED: {e!r}")
+
+
 def run_top_ups(w, k, ledger, day, live, log, stop_by=None):
     """10 AM wave: bet now, then keep betting newly arrived cash every 90 s until the earlier
     games have settled or top_up_until; stop_by caps one call (the cloud's 10-minute limit).
@@ -130,6 +143,7 @@ def run_top_ups(w, k, ledger, day, live, log, stop_by=None):
             ledger.record_wave(w["name"], status="done", cash_after=float(k.balance()))
             log(f"{w['name']}: top-ups finished ({'earlier games settled' if settled else 'time up'}); "
                 f"${committed(ledger, w['name'], k if live else None):,.0f} bet in all")
+            email_placed(w, live, log)
             return True
         if stop_by and now + dt.timedelta(seconds=90) >= stop_by:
             return False
@@ -233,6 +247,8 @@ def run_wave(w, k, ledger, day, live, log):
     msg = f"{w['name']}: placed {len(singles)} singles; cash now ${cash_after:,.0f}"
     log(msg)
     notify(msg)
+    if not top_up:
+        email_placed(w, live, log)
 
 
 def main():

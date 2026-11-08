@@ -29,7 +29,7 @@ CALL_LIMIT = dt.timedelta(minutes=5)   # last top-up starts by then; the cloud k
 
 def git_save(msg):
     """Commit the ledger, logs and dashboard state, rebasing over any code pushed meanwhile."""
-    paths = ["ledger/ledger.db", "logs", "data/reasons.json", "data/dashboard_history.json"]
+    paths = ["ledger/ledger.db", "logs", "data/reasons.json", "data/dashboard_history.json", "data/emails_sent.json"]
     subprocess.run(["git", "add", "-A", *paths], cwd=ROOT, check=False)
     if subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=ROOT).returncode == 0:
         return

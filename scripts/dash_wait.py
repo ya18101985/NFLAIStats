@@ -70,6 +70,12 @@ def main():
             return
         out = subprocess.run([sys.executable, str(ROOT / "scripts" / "dashboard.py"), day],
                              capture_output=True, text=True).stdout
+        try:   # email 2: settlement report for each wave whose bets have all settled
+            sys.path.insert(0, str(ROOT / "scripts"))
+            import emails
+            emails.settled(day, push=pull, log=lambda m: None)
+        except Exception as e:
+            print(f"settlement email failed: {e!r}", file=sys.stderr)
         sig = signature()
         live = re.search(r"(\d+) live", out)
         if "games post" in out and not (live and int(live.group(1))):   # over and every bet settled

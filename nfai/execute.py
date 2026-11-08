@@ -7,7 +7,7 @@ import time
 import uuid
 from pathlib import Path
 
-from . import picks as P
+from . import picks as P, report
 
 LEDGER = Path(__file__).resolve().parents[1] / "ledger" / "ledger.db"
 COMBO_COLLECTION = "KXMVECROSSCATEGORY-R"
@@ -70,7 +70,8 @@ def place_singles(k, ledger, wave, selected, kickoff, log=print):
             log(f"  placed {c.title} {c.outcome.upper()} {n} @ {c.price:.2f} (${stake:,.0f}) -> {status} {filled:.0f}/{n}")
             ledger.record_bet(wave=wave, kind="single", ticker=c.ticker, title=c.title, outcome=c.outcome,
                               limit_price=c.price, contracts=n, stake=stake, p_model=c.p_model, p=c.p, ev=c.ev,
-                              order_id=r.get("order_id"), client_order_id=cid, filled=filled, status=status)
+                              order_id=r.get("order_id"), client_order_id=cid, filled=filled, status=status,
+                              note=report.reason(c))
         except Exception as e:
             log(f"  FAILED {c.title}: {e}")
             ledger.record_bet(wave=wave, kind="single", ticker=c.ticker, title=c.title, outcome=c.outcome,
@@ -110,7 +111,8 @@ def place_parlay(k, ledger, wave, parlay, budget, log=print, wait_s=25, force=Tr
         if best and best[0] <= max_price:
             break
     note = f"best quote {best[0]:.3f}" if best else "no quotes"
-    if best and best[0] > max_price and force:
+    forced = bool(best and best[0] > max_price and force)
+    if forced:
         log(f"  parlay forced: best quote {best[0]:.3f} above our max {max_price:.3f}")
     elif not best or best[0] > max_price:
         log(f"  parlay skipped ({note}, our max {max_price:.3f}): {desc}")
@@ -128,7 +130,7 @@ def place_parlay(k, ledger, wave, parlay, budget, log=print, wait_s=25, force=Tr
         status = "error"
     ledger.record_bet(wave=wave, kind="parlay", ticker=ticker, title=desc, outcome="yes", limit_price=price,
                       stake=budget, p=parlay["p"], ev=parlay["p"] - price - P.fee(price), status=status,
-                      order_id=q["id"], note=f"rfq {rfq_id}", legs=json.dumps([c.ticker for c in legs]))
+                      order_id=q["id"], note=f"rfq {rfq_id}{' forced' if forced else ''}", legs=json.dumps([c.ticker for c in legs]))
     return budget if status == "accepted" else 0.0
 
 
