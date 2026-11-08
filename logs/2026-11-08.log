@@ -126,3 +126,37 @@
 12:53:47   placed Omarion Hampton receptions over 1.5 YES 429 @ 0.46 ($197) -> filled 429/429
 12:53:50 2026-11-08 1305 HOULAC: placed 6 singles; cash now $410
 12:53:52 emailed: NFAI bets placed: 2026-11-08 1305 HOULAC (10 bets, $1,591.97)
+13:11:04 === cloud LIVE 2026-11-08: 2026-11-08 1325 ARISEA+GBNE+LVSF ===
+13:11:06 sleeping 4 min until 2026-11-08 1325 ARISEA+GBNE+LVSF
+13:15:00 --- 2026-11-08 1325 ARISEA+GBNE+LVSF ---
+13:15:02 cash $579.86, account $2,181.16, wave bankroll $579.86 (sun_afternoon_rest)
+13:15:22   skip 26NOV08ARISEA: ('Zach Charbonnet', 'depth chart', 'role changed: RB2 two weeks ago, RB1 now')
+13:15:22   skip 26NOV08ARISEA: ('Drew Lock', 'depth chart', 'not the starting QB (QB2)')
+13:15:22   skip 26NOV08ARISEA: ('Tyler Allgeier', 'depth chart', 'role changed: RB2 two weeks ago, RB1 now')
+13:15:22   skip 26NOV08ARISEA: ('Reggie Virgil', 'depth chart', 'role changed: WR4 two weeks ago, WR2 now')
+13:15:22   skip 26NOV08ARISEA: ('Gardner Minshew II', 'depth chart', 'role changed: QB2 two weeks ago, QB1 now')
+13:15:38   skip 26NOV08GBNE: ('Mack Hollins', 'depth chart', 'role changed: WR5 two weeks ago, WR3 now')
+13:15:38   skip 26NOV08GBNE: ('Efton Chism III', 'depth chart', 'role changed: WR3 two weeks ago, WR4 now')
+13:15:55   skip 26NOV08LVSF: ('Demarcus Robinson', 'depth chart', 'role changed: WR7 two weeks ago, WR3 now')
+13:15:55   skip 26NOV08LVSF: ('Jack Bech', 'depth chart', 'role changed: WR7 two weeks ago, WR3 now')
+13:15:55   skip 26NOV08LVSF: ('Brock Bowers', 'receptions', 8.0, np.float64(6.6))
+13:15:55   skip 26NOV08LVSF: ('Tre Tucker', 'receiving_yards', 48.0, np.float64(34.7))
+13:15:55   skip 26NOV08LVSF: ('Tre Tucker', 'receptions', 4.0, np.float64(3.0))
+13:16:22   parlay forced: best quote 0.782 above our max 0.332
+13:16:22   parlay accepted @ 0.782 (p=0.391, $29): Kirk Cousins attempts over 31.5 yes + Rhamondre Stevenson receiving_yards under 29.5 no + Rhamondre Stevenson receptions under 4.5 no
+13:16:49   parlay forced: best quote 0.789 above our max 0.377
+13:16:49   parlay accepted @ 0.789 (p=0.443, $29): Kirk Cousins attempts over 31.5 yes + Rhamondre Stevenson rushing_yards over 39.5 yes + Rhamondre Stevenson carries over 11.5 yes
+13:17:16   parlay forced: best quote 0.772 above our max 0.337
+13:17:17   parlay accepted @ 0.772 (p=0.397, $29): Kirk Cousins attempts over 31.5 yes + Ashton Jeanty rushing_yards over 14.5 yes + Jordan Love passing_yards under 299.5 no
+13:17:44   parlay forced: best quote 0.772 above our max 0.425
+13:17:44   parlay accepted @ 0.772 (p=0.500, $29): Kirk Cousins attempts over 31.5 yes + Jaxon Smith-Njigba receiving_yards over 79.5 yes
+13:17:44 1646 priced sides (1646 with sportsbook lines) -> 7 singles ($445), parlays $116
+13:17:44   placed Tucker Kraft receiving_yards under 39.5 NO 203 @ 0.41 ($83) -> partial 189/203
+13:17:44   placed Game New England wins by over 2.5 points NO NO 194 @ 0.43 ($83) -> filled 194/194
+13:17:44   placed Brock Purdy rushing_yards over 14.5 YES 107 @ 0.52 ($56) -> filled 107/107
+13:17:44   placed Kirk Cousins completions over 23.5 YES 116 @ 0.48 ($56) -> filled 116/116
+13:17:44   placed Ashton Jeanty receptions over 4.5 YES 124 @ 0.45 ($56) -> filled 124/124
+13:17:44   placed Ashton Jeanty receiving_yards over 39.5 YES 126 @ 0.44 ($55) -> filled 126/126
+13:17:44   placed Christian McCaffrey rushing_yards over 59.5 YES 105 @ 0.53 ($56) -> filled 105/105
+13:17:47 2026-11-08 1325 ARISEA+GBNE+LVSF: placed 7 singles; cash now $309
+13:17:49 emailed: NFAI bets placed: 2026-11-08 1325 ARISEA+GBNE+LVSF (11 bets, $560.83)
