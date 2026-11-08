@@ -10,6 +10,11 @@ from pathlib import Path
 TO = "yash.us.visa@gmail.com"
 FROM = "nfai.reports@gmail.com"
 PASSWORD_FILE = Path.home() / ".kalshi" / "gmail_app_password.txt"   # cloud: GMAIL_APP_PASSWORD
+# The cloud allows only web traffic, so mail goes through the user's Apps Script web app (owned by
+# nfai.reports, hard-wired to email TO only), which checks this key. Cloud: NFAI_MAIL_KEY.
+HOOK_URL = ("https://script.google.com/macros/s/AKfycbzw-ZqwiQVGbD0jrSlKAooEwfVAbavfIZF4A6b_JwdlzzsyjaLAYcTLr5p5PD-rGBDR"
+            "/exec")
+HOOK_KEY_FILE = Path.home() / ".kalshi" / "mail_hook_key.txt"
 
 FONT = "font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif"
 TH = "padding:8px 10px;text-align:left;font-size:12px;color:#555;border-bottom:2px solid #ddd;white-space:nowrap"
@@ -96,7 +101,15 @@ def settled_email(wave, bets, balance, season_profit):
 
 
 def send(subject, body_html):
-    """Send through Gmail with the sender account's app password. Raises on failure (callers catch)."""
+    """Send through the Apps Script web app if its key is set up, else Gmail SMTP with the sender's
+    app password. Raises on failure (callers catch)."""
+    key = os.environ.get("NFAI_MAIL_KEY") or (HOOK_KEY_FILE.read_text().strip() if HOOK_KEY_FILE.exists() else None)
+    if key:
+        import requests
+        r = requests.post(HOOK_URL, json={"key": key, "subject": subject, "html": body_html}, timeout=60)
+        if r.text.strip() != "OK":
+            raise RuntimeError(f"mail hook answered {r.status_code} {r.text[:80]!r}")
+        return
     pw = os.environ.get("GMAIL_APP_PASSWORD") or (PASSWORD_FILE.read_text().strip() if PASSWORD_FILE.exists() else None)
     if not pw:
         raise RuntimeError("no Gmail app password configured")
