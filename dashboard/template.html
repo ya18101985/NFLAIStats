@@ -234,7 +234,7 @@ td.pos { color: var(--won); font-weight: 600; } td.neg { color: var(--lost); fon
 
   <section class="summary" aria-label="Portfolio summary">
     <div class="stat"><span class="eyebrow">Staked</span><span class="v num" id="tCost">$0</span><span class="s" id="tBets">Fees included</span></div>
-    <div class="stat"><span class="eyebrow">Expected payout</span><span class="v num" id="tEV">$0</span><span class="s" id="tEVs">Contracts × live win chance</span></div>
+    <div class="stat"><span class="eyebrow" id="tEVl">Expected payout</span><span class="v num" id="tEV">$0</span><span class="s" id="tEVs">Contracts × live win chance</span></div>
     <div class="stat"><span class="eyebrow">Chance of profit</span><span class="v num" id="tPP">–</span><span class="s" id="tPPs">Whole day, settled bets included</span></div>
     <div class="stat"><span class="eyebrow">Still possible</span><span class="v num" id="tMax">$0</span><span class="s">Paid if every live bet hits</span></div>
     <div class="stat"><span class="eyebrow">Locked in</span><span class="v num" id="tWon">$0</span><span class="s" id="tCounts">0 won · 0 lost · 0 live</span></div>
@@ -508,6 +508,8 @@ td.pos { color: var(--won); font-weight: 600; } td.neg { color: var(--lost); fon
     $('tEV').textContent = usd0(liveEV);
     const evDiff = liveEV - liveCost;
     $('tEVs').textContent = (evDiff >= 0 ? '+' : '−') + usd0(Math.abs(evDiff)) + ' vs. staked';
+    // once every bet has settled, "expected" is just what the winners paid
+    $('tEVl').textContent = bets.length && !bets.some((b) => b.status === 'live') ? 'Paid out (all settled)' : 'Expected payout';
     $('tMax').textContent = usd0(liveMax);
     const O = S.outlook;
     if (O) {
