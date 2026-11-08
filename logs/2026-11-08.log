@@ -32,3 +32,70 @@
 05:58:30   placed Drake London receptions under 5.5 NO 792 @ 0.45 ($356) -> filled 792/792
 05:58:33 2026-11-08 0630 CINATL: placed 10 singles; cash now $204
 05:58:35 emailed: NFAI bets placed: 2026-11-08 0630 CINATL (14 bets, $3,595.00)
+09:42:02 === cloud LIVE 2026-11-08: 2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC ===
+09:42:04 sleeping 3 min until 2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC
+09:45:00 --- 2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC ---
+09:45:01 cash $1,888.45, account $2,598.80, wave bankroll $1,510.76 (sun_early)
+09:45:18   skip 26NOV08CLENO: ('Shedeur Sanders', 'depth chart', 'not the starting QB (QB2)')
+09:45:18   skip 26NOV08CLENO: ('Denzel Boston', 'receptions', 4.0, np.float64(2.9))
+09:45:29   skip 26NOV08DALIND: ('Daniel Jones', 'attempts', 38.0, np.float64(31.2))
+09:45:29   skip 26NOV08DALIND: ('Keenan Allen', 'receiving_yards', 58.1, np.float64(42.5))
+09:45:29   skip 26NOV08DALIND: ('Tyler Warren', 'receiving_yards', 55.8, np.float64(42.3))
+09:45:29   skip 26NOV08DALIND: ('Tyler Warren', 'receptions', 7.0, np.float64(5.2))
+09:45:29   skip 26NOV08DALIND: ('Ryan Flournoy', 'receiving_yards', 39.5, np.float64(58.0))
+09:45:29   skip 26NOV08DALIND: ('Ryan Flournoy', 'receptions', 3.0, np.float64(4.8))
+09:45:41   skip 26NOV08DENCAR: ('John Metchie III', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+09:45:41   skip 26NOV08DENCAR: ('Bryce Young', 'attempts', 40.0, np.float64(34.0))
+09:45:41   skip 26NOV08DENCAR: ('Bryce Young', 'passing_tds', 2.0, np.float64(1.4))
+09:45:41   skip 26NOV08DENCAR: ('Tetairoa McMillan', 'receptions', 6.0, np.float64(4.8))
+09:45:41   skip 26NOV08DENCAR: ('Pat Bryant', 'depth chart', 'role changed: WR6 two weeks ago, WR3 now')
+09:45:41   skip 26NOV08DENCAR: ('Jonah Coleman', 'depth chart', 'role changed: RB3 two weeks ago, RB1 now')
+09:45:41   skip 26NOV08DENCAR: ('Troy Franklin', 'depth chart', 'role changed: WR3 two weeks ago, WR4 now')
+09:45:41   skip 26NOV08DENCAR: ('J.K. Dobbins', 'depth chart', 'role changed: RB1 two weeks ago, RB2 now')
+09:45:53   skip 26NOV08DETMIA: ('Greg Dulcich', 'receiving_yards', 57.3, np.float64(38.6))
+09:45:53   skip 26NOV08DETMIA: ('Greg Dulcich', 'receptions', 5.0, np.float64(3.6))
+09:45:53   skip 26NOV08DETMIA: ('Malik Washington', 'receiving_yards', 61.5, np.float64(43.4))
+09:45:53   skip 26NOV08DETMIA: ('Malik Washington', 'receptions', 6.0, np.float64(4.1))
+09:45:53   skip 26NOV08DETMIA: ('Malik Willis', 'attempts', 35.0, np.float64(27.6))
+09:45:53   skip 26NOV08DETMIA: ('Malik Willis', 'completions', 22.0, np.float64(17.6))
+09:45:53   skip 26NOV08DETMIA: ('Jahmyr Gibbs', 'carries', 24.0, np.float64(20.7))
+09:46:05   skip 26NOV08LARWAS: ('Jayden Daniels', 'attempts', 38.0, np.float64(31.2))
+09:46:05   skip 26NOV08LARWAS: ('Jayden Daniels', 'completions', 24.0, np.float64(19.6))
+09:46:05   skip 26NOV08LARWAS: ('Jayden Daniels', 'rushing_yards', 24.3, np.float64(37.2))
+09:46:05   skip 26NOV08LARWAS: ('Tutu Atwell', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+09:46:16   skip 26NOV08NYGPHI: ('Tanner McKee', 'depth chart', 'not the starting QB (QB2)')
+09:46:27   skip 26NOV08NYJKC: ('Cyrus Allen', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+09:46:27   skip 26NOV08NYJKC: ('Kenneth Walker III', 'carries', 25.0, np.float64(20.1))
+09:46:27   skip 26NOV08NYJKC: ('Kenneth Walker III', 'rushing_yards', 123.4, np.float64(92.3))
+09:46:27   skip 26NOV08NYJKC: ('Rashee Rice', 'receiving_yards', 40.4, np.float64(56.6))
+09:46:27   skip 26NOV08NYJKC: ('Travis Kelce', 'receptions', 3.0, np.float64(4.0))
+09:46:27   skip 26NOV08NYJKC: ('Adonai Mitchell', 'receptions', 5.0, np.float64(3.7))
+09:46:27   skip 26NOV08NYJKC: ('Braelon Allen', 'carries', 15.0, np.float64(9.4))
+09:46:27   skip 26NOV08NYJKC: ('Braelon Allen', 'rr_yards', 86.4, np.float64(47.2))
+09:46:27   skip 26NOV08NYJKC: ('Braelon Allen', 'rushing_yards', 60.1, np.float64(34.1))
+09:46:27   skip 26NOV08NYJKC: ('Breece Hall', 'carries', 14.0, np.float64(10.5))
+09:46:27   skip 26NOV08NYJKC: ('Geno Smith', 'attempts', 37.0, np.float64(32.3))
+09:46:27   skip 26NOV08NYJKC: ('Geno Smith', 'completions', 25.0, np.float64(20.3))
+09:46:29   parlay accepted @ 0.224 (p=0.367, $76): Geno Smith passing_yards over 199.5 yes + Daniel Jones passing_yards over 174.5 yes + Bo Nix passing_yards under 224.5 no
+09:46:55   parlay forced: best quote 0.419 above our max 0.322
+09:46:55   parlay accepted @ 0.419 (p=0.379, $76): Geno Smith passing_yards over 199.5 yes + Malik Willis carries under 6.5 no + Jahmyr Gibbs rushing_yards over 79.5 yes
+09:46:57   parlay accepted @ 0.297 (p=0.424, $76): Geno Smith passing_yards over 199.5 yes + Jayden Daniels passing_yards over 174.5 yes + Patrick Mahomes rushing_yards under 19.5 no
+09:46:59   parlay accepted @ 0.256 (p=0.380, $76): Geno Smith passing_yards over 199.5 yes + Malik Willis passing_yards over 174.5 yes + Tyler Shough passing_yards under 249.5 no
+09:46:59 4032 priced sides (4032 with sportsbook lines) -> 14 singles ($1,163), parlays $302
+09:46:59   placed Jahmyr Gibbs rushing_yards over 89.5 YES 149 @ 0.56 ($83) -> filled 149/149
+09:47:00   placed Makai Lemon receptions under 4.5 NO 160 @ 0.52 ($83) -> resting 0/160
+09:47:00   placed Matthew Stafford attempts over 33.5 YES 184 @ 0.45 ($83) -> filled 184/184
+09:47:00   placed 1H New York J over 7.5 points YES YES 163 @ 0.51 ($83) -> filled 163/163
+09:47:00   placed Kyren Williams carries over 13.5 YES 170 @ 0.49 ($83) -> filled 170/170
+09:47:00   placed 1H New Orleans over 10.5 points YES YES 163 @ 0.51 ($83) -> filled 163/163
+09:47:00   placed Devaughn Vele receptions over 3.5 YES 180 @ 0.46 ($83) -> filled 180/180
+09:47:00   placed Bryce Young passing_yards over 224.5 YES 214 @ 0.47 ($101) -> filled 214/214
+09:47:00   placed Rashee Rice receptions under 4.5 NO 202 @ 0.42 ($85) -> filled 202/202
+09:47:00   placed Daniel Jones passing_yards over 199.5 YES 179 @ 0.51 ($91) -> filled 179/179
+09:47:00   placed Kenneth Walker III rr_yards over 109.5 YES 152 @ 0.55 ($84) -> filled 152/152
+09:47:00   placed Daniel Jones completions over 20.5 YES 150 @ 0.49 ($74) -> filled 150/150
+09:47:00   placed Bo Nix passing_yards under 199.5 NO 172 @ 0.42 ($72) -> filled 172/172
+09:47:00   placed Bryce Young rushing_yards under 9.5 NO 140 @ 0.54 ($76) -> filled 140/140
+09:47:04 2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC: placed 14 singles; cash now $468
+09:47:05 2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC: top-ups finished (earlier games settled); $1,466 bet in all
+09:47:07 emailed: NFAI bets placed: 2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC (18 bets, $1,465.60)
