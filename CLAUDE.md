@@ -54,3 +54,14 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
 - Safety stop: skip waves if the account is below 40% of the starting balance.
 - Fully automatic placement (user's choice). The user prefers plain language and one decision
   at a time.
+
+## Cloud operations (since 2026-11-06)
+- Live bets run as one-off Claude Code cloud routines, one per wave, about 6 minutes before its bet time,
+  each running `scripts/cloud_tick.py --live --window 15` (the 10 AM wave loops while it prints MORE).
+  New weeks need new routines; get wave times from `run_day.make_waves`.
+- Never run `run_day.py` or `cloud_tick.py --live` by hand while routines are scheduled: double bets.
+- Dashboard routines loop on `scripts/dash_wait.py DAY --pull` and publish the Bet Tracker artifact
+  (https://claude.ai/artifact/3zjxWGVFxLY2cP3PmH7tNo).
+- Emails: each wave emails yash.us.visa@gmail.com twice (bets placed; settlement), through the user's
+  Apps Script mailer (`nfai/report.py`, key in env NFAI_MAIL_KEY). The cloud has no SMTP.
+- Kill switch from a phone: add a file named `STOP` at the repo root on GitHub.
