@@ -211,7 +211,7 @@ def select_singles(cands, bankroll, budget=None, one_game=False):
     for i, (min_a, min_b) in enumerate(steps):
         out = _select(cands, bankroll, budget, min_a, min_b, MAX_STAKE)
         spent = sum(n * (c.price + fee(c.price)) for c, n, _ in out)
-        if spent >= 0.97 * budget or i == len(steps) - 1:
+        if spent >= 0.99 * budget or i == len(steps) - 1:
             return out
 
 
