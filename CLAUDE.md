@@ -54,6 +54,8 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
   Europe 100%. Sunday 10 AM wave 80%: bets from 9:45 PT, then every ~90 s bets newly arrived
   Europe payouts (at live prices, no guard, user's choice) until the Europe bets settle or 10:10.
   1:05, 1:25 and the night game: all cash. TNF/MNF: 100%.
+  Night game (user's choice, 2026-11-08): after its first bets, keeps betting newly settled afternoon
+  payouts every ~90 s until those games settle or 3 min before kickoff (pregame only).
 - No balance floor (user's choice, 2026-11-08): the 40% safety stop was removed so every wave can
   spend all available funds. Only the STOP file halts betting.
 - Fully automatic placement (user's choice). The user prefers plain language and one decision

@@ -33,6 +33,7 @@ from nfai.model import Model  # noqa: E402
 PT = ZoneInfo("America/Los_Angeles")
 MAX_BANKROLL = 5000.0
 TOP_UP_AFTER_KICKOFF = dt.timedelta(minutes=10)
+NIGHT_TOP_UP_BEFORE_KICKOFF = dt.timedelta(minutes=3)
 LOGS = Path(__file__).resolve().parents[1] / "logs"
 
 
@@ -66,9 +67,15 @@ def make_waves(games):
             rule, lead = "all_cash", dt.timedelta(minutes=35 if sunday else 60)
         name = f"{local:%Y-%m-%d %H%M} {'+'.join(g.code[7:] for g in by_kick[kick])}"
         w = dict(name=name, kickoff=kick, bet_at=kick - lead, rule=rule, games=by_kick[kick])
+        earlier = [g.code for k2, gs in by_kick.items() if k2 < kick for g in gs]
         if rule == "sun_early":
             w["top_up_until"] = kick + TOP_UP_AFTER_KICKOFF
-            w["earlier_games"] = [g.code for k2, gs in by_kick.items() if k2 < kick for g in gs]
+            w["earlier_games"] = earlier
+        elif sunday and local.hour >= 15 and earlier:
+            # night game (user's choice, 2026-11-08): afternoon payouts often land after the bet
+            # time, so keep betting new cash until those games settle; pregame only
+            w["top_up_until"] = kick - NIGHT_TOP_UP_BEFORE_KICKOFF
+            w["earlier_games"] = earlier
         waves.append(w)
     return waves
 
