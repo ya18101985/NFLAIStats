@@ -39,6 +39,9 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
   Singles are a hybrid (user's choice, 2026-10-31), half the budget each:
   A = books and model both say Kalshi is cheap (EV >= 0.5c); B = model-only EV >= 2c and the
   books at most 2c against. Singles must be 45-65% to win.
+  C = "likely winner" (user's choice, 2026-11-08): model and blend 58-72%, books 55%+, EV >= 1c
+  after fees. C only fills what A and B (at non-negative bars) leave, and always before any
+  below-break-even filler bets.
 - Game lines (`nfai/gamelines.py`): winner/spread/total for full game, halves and quarters, plus
   team totals (full, 1H), priced only against the books (70% books / 30% Kalshi mid); they
   join group A. Quarter lines need an exact book line; partial-game winners need a 3-way book

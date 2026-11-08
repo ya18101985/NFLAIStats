@@ -323,7 +323,10 @@ class Reasoner:
                    f"pass and #{rk('def_epa_rush', opp)} vs the run by EPA allowed (1 = best).")
         why["points"] = pts
         pb = why["pBook"]
-        if pb is not None and pb >= row["limit_price"] + 0.005:
+        if (row.get("note") or "").startswith("Likely winner"):
+            why["group"] = "C · likely winner"
+            why["verdict"] = "The model and the books both make this a likely winner, with a small edge after fees."
+        elif pb is not None and pb >= row["limit_price"] + 0.005:
             why["group"] = "A · books back it"
             why["verdict"] = "Both the sportsbooks and the model rate this side above Kalshi's price."
         else:

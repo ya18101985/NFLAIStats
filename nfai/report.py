@@ -125,7 +125,10 @@ def send(subject, body_html):
 def reason(c):
     """One line on why a single was picked, from the candidate's numbers."""
     edge = f"edge {100 * c.ev:+.1f}¢"
-    if c.group == "A" or (c.hit is None and c.p_book is not None):
+    if c.group == "C":
+        why = (f"Likely winner: model {100 * c.p_model:.0f}% and books {100 * c.p_book:.0f}% "
+               f"at Kalshi's {100 * c.price:.0f}¢")
+    elif c.group == "A" or (c.hit is None and c.p_book is not None):
         why = f"Books ({100 * c.p_book:.0f}%) and model ({100 * c.p_model:.0f}%) both above Kalshi's {100 * c.price:.0f}¢"
     elif c.p_book is not None:
         why = f"Model {100 * c.p_model:.0f}% vs Kalshi {100 * c.price:.0f}¢; books {100 * c.p_book:.0f}%, close enough"

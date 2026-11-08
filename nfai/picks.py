@@ -39,6 +39,11 @@ ONE_GAME_FLOOR = -0.01
 # 100% allocation of every slate (user's choice, 2026-11-05): if the steps above still leave money
 # unspent, keep adding the closest-to-break-even bets, down to 3c below, any wave
 FULL_ALLOCATION_FLOORS = [-0.02, -0.03]
+# group C "likely winner" (user's choice, 2026-11-08): fills what A and B leave, before any
+# below-break-even filler. Needs the books to agree and a 1c edge after fees as a cushion.
+LIKELY_MIN_PROB, LIKELY_MAX_PROB = 0.58, 0.72
+LIKELY_MIN_BOOK = 0.55
+LIKELY_MIN_EV = 0.01
 MAX_SPREAD = 0.05
 MIN_STAKE, MAX_STAKE = 0.05, 0.15   # of the wave bankroll, per single
 SINGLES_SHARE = 0.80
@@ -215,29 +220,36 @@ def select_singles(cands, bankroll, budget=None, one_game=False):
             return out
 
 
+def _group_c(c):
+    """Likely winner: model and blend both put it 58-72% to win, the books agree (55%+), and it
+    still clears a 1c edge after fees, as a cushion against the model being over-optimistic."""
+    return (c.p_book is not None and c.p_book >= LIKELY_MIN_BOOK and c.ev >= LIKELY_MIN_EV
+            and LIKELY_MIN_PROB <= c.p <= LIKELY_MAX_PROB and LIKELY_MIN_PROB <= c.p_model <= LIKELY_MAX_PROB)
+
+
 def _select(cands, bankroll, budget, min_a, min_b, max_stake):
-    """Singles from group A (books back it) and group B (model's call), splitting the budget
-    GROUP_A_SHARE / rest, or all to one group if the other is empty. Within a group: greedy by
-    EV, one side per player-stat, at most 2 bets a player overall, each 5-15% of the bankroll by
-    half-Kelly; then stakes are scaled up together (still capped) until the budget is used."""
+    """Singles in three stages, each only spending what the earlier ones couldn't:
+    1. group A (books back it) and group B (model's call) at the step's edge bars, but never below
+       break-even, splitting the budget GROUP_A_SHARE / rest (or all to one group if the other is empty);
+    2. group C (likely winners), user's choice 2026-11-08;
+    3. only on below-break-even steps: A and B filler bets down to the step's bars.
+    Within a stage: greedy by EV, one side per player-stat, at most 2 bets a player overall, each
+    5-15% of the bankroll by half-Kelly; then stakes are scaled up together (still capped)."""
     for c in cands:
         c.group = ""
-    pools = {"A": sorted([c for c in cands if _group_a(c, min_a)], key=lambda c: -c.ev)}
-    in_a = {id(c) for c in pools["A"]}
-    pools["B"] = sorted([c for c in cands if id(c) not in in_a and _group_b(c, min_b)], key=lambda c: -c.ev_model)
-    if pools["A"] and pools["B"]:
-        budgets = {"A": GROUP_A_SHARE * budget, "B": (1 - GROUP_A_SHARE) * budget}
-    else:
-        budgets = {g: (budget if pools[g] else 0.0) for g in pools}
     cap, picked, seen, per_player = max_stake * bankroll, [], set(), {}
-    for g in ("A", "B"):
-        left, mine = budgets[g], []
-        for c in pools[g]:
+
+    def spent():
+        return sum(s for _, s in picked)
+
+    def add(pool, g, budget_g):
+        left, mine = budget_g, []
+        for c in pool:
             key = (c.player, c.stat)
-            if key in seen or per_player.get(c.player, 0) >= MAX_BETS_PER_PLAYER:
+            if c.group or key in seen or per_player.get(c.player, 0) >= MAX_BETS_PER_PLAYER:
                 continue
             cost = c.price + fee(c.price)
-            p = c.p if g == "A" else cost + c.ev_model
+            p = cost + c.ev_model if g == "B" else c.p
             kelly = (p - cost) / (1 - cost)
             stake = min(float(np.clip(0.5 * kelly, MIN_STAKE, max_stake)) * bankroll, left)
             if stake < MIN_STAKE * bankroll:
@@ -247,9 +259,26 @@ def _select(cands, bankroll, budget, min_a, min_b, max_stake):
             left -= stake
             seen.add(key)
             per_player[c.player] = per_player.get(c.player, 0) + 1
-        _scale_to(mine, budgets[g], cap)
-        picked += mine
-    _scale_to(picked, budget, cap)   # one group capped out: let the other absorb the rest
+        _scale_to(mine, budget_g, cap)
+        picked.extend(mine)
+
+    def add_ab(bar_a, bar_b):
+        pool_a = sorted([c for c in cands if not c.group and _group_a(c, bar_a)], key=lambda c: -c.ev)
+        in_a = {id(c) for c in pool_a}
+        pool_b = sorted([c for c in cands if not c.group and id(c) not in in_a and _group_b(c, bar_b)],
+                        key=lambda c: -c.ev_model)
+        left = budget - spent()
+        share_a = GROUP_A_SHARE if pool_a and pool_b else (1.0 if pool_a else 0.0)
+        add(pool_a, "A", share_a * left)
+        add(pool_b, "B", budget - spent())
+        _scale_to(picked, budget, cap)   # one group capped out: let the other absorb the rest
+
+    add_ab(max(min_a, 0.0), max(min_b, 0.0))
+    if spent() < budget - 1:
+        add(sorted([c for c in cands if not c.group and _group_c(c)], key=lambda c: -c.ev), "C", budget - spent())
+        _scale_to(picked, budget, cap)
+    if min(min_a, min_b) < 0 and spent() < budget - 1:
+        add_ab(min_a, min_b)
     out = []
     for c, stake in picked:
         contracts = int(stake / (c.price + fee(c.price)))
