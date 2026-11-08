@@ -44,9 +44,12 @@ MIN_STAKE, MAX_STAKE = 0.05, 0.15   # of the wave bankroll, per single
 SINGLES_SHARE = 0.80
 MAX_BETS_PER_PLAYER = 2
 
-PARLAY_LEG_MIN_PROB = 0.55
+# parlays (user's choice, 2026-11-08): 20% of every wave, 2-3 legs, each leg 60-75% to win, never skipped
+PARLAY_SHARE = 0.20
+PARLAY_LEG_MIN_PROB, PARLAY_LEG_MAX_PROB = 0.60, 0.75
+PARLAY_SIZES = (2, 3)
 PARLAYS_PER_WAVE = 4
-PARLAY_MIN_EDGE = 0.15      # quoted price must be at least 15% below our joint probability
+PARLAY_MIN_EDGE = 0.15      # a quote this far below our joint probability is taken at once; else the best quote
 
 # how far our median may sit from the market's before we distrust our data for that prop
 SANITY_ABS = {"receptions": 1.0, "carries": 3, "attempts": 4, "completions": 3, "passing_tds": 0.6}
@@ -268,16 +271,19 @@ def _scale_to(picked, budget, cap):
 
 
 def parlay_candidates(cands, k=PARLAYS_PER_WAVE):
-    """Best 3-5 leg parlays from legs we like (p >= 55%, non-negative EV), one leg per Kalshi
-    event (the combo rules allow one market per series per game). Joint probability comes from
-    shared simulations for legs on the same team; legs on different teams are multiplied."""
-    legs = [c for c in cands if c.hit is not None and c.p >= PARLAY_LEG_MIN_PROB and c.ev >= 0]   # props only
+    """Best 2-3 leg parlays from legs 60-75% to win (non-negative EV preferred, any EV if that leaves
+    too few legs), one leg per Kalshi event (the combo rules allow one market per series per game).
+    Joint probability comes from shared simulations for legs on the same team; legs on different
+    teams are multiplied."""
+    legs = [c for c in cands if c.hit is not None and PARLAY_LEG_MIN_PROB <= c.p <= PARLAY_LEG_MAX_PROB]   # props only
+    if len({c.event_ticker for c in legs if c.ev >= 0}) >= max(PARLAY_SIZES):
+        legs = [c for c in legs if c.ev >= 0]
     best = {}
     for c in sorted(legs, key=lambda c: -c.ev):
         best.setdefault((c.event_ticker, c.player), c)
     pool = sorted({c.event_ticker: c for c in best.values()}.values(), key=lambda c: -c.ev)[:14]
     found = []
-    for size in (3, 4, 5):
+    for size in PARLAY_SIZES:
         for combo in itertools.combinations(pool, size):
             if len({c.event_ticker for c in combo}) < size:
                 continue

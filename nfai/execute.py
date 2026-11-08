@@ -58,8 +58,9 @@ class Ledger:
 
 def place_singles(k, ledger, wave, selected, kickoff, log=print):
     """selected: [(Candidate, contracts, stake)] from picks.select_singles. Orders rest until one
-    minute before kickoff, then expire, so a stale pregame price can never fill during the game."""
-    expire = int(kickoff.timestamp()) - 60
+    minute before kickoff, then expire, so a stale pregame price can never fill during the game.
+    Top-ups placed after that (10 AM wave, user's choice 2026-11-08) rest for 2 minutes."""
+    expire = max(int(kickoff.timestamp()) - 60, int(time.time()) + 120)
     for c, n, stake in selected:
         cid = str(uuid.uuid4())
         try:
@@ -77,9 +78,10 @@ def place_singles(k, ledger, wave, selected, kickoff, log=print):
                               client_order_id=cid, status="error", note=str(e)[:500])
 
 
-def place_parlay(k, ledger, wave, parlay, budget, log=print, wait_s=25):
-    """Ask market makers to quote the combo and buy it only if the price is at least
-    PARLAY_MIN_EDGE below our joint probability. Returns the dollars spent. Buying YES on a combo means accepting the
+def place_parlay(k, ledger, wave, parlay, budget, log=print, wait_s=25, force=True):
+    """Ask market makers to quote the combo; buy at once if a quote is at least PARLAY_MIN_EDGE below
+    our joint probability, else (force, the user's rule since 2026-11-08) take the best quote at the
+    deadline. Returns the dollars spent. Buying YES on a combo means accepting the
     maker's NO bid (confirmed from the user's past combo fills); our price is 1 - no_bid."""
     legs = parlay["legs"]
     desc = " + ".join(f"{c.title} {c.outcome}" for c in legs)
@@ -108,7 +110,9 @@ def place_parlay(k, ledger, wave, parlay, budget, log=print, wait_s=25):
         if best and best[0] <= max_price:
             break
     note = f"best quote {best[0]:.3f}" if best else "no quotes"
-    if not best or best[0] > max_price:
+    if best and best[0] > max_price and force:
+        log(f"  parlay forced: best quote {best[0]:.3f} above our max {max_price:.3f}")
+    elif not best or best[0] > max_price:
         log(f"  parlay skipped ({note}, our max {max_price:.3f}): {desc}")
         _delete_rfq(k, rfq_id)
         ledger.record_bet(wave=wave, kind="parlay", ticker=ticker, title=desc, outcome="yes", p=parlay["p"],

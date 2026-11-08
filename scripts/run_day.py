@@ -3,11 +3,13 @@ and place them. Dry run unless --live.
 
     caffeinate -i .venv/bin/python scripts/run_day.py 2026-11-01 2026-11-02 --live
 
-Wave bankroll rules (agreed 2026-10-30), bankroll always capped at $5,000:
+Wave bankroll rules (user's choice, 2026-11-08), bankroll always capped at $5,000; "cash" is free
+cash, i.e. the balance less what resting orders would still cost:
   Europe (before 9 AM PT) / night (after 3 PM PT) / any non-Sunday game: 100% of cash.
-  Sunday 10 AM PT wave: 80% of cash; the other 20% is reserved for the first afternoon wave.
-  First Sunday afternoon wave (1:05): the reserve + 50% of what the 10 AM wave has paid back so far.
-  Later afternoon waves (1:25): all cash.
+  Sunday 10 AM PT wave: 80% of cash. It bets from 15 min before kickoff and keeps topping up as Europe
+  payouts arrive, until the Europe bets have all settled or 10 minutes after kickoff (at live prices).
+  Sunday afternoon waves (1:05, 1:25): all cash.
+Every wave puts 20% into 2-3 leg parlays first; what they can't spend goes to singles.
 Safety stop: skip a wave if cash + open positions is below 40% of the starting balance.
 Kill switch: create ~/.kalshi/STOP, or a file named STOP at the repo root (editable from GitHub on
 a phone), to skip all further waves.
@@ -31,6 +33,7 @@ from nfai.model import Model  # noqa: E402
 PT = ZoneInfo("America/Los_Angeles")
 MAX_BANKROLL = 5000.0
 SAFETY_FLOOR = 0.40
+TOP_UP_AFTER_KICKOFF = dt.timedelta(minutes=10)
 LOGS = Path(__file__).resolve().parents[1] / "logs"
 
 
@@ -55,7 +58,7 @@ def make_waves(games):
         local = kick.astimezone(PT)
         sunday = local.weekday() == 6
         if sunday and 9 <= local.hour < 12:
-            rule, lead = "sun_early", dt.timedelta(minutes=90)
+            rule, lead = "sun_early", dt.timedelta(minutes=15)
         elif sunday and 12 <= local.hour < 15:
             rule = "sun_afternoon_first" if afternoon_seen == 0 else "sun_afternoon_rest"
             lead = dt.timedelta(minutes=15 if afternoon_seen == 0 else 10)
@@ -63,21 +66,74 @@ def make_waves(games):
         else:
             rule, lead = "all_cash", dt.timedelta(minutes=35 if sunday else 60)
         name = f"{local:%Y-%m-%d %H%M} {'+'.join(g.code[7:] for g in by_kick[kick])}"
-        waves.append(dict(name=name, kickoff=kick, bet_at=kick - lead, rule=rule, games=by_kick[kick]))
+        w = dict(name=name, kickoff=kick, bet_at=kick - lead, rule=rule, games=by_kick[kick])
+        if rule == "sun_early":
+            w["top_up_until"] = kick + TOP_UP_AFTER_KICKOFF
+            w["earlier_games"] = [g.code for k2, gs in by_kick.items() if k2 < kick for g in gs]
+        waves.append(w)
     return waves
 
 
-def wave_bankroll(w, cash, ledger, day):
-    early = ledger.wave(ledger.get(f"{day}:early_wave", "")) if ledger.get(f"{day}:early_wave") else None
+def free_cash(k):
+    """Balance less the cost of resting orders (Kalshi doesn't hold cash for them)."""
+    cash = float(k.balance())
+    for o in k.orders(status="resting"):
+        side = o.get("outcome_side") or o.get("side")
+        cash -= float(o.get("remaining_count_fp") or 0) * float(o.get(f"{side}_price_dollars") or 0)
+    return cash
+
+
+def committed(ledger, wave, k=None):
+    """Dollars this wave has already bet: parlays bought, plus singles filled or still resting (from
+    Kalshi when k is given, so expired unfilled orders don't count; else the stakes placed)."""
+    q = "SELECT SUM(stake) FROM bets WHERE wave=? AND status NOT IN ('error', 'skipped')"
+    if k is None:
+        return float(ledger.db.execute(q, (wave,)).fetchone()[0] or 0)
+    total = float(ledger.db.execute(q + " AND kind='parlay'", (wave,)).fetchone()[0] or 0)
+    ids = {r[0] for r in ledger.db.execute("SELECT client_order_id FROM bets WHERE wave=? AND kind='single'", (wave,))}
+    if ids:
+        for o in k.orders(min_ts=int(dt.datetime.now(dt.timezone.utc).timestamp()) - 6 * 3600):
+            if o.get("client_order_id") in ids:
+                side = o.get("outcome_side") or o.get("side")
+                total += float(o.get("taker_fill_cost_dollars") or 0) + float(o.get("maker_fill_cost_dollars") or 0)
+                if o.get("status") == "resting":
+                    total += float(o.get("remaining_count_fp") or 0) * float(o.get(f"{side}_price_dollars") or 0)
+    return total
+
+
+def wave_bankroll(w, cash, ledger, k):
     if w["rule"] == "sun_early":
-        b = min(cash, MAX_BANKROLL)
-        ledger.set(f"{day}:reserve", 0.2 * b)
-        return 0.8 * b
-    if w["rule"] == "sun_afternoon_first":
-        reserve = float(ledger.get(f"{day}:reserve", 0))
-        paid_back = max(0.0, cash - (early["cash_after"] if early and early["cash_after"] is not None else cash))
-        return min(cash, reserve + 0.5 * paid_back, MAX_BANKROLL)
+        spent = committed(ledger, w["name"], k if k.live else None)
+        return max(0.0, min(0.8 * (cash + spent), MAX_BANKROLL) - spent)
     return min(cash, MAX_BANKROLL)
+
+
+def earlier_open(k, w):
+    """True while earlier games' bets (e.g. Europe) still hold unsettled positions."""
+    codes = w.get("earlier_games") or []
+    for p in k.positions():
+        pos = float(p.get("position_fp") or p.get("position") or 0)
+        if pos and any(c in p.get("ticker", "") for c in codes):
+            return True
+    return False
+
+
+def run_top_ups(w, k, ledger, day, live, log, stop_by=None):
+    """10 AM wave: bet now, then keep betting newly arrived cash every 90 s until the earlier
+    games have settled or top_up_until; stop_by caps one call (the cloud's 10-minute limit).
+    Returns True when the wave is finished."""
+    while True:
+        settled = not earlier_open(k, w)
+        run_wave(w, k, ledger, day, live, log)
+        now = dt.datetime.now(dt.timezone.utc)
+        if settled or now >= w["top_up_until"] or stopped():
+            ledger.record_wave(w["name"], status="done", cash_after=float(k.balance()))
+            log(f"{w['name']}: top-ups finished ({'earlier games settled' if settled else 'time up'}); "
+                f"${committed(ledger, w['name'], k if live else None):,.0f} bet in all")
+            return True
+        if stop_by and now + dt.timedelta(seconds=90) >= stop_by:
+            return False
+        time.sleep(90)
 
 
 def book_lines(g, log):
@@ -128,8 +184,8 @@ def run_wave(w, k, ledger, day, live, log):
         log("already done")
         return
     bal = k._request("GET", "/portfolio/balance")
-    cash = float(Decimal(bal["balance_dollars"]))
-    total = cash + bal.get("portfolio_value", 0) / 100
+    cash = free_cash(k)
+    total = float(Decimal(bal["balance_dollars"])) + bal.get("portfolio_value", 0) / 100
     start = float(ledger.get("start_balance") or total)
     if ledger.get("start_balance") is None and live:
         ledger.set("start_balance", total)
@@ -139,13 +195,18 @@ def run_wave(w, k, ledger, day, live, log):
         notify(msg)
         ledger.record_wave(w["name"], status="safety_stop", cash_before=cash)
         return
-    bankroll = wave_bankroll(w, cash, ledger, day)
+    k.live = live
+    bankroll = wave_bankroll(w, cash, ledger, k)
+    top_up = "top_up_until" in w
     log(f"cash ${cash:,.2f}, account ${total:,.2f}, wave bankroll ${bankroll:,.2f} ({w['rule']})")
-    ledger.record_wave(w["name"], started_at=dt.datetime.now(dt.timezone.utc).isoformat(), cash_before=cash,
-                       bankroll=bankroll, status="running")
+    first = ledger.wave(w["name"]) is None
+    ledger.record_wave(w["name"], **(dict(started_at=dt.datetime.now(dt.timezone.utc).isoformat(), cash_before=cash)
+                                     if first else {}),
+                       bankroll=bankroll + committed(ledger, w["name"]), status="running")
     if bankroll < 20:
         log("bankroll too small; nothing to do")
-        ledger.record_wave(w["name"], status="done", cash_after=cash)
+        if not top_up:
+            ledger.record_wave(w["name"], status="done", cash_after=cash)
         return
 
     slate.refresh_injuries(w["games"])
@@ -157,28 +218,18 @@ def run_wave(w, k, ledger, day, live, log):
         cands += c + game_line_candidates(g, k, log)
         for f in flags:
             log(f"  skip {g.code}: {f}")
-    one_game = len(w["games"]) == 1
-    parlays = P.parlay_candidates(cands, k=2 * P.PARLAYS_PER_WAVE)   # spares, in case quotes are poor
+    parlays = P.parlay_candidates(cands, k=2 * P.PARLAYS_PER_WAVE)   # spares, in case no quote comes
     k.max_order_cost = Decimal(str(round(P.MAX_STAKE * bankroll * 1.02 + 1, 2)))   # singles only; parlays are RFQs
     k.live = live
-    if one_game:
-        # few singles exist in one game: singles first (filler allowed down to 1c below break-even),
-        # everything left to parlays
-        singles = P.select_singles(cands, bankroll, budget=None if parlays else bankroll, one_game=True)
-        singles_cost = sum(n * (c.price + P.fee(c.price)) for c, n, _ in singles)
-        spent = place_parlays(k, ledger, w, parlays, bankroll - singles_cost, live, log)
-    else:
-        # parlays first, so whatever they don't spend goes to singles and the whole bankroll is used
-        spent = place_parlays(k, ledger, w, parlays, (1 - P.SINGLES_SHARE) * bankroll, live, log)
-        singles = P.select_singles(cands, bankroll, budget=bankroll - spent)
+    # parlays first, so whatever they don't spend goes to singles and the whole bankroll is used
+    spent = place_parlays(k, ledger, w, parlays, P.PARLAY_SHARE * bankroll, live, log)
+    singles = P.select_singles(cands, bankroll, budget=bankroll - spent, one_game=len(w["games"]) == 1)
     log(f"{len(cands)} priced sides ({sum(c.p_book is not None for c in cands)} with sportsbook lines) -> "
         f"{len(singles)} singles (${sum(s for *_, s in singles):,.0f}), parlays ${spent:,.0f}")
     place_singles(k, ledger, w["name"], singles, w["kickoff"], log=log)
     time.sleep(3)
     cash_after = float(k.balance())
-    ledger.record_wave(w["name"], status="done", cash_after=cash_after)
-    if w["rule"] == "sun_early":
-        ledger.set(f"{day}:early_wave", w["name"])
+    ledger.record_wave(w["name"], status="running" if top_up else "done", cash_after=cash_after)
     msg = f"{w['name']}: placed {len(singles)} singles; cash now ${cash_after:,.0f}"
     log(msg)
     notify(msg)
@@ -223,7 +274,10 @@ def run_date(date, k, ledger, live, now):
                 time.sleep(wait)
         log(f"--- {w['name']} ---")
         try:
-            run_wave(w, k, ledger, day, live, log)
+            if "top_up_until" in w:
+                run_top_ups(w, k, ledger, day, live, log)
+            else:
+                run_wave(w, k, ledger, day, live, log)
         except Exception as e:
             log(f"WAVE FAILED: {e!r}")
             notify(f"{w['name']} failed: {e}")

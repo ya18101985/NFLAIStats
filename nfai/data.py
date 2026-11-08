@@ -28,14 +28,27 @@ NFLVERSE_TO_KALSHI = {"LA": "LAR"}
 KALSHI_TO_NFLVERSE = {v: k for k, v in NFLVERSE_TO_KALSHI.items()}
 
 
-def refresh(season=SEASON, names=FILES):
-    """Re-download the current season's files (nflverse updates nightly in season)."""
+def refresh(season=SEASON, names=FILES, tries=4):
+    """Re-download the current season's files (nflverse updates nightly in season). GitHub sometimes
+    times out: retry, then keep the copy already on disk if there is one."""
+    import time
     DATA.mkdir(exist_ok=True)
     for name in names:
         rel = FILES[name].format(season=season)
-        r = requests.get(f"{RELEASES}/{rel}", timeout=120)
-        r.raise_for_status()
-        (DATA / Path(rel).name).write_bytes(r.content)
+        path = DATA / Path(rel).name
+        for i in range(tries):
+            try:
+                r = requests.get(f"{RELEASES}/{rel}", timeout=120)
+                r.raise_for_status()
+                path.write_bytes(r.content)
+                break
+            except requests.RequestException as e:
+                if i == tries - 1:
+                    if not path.exists():
+                        raise
+                    print(f"refresh {name} failed ({e}); using the copy on disk")
+                else:
+                    time.sleep(10 * (i + 1))
 
 
 def _load(name, season=SEASON):

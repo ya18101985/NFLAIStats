@@ -3,7 +3,9 @@ check (waiting for it), then commit the ledger and logs back to GitHub. Exits in
 nothing is due, so a quiet hour costs almost nothing.
 
 Usage: cloud_tick.py [--live] [--window 70]   (dry run unless --live, or NFAI_LIVE=1)
-Test: cloud_tick.py --date 2026-11-08 --now   (dry-runs that day's waves immediately)"""
+Test: cloud_tick.py --date 2026-11-08 --now   (dry-runs that day's waves immediately)
+The Sunday 10 AM wave tops up for ~25 minutes; each call stops after about 8 minutes and prints MORE
+as its last line while that wave still has time left, so the caller runs it again."""
 
 import argparse
 import datetime as dt
@@ -22,6 +24,7 @@ from nfai.kalshi import Kalshi  # noqa: E402
 import run_day as R  # noqa: E402
 
 LATE_OK = dt.timedelta(minutes=10)   # a late check still bets if kickoff is at least this far off
+CALL_LIMIT = dt.timedelta(minutes=5)   # last top-up starts by then; the cloud kills a command at 10 min
 
 
 def git_save(msg):
@@ -52,7 +55,8 @@ def main():
     k = Kalshi()
     ledger = Ledger() if live else Ledger(ROOT / "ledger" / "dryrun.db")
     due = [w for w in R.make_waves(slate.games_on(date, k))
-           if a.now or (w["bet_at"] <= now + dt.timedelta(minutes=a.window) and w["kickoff"] - LATE_OK > now
+           if a.now or (w["bet_at"] <= now + dt.timedelta(minutes=a.window)
+                        and w.get("top_up_until", w["kickoff"] - LATE_OK) > now
                         and not (ledger.wave(w["name"]) or {}).get("status") == "done")]
     if not due:
         print(f"nothing due ({date})")
@@ -68,6 +72,7 @@ def main():
 
     log(f"=== cloud {'LIVE' if live else 'DRY RUN'} {date}: {', '.join(w['name'] for w in due)} ===")
     D.refresh(names=["stats", "pbp", "snaps"])
+    more = False
     for w in due:
         wait = (w["bet_at"] - dt.datetime.now(dt.timezone.utc)).total_seconds()
         if wait > 0 and not a.now:
@@ -75,11 +80,17 @@ def main():
             time.sleep(wait)
         log(f"--- {w['name']} ---")
         try:
-            R.run_wave(w, k, ledger, str(date), live, log)
+            if "top_up_until" in w and not a.now:
+                more = not R.run_top_ups(w, k, ledger, str(date), live, log, stop_by=now + CALL_LIMIT)
+            else:
+                R.run_wave(w, k, ledger, str(date), live, log)
         except Exception as e:
             log(f"WAVE FAILED: {e!r}")
+            more = "top_up_until" in w and dt.datetime.now(dt.timezone.utc) < w["top_up_until"]
         if live:
             git_save(f"Wave {w['name']}")
+    if more:
+        print("MORE")
 
 
 if __name__ == "__main__":
