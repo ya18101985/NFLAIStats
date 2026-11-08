@@ -6,7 +6,8 @@ for the session to act on, so the AI only wakes up to publish.
   FINAL     every game is over and every bet settled (page rebuilt, dashboard state saved to GitHub): publish once more and stop
   NOBETS    no bets today: stop
 
-Rebuilds every 2 minutes once a game is on, every 15 before. With --pull (cloud), each rebuild first
+Rebuilds every 2 minutes once a game is on, every 15 before, and returns CHANGED at most every
+2 minutes (live prices change the page on every rebuild). With --pull (cloud), each rebuild first
 takes the latest ledger from GitHub, where the betting runs save it.
 Usage: dash_wait.py [YYYY-MM-DD] [--pull]"""
 
@@ -24,6 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "dashboard" / "index.html"
 LAST = ROOT / "dashboard" / ".last_published"   # signature of the last page the session published
 MAX_WAIT = 8 * 60
+MIN_GAP = 120   # seconds between publishes
 
 
 def signature():
@@ -58,6 +60,9 @@ def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     pull = "--pull" in sys.argv
     day = args[0] if args else str(dt.datetime.now(ZoneInfo("America/Los_Angeles")).date())
+    # live prices change the page on every rebuild: publish at most every MIN_GAP seconds
+    if LAST.exists():
+        time.sleep(max(0.0, MIN_GAP - (time.time() - LAST.stat().st_mtime)))
     start = time.time()
     while True:
         if pull:
