@@ -1,0 +1,34 @@
+05:50:26 === cloud LIVE 2026-11-08: 2026-11-08 0630 CINATL ===
+05:50:28 sleeping 5 min until 2026-11-08 0630 CINATL
+05:55:00 --- 2026-11-08 0630 CINATL ---
+05:55:02 cash $3,701.46, account $3,701.46, wave bankroll $3,701.46 (all_cash)
+05:55:19   skip 26NOV08CINATL: ('Kyle Pitts Sr.', 'receptions', 3.0, np.float64(4.1))
+05:55:19   skip 26NOV08CINATL: ('Dohnte Meyers', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+05:55:19   skip 26NOV08CINATL: ('Joe Burrow', 'passing_tds', 3.0, np.float64(2.2))
+05:55:46   parlay forced: best quote 0.592 above our max 0.386
+05:55:46   parlay accepted @ 0.592 (p=0.454, $185): Chase Brown carries over 11.5 yes + Drake London receiving_yards under 99.5 no
+05:56:14   parlay forced: best quote 0.635 above our max 0.419
+05:56:14   parlay accept FAILED: PUT /communications/rfqs/2deaf7cd-1160-448b-a573-b028284245df/quotes/8076258e-32ba-888c-952e-f2f3318e283c/accept -> 400: {"error":{"code":"expired","message":"expired"}}
+05:56:41   parlay forced: best quote 0.476 above our max 0.378
+05:56:41   parlay accepted @ 0.476 (p=0.445, $185): Chase Brown carries over 11.5 yes + Tee Higgins receptions over 4.5 yes
+05:57:08   parlay forced: best quote 0.656 above our max 0.391
+05:57:08   parlay accept FAILED: PUT /communications/rfqs/a02226dd-2eb8-4aea-a607-1634a7de2e56/quotes/96727b10-c5b2-8054-ba7c-d1311f1d896d/accept -> 400: {"error":{"code":"expired","message":"expired"}}
+05:57:34   parlay forced: best quote 0.603 above our max 0.353
+05:57:34   parlay accepted @ 0.603 (p=0.415, $185): Drake London receiving_yards under 99.5 no + Tee Higgins receptions over 4.5 yes
+05:58:01   parlay forced: best quote 0.765 above our max 0.435
+05:58:01   parlay accept FAILED: PUT /communications/rfqs/34aa18ae-e84a-4d19-868c-1fdfd7af7670/quotes/2500b72e-9c30-8c66-8eea-d8a6d05bd52a/accept -> 400: {"error":{"code":"expired","message":"expired"}}
+05:58:29   parlay forced: best quote 0.465 above our max 0.371
+05:58:29   parlay accepted @ 0.465 (p=0.437, $185): Joe Burrow passing_yards under 324.5 no + Tee Higgins receptions over 4.5 yes
+05:58:29 656 priced sides (656 with sportsbook lines) -> 10 singles ($2,855), parlays $740
+05:58:29   placed Kyle Pitts Sr. receiving_yards under 39.5 NO 528 @ 0.45 ($238) -> partial 100/528
+05:58:29   placed Game Cincinnati wins by over 2.5 points NO NO 551 @ 0.43 ($237) -> filled 551/551
+05:58:29   placed Bijan Robinson carries over 19.5 YES 486 @ 0.49 ($238) -> filled 486/486
+05:58:29   placed 2H Cincinnati wins by over 2.5 points NO NO 442 @ 0.54 ($239) -> filled 442/442
+05:58:29   placed Michael Penix Jr. completions under 19.5 NO 528 @ 0.45 ($238) -> filled 528/528
+05:58:29   placed 1H Cincinnati over 13.5 points NO NO 516 @ 0.46 ($237) -> filled 516/516
+05:58:29   placed Joe Burrow completions over 25.5 YES 688 @ 0.52 ($358) -> filled 688/688
+05:58:29   placed Bijan Robinson receiving_yards under 24.5 NO 759 @ 0.47 ($357) -> filled 759/759
+05:58:30   placed Chase Brown rushing_yards over 49.5 YES 701 @ 0.51 ($358) -> filled 701/701
+05:58:30   placed Drake London receptions under 5.5 NO 792 @ 0.45 ($356) -> filled 792/792
+05:58:33 2026-11-08 0630 CINATL: placed 10 singles; cash now $204
+05:58:35 emailed: NFAI bets placed: 2026-11-08 0630 CINATL (14 bets, $3,595.00)
