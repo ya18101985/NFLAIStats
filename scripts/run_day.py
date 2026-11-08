@@ -10,7 +10,7 @@ cash, i.e. the balance less what resting orders would still cost:
   payouts arrive, until the Europe bets have all settled or 10 minutes after kickoff (at live prices).
   Sunday afternoon waves (1:05, 1:25): all cash.
 Every wave puts 20% into 2-3 leg parlays first; what they can't spend goes to singles.
-Safety stop: skip a wave if cash + open positions is below 40% of the starting balance.
+No balance floor (user's choice, 2026-11-08): every wave spends all it is allowed, down to $0.
 Kill switch: create ~/.kalshi/STOP, or a file named STOP at the repo root (editable from GitHub on
 a phone), to skip all further waves.
 """
@@ -32,7 +32,6 @@ from nfai.model import Model  # noqa: E402
 
 PT = ZoneInfo("America/Los_Angeles")
 MAX_BANKROLL = 5000.0
-SAFETY_FLOOR = 0.40
 TOP_UP_AFTER_KICKOFF = dt.timedelta(minutes=10)
 LOGS = Path(__file__).resolve().parents[1] / "logs"
 
@@ -200,15 +199,6 @@ def run_wave(w, k, ledger, day, live, log):
     bal = k._request("GET", "/portfolio/balance")
     cash = free_cash(k)
     total = float(Decimal(bal["balance_dollars"])) + bal.get("portfolio_value", 0) / 100
-    start = float(ledger.get("start_balance") or total)
-    if ledger.get("start_balance") is None and live:
-        ledger.set("start_balance", total)
-    if total < SAFETY_FLOOR * start:
-        msg = f"Safety stop: account ${total:,.0f} is below 40% of start ${start:,.0f}. Skipping {w['name']}."
-        log(msg)
-        notify(msg)
-        ledger.record_wave(w["name"], status="safety_stop", cash_before=cash)
-        return
     k.live = live
     bankroll = wave_bankroll(w, cash, ledger, k)
     top_up = "top_up_until" in w

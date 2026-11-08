@@ -109,7 +109,7 @@ sequenceDiagram
     else Run due
         T->>D: Download this season's stats, play-by-play, snaps
         T->>T: Sleep until the betting time
-        T->>T: STOP file? Account below 40% of start? Then skip
+        T->>T: STOP file? Then skip
         T->>K: Read cash balance and work out this run's bankroll
         T->>D: Live lines, injuries, depth charts, wind, sportsbook odds
         T->>T: Simulate each game 20,000 times and price every market
@@ -370,8 +370,8 @@ Real money is involved, so some choices favor safety over speed or simplicity.
   - lines now come from ESPN's current odds;
   - the schedule file is downloaded again when it's over 12 hours old;
   - game-line bets are refused outright when no current line is available.
-- **Account safety stop.** Betting runs are skipped if the account drops below 40% of its starting
-  balance.
+- **No account floor.** The 40% safety stop was removed (user's choice, 2026-11-08) so every wave
+  can spend all available funds; only the STOP file halts betting.
 
 ## 13. Trade-offs and known limits
 
