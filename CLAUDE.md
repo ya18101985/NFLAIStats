@@ -27,14 +27,14 @@ Kalshi key lives in `~/.kalshi/` (`key_id.txt`, `private_key.pem`), never in the
 print or read the key contents into the conversation. `~/.kalshi/STOP` halts all waves.
 
 ## Betting rules (agreed with the user, 2026-10-30)
-- Pregame only, no live betting. Unfilled orders expire 1 minute before kickoff.
-- Singles: 5-15% of the wave bankroll each (half-Kelly, clamped). 80% of a wave to singles,
-  20% to 3-4 parlays of 3-5 legs, each leg >= 55%. Parlays go first; money they don't spend
-  goes to singles. Stakes are scaled up so the full wave bankroll is used; if they can't be,
-  edge bars step down (RELAX_STEPS) but never below break-even.
-- Single-game waves (1:05, SNF, MNF, TNF, Europe): singles first (15% cap, filler bets allowed
-  down to 1c below break-even, ONE_GAME_FLOOR), then everything
-  left goes to parlays (split over however many qualify, up to 4; spares tried if quotes are poor).
+- Pregame only, except the Sunday 10 AM wave's top-ups (see below). Unfilled pregame orders
+  expire 1 minute before kickoff; top-ups after kickoff rest 2 minutes.
+- Parlays (user's choice, 2026-11-08): every wave puts 20% first into up to 4 parlays of 2-3 legs,
+  each leg 60-75% to win. Never skipped: a quote 15% under our odds is taken at once, otherwise
+  the best quote at the deadline. Money they can't spend (no quotes at all) goes to singles.
+- Singles: the rest, 5-15% of the wave bankroll each (half-Kelly, clamped), scaled up so the full
+  wave bankroll is used; if they can't be, edge bars step down (RELAX_STEPS, ONE_GAME_FLOOR in
+  single-game waves, then FULL_ALLOCATION_FLOORS down to 3c below break-even).
 - Sportsbook lines (The Odds API, key in `~/.kalshi/odds_api_key.txt`) are a third opinion.
   Singles are a hybrid (user's choice, 2026-10-31), half the budget each:
   A = books and model both say Kalshi is cheap (EV >= 0.5c); B = model-only EV >= 2c and the
@@ -47,9 +47,10 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
   QB confirmed starter; skip anyone Questionable/Doubtful/Out/IR. Depth chart (nflverse, refreshed
   each wave): QB must be QB1; skip players off the chart or whose starter status (QB1/RB1/WR1-3/TE1)
   changed in the last 14 days.
-- Wave bankroll = available cash, max $5,000. Sunday: 10 AM PT wave 80%; 1:05 wave gets the
-  20% reserve + 50% of 10 AM payouts so far; 1:25 wave and the night game get all cash.
-  TNF/MNF/Europe games: 100% of cash.
+- Wave bankroll = free cash (balance less resting orders), max $5,000 (user's choice, 2026-11-08):
+  Europe 100%. Sunday 10 AM wave 80%: bets from 9:45 PT, then every ~90 s bets newly arrived
+  Europe payouts (at live prices, no guard, user's choice) until the Europe bets settle or 10:10.
+  1:05, 1:25 and the night game: all cash. TNF/MNF: 100%.
 - Safety stop: skip waves if the account is below 40% of the starting balance.
 - Fully automatic placement (user's choice). The user prefers plain language and one decision
   at a time.
