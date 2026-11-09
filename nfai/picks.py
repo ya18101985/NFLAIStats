@@ -214,9 +214,8 @@ def select_singles(cands, bankroll, budget=None, one_game=False):
     bankroll) within the 15% cap, retry with the lower bars in RELAX_STEPS (plus the
     below-break-even ONE_GAME_FLOOR step in single-game waves)."""
     budget = SINGLES_SHARE * bankroll if budget is None else budget
-    # no below-break-even filler (user's post-mortem, 2026-11-08): negative-edge singles returned -22%;
-    # money the edge bars can't place stays in cash
-    steps = RELAX_STEPS
+    # user wants 100% allocation (2026-11-08): below-break-even filler stays as the last resort, after group C
+    steps = RELAX_STEPS + [(ONE_GAME_FLOOR, ONE_GAME_FLOOR)] + [(f, f) for f in FULL_ALLOCATION_FLOORS]
     for i, (min_a, min_b) in enumerate(steps):
         out = _select(cands, bankroll, budget, min_a, min_b, MAX_STAKE)
         spent = sum(n * (c.price + fee(c.price)) for c, n, _ in out)
