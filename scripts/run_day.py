@@ -230,7 +230,7 @@ def run_wave(w, k, ledger, day, live, log):
         for f in flags:
             log(f"  skip {g.code}: {f}")
     parlays = P.parlay_candidates(cands, k=2 * P.PARLAYS_PER_WAVE)   # spares, in case no quote comes
-    k.max_order_cost = Decimal(str(round(P.MAX_STAKE * bankroll * 1.02 + 1, 2)))   # singles only; parlays are RFQs
+    k.max_order_cost = Decimal(str(round(bankroll * 1.02 + 1, 2)))   # singles may exceed 15% (edge bets absorb the budget)
     k.live = live
     # parlays first, so whatever they don't spend goes to singles and the whole bankroll is used
     spent = place_parlays(k, ledger, w, parlays, P.PARLAY_SHARE * bankroll, live, log)

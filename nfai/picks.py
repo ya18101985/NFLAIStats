@@ -47,6 +47,7 @@ LIKELY_MIN_EV = 0.01
 MAX_SPREAD = 0.05
 MIN_STAKE, MAX_STAKE = 0.05, 0.15   # of the wave bankroll, per single
 SINGLES_SHARE = 0.80
+BIG_STAKE_CAPS = (0.25, 0.40, 0.60, 1.00)   # per-bet caps tried in turn when the 15% cap can't place the budget
 MAX_BETS_PER_PLAYER = 2
 
 # parlays (user's choice, 2026-11-08): 20% of every wave, 2-3 legs, each leg 60-75% to win, never skipped
@@ -216,12 +217,21 @@ def select_singles(cands, bankroll, budget=None, one_game=False):
     budget = SINGLES_SHARE * bankroll if budget is None else budget
     # no below-break-even filler (user's choice, 2026-11-08): negative-edge singles returned -22%;
     # stakes still scale up (15% cap each) to use as much of the budget as positive-edge bets allow
-    steps = RELAX_STEPS
-    for i, (min_a, min_b) in enumerate(steps):
+    # all allocation goes into edge bets (user's choice, 2026-11-08): if the 15% cap leaves money
+    # over at break-even bars, the per-bet cap rises until the positive-edge bets absorb the budget
+    def spent(out):
+        return sum(n * (c.price + fee(c.price)) for c, n, _ in out)
+    for min_a, min_b in RELAX_STEPS:
         out = _select(cands, bankroll, budget, min_a, min_b, MAX_STAKE)
-        spent = sum(n * (c.price + fee(c.price)) for c, n, _ in out)
-        if spent >= 0.99 * budget or i == len(steps) - 1:
+        if spent(out) >= 0.99 * budget:
             return out
+    for cap in BIG_STAKE_CAPS:
+        bigger = _select(cands, bankroll, budget, 0.0, 0.0, cap)
+        if spent(bigger) > spent(out):
+            out = bigger
+        if spent(out) >= 0.99 * budget:
+            break
+    return out
 
 
 def _group_c(c):

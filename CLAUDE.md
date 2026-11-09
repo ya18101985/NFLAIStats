@@ -34,6 +34,8 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
 - Singles: the rest, 5-15% of the wave bankroll each (half-Kelly, clamped), scaled up so the full
   wave bankroll is used; if they can't be, edge bars step down (RELAX_STEPS) but never below
   break-even: no filler bets (user's choice, 2026-11-08; negative-edge singles returned -22%).
+  Full allocation goes into edge bets instead: if the 15% cap can't place the budget, the per-bet
+  cap rises (BIG_STAKE_CAPS 25/40/60/100%) until the break-even-or-better bets absorb it.
 - Sportsbook lines (The Odds API, key in `~/.kalshi/odds_api_key.txt`) are a third opinion.
   Singles are a hybrid (user's choice, 2026-10-31), half the budget each:
   A = books and model both say Kalshi is cheap (EV >= 0.5c); B = model-only EV >= 2c and the
