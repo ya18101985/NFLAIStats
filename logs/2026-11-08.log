@@ -196,3 +196,18 @@
 16:48:59   placed Game Tampa Bay over 20.5 points YES YES 374 @ 0.47 ($176) -> filled 374/374
 16:48:59   placed Kenny Gainwell receptions over 1.5 YES 509 @ 0.58 ($295) -> partial 165/509
 16:49:02 2026-11-08 1720 TBCHI: placed 8 singles; cash now $1,205
+17:00:38 === cloud LIVE 2026-11-08: 2026-11-08 1720 TBCHI ===
+17:00:40 --- 2026-11-08 1720 TBCHI ---
+17:00:42 cash $509.79, account $2,352.47, wave bankroll $509.79 (all_cash)
+17:00:58   skip 26NOV08TBCHI: ('Caleb Williams', 'passing_tds', 1.0, np.float64(1.7))
+17:00:58   skip 26NOV08TBCHI: ('Colston Loveland', 'receiving_yards', 37.3, np.float64(52.7))
+17:00:58   skip 26NOV08TBCHI: ('Colston Loveland', 'receptions', 4.0, np.float64(5.1))
+17:00:58   skip 26NOV08TBCHI: ("D'Andre Swift", 'carries', 20.0, np.float64(16.6))
+17:00:58   skip 26NOV08TBCHI: ('Luther Burden III', 'receiving_yards', 42.7, np.float64(64.3))
+17:00:58   skip 26NOV08TBCHI: ('Rome Odunze', 'receiving_yards', 35.6, np.float64(48.1))
+17:00:58 632 priced sides (632 with sportsbook lines) -> 3 singles ($493), parlays $0
+17:00:58   placed Caleb Williams passing_yards under 249.5 NO 330 @ 0.52 ($172) -> filled 330/330
+17:00:58   placed Bucky Irving receptions under 2.5 NO 315 @ 0.51 ($161) -> filled 315/315
+17:00:58   FAILED Bucky Irving receiving_yards under 14.5: POST /portfolio/events/orders -> 400: {"error":{"code":"insufficient_balance","message":"insufficient balance"}}
+17:01:01 2026-11-08 1720 TBCHI: placed 3 singles; cash now $166
+17:01:03 emailed: NFAI bets placed: 2026-11-08 1720 TBCHI (12 bets, $2,298.51)
