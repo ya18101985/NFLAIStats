@@ -1721,5 +1721,174 @@
   ],
   "group": "Your in-game bet",
   "verdict": "You placed this during the game. Break-even after fees is 59% (pregame read). The sportsbooks rate it above that; our model don't, so it's a judgment call."
+ },
+ "k-kxmvecrosscategory-s2026gnsn3hkhdsbdnu5k-a2nnuqecc": {
+  "p": 0.3213636246738897,
+  "pModel": null,
+  "ev": -0.09543637532611035,
+  "wave": "2026-11-08 1720 TBCHI",
+  "pBook": null,
+  "points": [
+   "3 legs: Baker Mayfield 2+ passing TDs (NO); Bucky Irving 13+ carries; Kenny Gainwell 15+ rushing yards",
+   "Model's joint chance that every leg hits: 32%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 40\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxnflrec-26nov08tbchi-tbbirving7-3-no": {
+  "p": 0.53429570948054,
+  "pModel": 0.638043202589123,
+  "ev": 0.016795709480539947,
+  "wave": "2026-11-08 1720 TBCHI",
+  "pBook": null,
+  "points": [
+   "Model projects 2 catches (80% range 0\u20135) vs the line of 2.5: 63% for the under.",
+   "Last 5 games: 0, 2, 2, 1, 0. This side would have won 5 of 5.",
+   "Usage over the last 4 games: 24 touches a game (RB).",
+   "TB is a 6.5-point underdog vs CHI (total 47.5). CHI's defense ranks #13 vs the pass and #13 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflrecyds-26nov08tbchi-tbbirving7-15-no": {
+  "p": 0.5325677211471859,
+  "pModel": 0.6121529392783134,
+  "ev": 0.005074721147185858,
+  "wave": "2026-11-08 1720 TBCHI",
+  "pBook": null,
+  "points": [
+   "Model projects 11 receiving yards (80% range 0\u201336) vs the line of 14.5: 60% for the under.",
+   "Last 5 games: 0, 10, 3, 4, 0. This side would have won 5 of 5.",
+   "Usage over the last 4 games: 24 touches a game (RB).",
+   "TB is a 6.5-point underdog vs CHI (total 47.5). CHI's defense ranks #13 vs the pass and #13 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnfl1hteamtotal-26nov08tbchi-chi14-no": {
+  "p": 0.4827413906209236,
+  "pModel": 0.49034484374417653,
+  "ev": -0.004695609379076392,
+  "wave": "2026-11-08 1720 TBCHI",
+  "pBook": null,
+  "points": [
+   "Kalshi market: \"Chicago over 13.5 points\" (1st half), we hold NO at 47\u00a2.",
+   "Sportsbook price unavailable now (lines are pulled after kickoff).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnfl2htotal-26nov08tbchi-25": {
+  "p": 0.4511584486909328,
+  "pModel": 0.458083498129904,
+  "ev": -0.0060895513090672045,
+  "wave": "2026-11-08 1720 TBCHI",
+  "pBook": null,
+  "points": [
+   "Kalshi market: \"Over 24.5 points\" (2nd half), we hold YES at 44\u00a2.",
+   "Sportsbook price unavailable now (lines are pulled after kickoff).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflteamtotal-26nov08tbchi-chi27-no": {
+  "p": 0.46794607742776484,
+  "pModel": 0.47349439632537826,
+  "ev": -0.009441922572235185,
+  "wave": "2026-11-08 1720 TBCHI",
+  "pBook": null,
+  "points": [
+   "Kalshi market: \"Chicago over 26.5 points\" (game), we hold NO at 46\u00a2.",
+   "Sportsbook price unavailable now (lines are pulled after kickoff).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnfl1hspread-26nov08tbchi-chi7-no": {
+  "p": 0.5972373635612644,
+  "pModel": 0.6024819479446635,
+  "ev": -0.009695636438735528,
+  "wave": "2026-11-08 1720 TBCHI",
+  "pBook": null,
+  "points": [
+   "Kalshi market: \"Chicago wins by over 6.5 points\" (1st half), we hold NO at 59\u00a2.",
+   "Sportsbook price unavailable now (lines are pulled after kickoff).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflteamtotal-26nov08tbchi-tb21": {
+  "p": 0.4776756250540078,
+  "pModel": 0.48310803579143974,
+  "ev": -0.009761374945992184,
+  "wave": "2026-11-08 1720 TBCHI",
+  "pBook": null,
+  "points": [
+   "Kalshi market: \"Tampa Bay over 20.5 points\" (game), we hold YES at 47\u00a2.",
+   "Sportsbook price unavailable now (lines are pulled after kickoff).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrec-26nov08tbchi-tbkgainwell1-2": {
+  "p": 0.5884241102841049,
+  "pModel": 0.6211865427625959,
+  "ev": -0.008627889715895058,
+  "wave": "2026-11-08 1720 TBCHI",
+  "pBook": null,
+  "points": [
+   "Model projects 2 catches (80% range 0\u20135) vs the line of 1.5: 63% for the over.",
+   "Last 5 games: 2, 3, 1, 0, 0. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 12 touches a game (RB).",
+   "TB is a 6.5-point underdog vs CHI (total 47.5). CHI's defense ranks #13 vs the pass and #13 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflpassyds-26nov08tbchi-chicwilliams18-250-no": {
+  "p": 0.5527555333452125,
+  "pModel": 0.694662643740143,
+  "ev": 0.015283533345212527,
+  "wave": "2026-11-08 1720 TBCHI",
+  "pBook": null,
+  "points": [
+   "Model projects 209 passing yards (80% range 132\u2013304) vs the line of 249.5: 71% for the under.",
+   "Last 5 games: 269, 138, 305, 308, 247. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 32 pass attempts a game (QB).",
+   "CHI is a 6.5-point favorite vs TB (total 47.5). TB's defense ranks #2 vs the pass and #6 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflrec-26nov08tbchi-chilburden10-5-no": {
+  "p": 0.4870904729598834,
+  "pModel": 0.627224543425288,
+  "ev": 0.019765472959883373,
+  "wave": "2026-11-08 1720 TBCHI extra",
+  "pBook": null,
+  "points": [
+   "Model projects 4 catches (80% range 1\u20138) vs the line of 4.5: 63% for the under.",
+   "Last 5 games: 4, 4, 8, 4, 7. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 6.8 targets a game (WR).",
+   "CHI is a 6.5-point favorite vs TB (total 47.5). TB's defense ranks #2 vs the pass and #6 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnfltd-26nov08tbchi-tbbirving7-1": {
+  "p": null,
+  "pModel": null,
+  "ev": null,
+  "wave": "Other bot",
+  "pBook": null,
+  "points": [],
+  "group": "Other bot",
+  "verdict": "Placed by your other bot. Our model has no read on this market."
  }
 }
