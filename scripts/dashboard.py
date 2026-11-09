@@ -41,7 +41,7 @@ PROPS = {"KXNFLRECYDS": ("recYds", "yds", "receiving yards"), "KXNFLREC": ("rece
          "KXNFLRSHYDS": ("rushYds", "yds", "rushing yards"), "KXNFLRSHATT": ("rushAtt", "car", "carries"),
          "KXNFLRRYDS": ("rushRecYds", "yds", "rush + rec yards"), "KXNFLPASSYDS": ("passYds", "yds", "passing yards"),
          "KXNFLPASSATT": ("passAtt", "att", "pass attempts"), "KXNFLPASSCOMP": ("passComp", "cmp", "completions"),
-         "KXNFLPASSTDS": ("passTds", "TD", "passing TDs")}
+         "KXNFLPASSTDS": ("passTds", "TD", "passing TDs"), "KXNFLTD": ("tds", "TD", "rush + rec TDs (anytime TD)")}
 MODEL_STAT = {"KXNFLRECYDS": "receiving_yards", "KXNFLREC": "receptions", "KXNFLRSHYDS": "rushing_yards",
               "KXNFLRSHATT": "carries", "KXNFLRRYDS": "rr_yards", "KXNFLPASSYDS": "passing_yards",
               "KXNFLPASSATT": "attempts", "KXNFLPASSCOMP": "completions", "KXNFLPASSTDS": "passing_tds"}
@@ -118,6 +118,8 @@ def stat_value(p, key):
         return 0
     if key == "rushRecYds":
         return p.get("rushYds", 0) + p.get("recYds", 0)
+    if key == "tds":   # anytime TD: rushing + receiving touchdowns
+        return p.get("rushTds", 0) + p.get("recTds", 0)
     return p.get(key, 0)
 
 
@@ -257,8 +259,10 @@ class Reasoner:
             return why
         series, code, rest = parse_ticker(row["ticker"])
         away, home = game_teams.get(code, (None, None))
-        if series in PROPS and away:
+        if series in MODEL_STAT and away:
             return self._explain_prop(row, why, series, away, home)
+        if series in PROPS:   # a prop our model doesn't price (e.g. anytime TD)
+            return why
         if away:
             return self._explain_line(row, why, series, code, away, home)
         return why
@@ -354,7 +358,7 @@ class Reasoner:
             team = next(tm for tm in (away, home) if norm_name(name) in
                         {norm_name(n) for n in M.weeks[M.weeks.team == tm].player_display_name.dropna().unique()})
             nfl_name = next(n for n in M.weeks[M.weeks.team == team].player_display_name.dropna().unique() if norm_name(n) == norm_name(name))
-            info.append(dict(name=name, label=f"{name} {int(thr + 0.5)}+ {PROPS[series][2]}", stat=MODEL_STAT[series], thr=thr,
+            info.append(dict(name=name, label=f"{name} {int(thr + 0.5)}+ {PROPS[series][2]}", stat=MODEL_STAT.get(series), thr=thr,
                              team=team, away=away, home=home, pl=M.player(nfl_name, team)))
             by_team.setdefault(team, []).append(info[-1])
         hit = np.ones(20000, bool)
