@@ -32,9 +32,8 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
 - Parlays: OFF since the 2026-11-08 post-mortem (PARLAY_SHARE = 0; 21 settled parlays returned -51%,
   mostly bought above our own odds). Earlier rule: 20% into up to 4 parlays, best quote at the deadline.
 - Singles: the rest, 5-15% of the wave bankroll each (half-Kelly, clamped), scaled up so the full
-  wave bankroll is used; if they can't be, edge bars step down (RELAX_STEPS, ONE_GAME_FLOOR,
-  then FULL_ALLOCATION_FLOORS down to 3c below break-even). User wants 100% allocation (2026-11-08),
-  so filler stays, but only after group C.
+  wave bankroll is used; if they can't be, edge bars step down (RELAX_STEPS) but never below
+  break-even: no filler bets (user's choice, 2026-11-08; negative-edge singles returned -22%).
 - Sportsbook lines (The Odds API, key in `~/.kalshi/odds_api_key.txt`) are a third opinion.
   Singles are a hybrid (user's choice, 2026-10-31), half the budget each:
   A = books and model both say Kalshi is cheap (EV >= 0.5c); B = model-only EV >= 2c and the
