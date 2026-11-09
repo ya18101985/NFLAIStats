@@ -160,3 +160,39 @@
 13:17:44   placed Christian McCaffrey rushing_yards over 59.5 YES 105 @ 0.53 ($56) -> filled 105/105
 13:17:47 2026-11-08 1325 ARISEA+GBNE+LVSF: placed 7 singles; cash now $309
 13:17:49 emailed: NFAI bets placed: 2026-11-08 1325 ARISEA+GBNE+LVSF (11 bets, $560.83)
+16:41:58 === cloud LIVE 2026-11-08: 2026-11-08 1720 TBCHI ===
+16:42:00 sleeping 3 min until 2026-11-08 1720 TBCHI
+16:45:00 --- 2026-11-08 1720 TBCHI ---
+16:45:01 cash $2,029.27, account $2,431.08, wave bankroll $2,029.27 (all_cash)
+16:45:22   skip 26NOV08TBCHI: ('Caleb Williams', 'passing_tds', 1.0, np.float64(1.7))
+16:45:22   skip 26NOV08TBCHI: ('Colston Loveland', 'receiving_yards', 37.3, np.float64(52.7))
+16:45:22   skip 26NOV08TBCHI: ('Colston Loveland', 'receptions', 4.0, np.float64(5.1))
+16:45:22   skip 26NOV08TBCHI: ("D'Andre Swift", 'carries', 20.0, np.float64(16.8))
+16:45:22   skip 26NOV08TBCHI: ('Luther Burden III', 'receiving_yards', 42.7, np.float64(64.0))
+16:45:22   skip 26NOV08TBCHI: ('Rome Odunze', 'receiving_yards', 35.6, np.float64(48.1))
+16:45:49   parlay forced: best quote 0.561 above our max 0.316
+16:45:49   parlay accept FAILED: PUT /communications/rfqs/6b6619c0-22fe-46cb-93da-0b1b29784a98/quotes/64602345-5169-8fb4-84d2-2c3b960a70eb/accept -> 400: {"error":{"code":"expired","message":"expired"}}
+16:46:17   parlay forced: best quote 0.400 above our max 0.273
+16:46:17   parlay accepted @ 0.400 (p=0.321, $101): Baker Mayfield passing_tds under 1.5 no + Bucky Irving carries over 12.5 yes + Kenny Gainwell rushing_yards over 14.5 yes
+16:46:42   parlay forced: best quote 0.560 above our max 0.236
+16:46:42   parlay accept FAILED: PUT /communications/rfqs/62c83194-3ea5-4dff-b3ab-768764d499dd/quotes/24e8d91d-22b7-855c-a54b-a87a5dd636f2/accept -> 400: {"error":{"code":"expired","message":"expired"}}
+16:47:09   parlay forced: best quote 0.687 above our max 0.410
+16:47:09   parlay accepted @ 0.687 (p=0.482, $101): Baker Mayfield passing_tds under 1.5 no + D'Andre Swift rr_yards under 114.5 no
+16:47:37   parlay forced: best quote 0.642 above our max 0.420
+16:47:37   parlay accept FAILED: PUT /communications/rfqs/a405f7e0-664d-437a-a55c-b07faa639be2/quotes/d61bb3b4-0894-8df2-b1ff-0b75a34db191/accept -> 400: {"error":{"code":"expired","message":"expired"}}
+16:48:04   parlay forced: best quote 0.634 above our max 0.402
+16:48:04   parlay accept FAILED: PUT /communications/rfqs/a5c639e5-05cb-43a7-9198-f565fb235f10/quotes/43340217-a49e-8921-a319-a0fb9effc881/accept -> 400: {"error":{"code":"expired","message":"expired"}}
+16:48:31   parlay forced: best quote 0.736 above our max 0.460
+16:48:31   parlay accept FAILED: PUT /communications/rfqs/8001acf8-fc0e-4165-9d86-53be7d79aa65/quotes/c2fb507b-4cf8-83c4-88f2-c9011febc483/accept -> 400: {"error":{"code":"expired","message":"expired"}}
+16:48:59   parlay forced: best quote 0.689 above our max 0.441
+16:48:59   parlay accept FAILED: PUT /communications/rfqs/e6774d5a-0b29-4cec-95ce-5d1e26c787a9/quotes/c07d78da-3e15-8d50-9b0f-737e1f7fa0fd/accept -> 400: {"error":{"code":"expired","message":"expired"}}
+16:48:59 632 priced sides (632 with sportsbook lines) -> 8 singles ($1,763), parlays $203
+16:48:59   placed Bucky Irving receptions under 2.5 NO 588 @ 0.50 ($294) -> resting 0/588
+16:48:59   placed Bucky Irving receiving_yards under 14.5 NO 577 @ 0.51 ($294) -> partial 181/577
+16:48:59   placed 1H Chicago over 13.5 points NO NO 374 @ 0.47 ($176) -> filled 374/374
+16:48:59   placed 2H Over 24.5 points YES YES 399 @ 0.44 ($176) -> filled 399/399
+16:48:59   placed Game Chicago over 26.5 points NO NO 382 @ 0.46 ($176) -> filled 382/382
+16:48:59   placed 1H Chicago wins by over 6.5 points NO NO 300 @ 0.59 ($177) -> filled 300/300
+16:48:59   placed Game Tampa Bay over 20.5 points YES YES 374 @ 0.47 ($176) -> filled 374/374
+16:48:59   placed Kenny Gainwell receptions over 1.5 YES 509 @ 0.58 ($295) -> partial 165/509
+16:49:02 2026-11-08 1720 TBCHI: placed 8 singles; cash now $1,205
