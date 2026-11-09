@@ -1029,5 +1029,697 @@
   ],
   "group": "A \u00b7 books back it",
   "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxmvecrosscategory-s2026ipw2cacwl6feetyo-6allouo6l": {
+  "p": 0.4539852653245646,
+  "pModel": null,
+  "ev": -0.15492225467543547,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "2 legs: Chase Brown 12+ carries; Drake London 100+ receiving yards (NO)",
+   "Model's joint chance that every leg hits: 45%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 59\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxmvecrosscategory-s2026xejzi5ij7nrzn3ye-2b6wksaml": {
+  "p": 0.44529324386077207,
+  "pModel": null,
+  "ev": -0.048166436139227914,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "2 legs: Chase Brown 12+ carries; Tee Higgins 5+ catches",
+   "Model's joint chance that every leg hits: 45%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 48\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxmvecrosscategory-s2026o6tugytdeipwfuba-d5h7qxdxv": {
+  "p": 0.4154851176044839,
+  "pModel": null,
+  "ev": -0.20427225239551605,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "2 legs: Drake London 100+ receiving yards (NO); Tee Higgins 5+ catches",
+   "Model's joint chance that every leg hits: 42%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 60\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxmvecrosscategory-s2026c2cnc5m6qsow4oh5-pzlhx74t4": {
+  "p": 0.43677144484921043,
+  "pModel": null,
+  "ev": -0.04564280515078954,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "2 legs: Joe Burrow 325+ passing yards (NO); Tee Higgins 5+ catches",
+   "Model's joint chance that every leg hits: 44%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 46\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxnflrecyds-26nov08cinatl-atlkpitts8-40-no": {
+  "p": 0.47338567959720934,
+  "pModel": 0.5483080023217692,
+  "ev": 0.006060679597209323,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "Model projects 33 receiving yards (80% range 4\u201384) vs the line of 39.5: 58% for the under.",
+   "Last 5 games: 42, 60, 22, 6, 23. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 5.5 targets a game (TE).",
+   "ATL is a 3-point underdog vs CIN (total 52.5). CIN's defense ranks #14 vs the pass and #23 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflspread-26nov08cinatl-cin3-no": {
+  "p": 0.45117301986256797,
+  "pModel": 0.46239002837509713,
+  "ev": 0.0040160198625679745,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "Kalshi market: \"Cincinnati wins by over 2.5 points\" (game), we hold NO at 43\u00a2.",
+   "Sportsbook price unavailable now (lines are pulled after kickoff).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrshatt-26nov08cinatl-atlbrobinson7-20": {
+  "p": 0.5094150470114125,
+  "pModel": 0.5670981344220087,
+  "ev": 0.001922047011412499,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "Model projects 21 carries (80% range 14\u201330) vs the line of 19.5: 59% for the over.",
+   "Last 5 games: 17, 9, 20, 19, 19. This side would have won 1 of 5.",
+   "Usage over the last 4 games: 20 touches a game (RB).",
+   "ATL is a 3-point underdog vs CIN (total 52.5). CIN's defense ranks #14 vs the pass and #23 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnfl2hspread-26nov08cinatl-cin3-no": {
+  "p": 0.5504241807291681,
+  "pModel": 0.5570345438988116,
+  "ev": -0.006963819270831936,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "Kalshi market: \"Cincinnati wins by over 2.5 points\" (2nd half), we hold NO at 54\u00a2.",
+   "Sportsbook price unavailable now (lines are pulled after kickoff).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflpasscomp-26nov08cinatl-atlmpenix9-20-no": {
+  "p": 0.4603072780924533,
+  "pModel": 0.46765669791953823,
+  "ev": -0.007017721907546709,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "Model projects 20 completions (80% range 14\u201328) vs the line of 19.5: 46% for the under.",
+   "Last 5 games: 19, 19, 25, 8, 20. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 30 pass attempts a game (QB).",
+   "ATL is a 3-point underdog vs CIN (total 52.5). CIN's defense ranks #14 vs the pass and #23 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnfl1hteamtotal-26nov08cinatl-cin14-no": {
+  "p": 0.46780325416642854,
+  "pModel": 0.4732903630948979,
+  "ev": -0.009584745833571485,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "Kalshi market: \"Cincinnati over 13.5 points\" (1st half), we hold NO at 46\u00a2.",
+   "Sportsbook price unavailable now (lines are pulled after kickoff).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflpasscomp-26nov08cinatl-cinjburrow9-26": {
+  "p": 0.5426166867849622,
+  "pModel": 0.6305920075656467,
+  "ev": 0.005144686784962202,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "Model projects 28 completions (80% range 20\u201337) vs the line of 25.5: 60% for the over.",
+   "Last 5 games: 39, 23, 22, 38, 24. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 35 pass attempts a game (QB).",
+   "CIN is a 3-point favorite vs ATL (total 52.5). ATL's defense ranks #16 vs the pass and #19 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflrecyds-26nov08cinatl-atlbrobinson7-25-no": {
+  "p": 0.486945199154996,
+  "pModel": 0.5523404994636043,
+  "ev": -0.0004918008450039632,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "Model projects 22 receiving yards (80% range 2\u201360) vs the line of 24.5: 54% for the under.",
+   "Last 5 games: 32, -8, 59, 0, 47. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 20 touches a game (RB).",
+   "ATL is a 3-point underdog vs CIN (total 52.5). CIN's defense ranks #14 vs the pass and #23 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflrshyds-26nov08cinatl-cincbrown30-50": {
+  "p": 0.5207758038472534,
+  "pModel": 0.5767273077516879,
+  "ev": -0.006717196152746595,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "Model projects 55 rushing yards (80% range 22\u2013106) vs the line of 49.5: 56% for the over.",
+   "Last 5 games: 10, 39, 39, 55, 57. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 16 touches a game (RB).",
+   "CIN is a 3-point favorite vs ATL (total 52.5). ATL's defense ranks #16 vs the pass and #19 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflrec-26nov08cinatl-atldlondon5-6-no": {
+  "p": 0.46044466503839976,
+  "pModel": 0.5110210616174959,
+  "ev": -0.00688033496160026,
+  "wave": "2026-11-08 0630 CINATL",
+  "pBook": null,
+  "points": [
+   "Model projects 5 catches (80% range 2\u20139) vs the line of 5.5: 58% for the under.",
+   "Last 5 games: 7, 4, 7, 1, 5. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 7.8 targets a game (WR).",
+   "ATL is a 3-point underdog vs CIN (total 52.5). CIN's defense ranks #14 vs the pass and #23 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxmvecrosscategory0-s2026apxoxr5p4tansawl-ocjhzztzy": {
+  "p": 0.36677556986564774,
+  "pModel": null,
+  "ev": 0.13060788986564775,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "3 legs: Geno Smith 200+ passing yards; Daniel Jones 175+ passing yards; Bo Nix 225+ passing yards (NO)",
+   "Model's joint chance that every leg hits: 37%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 22\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxmvecrosscategory-s2026olkwnvtn4cml5hiz-ccgru2s3a": {
+  "p": 0.3787523493224265,
+  "pModel": null,
+  "ev": -0.057288380677573525,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "3 legs: Geno Smith 200+ passing yards; Malik Willis 7+ carries (NO); Jahmyr Gibbs 80+ rushing yards",
+   "Model's joint chance that every leg hits: 38%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 42\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxmvecrosscategory-s20262mmkhxkwlijwoeyv-mlibb2oa5": {
+  "p": 0.42423303432964854,
+  "pModel": null,
+  "ev": 0.1126176643296485,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "3 legs: Geno Smith 200+ passing yards; Jayden Daniels 175+ passing yards; Patrick Mahomes 20+ rushing yards (NO)",
+   "Model's joint chance that every leg hits: 42%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 30\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxmvecrosscategory0-s20264btcoz72ivvfxggb-qjz5azn3r": {
+  "p": 0.3796049119921455,
+  "pModel": null,
+  "ev": 0.11027243199214551,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "3 legs: Geno Smith 200+ passing yards; Malik Willis 175+ passing yards; Tyler Shough 250+ passing yards (NO)",
+   "Model's joint chance that every leg hits: 38%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 26\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxnflrshyds-26nov08detmia-detjgibbs0-90": {
+  "p": 0.5961843321460967,
+  "pModel": 0.6946987919075968,
+  "ev": 0.01893633214609662,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "Model projects 107 rushing yards (80% range 58\u2013174) vs the line of 89.5: 64% for the over.",
+   "Last 5 games: 46, 151, 116, 153, 74. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 27 touches a game (RB).",
+   "DET is a 6.5-point favorite vs MIA (total 49.5). MIA's defense ranks #32 vs the pass and #20 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflpassatt-26nov08larwas-larmstafford9-34": {
+  "p": 0.4795214313894307,
+  "pModel": 0.5562506929550264,
+  "ev": 0.01219643138943069,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "Model projects 35 pass attempts (80% range 26\u201346) vs the line of 33.5: 58% for the over.",
+   "Last 5 games: 54, 33, 29, 25, 43. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 32 pass attempts a game (QB).",
+   "LA is a 4.5-point favorite vs WAS (total 48.5). WAS's defense ranks #19 vs the pass and #21 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnfl1hteamtotal-26nov08nyjkc-nyj8": {
+  "p": 0.5392768130687806,
+  "pModel": 0.5539668758125438,
+  "ev": 0.011783813068780603,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "Kalshi market: \"New York J over 7.5 points\" (1st half), we hold YES at 51\u00a2.",
+   "Sportsbook price unavailable now (lines are pulled after kickoff).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrshatt-26nov08larwas-larkwilliams23-14": {
+  "p": 0.5191355633779156,
+  "pModel": 0.598514722557448,
+  "ev": 0.011642563377915562,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "Model projects 15 carries (80% range 9\u201323) vs the line of 13.5: 57% for the over.",
+   "Last 5 games: 16, 10, 16, 16, 15. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 16 touches a game (RB).",
+   "LA is a 4.5-point favorite vs WAS (total 48.5). WAS's defense ranks #19 vs the pass and #21 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnfl1hteamtotal-26nov08cleno-no11": {
+  "p": 0.536108089873016,
+  "pModel": 0.5494401283900228,
+  "ev": 0.008615089873015937,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "Kalshi market: \"New Orleans over 10.5 points\" (1st half), we hold YES at 51\u00a2.",
+   "Sportsbook price unavailable now (lines are pulled after kickoff).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrec-26nov08cleno-nodvele14-4": {
+  "p": 0.4846867226829821,
+  "pModel": 0.5356344897986555,
+  "ev": 0.00729872268298205,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "Model projects 3 catches (80% range 1\u20137) vs the line of 3.5: 47% for the over.",
+   "Last 5 games: 6, 4, 3, 5, 2. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 5.2 targets a game (WR).",
+   "NO is a 4.5-point favorite vs CLE (total 43.5). CLE's defense ranks #9 vs the pass and #30 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflpassyds-26nov08dencar-carbyoung9-225": {
+  "p": 0.5174963609383486,
+  "pModel": 0.6984066506076057,
+  "ev": 0.030059360938348635,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "Model projects 271 passing yards (80% range 180\u2013377) vs the line of 224.5: 70% for the over.",
+   "Last 5 games: 329, 281, 163, 209, 276. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 36 pass attempts a game (QB).",
+   "CAR is a 3-point underdog vs DEN (total 44.5). DEN's defense ranks #11 vs the pass and #29 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflrec-26nov08nyjkc-kcrrice4-5-no": {
+  "p": 0.46448716599182927,
+  "pModel": 0.635178106485303,
+  "ev": 0.027435165991829276,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "Model projects 4 catches (80% range 1\u20138) vs the line of 4.5: 53% for the under.",
+   "Last 5 games: 2, 4, 7, 7, 5. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 7.5 targets a game (WR).",
+   "KC is a 9.5-point favorite vs NYJ (total 47.5). NYJ's defense ranks #27 vs the pass and #9 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflpassyds-26nov08dalind-inddjones17-200": {
+  "p": 0.5503752061346268,
+  "pModel": 0.7089892669277663,
+  "ev": 0.02288220613462675,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "Model projects 234 passing yards (80% range 153\u2013331) vs the line of 199.5: 67% for the over.",
+   "Last 5 games: 267, 269, 108, 144, 180. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 32 pass attempts a game (QB).",
+   "IND is a 4.5-point underdog vs DAL (total 51.5). DAL's defense ranks #29 vs the pass and #27 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflrryds-26nov08nyjkc-kckwalker9-110": {
+  "p": 0.5895991850388687,
+  "pModel": 0.724995970724737,
+  "ev": 0.02227418503886861,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "Model projects 145 rush + rec yards (80% range 86\u2013221) vs the line of 109.5: 74% for the over.",
+   "Last 5 games: 179, 139, 57, 84, 143. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 22 touches a game (RB).",
+   "KC is a 9.5-point favorite vs NYJ (total 47.5). NYJ's defense ranks #27 vs the pass and #9 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflpasscomp-26nov08dalind-inddjones17-21": {
+  "p": 0.5300751409724218,
+  "pModel": 0.6654022653339194,
+  "ev": 0.022582140972421817,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "Model projects 23 completions (80% range 16\u201331) vs the line of 20.5: 66% for the over.",
+   "Last 5 games: 24, 22, 13, 19, 20. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 32 pass attempts a game (QB).",
+   "IND is a 4.5-point underdog vs DAL (total 51.5). DAL's defense ranks #29 vs the pass and #27 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflpassyds-26nov08dencar-denbnix10-200-no": {
+  "p": 0.453137295596465,
+  "pModel": 0.5955124142525149,
+  "ev": 0.016085295596464995,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "Model projects 187 passing yards (80% range 117\u2013269) vs the line of 199.5: 59% for the under.",
+   "Last 5 games: 123, 107, 222, 222, 237. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 31 pass attempts a game (QB).",
+   "DEN is a 3-point favorite vs CAR (total 44.5). CAR's defense ranks #20 vs the pass and #25 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflrshyds-26nov08dencar-carbyoung9-10-no": {
+  "p": 0.5780859233560476,
+  "pModel": 0.7087527532931601,
+  "ev": 0.020697923356047546,
+  "wave": "2026-11-08 1000 CLENO+DALIND+DENCAR+DETMIA+LARWAS+NYGPHI+NYJKC",
+  "pBook": null,
+  "points": [
+   "Model projects 3 rushing yards (80% range -1\u201315) vs the line of 9.5: 76% for the under.",
+   "Last 5 games: 3, 6, 9, 0, 13. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 36 pass attempts a game (QB).",
+   "CAR is a 3-point underdog vs DEN (total 44.5). DEN's defense ranks #11 vs the pass and #29 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxmvecrosscategory-s202677ybeyhy3kcpuv7o-34fq7dp4o": {
+  "p": 0.3961377106162193,
+  "pModel": null,
+  "ev": -0.15727156938378076,
+  "wave": "2026-11-08 1305 HOULAC",
+  "pBook": null,
+  "points": [
+   "3 legs: Justin Herbert 2+ passing TDs (NO); Omarion Hampton 15+ receiving yards (NO); Omarion Hampton 3+ catches (NO)",
+   "Model's joint chance that every leg hits: 40%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 54\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxnfl1hteamtotal-26nov08houlac-lac8": {
+  "p": 0.5111259405151483,
+  "pModel": 0.5223227721644975,
+  "ev": 0.0036329405151482655,
+  "wave": "2026-11-08 1305 HOULAC",
+  "pBook": null,
+  "points": [
+   "Kalshi market: \"Los Angeles C over 7.5 points\" (1st half), we hold YES at 49\u00a2.",
+   "Sportsbook price unavailable now (lines are pulled after kickoff).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflteamtotal-26nov08houlac-lac18": {
+  "p": 0.4673252999296854,
+  "pModel": 0.47689328561383626,
+  "ev": 2.9992968539338527e-07,
+  "wave": "2026-11-08 1305 HOULAC",
+  "pBook": 0.3430838551374815,
+  "points": [
+   "Kalshi market: \"Los Angeles C over 17.5 points\" (game), we hold YES at 45\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 34% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrecyds-26nov08houlac-houncollins12-60-no": {
+  "p": 0.4667840484734912,
+  "pModel": 0.5804247557933633,
+  "ev": 0.019627048473491202,
+  "wave": "2026-11-08 1305 HOULAC",
+  "pBook": null,
+  "points": [
+   "Model projects 49 receiving yards (80% range 10\u2013113) vs the line of 59.5: 60% for the under.",
+   "Last 5 games: 75, 118, 56, 74, 6. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 6.2 targets a game (WR).",
+   "HOU is a 5.5-point favorite vs LAC (total 40.5). LAC's defense ranks #8 vs the pass and #22 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflpasstds-26nov08houlac-houcstroud7-2-no": {
+  "p": 0.5227894113369116,
+  "pModel": 0.6037625497754087,
+  "ev": 0.00528941133691159,
+  "wave": "2026-11-08 1305 HOULAC",
+  "pBook": null,
+  "points": [
+   "Model projects 1 passing TDs (80% range 0\u20133) vs the line of 1.5: 60% for the under.",
+   "Last 5 games: 1, 2, 1, 3, 2. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 32 pass attempts a game (QB).",
+   "HOU is a 5.5-point favorite vs LAC (total 40.5). LAC's defense ranks #8 vs the pass and #22 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflrec-26nov08houlac-houncollins12-5-no": {
+  "p": 0.4706724555159558,
+  "pModel": 0.547175175082647,
+  "ev": 0.003347455515955805,
+  "wave": "2026-11-08 1305 HOULAC",
+  "pBook": null,
+  "points": [
+   "Model projects 4 catches (80% range 1\u20138) vs the line of 4.5: 58% for the under.",
+   "Last 5 games: 7, 7, 5, 3, 2. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 6.2 targets a game (WR).",
+   "HOU is a 5.5-point favorite vs LAC (total 40.5). LAC's defense ranks #8 vs the pass and #22 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflrec-26nov08houlac-lacohampton8-2": {
+  "p": 0.4782704179274933,
+  "pModel": 0.5479483371501751,
+  "ev": 0.0008824179274932835,
+  "wave": "2026-11-08 1305 HOULAC",
+  "pBook": null,
+  "points": [
+   "Model projects 2 catches (80% range 0\u20135) vs the line of 1.5: 49% for the over.",
+   "Last 5 games: 0, 2, 1, 4, 2. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 12 touches a game (RB).",
+   "LAC is a 5.5-point underdog vs HOU (total 40.5). HOU's defense ranks #18 vs the pass and #26 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxmvecrosscategory-s2026viuqrtpkz5bptnrf-xmh7424rf": {
+  "p": 0.3969903153865467,
+  "pModel": null,
+  "ev": -0.3873308046134533,
+  "wave": "2026-11-08 1325 ARISEA+GBNE+LVSF",
+  "pBook": null,
+  "points": [
+   "3 legs: Kirk Cousins 32+ pass attempts; Ashton Jeanty 15+ rushing yards; Jordan Love 300+ passing yards (NO)",
+   "Model's joint chance that every leg hits: 40%. Legs on the same team are simulated together, so the model knows when they tend to hit together.",
+   "Bought at 77\u00a2 only because a market maker quoted at least 15% below that chance."
+  ],
+  "group": "Parlay",
+  "verdict": "Parlays are long shots by design; this one gets its value from legs that move together."
+ },
+ "k-kxnflrecyds-26nov08gbne-gbtkraft85-40-no": {
+  "p": 0.4528476644423859,
+  "pModel": 0.5597246736355546,
+  "ev": 0.02591466444238591,
+  "wave": "2026-11-08 1325 ARISEA+GBNE+LVSF",
+  "pBook": 0.43453815843617427,
+  "points": [
+   "Model projects 34 receiving yards (80% range 5\u201384) vs the line of 39.5: 58% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 45.5; converted to Kalshi's line that's 43% for this side, vs a price of 41\u00a2.",
+   "Last 5 games: 42, 64, 37, 48, 53. This side would have won 1 of 5.",
+   "Usage over the last 4 games: 6.2 targets a game (TE).",
+   "GB is a 3-point underdog vs NE (total 44.5). NE's defense ranks #17 vs the pass and #14 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflspread-26nov08gbne-ne3-no": {
+  "p": 0.4503656242004971,
+  "pModel": 0.46123660600071004,
+  "ev": 0.003208624200497088,
+  "wave": "2026-11-08 1325 ARISEA+GBNE+LVSF",
+  "pBook": 0.9792259822347636,
+  "points": [
+   "Kalshi market: \"New England wins by over 2.5 points\" (game), we hold NO at 43\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 98% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrshyds-26nov08lvsf-sfbpurdy13-15": {
+  "p": 0.5534737579502853,
+  "pModel": 0.6832787913136908,
+  "ev": 0.016001757950285286,
+  "wave": "2026-11-08 1325 ARISEA+GBNE+LVSF",
+  "pBook": 0.8899920029032349,
+  "points": [
+   "Model projects 23 rushing yards (80% range 5\u201350) vs the line of 14.5: 68% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 39.5; converted to Kalshi's line that's 89% for this side, vs a price of 52\u00a2.",
+   "Last 5 games: 34, 29, 6, 28, 5. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 32 pass attempts a game (QB).",
+   "SF is a 8.5-point favorite vs LV (total 51.5). LV's defense ranks #26 vs the pass and #24 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflpasscomp-26nov08lvsf-lvkcousins8-24": {
+  "p": 0.5075053766036597,
+  "pModel": 0.6208128051815694,
+  "ev": 0.010033376603659702,
+  "wave": "2026-11-08 1325 ARISEA+GBNE+LVSF",
+  "pBook": null,
+  "points": [
+   "Model projects 26 completions (80% range 18\u201334) vs the line of 23.5: 63% for the over.",
+   "Last 5 games: 31, 19, 23, 26, 19. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 35 pass attempts a game (QB).",
+   "LV is a 8.5-point underdog vs SF (total 51.5). SF's defense ranks #15 vs the pass and #2 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflrec-26nov08lvsf-lvajeanty2-5": {
+  "p": 0.4744524978755725,
+  "pModel": 0.5668680405092033,
+  "ev": 0.007127497875572458,
+  "wave": "2026-11-08 1325 ARISEA+GBNE+LVSF",
+  "pBook": null,
+  "points": [
+   "Model projects 5 catches (80% range 2\u201310) vs the line of 4.5: 55% for the over.",
+   "Last 5 games: 6, 3, 4, 8, 3. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 12 touches a game (RB).",
+   "LV is a 8.5-point underdog vs SF (total 51.5). SF's defense ranks #15 vs the pass and #2 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflrecyds-26nov08lvsf-lvajeanty2-40": {
+  "p": 0.46354609466943786,
+  "pModel": 0.5433215517579659,
+  "ev": 0.006298094669437853,
+  "wave": "2026-11-08 1325 ARISEA+GBNE+LVSF",
+  "pBook": 0.01059774412554191,
+  "points": [
+   "Model projects 43 receiving yards (80% range 10\u201396) vs the line of 39.5: 52% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post -0.5; converted to Kalshi's line that's 1% for this side, vs a price of 44\u00a2.",
+   "Last 5 games: 68, 50, 36, 61, 64. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 12 touches a game (RB).",
+   "LV is a 8.5-point underdog vs SF (total 51.5). SF's defense ranks #15 vs the pass and #2 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "The books price this near fair; the bet rests on the model's read (more production than the line)."
+ },
+ "k-kxnflrshyds-26nov08lvsf-sfcmccaffrey23-60": {
+  "p": 0.5531194409279316,
+  "pModel": 0.6119497209660298,
+  "ev": 0.00568244092793161,
+  "wave": "2026-11-08 1325 ARISEA+GBNE+LVSF",
+  "pBook": null,
+  "points": [
+   "Model projects 75 rushing yards (80% range 35\u2013134) vs the line of 59.5: 65% for the over.",
+   "Last 5 games: 75, 52, 68, 64, 39. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 18 touches a game (RB).",
+   "SF is a 8.5-point favorite vs LV (total 51.5). LV's defense ranks #26 vs the pass and #24 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "B \u00b7 model's call",
+  "verdict": "No sportsbook line; the bet rests on the model."
+ },
+ "k-kxnflrecyds-26nov08arisea-seajsmithnjigba11-80": {
+  "p": 0.5877396913859056,
+  "pModel": 0.5676504099165468,
+  "ev": 0.0017026177570596442,
+  "wave": "Manual (in-game)",
+  "pBook": 0.6011325456988115,
+  "points": [
+   "Model projects 93 receiving yards (80% range 30\u2013188) vs the line of 79.5: 57% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 94.5; converted to Kalshi's line that's 60% for this side, vs a price of 57\u00a2.",
+   "Last 5 games: 76, 102, 134, 150, 118. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 11.8 targets a game (WR).",
+   "SEA is a 8.5-point favorite vs ARI (total 39.5). ARI's defense ranks #31 vs the pass and #7 vs the run by EPA allowed (1 = best).",
+   "Placed mid-game: the model and book numbers above are pregame, so they ignore what had already happened; the live Kalshi price is the better guide."
+  ],
+  "group": "Your in-game bet",
+  "verdict": "You placed this during the game. Break-even after fees is 59% (pregame read). The sportsbooks rate it above that; our model don't, so it's a judgment call."
  }
 }
