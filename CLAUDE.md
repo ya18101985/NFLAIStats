@@ -29,12 +29,11 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
 ## Betting rules (agreed with the user, 2026-10-30)
 - Pregame only, except the Sunday 10 AM wave's top-ups (see below). Unfilled pregame orders
   expire 1 minute before kickoff; top-ups after kickoff rest 2 minutes.
-- Parlays (user's choice, 2026-11-08): every wave puts 20% first into up to 4 parlays of 2-3 legs,
-  each leg 60-75% to win. Never skipped: a quote 15% under our odds is taken at once, otherwise
-  the best quote at the deadline. Money they can't spend (no quotes at all) goes to singles.
+- Parlays: OFF since the 2026-11-08 post-mortem (PARLAY_SHARE = 0; 21 settled parlays returned -51%,
+  mostly bought above our own odds). Earlier rule: 20% into up to 4 parlays, best quote at the deadline.
 - Singles: the rest, 5-15% of the wave bankroll each (half-Kelly, clamped), scaled up so the full
-  wave bankroll is used; if they can't be, edge bars step down (RELAX_STEPS, ONE_GAME_FLOOR in
-  single-game waves, then FULL_ALLOCATION_FLOORS down to 3c below break-even).
+  wave bankroll is used; if they can't be, edge bars step down (RELAX_STEPS) but never below
+  break-even (2026-11-08 post-mortem: negative-edge filler returned -22%); unplaced money stays in cash.
 - Sportsbook lines (The Odds API, key in `~/.kalshi/odds_api_key.txt`) are a third opinion.
   Singles are a hybrid (user's choice, 2026-10-31), half the budget each:
   A = books and model both say Kalshi is cheap (EV >= 0.5c); B = model-only EV >= 2c and the

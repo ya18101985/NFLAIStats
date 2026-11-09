@@ -50,7 +50,9 @@ SINGLES_SHARE = 0.80
 MAX_BETS_PER_PLAYER = 2
 
 # parlays (user's choice, 2026-11-08): 20% of every wave, 2-3 legs, each leg 60-75% to win, never skipped
-PARLAY_SHARE = 0.20
+# Parlays off (user's post-mortem, 2026-11-08): 21 settled parlays returned -51% (-$1,382), mostly bought
+# above our own odds. 0 sends the whole wave to singles; set back to 0.20 to turn them on again.
+PARLAY_SHARE = 0.0
 PARLAY_LEG_MIN_PROB, PARLAY_LEG_MAX_PROB = 0.60, 0.75
 PARLAY_SIZES = (2, 3)
 PARLAYS_PER_WAVE = 4
@@ -212,7 +214,9 @@ def select_singles(cands, bankroll, budget=None, one_game=False):
     bankroll) within the 15% cap, retry with the lower bars in RELAX_STEPS (plus the
     below-break-even ONE_GAME_FLOOR step in single-game waves)."""
     budget = SINGLES_SHARE * bankroll if budget is None else budget
-    steps = RELAX_STEPS + [(ONE_GAME_FLOOR, ONE_GAME_FLOOR)] + [(f, f) for f in FULL_ALLOCATION_FLOORS]
+    # no below-break-even filler (user's post-mortem, 2026-11-08): negative-edge singles returned -22%;
+    # money the edge bars can't place stays in cash
+    steps = RELAX_STEPS
     for i, (min_a, min_b) in enumerate(steps):
         out = _select(cands, bankroll, budget, min_a, min_b, MAX_STAKE)
         spent = sum(n * (c.price + fee(c.price)) for c, n, _ in out)
