@@ -1,0 +1,13 @@
+16:24:28 === cloud LIVE 2026-11-09: 2026-11-09 1715 BUFMIN ===
+16:24:30 --- 2026-11-09 1715 BUFMIN ---
+16:24:32 cash $1,652.66, account $1,652.66, wave bankroll $1,652.66 (all_cash)
+16:24:49   skip 26NOV09BUFMIN: ('Jordan Mason', 'depth chart', 'role changed: RB2 two weeks ago, RB1 now')
+16:24:49   skip 26NOV09BUFMIN: ('Aaron Jones Sr.', 'depth chart', 'role changed: RB1 two weeks ago, RB2 now')
+16:24:49   skip 26NOV09BUFMIN: ('Carson Wentz', 'depth chart', 'not the starting QB (QB2)')
+16:24:49   skip 26NOV09BUFMIN: ('Justin Jefferson', 'receptions', 5.0, np.float64(6.4))
+16:24:49 544 priced sides (544 with sportsbook lines) -> 3 singles ($1,593), parlays $0
+16:24:49   placed Justin Jefferson receiving_yards under 79.5 NO 1085 @ 0.49 ($532) -> filled 1085/1085
+16:24:49   placed Josh Allen passing_yards under 224.5 NO 1130 @ 0.47 ($531) -> filled 1130/1130
+16:24:49   FAILED James Cook III rushing_yards over 89.5: POST /portfolio/events/orders -> 400: {"error":{"code":"insufficient_balance","message":"insufficient balance"}}
+16:24:52 2026-11-09 1715 BUFMIN: placed 3 singles; cash now $551
+16:24:54 emailed: NFAI bets placed: 2026-11-09 1715 BUFMIN (2 bets, $1,062.75)
