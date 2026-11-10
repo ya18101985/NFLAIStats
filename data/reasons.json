@@ -1890,5 +1890,61 @@
   "points": [],
   "group": "Other bot",
   "verdict": "Placed by your other bot. Our model has no read on this market."
+ },
+ "k-kxnflrecyds-26nov09bufmin-minjjefferson18-80-no": {
+  "p": 0.5215839126488782,
+  "pModel": 0.6546644176115982,
+  "ev": 0.014090912648878164,
+  "wave": "2026-11-09 1715 BUFMIN",
+  "pBook": 0.5716991332093742,
+  "points": [
+   "Model projects 58 receiving yards (80% range 15\u2013125) vs the line of 79.5: 68% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 69.5, 70.5, 72.5; converted to Kalshi's line that's 57% for this side, vs a price of 49\u00a2.",
+   "Last 5 games: 55, 32, 79, 44, 33. This side would have won 5 of 5.",
+   "Usage over the last 4 games: 6.2 targets a game (WR).",
+   "MIN is a 3-point underdog vs BUF (total 45.5). BUF's defense ranks #24 vs the pass and #16 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflpassyds-26nov09bufmin-bufjallen17-225-no": {
+  "p": 0.500575587438967,
+  "pModel": 0.612425144263204,
+  "ev": 0.013138587438967043,
+  "wave": "2026-11-09 1715 BUFMIN",
+  "pBook": 0.5079293335874677,
+  "points": [
+   "Model projects 207 passing yards (80% range 128\u2013303) vs the line of 224.5: 60% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 221.5, 223.5; converted to Kalshi's line that's 51% for this side, vs a price of 47\u00a2.",
+   "Last 5 games: 204, 253, 210, 255, 289. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 30 pass attempts a game (QB).",
+   "BUF is a 3-point favorite vs MIN (total 45.5). MIN's defense ranks #1 vs the pass and #8 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnfltd-26nov09bufmin-bufjallen17-1": {
+  "p": null,
+  "pModel": null,
+  "ev": null,
+  "wave": "Manual (in-game)",
+  "pBook": null,
+  "points": [
+   "Placed mid-game: the model and book numbers above are pregame, so they ignore what had already happened; the live Kalshi price is the better guide."
+  ],
+  "group": "Your in-game bet",
+  "verdict": "You placed this during the game. Our model has no read on this market."
+ },
+ "k-kxnfltd-26nov09bufmin-bufjcook4-1": {
+  "p": null,
+  "pModel": null,
+  "ev": null,
+  "wave": "Manual (in-game)",
+  "pBook": null,
+  "points": [
+   "Placed mid-game: the model and book numbers above are pregame, so they ignore what had already happened; the live Kalshi price is the better guide."
+  ],
+  "group": "Your in-game bet",
+  "verdict": "You placed this during the game. Our model has no read on this market."
  }
 }
