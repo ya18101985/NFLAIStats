@@ -1,0 +1,79 @@
+# Automatic betting for every game day through the end of the season (user's choice, 2026-11-12).
+# Every 30 minutes GitHub runs cloud_tick.py: it places any wave whose bet time falls in the next
+# 70 minutes (waiting until that time), commits the ledger, and exits in seconds when nothing is due.
+# Two checks an hour overlap, so one late or skipped GitHub run still leaves the wave covered.
+# Kill switch: add a file named STOP at the repo root. Pause entirely: Actions tab > Bets > Disable.
+name: Bets
+
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: bets          # never two runs at once (a queued run waits, then finds the wave done)
+  cancel-in-progress: false
+
+permissions:
+  contents: write      # cloud_tick.py pushes the ledger and logs back to main
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      KALSHI_API_KEY_ID: ${{ secrets.KALSHI_API_KEY_ID }}
+      KALSHI_PRIVATE_KEY: ${{ secrets.KALSHI_PRIVATE_KEY }}
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+      NFAI_MAIL_KEY: ${{ secrets.NFAI_MAIL_KEY }}
+    steps:
+      - name: Check the Kalshi key is set
+        id: keys
+        run: |
+          if [ -z "$KALSHI_API_KEY_ID" ] || [ -z "$KALSHI_PRIVATE_KEY" ]; then
+            echo "Kalshi secrets are not set yet; nothing to do."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.keys.outputs.ok == 'true'
+
+      - uses: actions/setup-python@v5
+        if: steps.keys.outputs.ok == 'true'
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        if: steps.keys.outputs.ok == 'true'
+        run: pip install -q -r requirements.txt
+
+      - name: Place any wave that is due
+        if: steps.keys.outputs.ok == 'true'
+        run: |
+          git config user.name "nfai-bot"
+          git config user.email "nfai-bot@users.noreply.github.com"
+          # the Sunday 10 AM wave tops up in rounds; cloud_tick prints MORE while it has time left
+          for round in $(seq 1 12); do
+            python scripts/cloud_tick.py --live --window 70 2>&1 | grep -v 'skip ' | tee tick.out
+            [ "$(tail -n 1 tick.out)" = "MORE" ] || break
+          done
+
+      - name: Send settlement emails
+        if: steps.keys.outputs.ok == 'true'
+        run: |
+          git pull -q --rebase origin main || true
+          python - <<'EOF'
+          import datetime as dt, sys
+          from zoneinfo import ZoneInfo
+          sys.path.insert(0, "scripts")
+          import emails
+          today = dt.datetime.now(ZoneInfo("America/Los_Angeles")).date()
+          for day in (today - dt.timedelta(days=2), today - dt.timedelta(days=1), today):
+              try:
+                  emails.settled(str(day), push=True)
+              except Exception as e:
+                  print(f"settlement email check failed for {day}: {e!r}")
+          EOF
