@@ -64,10 +64,13 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
 
 ## Cloud operations (since 2026-11-06)
 - Live bets run automatically on GitHub Actions (`.github/workflows/bets.yml`, since 2026-11-12, user's
-  choice: no manual setup per week through the end of the season). Every 30 min it runs
-  `scripts/cloud_tick.py --live --window 70` (looping while it prints MORE), then sends any due
-  settlement emails. Secrets in the repo's Actions settings: KALSHI_API_KEY_ID, KALSHI_PRIVATE_KEY,
-  ODDS_API_KEY, NFAI_MAIL_KEY. Without the Kalshi secrets each run exits doing nothing.
+  choice: no manual setup per week through the Super Bowl). It runs only on game days: two runs per
+  betting wave, 20 and 8 min before its bet time, each `scripts/cloud_tick.py --live --window 45`
+  (looping while it prints MORE), then any due settlement emails. The cron lines come from the NFL
+  schedule via `scripts/plan_runs.py` (covers Sunday flex slots, Week 18 and playoff slots); rerun it
+  and push if the schedule changes outside those slots. Secrets in the repo's Actions settings:
+  KALSHI_API_KEY_ID, KALSHI_PRIVATE_KEY, ODDS_API_KEY, NFAI_MAIL_KEY. Without the Kalshi secrets, or
+  after Feb 16 2027, each run exits doing nothing.
 - Never run `run_day.py` or `cloud_tick.py --live` by hand while the workflow is enabled: it uses a
   concurrency group, but a hand run outside it can double-bet. Pause: Actions > Bets > Disable workflow.
 - Dashboard routines loop on `scripts/dash_wait.py DAY --pull` and publish the Bet Tracker artifact
