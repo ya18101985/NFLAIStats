@@ -1,7 +1,8 @@
 # Automatic betting on NFL game days through the Super Bowl (user's choice, 2026-11-12).
-# Runs only on game days: two runs before each betting wave (20 and 8 minutes before its bet time),
+# Runs only on game days: two runs before each betting wave (20 and 8 minutes before its bet time)
+# and two after the day's last game (settlement emails),
 # written from the NFL schedule by scripts/plan_runs.py (do not edit the cron lines by hand; rerun it).
-# Each run places any wave due in the next 45 minutes (waiting until its bet time), commits the
+# Each run places any wave due in the next 60 minutes (waiting until its bet time), commits the
 # ledger, and exits in seconds when nothing is due (e.g. the second run after the first placed it).
 # Kill switch: add a file named STOP at the repo root. Pause entirely: Actions tab > Bets > Disable.
 name: Bets
@@ -9,12 +10,20 @@ name: Bets
 on:
   schedule:
     - cron: "0 0 27 11 *"
-    - cron: "7 0 13,17,20,24 11 *"
+    - cron: "7 0 17,20,24 11 *"
     - cron: "12 0 27 11 *"
     - cron: "25 0 16,23,30 11 *"
+    - cron: "30 0 28 11 *"
     - cron: "37 0 16,23,30 11 *"
+    - cron: "30 5 26 11 *"
+    - cron: "45 5 17,20,24 11 *"
+    - cron: "50 5 16,23,27,30 11 *"
+    - cron: "0 11 28 11 *"
     - cron: "35 13 15 11 *"
     - cron: "47 13 15 11 *"
+    - cron: "0 16 26 11 *"
+    - cron: "15 16 17,20,24 11 *"
+    - cron: "20 16 16,23,27,30 11 *"
     - cron: "40 16 26 11 *"
     - cron: "52 16 26 11 *"
     - cron: "25 17 15,22,29 11 *"
@@ -29,12 +38,16 @@ on:
     - cron: "7 21 15,22,29 11 *"
     - cron: "40 23 25 11 *"
     - cron: "52 23 25 11 *"
-    - cron: "55 23 12,16,19,23,30 11 *"
+    - cron: "55 23 16,19,23,30 11 *"
     - cron: "0 0 20 12 *"
     - cron: "7 0 1,4,8,11,15,18,22,25,26,29 12 *"
     - cron: "12 0 20 12 *"
     - cron: "25 0 7,14,21,28 12 *"
     - cron: "37 0 7,14,21,28 12 *"
+    - cron: "45 5 1,4,8,11,15,18,22,25,26,29 12 *"
+    - cron: "50 5 7,14,20,21,28 12 *"
+    - cron: "15 16 1,4,8,11,15,18,22,25,26,29 12 *"
+    - cron: "20 16 7,14,20,21,28 12 *"
     - cron: "40 16 25 12 *"
     - cron: "52 16 25 12 *"
     - cron: "25 17 6,13,20,27 12 *"
@@ -53,6 +66,14 @@ on:
     - cron: "25 0 4,11 1 *"
     - cron: "32 0 18 1 *"
     - cron: "37 0 4,11 1 *"
+    - cron: "0 4 25 1 *"
+    - cron: "30 5 10 1 *"
+    - cron: "45 5 1,5,17,18,19,24 1 *"
+    - cron: "50 5 4,11 1 *"
+    - cron: "30 14 25 1 *"
+    - cron: "0 16 10 1 *"
+    - cron: "15 16 1,5,17,18,19,24 1 *"
+    - cron: "20 16 4,11 1 *"
     - cron: "25 17 3,10,17 1 *"
     - cron: "37 17 3,10,17 1 *"
     - cron: "25 19 24,31 1 *"
@@ -68,6 +89,8 @@ on:
     - cron: "40 23 9 1 *"
     - cron: "52 23 9 1 *"
     - cron: "55 23 4,16,18,23 1 *"
+    - cron: "0 4 1,15 2 *"
+    - cron: "30 14 1,15 2 *"
     - cron: "35 22 14 2 *"
     - cron: "47 22 14 2 *"
   workflow_dispatch:
@@ -120,11 +143,16 @@ jobs:
         run: |
           git config user.name "nfai-bot"
           git config user.email "nfai-bot@users.noreply.github.com"
-          # the Sunday 10 AM wave tops up in rounds; cloud_tick prints MORE while it has time left
+          # the 10 AM and night waves top up in rounds; cloud_tick prints MORE while one has time left
           for round in $(seq 1 12); do
-            python scripts/cloud_tick.py --live --window 45 2>&1 | grep -v 'skip ' | tee tick.out
+            python scripts/cloud_tick.py --live --window 60 > tick.raw 2>&1 || echo "Traceback: cloud_tick exited with an error" >> tick.raw
+            grep -v 'skip ' tick.raw | tee tick.out || true
+            cat tick.out >> tick.all
             [ "$(tail -n 1 tick.out)" = "MORE" ] || break
           done
+          if grep -qE "WAVE FAILED|PUSH FAILED|Traceback" tick.all; then
+            python scripts/alert.py "a betting wave failed" tick.all || true
+          fi
 
       - name: Send settlement emails
         if: steps.keys.outputs.ok == 'true'
@@ -142,3 +170,7 @@ jobs:
               except Exception as e:
                   print(f"settlement email check failed for {day}: {e!r}")
           EOF
+
+      - name: Email an alert if the run crashed
+        if: failure()
+        run: python scripts/alert.py "the betting run crashed" tick.all || true

@@ -4,7 +4,8 @@ GitHub Actions runs only on game days, shortly before each wave's bet time, neve
 For every game day it takes the real kickoffs from the nflverse schedule plus the standard slots
 that day can still move into (Sunday flex games; Week 18 and playoff times, set late in the season),
 turns them into waves with run_day.make_waves, and schedules two runs per wave: 20 and 8 minutes
-before its bet time. Each run calls cloud_tick.py with a 45-minute window, so a GitHub run that
+before its bet time, plus two runs after the day's last game for settlement emails. Each run
+calls cloud_tick.py with a 60-minute window, so a GitHub run that
 starts late, or a game whose time moved, is still covered; a run with nothing due exits in seconds.
 
 Usage: plan_runs.py [--from YYYY-MM-DD]   rewrites the schedule block in .github/workflows/bets.yml
@@ -28,6 +29,9 @@ import run_day as R  # noqa: E402
 ET, PT, UTC = ZoneInfo("America/New_York"), ZoneInfo("America/Los_Angeles"), dt.timezone.utc
 WORKFLOW = ROOT / ".github" / "workflows" / "bets.yml"
 RUN_BEFORE = (dt.timedelta(minutes=20), dt.timedelta(minutes=8))
+# after the day's last kickoff: runs that only send settlement emails (the game is over by the first;
+# the second, next morning, catches bets Kalshi settled late)
+SETTLE_AFTER = (dt.timedelta(hours=4, minutes=30), dt.timedelta(hours=15))
 
 # Kickoff slots (Pacific) a day can still have even if the schedule file doesn't show them yet.
 SUNDAY_SLOTS = ["10:00", "13:05", "13:25", "17:20"]                 # flex moves games between these
@@ -67,6 +71,8 @@ def run_times(start):
                 t = (w["bet_at"] - before).astimezone(UTC).replace(second=0, microsecond=0)
                 if t.date() >= start:
                     out.add(t)
+        for after in SETTLE_AFTER:
+            out.add((max(kicks) + after).astimezone(UTC).replace(second=0, microsecond=0))
     return sorted(out)
 
 
