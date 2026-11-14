@@ -138,6 +138,27 @@ jobs:
         if: steps.keys.outputs.ok == 'true'
         run: pip install -q -r requirements.txt
 
+      - name: Self-test the keys (manual runs only)
+        if: steps.keys.outputs.ok == 'true' && github.event_name == 'workflow_dispatch'
+        run: |
+          python - <<'EOF'
+          import sys
+          sys.path.insert(0, ".")
+          from nfai import odds, report
+          from nfai.kalshi import Kalshi
+          ok = True
+          def check(name, fn):
+              global ok
+              try:
+                  fn(); print(f"{name}: OK")
+              except Exception as e:
+                  ok = False; print(f"{name}: FAILED ({type(e).__name__}: {str(e)[:120]})")
+          check("Kalshi login", lambda: Kalshi().balance())
+          check("Sportsbook lines (The Odds API)", lambda: odds._get("/events"))
+          check("Email", lambda: report.send("NFAI self-test", "<p>The automatic betting setup on GitHub can send email.</p>"))
+          sys.exit(0 if ok else 1)
+          EOF
+
       - name: Place any wave that is due
         if: steps.keys.outputs.ok == 'true'
         run: |
