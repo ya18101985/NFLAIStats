@@ -1,6 +1,6 @@
 """The two per-wave emails (user's request, 2026-11-08), built from the ledger and Kalshi:
 placed(): right after a wave's bets are in (called by run_day).
-settled(): once every filled bet of a wave has settled (dash_wait checks each rebuild).
+settled(): once every filled bet of a wave has settled (checked at the end of every betting run).
 Sent waves are listed in data/emails_sent.json, pushed to GitHub at once so a restarted cloud
 session never sends the same report twice.
 

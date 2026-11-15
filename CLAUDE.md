@@ -81,9 +81,8 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
   `scripts/dash_live.py` on game days (run times from `plan_runs.py`): every 2 min during games it
   rebuilds the page and force-pushes its data to branch `dashboard-live`; the page is served by
   GitHub Pages from branch `gh-pages` (https://ya18101985.github.io/NFLAIStats/) and polls that data
-  every 90 s. No Claude session involved.
-- Older, unreliable: dashboard routines loop on `scripts/dash_wait.py DAY --pull` and publish the Bet Tracker artifact
-  (https://claude.ai/artifact/3zjxWGVFxLY2cP3PmH7tNo).
+  every 90 s. No Claude session involved; the old claude.ai artifact dashboard and its
+  `dash_wait.py` loop were removed (2026-11-14).
 - Emails: each wave emails yash.us.visa@gmail.com twice (bets placed; settlement), through the user's
   Apps Script mailer (`nfai/report.py`, key in env NFAI_MAIL_KEY). The cloud has no SMTP.
 - Kill switch from a phone: add a file named `STOP` at the repo root on GitHub.

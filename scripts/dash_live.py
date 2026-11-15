@@ -21,9 +21,6 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
-import dash_wait  # noqa: E402
-
 PAGE = ROOT / "dashboard" / "index.html"
 STATE = re.compile(r'<script id="state" type="application/json">(.*?)</script>', re.S)
 
@@ -31,6 +28,26 @@ STATE = re.compile(r'<script id="state" type="application/json">(.*?)</script>',
 def git(*args, stdin=None):
     r = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, input=stdin)
     return r.returncode, r.stdout.strip()
+
+
+def pull_ledger():
+    """Take the latest ledger from main, where the betting runs save it."""
+    if git("fetch", "-q", "origin", "main")[0] == 0:
+        git("checkout", "origin/main", "--", "ledger/ledger.db")
+
+
+def save_state(day):
+    """Commit the reasons cache and P&L history to main so the next run starts from them."""
+    git("add", "data/reasons.json", "data/dashboard_history.json")
+    if git("diff", "--cached", "--quiet")[0] == 0:
+        return
+    git("commit", "-qm", f"Dashboard state {day}")
+    for _ in range(3):
+        git("pull", "-q", "--rebase", "--autostash", "origin", "main")
+        if git("push", "-q", "origin", "HEAD:main")[0] == 0:
+            return
+        time.sleep(5)
+    print("PUSH FAILED")
 
 
 def publish(branch, files):
@@ -52,7 +69,7 @@ def main():
     a = ap.parse_args()
     stop_at, shell_done, last, built = time.time() + a.minutes * 60, False, None, False
     while True:
-        dash_wait.pull_ledger()
+        pull_ledger()
         db = sqlite3.connect(ROOT / "ledger" / "ledger.db")
         has_bets = db.execute("SELECT 1 FROM bets WHERE substr(wave, 1, 10) = ? LIMIT 1", (a.day,)).fetchone()
         db.close()
@@ -83,7 +100,7 @@ def main():
             break
         time.sleep(pause)
     if built:
-        dash_wait.save_state(a.day)
+        save_state(a.day)
 
 
 if __name__ == "__main__":

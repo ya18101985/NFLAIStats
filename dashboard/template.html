@@ -495,7 +495,7 @@ td.pos { color: var(--won); font-weight: 600; } td.neg { color: var(--lost); fon
         team(home, true) + '</div></div>';
     }).join('') || '<p style="color:var(--muted)">No games in progress. All games are final.</p>';
     $('updated').textContent = S.generatedAt ? 'Updated ' + timeET(S.generatedAt) : 'Waiting for first update';
-    $('nextUpdate').textContent = S.state === 'post' ? 'All games final. Updates stopped.' : S.generatedAt ? 'Last data ' + timeET(S.generatedAt) + '. Republished every few minutes during games.' : '';
+    $('nextUpdate').textContent = S.state === 'post' ? 'All games final. Updates stopped.' : S.generatedAt ? 'Last data ' + timeET(S.generatedAt) + '. Updates every 2 minutes during games.' : '';
 
     const T = FULL.totals || {};
     const bets = S.bets || [];
@@ -721,9 +721,6 @@ td.pos { color: var(--won); font-weight: 600; } td.neg { color: var(--lost); fon
 
   window.renderTracker = (s) => { STATE = s; render(s); };
 
-  // On claude.ai: connect to the artifact runtime so this view live-reloads when a new version is published.
-  if (!window.TRACKER_LIVE && window.claude && typeof window.claude.use === 'function') window.claude.use('artifact').catch(() => {});
-
   // A frozen page should say so: during games data older than 6 minutes means this view missed an update.
   function staleCheck() {
     const el = $('nextUpdate');
@@ -748,6 +745,5 @@ td.pos { color: var(--won); font-weight: 600; } td.neg { color: var(--lost); fon
     setInterval(poll, 90000);
   }
   if (STATE) render(STATE);
-  else if (!window.TRACKER_LIVE) fetch('live.json', { cache: 'no-store' }).then((r) => r.json()).then((s) => { STATE = s; render(s); }).catch(() => {});
 })();
 </script>

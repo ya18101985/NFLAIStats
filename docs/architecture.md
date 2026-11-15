@@ -28,7 +28,7 @@ part testable on its own, and lets the expensive parts (AI, network) stay at the
 | Data | `nfai/data.py`, `nfai/slate.py`, `nfai/odds.py` | Football stats (nflverse), schedule, live lines and injuries (ESPN), weather (Open-Meteo), sportsbook odds (The Odds API), Kalshi markets | Every source is free or low cost; results are cached on disk and fetched once per run |
 | Decision | `nfai/model.py`, `nfai/picks.py`, `nfai/gamelines.py` | Simulate games, turn results into win chances, compare with prices, apply the betting rules, size each bet | Numerical work is vectorized; rules sit in one file, so a rule change is a one-line edit |
 | Execution and record | `nfai/kalshi.py`, `nfai/execute.py`, `ledger/ledger.db` | Sign and send orders, request parlay quotes, record every bet and run | Signed API calls with spending guards; a single SQLite file versioned in Git |
-| Reporting | `scripts/dashboard.py`, `scripts/dash_wait.py`, Bet Tracker page | Build the live results page and publish it when something changes | The page is rebuilt by code; the AI only publishes it, and only when the data changed |
+| Reporting | `scripts/dashboard.py`, `scripts/dash_live.py`, Bet Tracker page | Build the live results page and publish it every 2 minutes during games | A scheduled GitHub Actions job rebuilds and publishes it; no AI involved |
 
 **Design principles behind the whole system**
 1. **Deterministic core, thin AI shell.** Everything that decides money is ordinary code with fixed
@@ -56,7 +56,7 @@ flowchart LR
         M --> P
         P --> X[execute.py<br/>orders and parlay quotes]
         X --> L[(ledger.db<br/>SQLite)]
-        DR[Dashboard routine] --> DW[dash_wait.py<br/>rebuild every 2 min]
+        DR[Dashboard workflow<br/>GitHub Actions] --> DW[dash_live.py<br/>rebuild every 2 min]
         DW --> DB[dashboard.py<br/>builds the page]
     end
 
@@ -69,7 +69,7 @@ flowchart LR
 
     K[Kalshi API<br/>markets, orders, balance, settlements]
     GH[(GitHub repository<br/>code + ledger + dashboard state)]
-    BT[Bet Tracker page<br/>claude.ai artifact]
+    BT[Bet Tracker page<br/>GitHub Pages]
 
     NV --> M
     ES --> W
@@ -127,33 +127,21 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     autonumber
-    participant S as Cloud scheduler
-    participant A as AI session (Haiku)
-    participant W as dash_wait.py
-    participant G as GitHub
+    participant S as GitHub Actions schedule
+    participant W as dash_live.py
+    participant G as GitHub branches
     participant K as Kalshi and ESPN
-    participant P as Bet Tracker page
+    participant P as Bet Tracker page (GitHub Pages)
 
-    S->>A: Start at first kickoff
-    A->>P: Read the page once (required before publishing)
-    loop Until every game is over and every bet settled
-        A->>W: Run dash_wait.py (returns within 8 minutes)
-        loop Every 2 min in games, 15 min before
-            W->>G: Take the latest ledger
-            W->>K: Fills, live prices, scores, settlements
-            W->>W: Rebuild page and compare fingerprint with last publish
-        end
-        alt Data changed
-            W-->>A: CHANGED
-            A->>P: Publish the new page
-        else Nothing changed for 8 minutes
-            W-->>A: WAIT (AI runs it again, publishes nothing)
-        else All games final and settled
-            W->>G: Save explanations and P&L history
-            W-->>A: FINAL
-            A->>P: Publish the final page and stop
-        end
+    S->>W: Start 5 minutes before the day's first bets
+    W->>G: Push the page to gh-pages (once per run)
+    loop Every 2 min in games, 10 min before, until all games are over and bets settled
+        W->>G: Take the latest ledger from main
+        W->>K: Fills, live prices, scores, settlements
+        W->>G: Rebuild and push the data to dashboard-live
+        P->>G: Open pages fetch the data every 90 seconds
     end
+    W->>G: Save explanations and P&L history to main
 ```
 
 ## 5. Use case diagram
@@ -213,7 +201,7 @@ flowchart LR
 |---|---|---|
 | AI cost | Betting runs need no AI reasoning; the AI just starts one command | Model math runs as code, which is free and repeatable |
 | AI cost | Smallest model (Haiku) for cloud jobs | The jobs are mechanical; a larger model would add cost without adding value |
-| AI cost | AI wakes only when the dashboard actually changes | No tokens spent while nothing is happening |
+| AI cost | The dashboard is refreshed by a scheduled job, not an AI session | No tokens spent on updates |
 | AI cost | One cloud run per betting time instead of an hourly check | About 6 sessions a week instead of about 30 |
 | Network | Download only this season's files; keep history on disk | History never changes, so there is no need to download it again |
 | Network | One request for the whole league instead of one per game | Fewer calls, and per-game data was incomplete |
@@ -243,25 +231,18 @@ instructions short and keeps the session from wandering into reading files or ex
 "skipped" lines and keeps only the last 40. The AI reads only what it needs to report, and every line
 it reads costs tokens.
 
-**7.5 The AI wakes only when something changed.** The live dashboard rebuilds every 2 minutes during
-games. A small script (`scripts/dash_wait.py`) does that loop with no AI involved. Each time, it
-computes a fingerprint (an MD5 hash) of the page with the timestamps removed. The AI is woken only
-when the fingerprint differs from the last published one, meaning a score, fill or result actually
-changed. The script then prints one word (CHANGED, FINAL or NOBETS), so the AI never has to read the
-page to decide what to do.
+**7.5 No AI in the dashboard loop.** The live dashboard is rebuilt every 2 minutes during games by a
+scheduled GitHub Actions job (`scripts/dash_live.py`). It pushes only the page's data to a one-commit
+branch, and the open page fetches it every 90 seconds, so no AI session and no tokens are involved.
 
 **7.6 Refresh adapted to the game clock.** Before kickoff nothing moves, so the dashboard checks
-every 15 minutes. During games it checks every 2 minutes. When every game is final, it stops.
+every 10 minutes. During games it checks every 2 minutes. When every game is final, it stops.
 
 **7.7 One cloud run per betting time instead of polling.** An hourly cloud check on game days would
 mean about 30 sessions a week, and most would find nothing to do. The weekly betting times are known
 in advance: early, morning, 1:05, 1:25, night and Monday. So one run is scheduled about 15 minutes
 before each. That means about 6 sessions a week, none wasted. If a check does run with nothing due,
 it exits in seconds.
-
-**7.8 Reusing one AI session for repeated publishing.** On the laptop version of the dashboard, the
-publishing step reuses one AI conversation rather than starting a new one each time. The AI then
-doesn't need setup instructions repeated for every update.
 
 ## 8. Network and data downloads
 

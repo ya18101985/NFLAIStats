@@ -1,6 +1,6 @@
 """Build the Bet Tracker dashboard page (dashboard/index.html) from the live ledger, Kalshi
 (fills, live prices, results, settlements) and ESPN (scores, box scores, injuries).
-Claude republishes the page to the claude.ai artifact after each run.
+scripts/dash_live.py runs this on game days and publishes the result to the public page.
 
     .venv/bin/python scripts/dashboard.py [YYYY-MM-DD]     # default: today in PT
 
