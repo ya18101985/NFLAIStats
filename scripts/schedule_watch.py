@@ -59,6 +59,28 @@ def todays_waves(day):
     return R.make_waves(games)
 
 
+def unrecorded_waves(now):
+    """Waves that kicked off since the previous watch run with no record in the ledger: a betting
+    run never reached them (GitHub skipped it, or the run found nothing). [(name, kickoff)]."""
+    import sqlite3
+    back = dt.timedelta(hours=13.5 if now.hour < 14 else 6)
+    days = {(now - back).astimezone(R.PT).date(), now.astimezone(R.PT).date()}
+    games = []
+    for day in days:
+        evs = requests.get(f"{slate.ESPN}/scoreboard", params={"dates": day.strftime("%Y%m%d")}, timeout=30).json()["events"]
+        for e in evs:
+            kick = dt.datetime.fromisoformat(e["date"].replace("Z", "+00:00"))
+            if e["status"]["type"].get("state") in ("in", "post") and now - back < kick <= now and e["id"] not in {g.id for g in games}:
+                games.append(SimpleNamespace(kickoff=kick, code="X" * 7 + e.get("shortName", "").replace(" ", ""), id=e["id"]))
+    db = sqlite3.connect(ROOT / "ledger" / "ledger.db")
+    out = []
+    for w in R.make_waves(games):
+        prefix = f"{w['kickoff'].astimezone(R.PT):%Y-%m-%d %H%M}"
+        if not db.execute("SELECT 1 FROM waves WHERE wave LIKE ?", (prefix + "%",)).fetchone():
+            out.append((f"{prefix} {' + '.join(g.code[7:] for g in w['games'])}", w["kickoff"]))
+    return out
+
+
 def dispatch(workflow, inputs, dry):
     if dry:
         print(f"  (dry) would start {workflow} {inputs}")
@@ -82,6 +104,20 @@ def main():
     now = dt.datetime.now(UTC)
     end = now + dt.timedelta(hours=a.hours)
     day = now.astimezone(R.PT).date()
+    try:
+        lost = unrecorded_waves(now)
+    except Exception as e:
+        lost = []
+        print(f"could not check for missed waves: {e!r}")
+    if lost:
+        print("MISSED: " + "; ".join(n for n, _ in lost))
+        if not a.dry:
+            try:
+                report.send("NFAI alert: a betting wave was missed",
+                            "<p>These games kicked off with no betting run on record, so no bets were placed on them:</p><ul>"
+                            + "".join(f"<li>{n}</li>" for n, _ in lost) + "</ul><p>Ask Claude to check the Actions runs.</p>")
+            except Exception as e:
+                print(f"alert email failed: {e!r}")
     waves = todays_waves(day)
     crons = cron_times("bets.yml", now)
     missed = [w for w in waves if now < w["bet_at"] <= end + RUN_BEFORE[0]

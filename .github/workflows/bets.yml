@@ -175,7 +175,7 @@ jobs:
             cat tick.out >> tick.all
             [ "$(tail -n 1 tick.out)" = "MORE" ] || break
           done
-          if grep -qE "WAVE FAILED|PUSH FAILED|Traceback" tick.all; then
+          if grep -qE "WAVE FAILED|PUSH FAILED|Traceback|  FAILED |lines unavailable|game clocks unavailable|email FAILED" tick.all; then
             python scripts/alert.py "a betting wave failed" tick.all || true
           fi
 
@@ -183,7 +183,7 @@ jobs:
         if: steps.keys.outputs.ok == 'true'
         run: |
           git pull -q --rebase origin main || true
-          python - <<'EOF'
+          python - <<'EOF' 2>&1 | tee settle.out
           import datetime as dt, sys
           from zoneinfo import ZoneInfo
           sys.path.insert(0, "scripts")
@@ -195,6 +195,9 @@ jobs:
               except Exception as e:
                   print(f"settlement email check failed for {day}: {e!r}")
           EOF
+          if grep -q "settlement email check failed" settle.out; then
+            python scripts/alert.py "a settlement email could not be sent" settle.out || true
+          fi
 
       - name: Email an alert if the run crashed
         if: failure()
