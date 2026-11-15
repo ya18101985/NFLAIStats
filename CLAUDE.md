@@ -78,6 +78,11 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
   and push if the schedule changes outside those slots. Secrets in the repo's Actions settings:
   KALSHI_API_KEY_ID, KALSHI_PRIVATE_KEY, ODDS_API_KEY, NFAI_MAIL_KEY. Without the Kalshi secrets, or
   after Feb 16 2027, each run exits doing nothing.
+- Schedule changes (user's request, 2026-11-14): `.github/workflows/schedule-watch.yml` runs
+  `scripts/schedule_watch.py` three times a day. It reads the day's real kickoffs from ESPN (any
+  weekday), and for a wave no cron line reaches it starts the Bets and Dashboard workflows itself
+  and emails a note. A workflow cannot rewrite its own cron lines, so `plan_runs.py` is still rerun
+  by hand to make a change permanent.
 - Never run `run_day.py` or `cloud_tick.py --live` by hand while the workflow is enabled: it uses a
   concurrency group, but a hand run outside it can double-bet. Pause: Actions > Bets > Disable workflow.
 - Public dashboard (user's request, 2026-11-14): `.github/workflows/dashboard.yml` runs

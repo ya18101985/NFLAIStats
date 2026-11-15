@@ -1,0 +1,39 @@
+# Daily safety net for NFL schedule changes (user's request, 2026-11-14). Three fixed runs a day
+# (about 4 AM, 9:30 AM and 3 PM Pacific), each responsible for the next 5.6 hours: if a betting wave
+# today has no scheduled Bets run (the NFL moved or added a game), scripts/schedule_watch.py waits
+# and starts the Bets and Dashboard workflows itself. A day that is already covered takes seconds.
+name: Schedule watch
+
+on:
+  schedule:
+    - cron: "52 11 * 11,12,1,2 *"
+    - cron: "22 17 * 11,12,1,2 *"
+    - cron: "52 22 * 11,12,1,2 *"
+  workflow_dispatch:
+    inputs:
+      test_start:
+        description: "Only test that it can start the Bets workflow (true/false)"
+        default: "false"
+
+permissions:
+  contents: read
+  actions: write       # to start the Bets and Dashboard workflows
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      NFAI_MAIL_KEY: ${{ secrets.NFAI_MAIL_KEY }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - name: Cover any wave the schedule misses
+        run: |
+          if [ "$(date -u +%Y%m%d)" -gt 20270216 ]; then echo "Season over."; exit 0; fi
+          if [ "${{ inputs.test_start }}" = "true" ]; then python scripts/schedule_watch.py --test-start; else python scripts/schedule_watch.py; fi

@@ -94,6 +94,10 @@ on:
     - cron: "35 22 14 2 *"
     - cron: "47 22 14 2 *"
   workflow_dispatch:
+    inputs:
+      selftest:
+        description: "Check the keys and send a test email first (true/false)"
+        default: "true"
 
 concurrency:
   group: bets          # never two runs at once (a queued run waits, then finds the wave done)
@@ -139,7 +143,7 @@ jobs:
         run: pip install -q -r requirements.txt
 
       - name: Self-test the keys (manual runs only)
-        if: steps.keys.outputs.ok == 'true' && github.event_name == 'workflow_dispatch'
+        if: steps.keys.outputs.ok == 'true' && github.event_name == 'workflow_dispatch' && inputs.selftest != 'false'
         run: |
           python - <<'EOF'
           import sys
