@@ -298,9 +298,9 @@ def _select_conservative(cands, bankroll, budget):
         if spent() >= target - 1:
             break
         loose += add([c for c in cands if _backed(c, lo, hi, slack, min_ev)], "L", target, LOOSE_MAX_STAKE)
-        picked[:] = strict + loose
-    if loose and spent() < target - 1:
+        # raise this step's bets toward 15% each before loosening further: fewer, better bets
         _scale_to(loose, target - sum(s for _, s in strict), LOOSE_MAX_STAKE * bankroll)
+        picked[:] = strict + loose
     out = []
     for c, stake in picked:
         contracts = int(stake / (c.price + fee(c.price)))

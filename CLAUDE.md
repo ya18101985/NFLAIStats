@@ -41,6 +41,10 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
   45-50c coin flips won half): only contracts priced 52-66c that the books rate above the price
   plus fee, with blended EV >= 0.5c (>= 0 on the relax step). No model-only bets (group B) and no
   group C (`MODEL_ONLY_BETS = False` in picks.py brings both back). Unders stay allowed.
+  Strict bets are capped at 20% of the wave each, with no limit on the wave total. No empty waves
+  (user's choice, 2026-11-14): if strict bets place under half the bankroll, LOOSE_STEPS widen the
+  price range (to 40-75c) and let the books sit up to 3c below break-even, step by step, 15% per
+  bet, until half the bankroll is placed. This overrides "no filler" for those loosened bets only.
 - Game lines (`nfai/gamelines.py`): winner/spread/total for full game, halves and quarters, plus
   team totals (full, 1H), priced only against the books (70% books / 30% Kalshi mid); they
   join group A. Quarter lines need an exact book line; partial-game winners need a 3-way book
