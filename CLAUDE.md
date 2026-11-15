@@ -37,12 +37,10 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
   Full allocation goes into edge bets instead: if the 15% cap can't place the budget, the per-bet
   cap rises (BIG_STAKE_CAPS 25/40/60/100%) until the break-even-or-better bets absorb it.
 - Sportsbook lines (The Odds API, key in `~/.kalshi/odds_api_key.txt`) are a third opinion.
-  Singles are a hybrid (user's choice, 2026-10-31), half the budget each:
-  A = books and model both say Kalshi is cheap (EV >= 0.5c); B = model-only EV >= 2c and the
-  books at most 2c against. Singles must be 45-65% to win.
-  C = "likely winner" (user's choice, 2026-11-08): model and blend 58-72%, books 55%+, EV >= 1c
-  after fees. C only fills what A and B (at non-negative bars) leave, and always before any
-  below-break-even filler bets.
+  Conservative singles (user's choice, 2026-11-14, after 100 settled singles: model-only bets -21%,
+  45-50c coin flips won half): only contracts priced 52-66c that the books rate above the price
+  plus fee, with blended EV >= 0.5c (>= 0 on the relax step). No model-only bets (group B) and no
+  group C (`MODEL_ONLY_BETS = False` in picks.py brings both back). Unders stay allowed.
 - Game lines (`nfai/gamelines.py`): winner/spread/total for full game, halves and quarters, plus
   team totals (full, 1H), priced only against the books (70% books / 30% Kalshi mid); they
   join group A. Quarter lines need an exact book line; partial-game winners need a 3-way book

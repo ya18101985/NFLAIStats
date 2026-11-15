@@ -22,6 +22,11 @@ MAX_DISAGREEMENT = 0.25     # skip a price when model and market differ by more 
 FEE_RATE = 0.07             # Kalshi taker fee = 0.07 * price * (1 - price) per contract
 
 MIN_PROB_SINGLE, MAX_PROB_SINGLE = 0.45, 0.65   # user's range for singles: no long shots, no tiny-payout favourites
+# Conservative singles (user's choice, 2026-11-14, after 100 settled singles: model-only bets -21%,
+# 45-50c coin flips won only half): buy only contracts priced 52-66c that the sportsbooks rate
+# above the price plus fee. No model-only bets (group B) and no group C. Unders stay allowed.
+PRICE_MIN, PRICE_MAX = 0.52, 0.66
+MODEL_ONLY_BETS = False     # True brings back group B and group C
 MIN_EV = 0.03               # dollars per contract after fees
 MIN_EV_RATIO = 0.06         # EV as a share of price
 # Singles come from two groups that split the singles budget (user's hybrid, 2026-10-31):
@@ -195,14 +200,17 @@ def _redistribute_injured_usage(model, team, g, players):
 
 
 def _group_a(c, min_ev=BOOK_MIN_EV):
-    """Sportsbooks price the prop, and both they and our model say Kalshi is cheap."""
+    """Sportsbooks price the bet above Kalshi's price plus fee, the blend (books, Kalshi, model)
+    agrees, and the price is in the user's 52-66c range."""
     slack = min(min_ev, 0.0)
-    return (c.p_book is not None and c.p_book >= c.price + fee(c.price) + slack and c.p_model >= c.price + slack
-            and c.ev >= min_ev and MIN_PROB_SINGLE <= c.p <= MAX_PROB_SINGLE)
+    return (c.p_book is not None and c.p_book >= c.price + fee(c.price) + slack
+            and c.ev >= min_ev and PRICE_MIN <= c.price <= PRICE_MAX)
 
 
 def _group_b(c, min_ev=MODEL_MIN_EV):
     """Our model (blended with Kalshi) sees a real edge and the books aren't clearly against it."""
+    if not MODEL_ONLY_BETS:
+        return False
     p_model_blend = c.price + fee(c.price) + c.ev_model
     return (c.ev_model >= min_ev and c.ev_model / c.price >= MIN_EV_RATIO / 1.5 * min_ev / MODEL_MIN_EV
             and c.ev >= min(min_ev, 0.0) and MIN_PROB_SINGLE <= p_model_blend <= MAX_PROB_SINGLE
@@ -237,7 +245,7 @@ def select_singles(cands, bankroll, budget=None, one_game=False):
 def _group_c(c):
     """Likely winner: model and blend both put it 58-72% to win, the books agree (55%+), and it
     still clears a 1c edge after fees, as a cushion against the model being over-optimistic."""
-    return (c.p_book is not None and c.p_book >= LIKELY_MIN_BOOK and c.ev >= LIKELY_MIN_EV
+    return (MODEL_ONLY_BETS and c.p_book is not None and c.p_book >= LIKELY_MIN_BOOK and c.ev >= LIKELY_MIN_EV
             and LIKELY_MIN_PROB <= c.p <= LIKELY_MAX_PROB and LIKELY_MIN_PROB <= c.p_model <= LIKELY_MAX_PROB)
 
 
