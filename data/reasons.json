@@ -1946,5 +1946,169 @@
   ],
   "group": "Your in-game bet",
   "verdict": "You placed this during the game. Our model has no read on this market."
+ },
+ "k-kxnflrec-26nov15nedet-neddouglas3-4": {
+  "p": 0.4730885885874722,
+  "pModel": 0.55326754331976,
+  "ev": 0.005763588587472196,
+  "wave": "2026-11-15 0630 NEDET",
+  "pBook": 0.458399260376141,
+  "points": [
+   "Model projects 4 catches (80% range 1\u20138) vs the line of 3.5: 55% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 3.5; converted to Kalshi's line that's 46% for this side, vs a price of 45\u00a2.",
+   "Last 5 games: 4, 7, 3, 3, 5. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 6.0 targets a game (WR).",
+   "NE is a 2.5-point underdog vs DET (total 50.5). DET's defense ranks #27 vs the pass and #11 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "L \u00b7 loosened rule",
+  "verdict": "No bet passed the strict rule for this wave; this was the closest the sportsbooks came to backing one."
+ },
+ "k-kxnfl1htotal-26nov15nedet-25": {
+  "p": 0.5346720273481715,
+  "pModel": 0.5431028962116736,
+  "ev": -0.002799972651828478,
+  "wave": "2026-11-15 0630 NEDET",
+  "pBook": 0.5431028962116736,
+  "points": [
+   "Kalshi market: \"Over 24.5 points\" (1st half), we hold YES at 52\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 54% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflspread-26nov15nedet-det3-no": {
+  "p": 0.4937981252050061,
+  "pModel": 0.5018544645785801,
+  "ev": -0.003673874794993884,
+  "wave": "2026-11-15 0630 NEDET",
+  "pBook": 0.501887484595441,
+  "points": [
+   "Kalshi market: \"Detroit wins by over 2.5 points\" (game), we hold NO at 48\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 50% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnfl1hteamtotal-26nov15nedet-ne11": {
+  "p": 0.543735707855582,
+  "pModel": 0.5517652969365456,
+  "ev": -0.003701292144418021,
+  "wave": "2026-11-15 0630 NEDET",
+  "pBook": 0.5517652969365456,
+  "points": [
+   "Kalshi market: \"New England over 10.5 points\" (1st half), we hold YES at 53\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 55% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrshatt-26nov15jacten-jactlawrence16-4-no": {
+  "p": 0.6287648027471409,
+  "pModel": 0.7352928514332404,
+  "ev": 0.021831802747140888,
+  "wave": "2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB",
+  "pBook": 0.6123228835597463,
+  "points": [
+   "Model projects 2 carries (80% range 1\u20135) vs the line of 3.5: 74% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 2.5, 3.5; converted to Kalshi's line that's 61% for this side, vs a price of 59\u00a2.",
+   "Last 5 games: 3, 3, 3, 3, 1. This side would have won 5 of 5.",
+   "Usage over the last 4 games: 30 pass attempts a game (QB).",
+   "JAX is a 10.5-point favorite vs TEN (total 45.5). TEN's defense ranks #29 vs the pass and #18 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflpassyds-26nov15jacten-tencward1-175": {
+  "p": 0.6735002102362753,
+  "pModel": 0.7583936455429406,
+  "ev": 0.01737221023627525,
+  "wave": "2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB",
+  "pBook": 0.6606961628569097,
+  "points": [
+   "Model projects 225 passing yards (80% range 148\u2013318) vs the line of 174.5: 76% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 195.5, 196.5, 198.5; converted to Kalshi's line that's 66% for this side, vs a price of 64\u00a2.",
+   "Last 5 games: 222, 170, 102, 181, 304. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 32 pass attempts a game (QB).",
+   "TEN is a 10.5-point underdog vs JAX (total 45.5). JAX's defense ranks #3 vs the pass and #3 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflrshyds-26nov15kcatl-kcpmahomes15-15-no": {
+  "p": 0.6547356179040544,
+  "pModel": 0.6655712054591627,
+  "ev": 0.008418617904054428,
+  "wave": "2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB",
+  "pBook": 0.667918534834492,
+  "points": [
+   "Model projects 9 rushing yards (80% range -0\u201327) vs the line of 14.5: 67% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 8.5, 9.5, 10.5; converted to Kalshi's line that's 67% for this side, vs a price of 63\u00a2.",
+   "Last 5 games: 0, 16, 14, 6, 8. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 34 pass attempts a game (QB).",
+   "KC is a 3-point favorite vs ATL (total 47.5). ATL's defense ranks #16 vs the pass and #21 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnfl1hteamtotal-26nov15jacten-ten10-no": {
+  "p": 0.580943781384533,
+  "pModel": 0.592062544835047,
+  "ev": 0.0036957813845329007,
+  "wave": "2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB",
+  "pBook": 0.5929448123568262,
+  "points": [
+   "Kalshi market: \"Tennessee over 9.5 points\" (1st half), we hold NO at 56\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 59% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnfl1hteamtotal-26nov15houcle-cle8": {
+  "p": 0.5496972921922862,
+  "pModel": 0.5602818459889802,
+  "ev": 0.0022602921922862187,
+  "wave": "2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB",
+  "pBook": 0.560489081529633,
+  "points": [
+   "Kalshi market: \"Cleveland over 7.5 points\" (1st half), we hold YES at 53\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 56% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrshyds-26nov15carno-notshough6-15": {
+  "p": 0.5588456255764855,
+  "pModel": 0.5598789276648916,
+  "ev": 0.0014576255764855023,
+  "wave": "2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB",
+  "pBook": 0.5710795531050284,
+  "points": [
+   "Model projects 17 rushing yards (80% range 2\u201341) vs the line of 14.5: 55% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 16.5, 17.5, 18.5; converted to Kalshi's line that's 57% for this side, vs a price of 54\u00a2.",
+   "Last 5 games: 5, 0, 32, 7, 51. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 32 pass attempts a game (QB).",
+   "NO is a 1.5-point underdog vs CAR (total 48.5). CAR's defense ranks #19 vs the pass and #25 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnfl1hteamtotal-26nov15carno-car11": {
+  "p": 0.5383565311423795,
+  "pModel": 0.5483664730605422,
+  "ev": 0.0008845311423794494,
+  "wave": "2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB",
+  "pBook": 0.5483664730605422,
+  "points": [
+   "Kalshi market: \"Carolina over 10.5 points\" (1st half), we hold YES at 52\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 55% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
  }
 }
