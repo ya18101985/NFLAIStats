@@ -209,6 +209,10 @@ def run_wave(w, k, ledger, day, live, log):
     k.live = live
     bankroll = wave_bankroll(w, cash, ledger, k)
     top_up = "top_up_until" in w
+    # top-up rounds bet only cash that arrived since the last round: money an earlier round chose
+    # not to spend (the rules place as little as half a wave) is not bet again every 90 seconds
+    held = float(ledger.get(f"held:{w['name']}", 0) or 0) if top_up else 0.0
+    bankroll = max(0.0, bankroll - held)
     log(f"cash ${cash:,.2f}, account ${total:,.2f}, wave bankroll ${bankroll:,.2f} ({w['rule']})")
     first = ledger.wave(w["name"]) is None
     ledger.record_wave(w["name"], **(dict(started_at=dt.datetime.now(dt.timezone.utc).isoformat(), cash_before=cash)
@@ -241,6 +245,8 @@ def run_wave(w, k, ledger, day, live, log):
     time.sleep(3)
     cash_after = float(k.balance())
     ledger.record_wave(w["name"], status="running" if top_up else "done", cash_after=cash_after)
+    if top_up:
+        ledger.set(f"held:{w['name']}", round(wave_bankroll(w, free_cash(k), ledger, k), 2))
     msg = f"{w['name']}: placed {len(singles)} singles; cash now ${cash_after:,.0f}"
     log(msg)
     notify(msg)
