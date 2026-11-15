@@ -59,6 +59,9 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
   1:05, 1:25 and the night game: all cash. TNF/MNF: 100%.
   Night game (user's choice, 2026-11-08): after its first bets, keeps betting newly settled afternoon
   payouts every ~90 s until those games settle or 3 min before kickoff (pregame only).
+- In-game cutoff (user's rule, 2026-11-14): no new bets on a game once 7 minutes of its game clock
+  have gone (ESPN clock, checked every round; MAX_GAME_MINUTES in run_day.py). If ESPN can't be
+  read, only games before kickoff are bet.
 - No balance floor (user's choice, 2026-11-08): the 40% safety stop was removed so every wave can
   spend all available funds. Only the STOP file halts betting.
 - Fully automatic placement (user's choice). The user prefers plain language and one decision

@@ -113,6 +113,28 @@ def games_on(date, kalshi):
     return out
 
 
+def game_minutes_played(games):
+    """{game code: minutes of game clock gone} from ESPN's scoreboard (0 before kickoff; 60+ when
+    over). Games ESPN doesn't answer for are left out."""
+    out = {}
+    for day in {g.kickoff.astimezone(dt.timezone(dt.timedelta(hours=-5))).date() for g in games}:
+        evs = requests.get(f"{ESPN}/scoreboard", params={"dates": day.strftime("%Y%m%d")}, timeout=30).json()["events"]
+        by_id = {e["id"]: e for e in evs}
+        for g in games:
+            st = (by_id.get(g.espn_id) or {}).get("status")
+            if not st:
+                continue
+            state = st["type"].get("state")
+            if state == "pre":
+                out[g.code] = 0.0
+            elif state == "post":
+                out[g.code] = 60.0
+            else:
+                period = int(st.get("period") or 1)
+                out[g.code] = 15.0 * (period - 1) + 15.0 - float(st.get("clock") or 0) / 60
+    return out
+
+
 def espn_line(event):
     """(home spread, total) from an ESPN scoreboard event's current odds, or None."""
     odds = (event["competitions"][0].get("odds") or [{}])[0]

@@ -33,6 +33,7 @@ from nfai.model import Model  # noqa: E402
 PT = ZoneInfo("America/Los_Angeles")
 MAX_BANKROLL = 5000.0
 TOP_UP_AFTER_KICKOFF = dt.timedelta(minutes=10)
+MAX_GAME_MINUTES = 7      # user's rule, 2026-11-14: no new bets on a game once 7 minutes of its game clock have gone
 NIGHT_TOP_UP_BEFORE_KICKOFF = dt.timedelta(minutes=3)
 LOGS = Path(__file__).resolve().parents[1] / "logs"
 
@@ -228,7 +229,17 @@ def run_wave(w, k, ledger, day, live, log):
     D.refresh(names=["depth", "injuries"])
     model = Model(week=max((g.week for g in w["games"] if g.week), default=None))
     cands = []
+    try:
+        played = slate.game_minutes_played(w["games"])
+    except Exception as e:
+        log(f"  game clocks unavailable ({e!r}); betting only games before kickoff")
+        played = {}
+    now = dt.datetime.now(dt.timezone.utc)
     for g in w["games"]:
+        mins = played.get(g.code, 0.0 if now < g.kickoff else MAX_GAME_MINUTES)
+        if mins >= MAX_GAME_MINUTES:
+            log(f"  skip {g.code}: {mins:.0f} minutes of game clock gone (limit {MAX_GAME_MINUTES})")
+            continue
         c, flags = P.game_candidates(model, g, slate.prop_markets(g, k), book_lines(g, log))
         cands += c + game_line_candidates(g, k, log)
         for f in flags:
