@@ -125,7 +125,9 @@ def send(subject, body_html):
 def reason(c):
     """One line on why a single was picked, from the candidate's numbers."""
     edge = f"edge {100 * c.ev:+.1f}¢"
-    if c.group == "C":
+    if c.group == "L":
+        why = (f"Loosened rule to keep the wave in play: books {100 * c.p_book:.0f}% at Kalshi's {100 * c.price:.0f}¢")
+    elif c.group == "C":
         why = (f"Likely winner: model {100 * c.p_model:.0f}% and books {100 * c.p_book:.0f}% "
                f"at Kalshi's {100 * c.price:.0f}¢")
     elif c.group == "A" or (c.hit is None and c.p_book is not None):
@@ -134,6 +136,6 @@ def reason(c):
         why = f"Model {100 * c.p_model:.0f}% vs Kalshi {100 * c.price:.0f}¢; books {100 * c.p_book:.0f}%, close enough"
     else:
         why = f"Model {100 * c.p_model:.0f}% vs Kalshi {100 * c.price:.0f}¢; no sportsbook line"
-    if c.ev < 0:
+    if c.ev < 0 and c.group != "L":
         why += "; filler bet to use the full bankroll"
     return f"{why} ({edge})."

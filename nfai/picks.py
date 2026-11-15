@@ -26,7 +26,14 @@ MIN_PROB_SINGLE, MAX_PROB_SINGLE = 0.45, 0.65   # user's range for singles: no l
 # 45-50c coin flips won only half): buy only contracts priced 52-66c that the sportsbooks rate
 # above the price plus fee. No model-only bets (group B) and no group C. Unders stay allowed.
 PRICE_MIN, PRICE_MAX = 0.52, 0.66
-MODEL_ONLY_BETS = False     # True brings back group B and group C
+MODEL_ONLY_BETS = False     # True brings back the old A/B/C selection
+STRICT_MAX_STAKE = 0.20     # per bet, of the wave bankroll, for bets that pass the strict rule (no wave limit)
+# Never an empty wave (user's choice, 2026-11-14): if the strict bets use under half the bankroll,
+# loosen step by step (price range, how far the books may sit below break-even, minimum blended EV)
+# until half is placed. Loosened bets are capped at 15% each. Bets are still books-priced only.
+LOOSE_TARGET, LOOSE_MAX_STAKE = 0.50, 0.15
+LOOSE_STEPS = [(0.48, 0.70, 0.0, 0.0), (0.45, 0.72, 0.0, 0.0), (0.45, 0.72, -0.01, -0.005),
+               (0.45, 0.72, -0.02, -0.01), (0.40, 0.75, -0.03, -0.02)]
 MIN_EV = 0.03               # dollars per contract after fees
 MIN_EV_RATIO = 0.06         # EV as a share of price
 # Singles come from two groups that split the singles budget (user's hybrid, 2026-10-31):
@@ -223,6 +230,8 @@ def select_singles(cands, bankroll, budget=None, one_game=False):
     bankroll) within the 15% cap, retry with the lower bars in RELAX_STEPS (plus the
     below-break-even ONE_GAME_FLOOR step in single-game waves)."""
     budget = SINGLES_SHARE * bankroll if budget is None else budget
+    if not MODEL_ONLY_BETS:
+        return _select_conservative(cands, bankroll, budget)
     # no below-break-even filler (user's choice, 2026-11-08): negative-edge singles returned -22%;
     # stakes still scale up (15% cap each) to use as much of the budget as positive-edge bets allow
     # all allocation goes into edge bets (user's choice, 2026-11-08): if the 15% cap leaves money
@@ -239,6 +248,64 @@ def select_singles(cands, bankroll, budget=None, one_game=False):
             out = bigger
         if spent(out) >= 0.99 * budget:
             break
+    return out
+
+
+def _backed(c, lo, hi, slack, min_ev):
+    """The sportsbooks price it at or above Kalshi's price plus fee (less `slack`), the blend's edge
+    is at least min_ev, and the price is between lo and hi."""
+    return (c.p_book is not None and c.p_book >= c.price + fee(c.price) + slack
+            and c.ev >= min_ev and lo <= c.price <= hi)
+
+
+def _select_conservative(cands, bankroll, budget):
+    """Strict bets (52-66c, books above price plus fee) at up to 20% each, using as much of the
+    budget as they can. If they place under half the bankroll, LOOSE_STEPS add bets at up to 15%
+    each until half is placed. One side per player-stat, at most 2 bets a player."""
+    for c in cands:
+        c.group = ""
+    picked, seen, per_player = [], set(), {}
+
+    def spent():
+        return sum(s for _, s in picked)
+
+    def add(pool, g, target, max_stake):
+        left, mine = target - spent(), []
+        for c in sorted(pool, key=lambda c: -c.ev):
+            key = (c.player, c.stat)
+            if c.group or key in seen or per_player.get(c.player, 0) >= MAX_BETS_PER_PLAYER:
+                continue
+            cost = c.price + fee(c.price)
+            kelly = max(c.p - cost, 0.0) / (1 - cost)
+            stake = min(float(np.clip(0.5 * kelly, MIN_STAKE, max_stake)) * bankroll, left)
+            if stake < MIN_STAKE * bankroll:
+                break
+            c.group = g
+            mine.append([c, stake])
+            left -= stake
+            seen.add(key)
+            per_player[c.player] = per_player.get(c.player, 0) + 1
+        return mine
+
+    strict = []
+    for min_ev in (BOOK_MIN_EV, 0.0):
+        strict += add([c for c in cands if _backed(c, PRICE_MIN, PRICE_MAX, 0.0, min_ev)], "A", budget, STRICT_MAX_STAKE)
+        picked[:] = strict
+    _scale_to(strict, budget, STRICT_MAX_STAKE * bankroll)
+    target = min(budget, LOOSE_TARGET * bankroll)
+    loose = []
+    for lo, hi, slack, min_ev in LOOSE_STEPS:
+        if spent() >= target - 1:
+            break
+        loose += add([c for c in cands if _backed(c, lo, hi, slack, min_ev)], "L", target, LOOSE_MAX_STAKE)
+        picked[:] = strict + loose
+    if loose and spent() < target - 1:
+        _scale_to(loose, target - sum(s for _, s in strict), LOOSE_MAX_STAKE * bankroll)
+    out = []
+    for c, stake in picked:
+        contracts = int(stake / (c.price + fee(c.price)))
+        if contracts >= 1:
+            out.append((c, contracts, round(contracts * c.price, 2)))
     return out
 
 

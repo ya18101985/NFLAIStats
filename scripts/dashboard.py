@@ -327,7 +327,10 @@ class Reasoner:
                    f"pass and #{rk('def_epa_rush', opp)} vs the run by EPA allowed (1 = best).")
         why["points"] = pts
         pb = why["pBook"]
-        if (row.get("note") or "").startswith("Likely winner"):
+        if (row.get("note") or "").startswith("Loosened rule"):
+            why["group"] = "L · loosened rule"
+            why["verdict"] = "No bet passed the strict rule for this wave; this was the closest the sportsbooks came to backing one."
+        elif (row.get("note") or "").startswith("Likely winner"):
             why["group"] = "C · likely winner"
             why["verdict"] = "The model and the books both make this a likely winner, with a small edge after fees."
         elif pb is not None and pb >= row["limit_price"] + 0.005:
