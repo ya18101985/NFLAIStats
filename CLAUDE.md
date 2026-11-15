@@ -77,7 +77,12 @@ print or read the key contents into the conversation. `~/.kalshi/STOP` halts all
   after Feb 16 2027, each run exits doing nothing.
 - Never run `run_day.py` or `cloud_tick.py --live` by hand while the workflow is enabled: it uses a
   concurrency group, but a hand run outside it can double-bet. Pause: Actions > Bets > Disable workflow.
-- Dashboard routines loop on `scripts/dash_wait.py DAY --pull` and publish the Bet Tracker artifact
+- Public dashboard (user's request, 2026-11-14): `.github/workflows/dashboard.yml` runs
+  `scripts/dash_live.py` on game days (run times from `plan_runs.py`): every 2 min during games it
+  rebuilds the page and force-pushes its data to branch `dashboard-live`; the page is served by
+  GitHub Pages from branch `gh-pages` (https://ya18101985.github.io/NFLAIStats/) and polls that data
+  every 90 s. No Claude session involved.
+- Older, unreliable: dashboard routines loop on `scripts/dash_wait.py DAY --pull` and publish the Bet Tracker artifact
   (https://claude.ai/artifact/3zjxWGVFxLY2cP3PmH7tNo).
 - Emails: each wave emails yash.us.visa@gmail.com twice (bets placed; settlement), through the user's
   Apps Script mailer (`nfai/report.py`, key in env NFAI_MAIL_KEY). The cloud has no SMTP.

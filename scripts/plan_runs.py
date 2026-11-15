@@ -76,6 +76,25 @@ def run_times(start):
     return sorted(out)
 
 
+DASH = ROOT / ".github" / "workflows" / "dashboard.yml"
+DASH_EVERY = dt.timedelta(hours=5)       # each dashboard run loops for up to 5 h 15 min, then the next takes over
+DASH_UNTIL = dt.timedelta(hours=4)       # after the day's last kickoff
+
+
+def dash_times(start):
+    """Dashboard runs: from 5 minutes before the day's first bets, every 5 hours, until the last game ends."""
+    out = set()
+    for day, kicks in sorted(kickoffs(start).items()):
+        games = [SimpleNamespace(kickoff=k, code=f"{k:%y%b%d}SLOT{i}".upper()) for i, k in enumerate(sorted(kicks))]
+        t = min(w["bet_at"] for w in R.make_waves(games)) - dt.timedelta(minutes=5)
+        while t < max(kicks) + DASH_UNTIL:
+            u = t.astimezone(UTC).replace(second=0, microsecond=0)
+            if u.date() >= start:
+                out.add(u)
+            t += DASH_EVERY
+    return sorted(out)
+
+
 def cron_lines(times):
     """Group run times into as few cron lines as possible: one per (month, hour, minute)."""
     groups = defaultdict(set)
@@ -97,6 +116,11 @@ def main():
     WORKFLOW.write_text(new)
     days = sorted({t.astimezone(PT).date() for t in times})
     print(f"{len(times)} runs on {len(days)} game days ({days[0]} to {days[-1]}), {len(lines)} cron lines")
+    if DASH.exists():
+        dlines = cron_lines(dash_times(a.start))
+        DASH.write_text(re.sub(r"(  schedule:\n)(?:    - cron: .*\n)+", lambda m: m.group(1) + "\n".join(dlines) + "\n",
+                               DASH.read_text(), count=1))
+        print(f"dashboard: {len(dash_times(a.start))} runs, {len(dlines)} cron lines")
 
 
 if __name__ == "__main__":

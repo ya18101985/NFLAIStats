@@ -733,6 +733,20 @@ td.pos { color: var(--won); font-weight: 600; } td.neg { color: var(--lost); fon
     if (live && mins > 6) el.innerHTML = '<b style="color:var(--lost)">Data is ' + Math.round(mins) + ' min old. Reload the page for the latest.</b>';
   }
   setInterval(staleCheck, 30000);
+
+  // On GitHub Pages: pull fresh data every 90 seconds from the dashboard-live branch (scripts/dash_live.py).
+  if (/\.github\.io$/.test(location.hostname)) {
+    const owner = location.hostname.split('.')[0], repo = location.pathname.split('/')[1];
+    const api = 'https://api.github.com/repos/' + owner + '/' + repo + '/contents/state.json?ref=dashboard-live';
+    const raw = 'https://raw.githubusercontent.com/' + owner + '/' + repo + '/dashboard-live/state.json';
+    const take = (s) => { if (s && s.generatedAt && (!STATE || s.generatedAt > STATE.generatedAt)) { STATE = s; render(s); } };
+    const poll = () => fetch(api, { headers: { Accept: 'application/vnd.github.raw+json' }, cache: 'no-store' })
+      .then((r) => r.ok ? r.json() : Promise.reject(r.status))
+      .catch(() => fetch(raw, { cache: 'no-store' }).then((r) => r.json()))
+      .then(take).catch(() => {});
+    poll();
+    setInterval(poll, 90000);
+  }
   if (STATE) render(STATE);
   else if (!window.TRACKER_LIVE) fetch('live.json', { cache: 'no-store' }).then((r) => r.json()).then((s) => { STATE = s; render(s); }).catch(() => {});
 })();
