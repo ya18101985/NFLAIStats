@@ -10,3 +10,56 @@
 06:09:33   placed 1H New England over 10.5 points YES YES 352 @ 0.53 ($187) -> filled 352/352
 06:09:36 2026-11-15 0630 NEDET: placed 4 singles; cash now $771
 06:09:37 emailed: NFAI bets placed: 2026-11-15 0630 NEDET (4 bets, $743.88)
+09:23:20 === cloud LIVE 2026-11-15: 2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB ===
+09:23:21 sleeping 22 min until 2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB
+09:45:00 --- 2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB ---
+09:45:01 cash $771.50, account $771.50, wave bankroll $617.20 (sun_early)
+09:45:10   skip 26NOV15BUFNYJ: ('Adonai Mitchell', 'receiving_yards', 52.6, np.float64(35.6))
+09:45:10   skip 26NOV15BUFNYJ: ('Adonai Mitchell', 'receptions', 4.0, np.float64(2.6))
+09:45:10   skip 26NOV15BUFNYJ: ('Braelon Allen', 'rr_yards', 76.9, np.float64(43.2))
+09:45:10   skip 26NOV15BUFNYJ: ('Braelon Allen', 'rushing_yards', 58.4, np.float64(30.5))
+09:45:10   skip 26NOV15BUFNYJ: ('Geno Smith', 'attempts', 38.0, np.float64(32.2))
+09:45:10   skip 26NOV15BUFNYJ: ('Geno Smith', 'completions', 25.0, np.float64(20.1))
+09:45:10   skip 26NOV15BUFNYJ: ('Omar Cooper Jr.', 'receiving_yards', 59.1, np.float64(37.3))
+09:45:10   skip 26NOV15BUFNYJ: ('Omar Cooper Jr.', 'receptions', 5.0, np.float64(3.3))
+09:45:10   skip 26NOV15BUFNYJ: ('James Cook III', 'carries', 25.0, np.float64(19.2))
+09:45:10   skip 26NOV15BUFNYJ: ('James Cook III', 'rushing_yards', 116.2, np.float64(92.6))
+09:45:18   skip 26NOV15CARNO: ('Travis Etienne Jr.', 'depth chart', 'role changed: RB4 two weeks ago, RB1 now')
+09:45:18   skip 26NOV15CARNO: ('Alvin Kamara', 'depth chart', 'role changed: RB1 two weeks ago, RB2 now')
+09:45:18   skip 26NOV15CARNO: ('Jordyn Tyson', 'depth chart', 'role changed: WR5 two weeks ago, WR3 now')
+09:45:18   skip 26NOV15CARNO: ('Chris Olave', 'receptions', 7.0, np.float64(5.9))
+09:45:18   skip 26NOV15CARNO: ('Devaughn Vele', 'receiving_yards', 41.2, np.float64(29.2))
+09:45:18   skip 26NOV15CARNO: ('Xavier Legette', 'depth chart', 'role changed: WR6 two weeks ago, WR3 now')
+09:45:26   skip 26NOV15HOUCLE: ('Denzel Boston', 'receptions', 4.0, np.float64(2.9))
+09:45:26   skip 26NOV15HOUCLE: ('Deshaun Watson', 'completions', 23.0, np.float64(20.0))
+09:45:26   skip 26NOV15HOUCLE: ('Woody Marks', 'depth chart', 'role changed: RB2 two weeks ago, RB1 now')
+09:45:26   skip 26NOV15HOUCLE: ('Tank Dell', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+09:45:34   skip 26NOV15JACTEN: ('Chimere Dike', 'depth chart', 'role changed: WR5 two weeks ago, WR3 now')
+09:45:34   skip 26NOV15JACTEN: ('Elic Ayomanor', 'depth chart', 'role changed: WR3 two weeks ago, WR4 now')
+09:45:34   skip 26NOV15JACTEN: ("Wan'Dale Robinson", 'receiving_yards', 56.6, np.float64(37.9))
+09:45:34   skip 26NOV15JACTEN: ("Wan'Dale Robinson", 'receptions', 6.0, np.float64(4.8))
+09:45:34   skip 26NOV15JACTEN: ('Brian Thomas Jr.', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+09:45:34   skip 26NOV15JACTEN: ('Josh Cameron', 'depth chart', 'role changed: WR3 two weeks ago, WR4 now')
+09:45:42   skip 26NOV15KCATL: ('Xavier Worthy', 'receiving_yards', 40.0, np.float64(26.8))
+09:45:42   skip 26NOV15KCATL: ('Xavier Worthy', 'receptions', 4.0, np.float64(2.7))
+09:45:50   skip 26NOV15MIAIND: ('Anthony Gould', 'depth chart', 'role changed: WR6 two weeks ago, WR3 now')
+09:45:50   skip 26NOV15MIAIND: ('Ashton Dulin', 'depth chart', 'role changed: WR4 two weeks ago, WR2 now')
+09:45:50   skip 26NOV15MIAIND: ('Jonathan Taylor', 'receptions', 2.0, np.float64(3.2))
+09:45:50   skip 26NOV15MIAIND: ('Tyler Warren', 'receptions', 4.0, np.float64(5.7))
+09:45:50   skip 26NOV15MIAIND: ('Ollie Gordon II', 'carries', 14.0, np.float64(18.0))
+09:45:58   skip 26NOV15MINGB: ('Jordan Love', 'attempts', 32.0, np.float64(36.1))
+09:45:58   skip 26NOV15MINGB: ('Aaron Jones Sr.', 'carries', 14.0, np.float64(8.0))
+09:45:58   skip 26NOV15MINGB: ('Aaron Jones Sr.', 'rr_yards', 70.7, np.float64(44.6))
+09:45:58   skip 26NOV15MINGB: ('Aaron Jones Sr.', 'rushing_yards', 55.5, np.float64(29.1))
+09:45:58   skip 26NOV15MINGB: ('Justin Jefferson', 'receptions', 6.0, np.float64(7.2))
+09:45:58 4004 priced sides (4004 with sportsbook lines) -> 7 singles ($598), parlays $0
+09:45:58   placed Trevor Lawrence carries under 3.5 NO 145 @ 0.59 ($86) -> filled 145/145
+09:45:58   placed Cam Ward passing_yards over 174.5 YES 134 @ 0.64 ($86) -> partial 110/134
+09:45:58   placed Patrick Mahomes rushing_yards under 14.5 NO 136 @ 0.63 ($86) -> filled 136/136
+09:45:58   placed 1H Tennessee over 9.5 points NO NO 152 @ 0.56 ($85) -> filled 152/152
+09:45:58   placed 1H Cleveland over 7.5 points YES YES 161 @ 0.53 ($85) -> filled 161/161
+09:45:58   placed Tyler Shough rushing_yards over 14.5 YES 158 @ 0.54 ($85) -> filled 158/158
+09:45:59   placed 1H Carolina over 10.5 points YES YES 164 @ 0.52 ($85) -> filled 164/164
+09:46:03 2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB: placed 7 singles; cash now $771
+09:46:05 2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB: top-ups finished (earlier games settled); $598 bet in all
+09:46:06 emailed: NFAI bets placed: 2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB (7 bets, $598.04)
