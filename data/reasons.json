@@ -2178,5 +2178,35 @@
   ],
   "group": "Your in-game bet",
   "verdict": "You placed this during the game. Break-even after fees is 52% (pregame read). Neither our model nor the sportsbooks get there; our numbers don't support this one."
+ },
+ "k-kxnflpassatt-26nov15pitcin-pitarodgers8-36": {
+  "p": 0.4177679685897766,
+  "pModel": 0.6093421510044298,
+  "ev": -0.0897250314102234,
+  "wave": "Other bot",
+  "pBook": 0.29005184698000785,
+  "points": [
+   "Model projects 38 pass attempts (80% range 28\u201350) vs the line of 35.5: 61% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 31.5; converted to Kalshi's line that's 29% for this side, vs a price of 49\u00a2.",
+   "Last 5 games: 40, 31, 49, 30, 25. This side would have won 2 of 5.",
+   "Usage over the last 4 games: 34 pass attempts a game (QB).",
+   "PIT is a 4.5-point underdog vs CIN (total 49.5). CIN's defense ranks #15 vs the pass and #25 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Other bot",
+  "verdict": "Placed by your other bot. Break-even after fees is 51%. Our model rate it above that; the sportsbooks don't, so it's a judgment call."
+ },
+ "k-kxnfl1hteamtotal-26nov15pitcin-pit11": {
+  "p": null,
+  "pModel": null,
+  "ev": null,
+  "wave": "Other bot",
+  "pBook": null,
+  "points": [
+   "Kalshi market: \"Pittsburgh over 10.5 points\" (1st half), we hold YES at 45\u00a2.",
+   "Sportsbook price unavailable now (lines are pulled after kickoff).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "Other bot",
+  "verdict": "Placed by your other bot. Our model has no read on this market."
  }
 }
