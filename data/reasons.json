@@ -2110,5 +2110,73 @@
   ],
   "group": "A \u00b7 game line",
   "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrec-26nov15sealv-seajsmithnjigba11-5": {
+  "p": 0.7719059365772368,
+  "pModel": 0.7032803263667414,
+  "ev": 0.2244689365772368,
+  "wave": "Manual (in-game)",
+  "pBook": 0.8176563433842338,
+  "points": [
+   "Model projects 6 catches (80% range 3\u201311) vs the line of 4.5: 70% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 7.5; converted to Kalshi's line that's 82% for this side, vs a price of 53\u00a2.",
+   "Last 5 games: 5, 12, 9, 6, 7. This side would have won 5 of 5.",
+   "Usage over the last 4 games: 12.2 targets a game (WR).",
+   "SEA is a 6.5-point favorite vs LV (total 40.5). LV's defense ranks #30 vs the pass and #26 vs the run by EPA allowed (1 = best).",
+   "Placed mid-game: the model and book numbers above are pregame, so they ignore what had already happened; the live Kalshi price is the better guide."
+  ],
+  "group": "Your in-game bet",
+  "verdict": "You placed this during the game. Break-even after fees is 55% (pregame read). Our model and the sportsbooks both rate it above that: a sound bet."
+ },
+ "k-kxnflrecyds-26nov15sealv-seajprice8-10": {
+  "p": 0.5350598370685188,
+  "pModel": 0.5526711370287777,
+  "ev": -0.04218816293148127,
+  "wave": "Manual (in-game)",
+  "pBook": 0.5233189704283462,
+  "points": [
+   "Model projects 13 receiving yards (80% range 0\u201344) vs the line of 9.5: 55% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 11.5; converted to Kalshi's line that's 52% for this side, vs a price of 56\u00a2.",
+   "Last 5 games: 6, 8, 7, 8, 54. This side would have won 1 of 5.",
+   "Usage over the last 4 games: 11 touches a game (RB).",
+   "SEA is a 6.5-point favorite vs LV (total 40.5). LV's defense ranks #30 vs the pass and #26 vs the run by EPA allowed (1 = best).",
+   "Placed mid-game: the model and book numbers above are pregame, so they ignore what had already happened; the live Kalshi price is the better guide."
+  ],
+  "group": "Your in-game bet",
+  "verdict": "You placed this during the game. Break-even after fees is 58% (pregame read). Neither our model nor the sportsbooks get there; our numbers don't support this one."
+ },
+ "k-kxnflrecyds-26nov15sealv-seajsmithnjigba11-70": {
+  "p": 0.7274104008764798,
+  "pModel": 0.6683959920527058,
+  "ev": 0.3651847907484819,
+  "wave": "Manual (in-game)",
+  "pBook": 0.7667533400923291,
+  "points": [
+   "Model projects 100 receiving yards (80% range 34\u2013196) vs the line of 69.5: 67% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 88.5, 160.5, 161.5; converted to Kalshi's line that's 77% for this side, vs a price of 35\u00a2.",
+   "Last 5 games: 102, 134, 150, 118, 51. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 12.2 targets a game (WR).",
+   "SEA is a 6.5-point favorite vs LV (total 40.5). LV's defense ranks #30 vs the pass and #26 vs the run by EPA allowed (1 = best).",
+   "Placed mid-game: the model and book numbers above are pregame, so they ignore what had already happened; the live Kalshi price is the better guide."
+  ],
+  "group": "Your in-game bet",
+  "verdict": "You placed this during the game. Break-even after fees is 36% (pregame read). Our model and the sportsbooks both rate it above that: a sound bet."
+ },
+ "k-kxnflrshyds-26nov15sealv-seazcharbonnet26-110": {
+  "p": 0.11942297714530967,
+  "pModel": 0.12567258373879078,
+  "ev": -0.4042202192329666,
+  "wave": "Manual (in-game)",
+  "pBook": 0.11525657274965559,
+  "points": [
+   "Model projects 60 rushing yards (80% range 25\u2013112) vs the line of 109.5: 13% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 64.5; converted to Kalshi's line that's 12% for this side, vs a price of 51\u00a2.",
+   "Last 2 games: 23, 77. This side would have won 0 of 2.",
+   "Usage over the last 4 games: 13 touches a game (RB).",
+   "SEA is a 6.5-point favorite vs LV (total 40.5). LV's defense ranks #30 vs the pass and #26 vs the run by EPA allowed (1 = best).",
+   "Placed mid-game: the model and book numbers above are pregame, so they ignore what had already happened; the live Kalshi price is the better guide."
+  ],
+  "group": "Your in-game bet",
+  "verdict": "You placed this during the game. Break-even after fees is 52% (pregame read). Neither our model nor the sportsbooks get there; our numbers don't support this one."
  }
 }
