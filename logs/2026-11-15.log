@@ -63,3 +63,15 @@
 09:46:03 2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB: placed 7 singles; cash now $771
 09:46:05 2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB: top-ups finished (earlier games settled); $598 bet in all
 09:46:06 emailed: NFAI bets placed: 2026-11-15 1000 BUFNYJ+CARNO+HOUCLE+JACTEN+KCATL+MIAIND+MINGB (7 bets, $598.04)
+16:06:18 === cloud LIVE 2026-11-15: 2026-11-15 1720 PITCIN ===
+16:06:18 sleeping 39 min until 2026-11-15 1720 PITCIN
+16:45:00 --- 2026-11-15 1720 PITCIN ---
+16:45:02 cash $840.59, account $840.59, wave bankroll $840.59 (all_cash)
+16:45:13   skip 26NOV15PITCIN: ('Joe Burrow', 'passing_tds', 3.0, np.float64(2.1))
+16:45:13 746 priced sides (746 with sportsbook lines) -> 4 singles ($407), parlays $0
+16:45:13   FAILED 1H Pittsburgh over 10.5 points YES: POST /portfolio/events/orders -> 403: {"error":{"code":"Trading_is_not_currently_allowed_in_Washington_on_markets_in_Sports,_Elections,_Politics,_Culture,_Tech_and_Science,_and_Mentions.","message":"Trading is not currently allowed in Washington on markets in Sports, Elections, Politics, Culture, Tech and Science, and Mentions."}}
+16:45:13   FAILED Aaron Rodgers attempts over 35.5: POST /portfolio/events/orders -> 403: {"error":{"code":"Trading_is_not_currently_allowed_in_Washington_on_markets_in_Sports,_Elections,_Politics,_Culture,_Tech_and_Science,_and_Mentions.","message":"Trading is not currently allowed in Washington on markets in Sports, Elections, Politics, Culture, Tech and Science, and Mentions."}}
+16:45:13   FAILED Game Pittsburgh wins by over 2.5 points NO: POST /portfolio/events/orders -> 403: {"error":{"code":"Trading_is_not_currently_allowed_in_Washington_on_markets_in_Sports,_Elections,_Politics,_Culture,_Tech_and_Science,_and_Mentions.","message":"Trading is not currently allowed in Washington on markets in Sports, Elections, Politics, Culture, Tech and Science, and Mentions."}}
+16:45:13   FAILED 1H Cincinnati over 16.5 points NO: POST /portfolio/events/orders -> 403: {"error":{"code":"Trading_is_not_currently_allowed_in_Washington_on_markets_in_Sports,_Elections,_Politics,_Culture,_Tech_and_Science,_and_Mentions.","message":"Trading is not currently allowed in Washington on markets in Sports, Elections, Politics, Culture, Tech and Science, and Mentions."}}
+16:45:18 2026-11-15 1720 PITCIN: placed 4 singles; cash now $841
+16:45:20 2026-11-15 1720 PITCIN: top-ups finished (earlier games settled); $0 bet in all
