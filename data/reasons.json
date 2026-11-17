@@ -2208,5 +2208,63 @@
   ],
   "group": "Other bot",
   "verdict": "Placed by your other bot. Our model has no read on this market."
+ },
+ "k-kxnfl2hspread-26nov16lacbal-bal3-no": {
+  "p": 0.499795255683939,
+  "pModel": 0.5104217938341986,
+  "ev": 0.0023232556839390267,
+  "wave": "2026-11-16 1715 LACBAL",
+  "pBook": 0.5104217938341986,
+  "points": [
+   "Kalshi market: \"Baltimore wins by over 2.5 points\" (2nd half), we hold NO at 48\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 51% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflpassatt-26nov16lacbal-lacjherbert10-26": {
+  "p": 0.7446183687895428,
+  "pModel": 0.8137648103601661,
+  "ev": 0.01050636878954282,
+  "wave": "2026-11-16 1715 LACBAL",
+  "pBook": 0.7297397170898926,
+  "points": [
+   "Model projects 33 pass attempts (80% range 24\u201343) vs the line of 25.5: 81% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 29.5, 30.5; converted to Kalshi's line that's 73% for this side, vs a price of 72\u00a2.",
+   "Last 5 games: 31, 24, 37, 32, 23. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 29 pass attempts a game (QB).",
+   "LAC is a 4.5-point underdog vs BAL (total 39.5). BAL's defense ranks #22 vs the pass and #16 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "L \u00b7 loosened rule",
+  "verdict": "No bet passed the strict rule for this wave; this was the closest the sportsbooks came to backing one."
+ },
+ "k-kxnfl1hteamtotal-26nov16lacbal-lac10-no": {
+  "p": 0.583298418242247,
+  "pModel": 0.5932834546317816,
+  "ev": -0.0038585817577529123,
+  "wave": "2026-11-16 1715 LACBAL",
+  "pBook": 0.5932834546317816,
+  "points": [
+   "Kalshi market: \"Los Angeles C over 9.5 points\" (1st half), we hold NO at 57\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 59% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnfl2qspread-26nov16lacbal-bal3": {
+  "p": 0.4925,
+  "pModel": 0.5,
+  "ev": -0.00497199999999999,
+  "wave": "2026-11-16 1715 LACBAL",
+  "pBook": 0.5,
+  "points": [
+   "Kalshi market: \"Baltimore wins by over 2.5 points\" (2nd quarter), we hold YES at 48\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 50% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
  }
 }
