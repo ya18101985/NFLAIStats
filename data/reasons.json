@@ -2266,5 +2266,51 @@
   ],
   "group": "A \u00b7 game line",
   "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrshatt-26nov19indhou-inddjones17-3": {
+  "p": 0.6235959273675568,
+  "pModel": 0.6859125361323186,
+  "ev": 0.016662927367556785,
+  "wave": "2026-11-19 1715 INDHOU",
+  "pBook": 0.6235743115710852,
+  "points": [
+   "Model projects 4 carries (80% range 1\u20136) vs the line of 2.5: 68% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 3.5; converted to Kalshi's line that's 62% for this side, vs a price of 59\u00a2.",
+   "Last 5 games: 3, 4, 4, 3, 5. This side would have won 5 of 5.",
+   "Usage over the last 4 games: 26 pass attempts a game (QB).",
+   "IND is a 12.5-point underdog vs HOU (total 44.5). HOU's defense ranks #15 vs the pass and #17 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnflrshyds-26nov19indhou-houcstroud7-15-no": {
+  "p": 0.6694846718426166,
+  "pModel": 0.714246875644007,
+  "ev": 0.003559671842616595,
+  "wave": "2026-11-19 1715 INDHOU",
+  "pBook": 0.6619329142173376,
+  "points": [
+   "Model projects 8 rushing yards (80% range 0\u201324) vs the line of 14.5: 72% for the under.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 9.5, 10.5; converted to Kalshi's line that's 66% for this side, vs a price of 65\u00a2.",
+   "Last 5 games: 5, 5, 4, 20, 20. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 34 pass attempts a game (QB).",
+   "HOU is a 12.5-point favorite vs IND (total 44.5). IND's defense ranks #20 vs the pass and #30 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "A \u00b7 books back it",
+  "verdict": "Both the sportsbooks and the model rate this side above Kalshi's price."
+ },
+ "k-kxnfl1hteamtotal-26nov19indhou-ind10-no": {
+  "p": 0.629527548079948,
+  "pModel": 0.6400393543999257,
+  "ev": 0.0028745480799480527,
+  "wave": "2026-11-19 1715 INDHOU",
+  "pBook": 0.6400393543999257,
+  "points": [
+   "Kalshi market: \"Indianapolis over 9.5 points\" (1st half), we hold NO at 61\u00a2.",
+   "Sportsbooks' price for the same outcome, with their margin removed: 64% (Pinnacle counts double; alternate lines used where Kalshi's number differs).",
+   "No stat model for game lines: the bet is that Kalshi is cheaper than the sportsbooks."
+  ],
+  "group": "A \u00b7 game line",
+  "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
  }
 }
