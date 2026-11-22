@@ -1,0 +1,41 @@
+09:26:40 === cloud LIVE 2026-11-22: 2026-11-22 1000 ARIKC+BALCAR+MIABUF+NOCHI+PITPHI+TBDET+TENDAL ===
+09:26:41 sleeping 18 min until 2026-11-22 1000 ARIKC+BALCAR+MIABUF+NOCHI+PITPHI+TBDET+TENDAL
+09:45:00 --- 2026-11-22 1000 ARIKC+BALCAR+MIABUF+NOCHI+PITPHI+TBDET+TENDAL ---
+09:45:01 cash $282.16, account $282.16, wave bankroll $225.73 (sun_early)
+09:45:12   skip 26NOV22ARIKC: ('Cyrus Allen', 'depth chart', 'role changed: WR3 two weeks ago, WR4 now')
+09:45:12   skip 26NOV22ARIKC: ('Patrick Mahomes', 'completions', 18.0, np.float64(21.1))
+09:45:12   skip 26NOV22ARIKC: ('Devin Duvernay', 'depth chart', 'role changed: WR5 two weeks ago, WR3 now')
+09:45:12   skip 26NOV22ARIKC: ('Trey McBride', 'receptions', 7.0, np.float64(6.0))
+09:45:28   skip 26NOV22MIABUF: ('James Cook III', 'carries', 23.0, np.float64(19.0))
+09:45:28   skip 26NOV22MIABUF: ('Josh Allen', 'passing_tds', 1.0, np.float64(1.7))
+09:45:28   skip 26NOV22MIABUF: ('Kyle McCord', 'depth chart', 'role changed: QB2 two weeks ago, QB1 now')
+09:45:37   skip 26NOV22NOCHI: ('Caleb Williams', 'passing_tds', 1.0, np.float64(1.9))
+09:45:37   skip 26NOV22NOCHI: ("D'Andre Swift", 'carries', 23.0, np.float64(15.3))
+09:45:37   skip 26NOV22NOCHI: ("D'Andre Swift", 'rr_yards', 108.5, np.float64(85.0))
+09:45:37   skip 26NOV22NOCHI: ("D'Andre Swift", 'rushing_yards', 90.3, np.float64(63.0))
+09:45:37   skip 26NOV22NOCHI: ('Kyle Monangai', 'rushing_yards', 62.7, np.float64(46.6))
+09:45:37   skip 26NOV22NOCHI: ('Travis Etienne Jr.', 'depth chart', 'role changed: RB5 two weeks ago, RB1 now')
+09:45:37   skip 26NOV22NOCHI: ('Alvin Kamara', 'depth chart', 'role changed: RB1 two weeks ago, RB2 now')
+09:45:37   skip 26NOV22NOCHI: ('Tyler Shough', 'completions', 26.0, np.float64(21.9))
+09:45:45   skip 26NOV22PITPHI: ('Darius Cooper', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+09:45:45   skip 26NOV22PITPHI: ('DeVonta Smith', 'receptions', 6.0, np.float64(4.9))
+09:45:45   skip 26NOV22PITPHI: ('Makai Lemon', 'receiving_yards', 40.2, np.float64(27.3))
+09:45:45   skip 26NOV22PITPHI: ('Roman Wilson', 'depth chart', 'role changed: WR7 two weeks ago, WR3 now')
+09:45:55   skip 26NOV22TBDET: ('Amon-Ra St. Brown', 'receptions', 6.0, np.float64(7.1))
+09:45:55   skip 26NOV22TBDET: ('Ted Hurst III', 'depth chart', 'role changed: WR3 two weeks ago, WR4 now')
+09:45:55   skip 26NOV22TBDET: ('Tez Johnson', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+09:45:55   skip 26NOV22TBDET: ('Jalon Daniels', 'depth chart', 'not the starting QB (QB2)')
+09:46:03   skip 26NOV22TENDAL: ('CeeDee Lamb', 'receiving_yards', 134.2, np.float64(93.9))
+09:46:03   skip 26NOV22TENDAL: ('CeeDee Lamb', 'receptions', 11.0, np.float64(7.2))
+09:46:03   skip 26NOV22TENDAL: ('Dak Prescott', 'passing_tds', 3.0, np.float64(2.4))
+09:46:03   skip 26NOV22TENDAL: ('Chimere Dike', 'depth chart', 'role changed: WR4 two weeks ago, WR3 now')
+09:46:03   skip 26NOV22TENDAL: ('Cam Ward', 'attempts', 41.0, np.float64(35.9))
+09:46:03   skip 26NOV22TENDAL: ('Cam Ward', 'completions', 26.0, np.float64(22.7))
+09:46:03 3968 priced sides (3968 with sportsbook lines) -> 4 singles ($108), parlays $0
+09:46:03   placed Game Arizona over 10.5 points YES YES 82 @ 0.53 ($43) -> filled 82/82
+09:46:03   placed Game Miami over 10.5 points YES YES 70 @ 0.62 ($43) -> filled 70/70
+09:46:03   placed Tyler Shough passing_yards over 199.5 YES 16 @ 0.68 ($11) -> filled 16/16
+09:46:03   placed 2H Pittsburgh wins by over 2.5 points NO NO 21 @ 0.50 ($10) -> filled 21/21
+09:46:08 2026-11-22 1000 ARIKC+BALCAR+MIABUF+NOCHI+PITPHI+TBDET+TENDAL: placed 4 singles; cash now $171
+09:46:10 2026-11-22 1000 ARIKC+BALCAR+MIABUF+NOCHI+PITPHI+TBDET+TENDAL: top-ups finished (earlier games settled); $108 bet in all
+09:46:11 emailed: NFAI bets placed: 2026-11-22 1000 ARIKC+BALCAR+MIABUF+NOCHI+PITPHI+TBDET+TENDAL (4 bets, $108.24)
