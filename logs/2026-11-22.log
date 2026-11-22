@@ -39,3 +39,17 @@
 09:46:08 2026-11-22 1000 ARIKC+BALCAR+MIABUF+NOCHI+PITPHI+TBDET+TENDAL: placed 4 singles; cash now $171
 09:46:10 2026-11-22 1000 ARIKC+BALCAR+MIABUF+NOCHI+PITPHI+TBDET+TENDAL: top-ups finished (earlier games settled); $108 bet in all
 09:46:11 emailed: NFAI bets placed: 2026-11-22 1000 ARIKC+BALCAR+MIABUF+NOCHI+PITPHI+TBDET+TENDAL (4 bets, $108.24)
+12:30:56 === cloud LIVE 2026-11-22: 2026-11-22 1305 NYJLAC, 2026-11-22 1325 JACNYG+LVDEN ===
+12:30:56 sleeping 19 min until 2026-11-22 1305 NYJLAC
+12:50:00 --- 2026-11-22 1305 NYJLAC ---
+12:50:01 cash $170.72, account $198.88, wave bankroll $170.72 (sun_afternoon_first)
+12:50:10   skip 26NOV22NYJLAC: ('Adonai Mitchell', 'receiving_yards', 57.5, np.float64(45.4))
+12:50:10   skip 26NOV22NYJLAC: ('Braelon Allen', 'carries', 12.0, np.float64(8.4))
+12:50:10   skip 26NOV22NYJLAC: ('Braelon Allen', 'rr_yards', 71.6, np.float64(46.0))
+12:50:10   skip 26NOV22NYJLAC: ('Braelon Allen', 'rushing_yards', 55.5, np.float64(31.7))
+12:50:10 568 priced sides (568 with sportsbook lines) -> 3 singles ($99), parlays $0
+12:50:10   placed Geno Smith rushing_yards under 9.5 NO 50 @ 0.66 ($33) -> filled 50/50
+12:50:10   placed Garrett Wilson receptions over 4.5 YES 52 @ 0.64 ($33) -> partial 0/52
+12:50:10   placed Game New York J wins by over 1.5 points NO NO 53 @ 0.62 ($33) -> filled 53/53
+12:50:13 2026-11-22 1305 NYJLAC: placed 3 singles; cash now $103
+12:50:14 emailed: NFAI bets placed: 2026-11-22 1305 NYJLAC (3 bets, $99.14)
