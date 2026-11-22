@@ -53,3 +53,27 @@
 12:50:10   placed Game New York J wins by over 1.5 points NO NO 53 @ 0.62 ($33) -> filled 53/53
 12:50:13 2026-11-22 1305 NYJLAC: placed 3 singles; cash now $103
 12:50:14 emailed: NFAI bets placed: 2026-11-22 1305 NYJLAC (3 bets, $99.14)
+12:50:15 sleeping 25 min until 2026-11-22 1325 JACNYG+LVDEN
+13:15:00 --- 2026-11-22 1325 JACNYG+LVDEN ---
+13:15:01 cash $118.96, account $185.47, wave bankroll $118.96 (sun_afternoon_rest)
+13:15:11   skip 26NOV22JACNYG: ('Cam Skattebo', 'receptions', 1.0, np.float64(2.3))
+13:15:11   skip 26NOV22JACNYG: ('J.J. McCarthy', 'passing_yards', 265.2, np.float64(211.2))
+13:15:11   skip 26NOV22JACNYG: ('Malik Nabers', 'receptions', 7.0, np.float64(5.6))
+13:15:11   skip 26NOV22JACNYG: ('Parker Washington', 'receiving_yards', 43.5, np.float64(65.4))
+13:15:11   skip 26NOV22JACNYG: ('Parker Washington', 'receptions', 3.0, np.float64(4.3))
+13:15:11   skip 26NOV22JACNYG: ('Trevor Lawrence', 'attempts', 26.0, np.float64(30.4))
+13:15:18   skip 26NOV22LVDEN: ('Bo Nix', 'attempts', 26.0, np.float64(30.3))
+13:15:18   skip 26NOV22LVDEN: ('Bo Nix', 'completions', 16.0, np.float64(20.5))
+13:15:18   skip 26NOV22LVDEN: ('Bo Nix', 'passing_tds', 1.0, np.float64(1.6))
+13:15:18   skip 26NOV22LVDEN: ('Courtland Sutton', 'receptions', 2.0, np.float64(3.0))
+13:15:18   skip 26NOV22LVDEN: ('Jonah Coleman', 'carries', 12.0, np.float64(16.2))
+13:15:18   skip 26NOV22LVDEN: ('Jonah Coleman', 'receptions', 2.0, np.float64(3.3))
+13:15:18   skip 26NOV22LVDEN: ('Fernando Mendoza', 'depth chart', 'role changed: QB2 two weeks ago, QB1 now')
+13:15:18 1006 priced sides (1006 with sportsbook lines) -> 5 singles ($56), parlays $0
+13:15:18   placed Bo Nix rushing_yards over 9.5 YES 34 @ 0.50 ($17) -> filled 34/34
+13:15:18   placed Cam Skattebo carries under 15.5 NO 21 @ 0.47 ($10) -> filled 21/21
+13:15:18   placed Malik Nabers receiving_yards over 69.5 YES 21 @ 0.46 ($10) -> filled 21/21
+13:15:18   placed Courtland Sutton receiving_yards under 29.5 NO 21 @ 0.46 ($10) -> filled 21/21
+13:15:18   placed 1H New York G over 9.5 points NO NO 21 @ 0.47 ($10) -> partial 1/21
+13:15:21 2026-11-22 1325 JACNYG+LVDEN: placed 5 singles; cash now $71
+13:15:22 emailed: NFAI bets placed: 2026-11-22 1325 JACNYG+LVDEN (5 bets, $56.06)
