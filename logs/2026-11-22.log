@@ -110,3 +110,18 @@
 16:53:21 bankroll too small; nothing to do
 16:54:53 cash $132.19, account $153.19, wave bankroll $0.00 (all_cash)
 16:54:53 bankroll too small; nothing to do
+16:54:55 === cloud LIVE 2026-11-22: 2026-11-22 1720 MINSF ===
+16:54:56 --- 2026-11-22 1720 MINSF ---
+16:54:58 cash $132.19, account $153.19, wave bankroll $0.00 (all_cash)
+16:54:58 bankroll too small; nothing to do
+16:56:30 cash $132.19, account $153.19, wave bankroll $0.00 (all_cash)
+16:56:30 bankroll too small; nothing to do
+16:58:02 cash $132.19, account $153.19, wave bankroll $0.00 (all_cash)
+16:58:02 bankroll too small; nothing to do
+16:59:34 cash $153.19, account $153.40, wave bankroll $21.00 (all_cash)
+16:59:46 498 priced sides (498 with sportsbook lines) -> 4 singles ($9), parlays $0
+16:59:46   FAILED 1Q Minnesota wins by over 3.5 points NO: POST /portfolio/events/orders -> 403: {"error":{"code":"Trading_is_not_currently_allowed_in_Washington_on_markets_in_Sports,_Elections,_Politics,_Culture,_Tech_and_Science,_and_Mentions.","message":"Trading is not currently allowed in Washington on markets in Sports, Elections, Politics, Culture, Tech and Science, and Mentions."}}
+16:59:46   FAILED 1H San Francisco wins by over 2.5 points NO: POST /portfolio/events/orders -> 403: {"error":{"code":"Trading_is_not_currently_allowed_in_Washington_on_markets_in_Sports,_Elections,_Politics,_Culture,_Tech_and_Science,_and_Mentions.","message":"Trading is not currently allowed in Washington on markets in Sports, Elections, Politics, Culture, Tech and Science, and Mentions."}}
+16:59:46   FAILED 1H San Francisco over 12.5 points NO: POST /portfolio/events/orders -> 403: {"error":{"code":"Trading_is_not_currently_allowed_in_Washington_on_markets_in_Sports,_Elections,_Politics,_Culture,_Tech_and_Science,_and_Mentions.","message":"Trading is not currently allowed in Washington on markets in Sports, Elections, Politics, Culture, Tech and Science, and Mentions."}}
+16:59:46   FAILED 2H Over 21.5 points NO: POST /portfolio/events/orders -> 403: {"error":{"code":"Trading_is_not_currently_allowed_in_Washington_on_markets_in_Sports,_Elections,_Politics,_Culture,_Tech_and_Science,_and_Mentions.","message":"Trading is not currently allowed in Washington on markets in Sports, Elections, Politics, Culture, Tech and Science, and Mentions."}}
+16:59:51 2026-11-22 1720 MINSF: placed 4 singles; cash now $153
