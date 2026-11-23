@@ -2494,5 +2494,53 @@
   ],
   "group": "A \u00b7 game line",
   "verdict": "Price-shopping bet: same outcome, cheaper on Kalshi than at the books."
+ },
+ "k-kxnflrec-26nov22minsf-sfcmccaffrey23-4": {
+  "p": 0.5353996074345289,
+  "pModel": 0.5051656852529887,
+  "ev": -0.02198839256547118,
+  "wave": "Other bot",
+  "pBook": 0.5555555555555556,
+  "points": [
+   "Model projects 4 catches (80% range 1\u20137) vs the line of 3.5: 51% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 3.5; converted to Kalshi's line that's 56% for this side, vs a price of 54\u00a2.",
+   "Last 5 games: 3, 9, 6, 2, 4. This side would have won 3 of 5.",
+   "Usage over the last 4 games: 19 touches a game (RB).",
+   "SF is a 4.5-point favorite vs MIN (total 44.5). MIN's defense ranks #1 vs the pass and #6 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Other bot",
+  "verdict": "Placed by your other bot. Break-even after fees is 56%. Neither our model nor the sportsbooks get there; our numbers don't support this one."
+ },
+ "k-kxnflrecyds-26nov22minsf-sfgkittle85-50": {
+  "p": 0.49281566603227966,
+  "pModel": 0.49688672080427393,
+  "ev": -0.014677333967720328,
+  "wave": "Other bot",
+  "pBook": 0.49010162951761677,
+  "points": [
+   "Model projects 50 receiving yards (80% range 11\u2013114) vs the line of 49.5: 50% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 47.5; converted to Kalshi's line that's 49% for this side, vs a price of 49\u00a2.",
+   "Last 5 games: 24, 69, 88, 58, 74. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 8.5 targets a game (TE).",
+   "SF is a 4.5-point favorite vs MIN (total 44.5). MIN's defense ranks #1 vs the pass and #6 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Other bot",
+  "verdict": "Placed by your other bot. Break-even after fees is 51%. Model and books both put it within 3 points of that: roughly a fair-price bet, small negative edge."
+ },
+ "k-kxnflrec-26nov22minsf-sfgkittle85-5": {
+  "p": 0.3733263897841477,
+  "pModel": 0.44408050586172115,
+  "ev": -0.07383061021585227,
+  "wave": "Other bot",
+  "pBook": 0.32615697906576546,
+  "points": [
+   "Model projects 4 catches (80% range 1\u20138) vs the line of 4.5: 44% for the over.",
+   "Sportsbooks (Pinnacle, DraftKings, FanDuel...) post 3.5, 4.5; converted to Kalshi's line that's 33% for this side, vs a price of 43\u00a2.",
+   "Last 5 games: 5, 5, 8, 4, 6. This side would have won 4 of 5.",
+   "Usage over the last 4 games: 8.5 targets a game (TE).",
+   "SF is a 4.5-point favorite vs MIN (total 44.5). MIN's defense ranks #1 vs the pass and #6 vs the run by EPA allowed (1 = best)."
+  ],
+  "group": "Other bot",
+  "verdict": "Placed by your other bot. Break-even after fees is 45%. Neither our model nor the sportsbooks get there; our numbers don't support this one."
  }
 }
