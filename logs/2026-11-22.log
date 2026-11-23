@@ -77,3 +77,13 @@
 13:15:18   placed 1H New York G over 9.5 points NO NO 21 @ 0.47 ($10) -> partial 1/21
 13:15:21 2026-11-22 1325 JACNYG+LVDEN: placed 5 singles; cash now $71
 13:15:22 emailed: NFAI bets placed: 2026-11-22 1325 JACNYG+LVDEN (5 bets, $56.06)
+16:26:55 === cloud LIVE 2026-11-22: 2026-11-22 1720 MINSF ===
+16:26:55 sleeping 18 min until 2026-11-22 1720 MINSF
+16:45:00 --- 2026-11-22 1720 MINSF ---
+16:45:02 cash $111.19, account $152.27, wave bankroll $111.19 (all_cash)
+16:45:11 496 priced sides (496 with sportsbook lines) -> 4 singles ($53), parlays $0
+16:45:11   FAILED 1Q Minnesota wins by over 3.5 points NO: POST /portfolio/events/orders -> 403: {"error":{"code":"Trading_is_not_currently_allowed_in_Washington_on_markets_in_Sports,_Elections,_Politics,_Culture,_Tech_and_Science,_and_Mentions.","message":"Trading is not currently allowed in Washington on markets in Sports, Elections, Politics, Culture, Tech and Science, and Mentions."}}
+16:45:11   FAILED Game San Francisco over 24.5 points YES: POST /portfolio/events/orders -> 403: {"error":{"code":"Trading_is_not_currently_allowed_in_Washington_on_markets_in_Sports,_Elections,_Politics,_Culture,_Tech_and_Science,_and_Mentions.","message":"Trading is not currently allowed in Washington on markets in Sports, Elections, Politics, Culture, Tech and Science, and Mentions."}}
+16:45:11   FAILED Brock Purdy rushing_yards under 19.5: POST /portfolio/events/orders -> 403: {"error":{"code":"Trading_is_not_currently_allowed_in_Washington_on_markets_in_Sports,_Elections,_Politics,_Culture,_Tech_and_Science,_and_Mentions.","message":"Trading is not currently allowed in Washington on markets in Sports, Elections, Politics, Culture, Tech and Science, and Mentions."}}
+16:45:12   FAILED 2H San Francisco wins by over 3.5 points YES: POST /portfolio/events/orders -> 403: {"error":{"code":"Trading_is_not_currently_allowed_in_Washington_on_markets_in_Sports,_Elections,_Politics,_Culture,_Tech_and_Science,_and_Mentions.","message":"Trading is not currently allowed in Washington on markets in Sports, Elections, Politics, Culture, Tech and Science, and Mentions."}}
+16:45:16 2026-11-22 1720 MINSF: placed 4 singles; cash now $111
