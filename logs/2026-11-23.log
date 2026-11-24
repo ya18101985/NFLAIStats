@@ -1,0 +1,16 @@
+15:56:09 === cloud LIVE 2026-11-23: 2026-11-23 1715 CINWAS ===
+15:56:09 sleeping 19 min until 2026-11-23 1715 CINWAS
+16:15:00 --- 2026-11-23 1715 CINWAS ---
+16:15:01 cash $136.33, account $136.33, wave bankroll $136.33 (all_cash)
+16:15:12   skip 26NOV23CINWAS: ('Jayden Daniels', 'attempts', 41.0, np.float64(31.6))
+16:15:12   skip 26NOV23CINWAS: ('Jayden Daniels', 'completions', 26.0, np.float64(20.4))
+16:15:12   skip 26NOV23CINWAS: ('Jayden Daniels', 'passing_yards', 283.4, np.float64(222.3))
+16:15:12   skip 26NOV23CINWAS: ('Jayden Daniels', 'rushing_yards', 26.6, np.float64(39.9))
+16:15:12   skip 26NOV23CINWAS: ('Chase Brown', 'carries', 15.0, np.float64(11.6))
+16:15:12 624 priced sides (624 with sportsbook lines) -> 5 singles ($65), parlays $0
+16:15:12   FAILED Jacory Croskey-Merritt rushing_yards over 29.5: POST /portfolio/events/orders -> 403: {"error":{"code":"Your_location_attestation_for_API_trading_is_missing_or_expired._Please_verify_your_location_in_the_Kalshi_app_or_website,_and_then_retry.","message":"Your location attestation for API trading is missing or expired. Please verify your location in the Kalshi app or website, and then retry."}}
+16:15:12   FAILED 1H Cincinnati over 14.5 points YES: POST /portfolio/events/orders -> 403: {"error":{"code":"Your_location_attestation_for_API_trading_is_missing_or_expired._Please_verify_your_location_in_the_Kalshi_app_or_website,_and_then_retry.","message":"Your location attestation for API trading is missing or expired. Please verify your location in the Kalshi app or website, and then retry."}}
+16:15:12   FAILED Jacory Croskey-Merritt carries over 9.5: POST /portfolio/events/orders -> 403: {"error":{"code":"Your_location_attestation_for_API_trading_is_missing_or_expired._Please_verify_your_location_in_the_Kalshi_app_or_website,_and_then_retry.","message":"Your location attestation for API trading is missing or expired. Please verify your location in the Kalshi app or website, and then retry."}}
+16:15:12   FAILED Chase Brown rushing_yards over 39.5: POST /portfolio/events/orders -> 403: {"error":{"code":"Your_location_attestation_for_API_trading_is_missing_or_expired._Please_verify_your_location_in_the_Kalshi_app_or_website,_and_then_retry.","message":"Your location attestation for API trading is missing or expired. Please verify your location in the Kalshi app or website, and then retry."}}
+16:15:12   FAILED Jayden Daniels passing_tds over 1.5: POST /portfolio/events/orders -> 403: {"error":{"code":"Your_location_attestation_for_API_trading_is_missing_or_expired._Please_verify_your_location_in_the_Kalshi_app_or_website,_and_then_retry.","message":"Your location attestation for API trading is missing or expired. Please verify your location in the Kalshi app or website, and then retry."}}
+16:15:15 2026-11-23 1715 CINWAS: placed 5 singles; cash now $136
