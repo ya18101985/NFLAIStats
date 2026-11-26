@@ -1,0 +1,15 @@
+15:41:20 === cloud LIVE 2026-11-25: 2026-11-25 1700 GBLAR ===
+15:41:21 sleeping 19 min until 2026-11-25 1700 GBLAR
+16:00:00 --- 2026-11-25 1700 GBLAR ---
+16:00:01 cash $136.33, account $136.33, wave bankroll $136.33 (all_cash)
+16:00:08   game lines unavailable for 26NOV25GBLAR: RuntimeError('Odds API /events: HTTP 429 {"Reason":"ConcurrentInvocationLimitExceeded","Type":"User","message":"Rate Exceeded."}')
+16:00:08   skip 26NOV25GBLAR: ('CJ Daniels', 'depth chart', 'role changed: WR4 two weeks ago, WR2 now')
+16:00:08   skip 26NOV25GBLAR: ('Blake Corum', 'receptions', 1.0, np.float64(2.1))
+16:00:08   skip 26NOV25GBLAR: ('Kyren Williams', 'receptions', 2.0, np.float64(3.5))
+16:00:08 306 priced sides (306 with sportsbook lines) -> 5 singles ($64), parlays $0
+16:00:09   FAILED Matthew Stafford passing_yards under 224.5: POST /portfolio/events/orders -> 403: {"error":{"code":"Your_location_attestation_for_API_trading_is_missing_or_expired._Please_verify_your_location_in_the_Kalshi_app_or_website,_and_then_retry.","message":"Your location attestation for API trading is missing or expired. Please verify your location in the Kalshi app or website, and then retry."}}
+16:00:09   FAILED Matthew Golden receiving_yards over 69.5: POST /portfolio/events/orders -> 403: {"error":{"code":"Your_location_attestation_for_API_trading_is_missing_or_expired._Please_verify_your_location_in_the_Kalshi_app_or_website,_and_then_retry.","message":"Your location attestation for API trading is missing or expired. Please verify your location in the Kalshi app or website, and then retry."}}
+16:00:09   FAILED Kyren Williams rr_yards under 79.5: POST /portfolio/events/orders -> 403: {"error":{"code":"Your_location_attestation_for_API_trading_is_missing_or_expired._Please_verify_your_location_in_the_Kalshi_app_or_website,_and_then_retry.","message":"Your location attestation for API trading is missing or expired. Please verify your location in the Kalshi app or website, and then retry."}}
+16:00:09   FAILED Christian Watson receiving_yards under 69.5: POST /portfolio/events/orders -> 403: {"error":{"code":"Your_location_attestation_for_API_trading_is_missing_or_expired._Please_verify_your_location_in_the_Kalshi_app_or_website,_and_then_retry.","message":"Your location attestation for API trading is missing or expired. Please verify your location in the Kalshi app or website, and then retry."}}
+16:00:09   FAILED Kyren Williams rushing_yards over 49.5: POST /portfolio/events/orders -> 403: {"error":{"code":"Your_location_attestation_for_API_trading_is_missing_or_expired._Please_verify_your_location_in_the_Kalshi_app_or_website,_and_then_retry.","message":"Your location attestation for API trading is missing or expired. Please verify your location in the Kalshi app or website, and then retry."}}
+16:00:12 2026-11-25 1700 GBLAR: placed 5 singles; cash now $136
